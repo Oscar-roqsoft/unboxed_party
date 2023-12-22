@@ -1,0 +1,310 @@
+<template>
+
+
+    <div class="">
+        <v-container>
+            <Backbutton class=" md:tw-max-w-[800px] mx-auto"/>
+        </v-container>
+        <v-container>
+          <h1 class="tw-text-center tw-font-bold  pa-3  text-capitalize tw-text-2xl md:tw-max-w-[800px] mx-auto">Edit Event</h1>
+          <v-card class="pa-4 md:tw-max-w-[800px] mx-auto" style="background: #22222261;">
+            <v-form>
+                <v-text-field
+                class="mb-2 rounded-xl"
+                v-model="event.name"
+                label="Name"
+                persistent-hint
+                variant="solo"
+                ></v-text-field>
+
+                <v-text-field
+                class="mb-2 rounded-xl"
+                v-model="event.caption"
+                label="caption"
+                persistent-hint
+                variant="solo"
+                ></v-text-field>
+
+                <v-text-field
+                class="mb-2 rounded-xl"
+                v-model="event.venue"
+                label="venue"
+                persistent-hint
+                variant="solo"
+                ></v-text-field>
+
+                <v-text-field
+                class="mb-2 rounded-xl"
+                v-model="event.time"
+                label="time"
+                persistent-hint
+                variant="solo"
+                ></v-text-field>
+
+                <v-text-field
+                class="mb-2 rounded-xl"
+                v-model="event.date"
+                label="date"
+                persistent-hint
+                variant="solo"
+                ></v-text-field>
+
+                <v-text-field
+                class="mb-2 rounded-xl"
+                v-model="event.video"
+                label="Video link"
+                persistent-hint
+                variant="solo"
+                ></v-text-field>
+
+                <v-textarea
+                class="mb-2 rounded-xl"
+                v-model="event.description"
+                label="description"
+                persistent-hint
+                density="compact"
+                variant="solo"
+                ></v-textarea>
+
+      
+              <v-card-text>
+                <v-file-input
+                  accept="image/*"
+                  label="Event Image"
+                  v-model="image"
+                  @input="handleImageUpload($event)"
+                  prepend-icon="mdi-image"
+                />
+                <!-- <v-img  :src="imageUrl" max-width="200" max-height="200" v-if="imageUrl" /> -->
+              </v-card-text>
+
+              <v-col>
+                  <v-row>
+                      <v-checkbox
+                          v-model="event.on_sale"
+                          label="isActive"
+                          color="primary"
+                          >
+        
+                      </v-checkbox>
+                      <v-checkbox
+                          v-model="event.active"
+                          label="is_On_Sale"
+                          color="primary"
+                          >
+        
+                      </v-checkbox>
+                  </v-row>
+
+                  <h3 class="text-h6 tw-mb-3  tw-mt-10 tw-text-center tw-font-bold" style="font-family: 'Permanent Marker', cursive !important;"> Create ticket price lists</h3>
+                  
+                  <v-col>
+                      <v-row class="px-3">
+                          
+                          <v-text-field
+                          class="mb-2 rounded-xl"
+                          v-model="ticketName"
+                          label="ticket name"
+                          persistent-hint
+                          variant="solo"
+                          ></v-text-field>
+        
+                          <v-text-field
+                          class="mb-2 tw-ml-1 rounded-xl"
+                          v-model="ticketValue"
+                          label="ticket value"
+                          persistent-hint
+                          variant="solo"
+                          ></v-text-field>
+                       
+                      </v-row>
+    
+                      <v-btn @click.prevent="addTicketType" class="mb-2">add ticket</v-btn>
+                  </v-col>
+                 
+
+                  <v-list class="pa-2 tw-mb-6 rounded tw-min-h-20">
+                     <span class="border-b tw-py-2" color="primary ">list of added ticket price details</span>
+                     <div v-if="ticketList" v-for="i in ticketList">
+                        <v-col>
+                            <v-row class="border-b tw-py-4 tw-flex tw-justify-between tw-text-gray-500">
+
+                                    <div class=" tw-drop-shadow-xl">
+                                        <span>name: {{ i.name }}</span>
+                                        <span class="mx-4">price: {{ i.value }}</span>
+                                    </div>
+
+                                    <v-btn size="small" color="" href="#" @click.prevent="deleteItem(i.id)" 
+                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline tw-flex tw-justify-end">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 352 512">
+                                            <path fill="red" d="m242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 
+                                            0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28L75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 
+                                            111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256L9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 
+                                            32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48z"/>
+                                        </svg>
+                                    </v-btn>
+
+                            </v-row>
+                        </v-col>
+                     </div>
+                  </v-list>
+              </v-col>
+              
+              <span class="tw-text-red-500" v-if="message.length">{{ message }}*</span>
+              <v-btn :loading="loading"  @click.prevent="EditEvent"  class="d-flex justify-content-center ma-4" size="x-large"  color="blue-darken-4">
+            confirm</v-btn>
+
+            </v-form>
+          </v-card>
+        </v-container>
+    </div>
+
+
+</template>
+  
+  <script>
+  import {handleFileChange,uploadToCloudinary,asyncRequest} from "@/composables/mixins"
+  export default {
+    data() {
+      return {
+        event:[],
+        image:[],
+          
+          ticketName:[],
+          ticketValue:[],
+          ticketList:[], 
+
+          selectedimage:null,
+          message:'',
+
+          loading:false,
+
+      };
+    },
+
+ 
+
+
+    mounted() {
+        var name = decodeURIComponent(this.$route.params.id)
+        
+        this.event = this.events.find(el=>{
+            return el.id == name
+        })
+        // this.ticketName = JSON.parse(this.event.tickets).name
+        this.ticketList = JSON.parse(this.event.tickets)
+        console.log(this.ticketList)
+        
+        setTimeout(() => {
+            this.dialog = true;
+        }, 10000);
+    },
+   
+
+
+    methods: {
+        addTicketType(){
+            const tic = {name:this.ticketName,value:this.ticketValue}
+            this.ticketList.push(tic)
+            this.ticketList.reverse(this.ticketList)
+            this.ticketName = null
+            this.ticketValue= null
+        },
+
+        async handleImageUpload(event){
+            const file = event.target.files[0];
+            if(!file) return;
+            this.selectedimage = file
+
+           
+
+        },
+
+        deleteItem(itemId) {
+            const itemIndex = this.ticketList.findIndex((item) => item.id === itemId);
+            if (itemIndex >= 0) {
+            this.ticketList.splice(itemIndex, 1);
+           }
+        },
+
+       async EditEvent() {
+        this.loading = true
+        const img = ''
+        if(!(this.selectedimage === null)){
+          return img = await uploadToCloudinary(this.selectedimage);
+        }
+        // if(!secure_url) return alert("failed to upload file");
+
+        
+        const event ={
+            id:this.event.id,
+            name: this.event.name,
+            caption:this.event.caption,
+            description: this.event.description,
+            venue:this.event.venue,
+            date:this.event.date,
+            time:this.event.time,
+            on_sale:this.event.on_sale,
+            active:this.event.active,
+            video:this.event.video,
+            tickets:JSON.stringify(this.ticketList),
+            image: img.secure_url ? img.secure_url : this.event.image,
+        }
+
+        console.log(event)
+
+        try{
+            const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+                method:"PATCH",
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body:JSON.stringify(event)
+            }).then(res=>res.json())
+
+            this.loading =false
+
+            console.log(data)
+
+            navigateTo('/admin_slym/events')
+
+        }catch(e){
+           console.log(e)
+        }
+
+      },
+    },
+
+
+    computed: {
+      displ() {
+        return this.$vuetify.display;
+      },
+      cols() {
+        const { lg, sm, md } = this.$vuetify.display;
+        return lg
+          ? [4, 12, 6, 4, 8, 4, 3, 7,5]
+          : md
+          ? [4, 12, 12, 6, 8, 4, 3, 12, 12, 12]
+          : sm
+          ? [6, 12, 12, 12, 12, 12, 12, 12, 12]
+          : [6, 12, 12, 12, 12, 12, 12, 12, 12];
+      },
+
+      events () {
+      return this.$store.state.myevents
+
+      },
+
+    },
+
+  };
+  </script>
+
+  <style>
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+* {
+  font-family: "Permanent Marker", cursive !important;
+}
+</style>
