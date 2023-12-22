@@ -72,7 +72,7 @@
 
 </template>
 <script>
-import {useStore} from "@/stores/index"
+// import {useStore} from "@/stores/index"
 export default {
   data() {
     return {
