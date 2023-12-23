@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@mdi/font/css/materialdesignicons.min.css",
   ],
   
+  experimental:{payloadExtraction:false},
   
   modules: [
     // '@pinia/nuxt',

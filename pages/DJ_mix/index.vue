@@ -72,14 +72,12 @@
 
 </template>
 <script>
-// import {useStore} from "@/stores/index"
 export default {
   data() {
     return {
       myCategoryTabsValue: ['All','T-Shirts','Shorts','Hoodie','Joggers'],
       selecteditemsToD:[],
       activeCategory: 'All',
-      store:useStore(),
     };
   },
 
@@ -116,6 +114,7 @@ export default {
   transform: rotate3d(-2, 39, 0, 180deg);
 
 }
+
 .shadow:before,
 .shadow:after {
   will-change: transform, opacity;
