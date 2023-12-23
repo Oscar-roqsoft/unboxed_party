@@ -30,6 +30,25 @@ export default defineNuxtConfig({
     { src: '~/plugins/vue3-paystack', mode: 'client' },
     { src: '~/plugins/ravePlugin', mode: 'client' },
     
-  ]
+  ],
+
+  app:{
+    head: {
+      title: 'unboxed_party',
+      htmlAttrs: {
+        lang: 'en'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+            hid: 'unboxed_party',
+            name: 'description',
+            content: 'my website description'
+        }
+    ],
+    },
+  },
+
 
 });
