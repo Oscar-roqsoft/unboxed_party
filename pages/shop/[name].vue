@@ -26,7 +26,7 @@
                 <v-card @vnode-mounted="image = JSON.parse(item.options).images[newIndex || 0] ; color = JSON.parse(item.options).colors[newIndex || 0]" 
                 color="transparent" width="100%" v-if="item.name" class="pa-0">
                   
-                  <h2 style="font-size: 40px" class="  pb-6">
+                  <h2 style="font-size: 40px" class="font-weight-bold text-grey-lighten-2   pb-6">
                     {{item.name}} 
                   </h2>
                 
@@ -40,7 +40,7 @@
                       </div> -->
                         
                         
-                        <h4 style="font-size: 30px" class="  pb-6">
+                        <h4 style="font-size: 30px" class="font-weight-bold text-grey-lighten-2   pb-6">
                           N{{addCommas( item.price)}} 
                         </h4>
                 </v-card>

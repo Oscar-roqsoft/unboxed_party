@@ -85,7 +85,12 @@ class="bgh">
 
           </v-col>
           <v-col :class="$vuetify.display.smAndDown?'justify-center':'justify-end'" class="d-flex  align-center  mb-12" style="max-width: 700px;" :cols="cols[2]">
-            <iframe class="rounded-lg" width="450" height="250" :src="fetchedVideo" 
+            
+                  <!-- skeleton loader -->
+                  <v-skeleton-loader v-if="isLoading" type=" image, heading" 
+                  :style="{ backgroundColor: '#999' }"  />
+
+            <iframe v-else class="rounded-lg" width="450" height="250" :src="fetchedVideo" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </v-col>
         </v-row>
@@ -590,6 +595,8 @@ export default {
     VueCountdown
   },
   data: () => ({
+
+    isLoading:false,
     timeline: '',
     media_parteners: [
     'https://res.cloudinary.com/payhospi/image/upload/v1701176151/7_1_w7tdfi.png',
@@ -809,6 +816,7 @@ return seconds
 
 
   async mounted() {
+    this,isLoading= true
     try{
           const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
               method:"Get",
@@ -820,6 +828,8 @@ return seconds
           console.log(data)
         const payload =  data.settings
         this.$store.dispatch("setMyVideo", payload);
+
+        this.isLoading = false
 
       }catch(e){
          console.log(e)

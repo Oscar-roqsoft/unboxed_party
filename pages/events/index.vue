@@ -26,7 +26,12 @@
             <v-col  :cols="cols[1]">
           <v-row class="d-flex py-3">
             <v-col v-show="!n.onSale" v-for="(n, i) in myevents" :key="i" class="pt-3" :cols="cols[3]">
-              <v-card :to="'/event/'+ encodeURIComponent(n.name)" variant="dark" class="pa-2">
+
+               <!-- skeleton loader -->
+               <v-skeleton-loader v-if="isLoading" type=" image, heading" 
+               :style="{ backgroundColor: '#999' }"  />
+              
+               <v-card v-else :to="'/event/'+ encodeURIComponent(n.name)" variant="dark" class="pa-2">
                 <v-img
                   cover
                   height="210px"
@@ -87,6 +92,7 @@
       dialog: false,
       booked: false,
       sign: "",
+      isLoading:false,
    
     }),
     computed: {
@@ -112,6 +118,7 @@
     },
 
     async mounted() {
+      this.isLoading = true
       try {
       const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
         method:"GET",
@@ -126,7 +133,7 @@
       payload.reverse(payload)
       this.$store.dispatch("setMyEvents", payload);
 
-
+     this.isLoading = false
     } catch (error) {
       console.error(error);
     }

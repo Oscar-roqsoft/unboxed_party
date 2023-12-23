@@ -65,7 +65,11 @@
     <v-row>
 
     <v-col cols="12" md="6" lg="4" class="mb-4" v-for="(item, i) in activeCategory === 'all' ? items : selecteditemsToD " :key="item.id">
-    <v-card class="block items-center tw-text-center" :to="'/shop/'+item.name" style="cursor: pointer;"  color="transparent" flat height="">
+      
+      <!-- skeleton loader -->
+      <v-skeleton-loader v-if="isLoading" type=" image, heading" :style="{ backgroundColor: '#999' }"  />
+
+      <v-card v-else class="block items-center tw-text-center" :to="'/shop/'+item.name" style="cursor: pointer;"  color="transparent" flat height="">
     <!-- <v-img  eager  max-width="500px"
             class="rounded-lg" height="400" width="100%" cover 
             :src="'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_800/v1694578910/unboxed/'+ item.options[0].images[0] +'.png'"></v-img> -->
@@ -93,6 +97,7 @@ export default {
       myCategoryTabsValue: ['All','T-Shirts','Shorts','Hoodie','Joggers'],
       selecteditemsToD:[],
       activeCategory: 'all',
+      isLoading:false,
     };
   },
 
@@ -126,6 +131,7 @@ export default {
   },
 
  async mounted(){
+  this.isLoading = true
     try {
         const data = await fetch(`https://backend.unboxedparty.com/api/category`,{
             method:"GET",
@@ -135,9 +141,10 @@ export default {
         }).then(res=>res.json());
 
         
-
         const payload =  [...data.categories]
         this.$store.dispatch("setMyCategory", payload);
+        
+        this.isLoading = false
 
     } catch (error) {
       console.error(error);
