@@ -67,10 +67,12 @@
     <v-col cols="12" md="6" lg="4" class="mb-4" v-for="(item, i) in activeCategory === 'all' ? items : selecteditemsToD " :key="item.id">
       
       <!-- skeleton loader -->
-      <v-skeleton-loader v-if="isLoading" type=" image, heading" :style="{ backgroundColor: '#999' }"  />
+      <v-card v-if="isLoading" class="tw-rounded-lg bg-gray-400">
+           <v-skeleton-loader type="image, heading" />
+      </v-card>
 
       <v-card v-else class="block items-center tw-text-center" :to="'/shop/'+item.name" style="cursor: pointer;"  color="transparent" flat height="">
-    <!-- <v-img  eager  max-width="500px"
+          <!-- <v-img  eager  max-width="500px"
             class="rounded-lg" height="400" width="100%" cover 
             :src="'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_800/v1694578910/unboxed/'+ item.options[0].images[0] +'.png'"></v-img> -->
             <div class="tw-rounded-lg">
@@ -78,7 +80,8 @@
               </div>
             <h3 class="font-weight-medium my-4 text-truncate text-white">{{item.name}}</h3>
 
-    </v-card>
+     </v-card>
+
       </v-col>
     </v-row>
 

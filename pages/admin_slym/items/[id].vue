@@ -75,7 +75,7 @@
                         <div  class="tw-grid tw-grid-cols-4 tw-gap-4 tw-items-center border-b">
                             
                             <div class="tw-block">
-                                <div v-for="i in imageList">
+                                <div v-for="i in imageList" :key="i">
                                         <v-row class="tw-m-3 tw-w-14 ma-2">
                                           <img :src="i" alt="">
                                         </v-row>
@@ -84,7 +84,7 @@
 
                             <div class="tw-block tw-w-full tw-col-span-3 ">
 
-                                <div v-for="i in colorList" class="  tw-text-gray-500  tw-py-3 ma-2 tw-flex  tw-justify-between tw-items-center">
+                                <div v-for="i in colorList" :key="i" class="  tw-text-gray-500  tw-py-3 ma-2 tw-flex  tw-justify-between tw-items-center">
                                         <v-row class=" ">
                                             <span>color: {{ i }}</span>
                                         </v-row>
@@ -209,8 +209,9 @@ export default {
      
         
         itemOption(){
-            return this.itemOptionList = {image:this.imageList,color:this.colorList,sizes:this.sizeList};
+            return this.itemOptionList = {images:this.imageList,colors:this.colorList,sizes:this.sizeList};
         },
+
      items () {
          return this.$store.state.myitems
         },
@@ -228,9 +229,6 @@ mounted() {
     })
 
         
-    // this.itemImage = JSON.parse(this.item.options).image
-    // this.itemColor = JSON.parse(this.item.options).color
-    // this.itemSize =  JSON.parse(this.item.options).sizes
 
 
     this.sizeList = JSON.parse(this.item.options).sizes
@@ -238,7 +236,7 @@ mounted() {
     this.colorList = JSON.parse(this.item.options).colors
     // console.log(JSON.parse(this.item.options).color)
     // console.log(JSON.parse(this.item.options).image)
-
+//   console.log(this.imageList)
       
 
     //   this.category = this.item.category
@@ -272,34 +270,29 @@ mounted() {
     
     
 
-    // addImg(){
-    //         const tic = {img:this.itemImage,color:this.itemColor}
-    //         this.ticketList.push(tic)
-    //         this.ticketList.reverse(this.ticketList)
-    //         console.log( this.colorList)
-    //         this.itemImage = ''
-    //         this.itemColor = ''
-    //     },
+    
 
 
-        async addImg(){
-
+      async addColor(){
             const {secure_url} = await uploadToCloudinary(this.selectedimage);
             if(!secure_url) return alert("failed to upload file");
-            // const filteredUrl = secure_url.replace(/\/[^\/]+$/, "");
-            const regex = /\/([^/]+)\.\w+$/;
-            const imageName = secure_url.match(regex)[1]
+
             console.log(secure_url)
-            this.imageList.push(imageName)
+            console.log(this.imageList)
+            this.imageList.push(secure_url)
             this.imageList.reverse(this.imageList)
+
+            
+            console.log(this.itemColor)
+
+            this.colorList.push(this.itemColor)
+            this.colorList.reverse(this.colorList)
+
+            this.itemColor = ''
             this.itemImage = ''
         },
 
-      addColor(){
-            this.colorList.push(this.itemColor)
-            this.colorList.reverse(this.colorList)
-            this.itemColor = ''
-        },
+
       addSize(){
             this.sizeList.push(this.itemSize)
             this.sizeList.reverse(this.sizeList)

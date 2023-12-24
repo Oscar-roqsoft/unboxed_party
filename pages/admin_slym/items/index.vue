@@ -23,10 +23,10 @@
             <div class="tw-flex tw-items-center tw-justify-center tw-gap-4 tw-flex-wrap tw-mx-auto">
                 <div v-for="(item, index) in items" :key="item.id" class="tw-flex tw-flex-col">
 
-                    <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[18%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-blue-600 tw-z-40
+                    <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[18%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-[#282828]  tw-z-40
                         tw-transition tw-duration-300 tw-ease-in-out tw-transform">
                            <div class="tw-p-4 tw-py-6 tw-text-center ">
-                               <span class="tw-text-gray-100 ">Do You Want Delete Item</span>
+                               <span class="tw-text-gray-100 ">Do You Want Delete {{ itemName }}</span>
                                <div class="mt-4">
                                    <v-btn class="mx-2" @click="toast=false">Cancel</v-btn>
                                    <v-btn class="mx-2" color="red" @click="deleteItem(idItem)">confirm</v-btn>
@@ -35,6 +35,7 @@
                    </div>
 
               <div class=" tw-max-w-full tw-flex tw-flex-col tw-items-center tw-justify-center  tw-rounded-md tw-mx-auto">
+                
                 <div class="">
                   <ItemImage :options="item.options" :width="itemSize" />
                 </div>
@@ -61,7 +62,8 @@
   
                 <div class="tw-my-4">
                   <v-btn color="primary" @click="navigateTo(item)">Edit</v-btn>
-                  <v-btn class="mx-2" color="error" @click="toast = true; idItem = item.id">
+
+                  <v-btn class="mx-2" color="error" @click="toast = true; idItem = item.id ;itemName = item.name ">
                     Delete
                   </v-btn>
 
@@ -85,6 +87,7 @@ export default {
         return{
             toast:false,
             idItem:null,
+            itemName:'',
         }
     },
   computed: {

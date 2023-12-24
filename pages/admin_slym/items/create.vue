@@ -218,20 +218,20 @@ computed:{
     //     },
 
 
-        async addImg(){
+        // async addImg(){
 
-            const {secure_url} = await uploadToCloudinary(this.selectedimage);
-            if(!secure_url) return alert("failed to upload file");
+        //     const {secure_url} = await uploadToCloudinary(this.selectedimage);
+        //     if(!secure_url) return alert("failed to upload file");
 
-            // // const filteredUrl = secure_url.replace(/\/[^\/]+$/, "");
-            // const regex = /\/([^/]+)\.\w+$/;
-            // const imageName = secure_url.match(regex)[1]
-            console.log(secure_url)
+        //     // const filteredUrl = secure_url.replace(/\/[^\/]+$/, "");
+        //     const regex = /\/([^/]+)\.\w+$/;
+        //     const imageName = secure_url.match(regex)[1]
+        //     console.log(secure_url)
 
-            this.imageList.push(secure_url)
-            this.imageList.reverse(this.imageList)
-            this.itemImage = ''
-        },
+        //     this.imageList.push(secure_url)
+        //     this.imageList.reverse(this.imageList)
+        //     this.itemImage = ''
+        // },
 
       async addColor(){
             const {secure_url} = await uploadToCloudinary(this.selectedimage);

@@ -7,10 +7,10 @@
         </v-container>
       <v-container class="">
 
-        <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[18%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-blue-600 tw-z-40
+        <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[18%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-[#282828] tw-z-40
       tw-transition tw-duration-300 tw-ease-in-out tw-transform">
             <div class="tw-p-4 tw-py-6 tw-text-center ">
-                <span class="tw-text-gray-100 ">Do You Want Delete Event</span>
+                <span class="tw-text-gray-100 ">Do You Want Delete {{ itemName }} </span>
                 <div class="mt-4">
                     <v-btn class="mx-2" @click="toast=false">Cancel</v-btn>
                     <v-btn class="mx-2" color="red" @click="deleteEvent(idItem)">confirm</v-btn>
@@ -35,7 +35,18 @@
               <div class="tw-w-[310px]  tw-rounded-md">
                 
                 <v-card>
-                  <img class="tw-w-full" :src="imageFilter(i.image,700)" alt="">
+                  <!-- <img class="tw-w-full" :src="imageFilter(i.image,700,700)" alt=""> -->
+
+                  <v-img
+                  cover
+                  height="210px"
+                  max-width="500px"
+                  class="rounded-xl"
+                  :src="i.image"
+                ></v-img>
+
+                  
+
                   <div class="pa-2">
                     <div class="tw-mt-2">Name: {{ i.name }}</div>
                     <div>Caption: {{ i.caption }}</div>
@@ -44,7 +55,7 @@
               
                   <div class="tw-flex tw-my-4 pa-2">
                     <v-btn color="primary" @click="navigateTo(`/admin_slym/events/${i.id}`)">Edit</v-btn>
-                    <v-btn class="mx-2" color="error" @click="toast = true; idItem = i.id">Delete</v-btn>
+                    <v-btn class="mx-2" color="error" @click="toast = true; idItem = i.id; itemName = i.name">Delete</v-btn>
                   </div>
                 </v-card>
 
@@ -80,6 +91,7 @@ export default {
       dialog: false,
       toast:false,
       idItem:null,
+      itemName:'',
     };
   },
 

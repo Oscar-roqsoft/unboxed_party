@@ -28,10 +28,12 @@
             <v-col v-show="!n.onSale" v-for="(n, i) in myevents" :key="i" class="pt-3" :cols="cols[3]">
 
                <!-- skeleton loader -->
-               <v-skeleton-loader v-if="isLoading" type=" image, heading" 
-               :style="{ backgroundColor: '#999' }"  />
+               <v-card v-if="isLoading" class="tw-rounded-lg bg-gray-400">
+                    <v-skeleton-loader type="image, heading" />
+             </v-card>
               
                <v-card v-else :to="'/event/'+ encodeURIComponent(n.name)" variant="dark" class="pa-2">
+
                 <v-img
                   cover
                   height="210px"
@@ -39,6 +41,8 @@
                   class="rounded-xl"
                   :src="n.image"
                 ></v-img>
+
+
                 <div class=" pt-3" style=" width:100%;   background: linear-gradient(360deg, black, transparent);
     line-height: 1.2;position:;bottom:0">
                 <h3 class="font-weight-medium text-truncate text-white">{{n.name}}</h3>

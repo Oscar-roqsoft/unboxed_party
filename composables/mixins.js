@@ -50,7 +50,7 @@ export const uploadToCloudinary = async ( file) => {
 
 
 
-export const imageFilter = (imageUrl,size)=>{
+export const imageFilter = (imageUrl,w,h)=>{
   const parts = imageUrl.split("upload/");
-  return parts[0]+'upload/c_fit,w_'+size+'/'+parts[1]
+  return parts[0]+'upload/c_fit,w_'+w+parts[1]
 }

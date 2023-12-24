@@ -63,14 +63,13 @@ export default {
   },
 
   mounted() {
-    console.log(this.fetchedcategory)
-      var name = decodeURIComponent(this.$route.params.id)
+      var name = decodeURIComponent(this.$route.params.name)
       console.log(name)
       this.cateitem = this.fetchedcategory.find(el=>{
-          return el.id = name
+          return el.name == name
         })
 
-        console.log(this.cateitem)
+        console.log(this.cateitem.name)
         
       setTimeout(() => {
         this.dialog = true;

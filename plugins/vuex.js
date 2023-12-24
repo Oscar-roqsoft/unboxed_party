@@ -13,6 +13,7 @@ import { createStore } from "vuex";
     myvideo:[],
 
     events: [
+      
       {name: 'Meme Edition 2', 
       image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1700458125/Unboxed_Party_Meme_Party_2_usm8ub.jpg',
       created_at: '8th Dec. 2023',
@@ -118,6 +119,7 @@ import { createStore } from "vuex";
         caption:'Countdown',
         description: "Coming soon",
       },
+
       {name: 'Hollywood High School', 
       image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1685184764/Hollywood_Highschool_2_wthdcx.jpg',
       created_at: '17th Jun. 2023',
@@ -143,6 +145,7 @@ import { createStore } from "vuex";
       caption:'Countdown',
       description: "Coming soon",
      },
+
       {name: 'Royal Ball/Prom',
       image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1681315633/Unboxed_Royal_Ball_Prom_s4wxxm.jpg',
       created_at: '16th Mar. 2023',
@@ -236,6 +239,7 @@ import { createStore } from "vuex";
        One thing about the unboxed is that after every party, they reach out to the audience to be criticized and know where they failed to entertain, though it's always had positive reviews and few criticism, they always asked the audience what they want and how they want it. Then the unboxed delivers their desire and needs to them.
        After the meme party, you would see the eagerness some showed, some even went to meet the hypeman to ask when another unboxed would be held, something that started small was already growing so fast and has now come to stay and will soon be established as an entertainment institution in the South East.`,
       },
+
        {name: 'Halloween Edition',
        image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267202/Unboxed_Halloween_Edition_lp7q17.jpg',
        created_at: '31st Oct. 2022',
@@ -254,6 +258,7 @@ import { createStore } from "vuex";
        Overall, The Unboxed Party's Halloween Party was a night to remember 🎉👻🔥. The experience was mad, the costumes were crazy, and the musical experience was unforgettable 🙌🎶. It was an incredible celebration of Halloween 🎃, and a great example of what The Unboxed Party can do...
        This particular party was the first of it's kind in the city and it sent waves and trended on the internet and social media platforms, an event that kept people taking days after it happened, people were now more eager and anticipated for the next unboxed, it so happened that the city of Abuja called requesting for their unboxed cause they wanted to feel the thrill too, they wanted the kind of vibe and uniqueness the unboxed gave and their eagerness was of course rewarded with them getting their very own unboxed party 😋🌚.`
       },
+
        {name: 'TTOTY',
        image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267199/Unboxed_Party_TTOTY_flndxs.jpg',
        created_at: '20th Dec. 2022',
@@ -396,6 +401,7 @@ import { createStore } from "vuex";
           }
         ]
       },
+      
       {
         category:'Trousers',
         name: 'Cargo Pants',
@@ -412,6 +418,7 @@ import { createStore } from "vuex";
           }
         ]
       },
+
       {
         category:'Hoodies',
         name: 'Crop Hoodies',
@@ -546,6 +553,7 @@ import { createStore } from "vuex";
         author: 'Current',
         body:'Coming Soon...'
       },
+
       {
         name:'Re-Live top moments from UNBOXED PARTIES So Far',
         image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700/v1684055244/Re-live_Top_Moments_from_UNBOXED_PARTIES_SO_FAR_fzyhpi.jpg',

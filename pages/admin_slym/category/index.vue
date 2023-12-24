@@ -5,10 +5,10 @@
         </v-container>
 
 
-        <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[18%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-blue-600 tw-z-40
+        <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[18%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-[#282828] tw-z-40
       tw-transition tw-duration-300 tw-ease-in-out tw-transform">
             <div class="tw-p-4 tw-py-6 tw-text-center ">
-                <span class="tw-text-gray-100 ">Do You Want Delete Category</span>
+                <span class="tw-text-gray-100 ">Do You Want Delete {{ categoryName }}</span>
                 <div class="mt-4">
                     <v-btn class="mx-2" @click="toast=false">Cancel</v-btn>
                     <v-btn class="mx-2" color="red" @click="deleteEvent(idItem)">confirm</v-btn>
@@ -43,8 +43,8 @@
                       <div class="tw-flex tw-w-full tw-justify-between tw-items-center tw-gap-3  tw-border-b tw-border-gray-800 tw-py-4 tw-my-2">
                           <!-- <span>{{ index + 1 }}</span> -->
                           <span>{{ i.name }}</span>
-                          <v-btn color="primary" @click="navigateTo(`/admin_slym/category/${i.id}`)">Edit</v-btn>
-                          <v-btn  class="mx-2"  color="error" @click.prevent="toast=true ; idItem = i.id">
+                          <v-btn color="primary" @click.prevent="navigateTo(`/admin_slym/category/${i.name}`)">Edit</v-btn>
+                          <v-btn  class="mx-2"  color="error" @click.prevent="toast=true ; idItem = i.id;categoryName = i.name">
                               Delete
                           </v-btn>
                       </div>
@@ -71,6 +71,7 @@ export default {
 
       toast:false,
       idItem:null,
+      categoryName:'',
 
     };
   },
