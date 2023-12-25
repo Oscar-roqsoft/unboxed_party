@@ -54,3 +54,19 @@ export const imageFilter = (imageUrl,w,h)=>{
   const parts = imageUrl.split("upload/");
   return parts[0]+'upload/c_fit,w_'+w+parts[1]
 }
+
+
+export const formatDate = (dat) =>{
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const date = new Date(dat);
+  // Extract the date components
+  const year = date.getFullYear();
+  const monthindex = date.getMonth(); // Months are zero-indexed
+  const day = date.getDate();
+
+  // Format the date components into a desired format, for example:
+  const formattedDate = `${day.toString().padStart(2, '0')}th ${months[monthindex]}. ${year} `;
+
+  return formattedDate;
+
+}

@@ -55,7 +55,8 @@
       
           <div v-for="tab in fetchedcategory"   :key="tab.id"  class="bg-transparent  tw-p-1 ">
               
-              <v-btn @click.prevent=" setActiveCategory(tab.name); activeCategory = tab.name " class=" tw-border-t  text-capitalize  font-weight-bold" elevation="0"
+              <v-btn @click.prevent=" setActiveCategory(tab.name); activeCategory = tab.name " 
+              class=" tw-border-t  text-capitalize  font-weight-bold" elevation="0"
               :class=" !(activeCategory === tab.name )? 'bg-transparent':''">{{ tab.name}}</v-btn>
             
           </div>
@@ -67,11 +68,13 @@
     <v-col cols="12" md="6" lg="4" class="mb-4" v-for="(item, i) in activeCategory === 'all' ? items : selecteditemsToD " :key="item.id">
       
       <!-- skeleton loader -->
-      <v-card v-if="isLoading" class="tw-rounded-lg bg-gray-400">
-           <v-skeleton-loader type="image, heading" />
+      <v-card v-if="isLoading"  class="tw-rounded-lg tw-bg-gray-200 ">
+           <v-skeleton-loader type="image,heading"  />
       </v-card>
 
-      <v-card v-else class="block items-center tw-text-center" :to="'/shop/'+item.name" style="cursor: pointer;"  color="transparent" flat height="">
+      
+
+      <v-card v-else class="block items-center tw-text-center"  :to="'/shop/'+item.id" style="cursor: pointer;"  color="transparent" flat height="">
           <!-- <v-img  eager  max-width="500px"
             class="rounded-lg" height="400" width="100%" cover 
             :src="'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_800/v1694578910/unboxed/'+ item.options[0].images[0] +'.png'"></v-img> -->
@@ -97,7 +100,6 @@
 export default {
   data() {
     return {
-      myCategoryTabsValue: ['All','T-Shirts','Shorts','Hoodie','Joggers'],
       selecteditemsToD:[],
       activeCategory: 'all',
       isLoading:false,
@@ -370,6 +372,18 @@ export default {
     font-weight: 700;
     line-height: 46px;
     font-size: 28px;
+  }
+}
+
+
+.shimmer {
+  transform: translateX(-100%);
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
 }
 </style>

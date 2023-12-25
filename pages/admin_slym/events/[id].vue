@@ -2,9 +2,15 @@
 
 
     <div class="">
-        <v-container>
-            <Backbutton class=" md:tw-max-w-[800px] mx-auto"/>
+        <v-container >
+            <div class="tw-flex tw-justify-between md:tw-max-w-[800px] mx-auto">
+
+              <Backbutton/>
+              <Scannerbtn/>
+            </div>
+
         </v-container>
+
         <v-container>
           <h1 class="tw-text-center tw-font-bold  pa-3  text-capitalize tw-text-2xl md:tw-max-w-[800px] mx-auto">Edit Event</h1>
           <v-card class="pa-4 md:tw-max-w-[800px] mx-auto" style="background: #22222261;">
@@ -75,7 +81,7 @@
                   @input="handleImageUpload($event)"
                   prepend-icon="mdi-image"
                 />
-                <!-- <v-img  :src="imageUrl" max-width="200" max-height="200" v-if="imageUrl" /> -->
+                <v-img  :src="event.image" width="150" max-height="150"  />
               </v-card-text>
 
               <v-col>
@@ -229,11 +235,11 @@
 
        async EditEvent() {
         this.loading = true
-        const img = ''
-        if(!(this.selectedimage === null)){
-          return img = await uploadToCloudinary(this.selectedimage);
-        }
-        // if(!secure_url) return alert("failed to upload file");
+        // const img = ''
+        // if(!(this.selectedimage === null)){
+        //   return img = await uploadToCloudinary(this.selectedimage);
+        // }
+        const {secure_url} = await uploadToCloudinary(this.selectedimage);
 
         
         const event ={
@@ -248,7 +254,7 @@
             active:this.event.active,
             video:this.event.video,
             tickets:JSON.stringify(this.ticketList),
-            image: img.secure_url ? img.secure_url : this.event.image,
+            image: secure_url ? secure_url : this.event.image,
         }
 
         console.log(event)

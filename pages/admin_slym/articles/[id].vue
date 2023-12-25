@@ -134,7 +134,7 @@ export default {
           name: this.articles.name,
           author: this.articles.author,
           body:this.articles.body,
-          image:secure_url,
+          image:secure_url ? secure_url : this.articles.image,
       }
 
       console.log(event)

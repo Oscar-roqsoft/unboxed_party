@@ -203,8 +203,8 @@ class="bgh">
             Thanks for making us look good.
           </p>
     <div   
-    style="position: relative;    
-    z-index: 9;height: 200px;" class=" mt-8">
+      style="position: relative;    
+      z-index: 9;height: 200px;" class=" mt-8">
 
       
       <div  style="margin-top: 20px;" class="photobanner1 h-100 d-flex justify-start">
@@ -219,7 +219,8 @@ class="bgh">
         :src="n"
         ></v-img>
     
-      </div>    </div>
+      </div>    
+    </div>
     </div>
 
  </div>
@@ -288,10 +289,18 @@ class="bgh">
   </v-col>
   <v-col cols="12"  lg="4">
     <v-row>
-      <v-col  v-for="(item, i) in items" :key="i" cols="6">
-        <v-card  :to="'/shop/'+item.name" color="transparent" flat height="">
-<v-img eager  style="cursor: pointer;"   max-width="500px"
-                  class="rounded-lg" height="200" width="100%" cover :src="'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_800/v1694578910/unboxed/'+ item.options[0].images[0] +'.png'"></v-img>
+      <v-col  v-for="(item, i) in items.slice(0,4)" :key="item.id" cols="6">
+        <v-card  :to="'/shop/'+item.id" color="transparent" flat height="">
+
+               <!-- <v-img eager  style="cursor: pointer;"   max-width="500px"
+                  class="rounded-lg" height="200" width="100%" cover 
+                  :src="JSON.parse(item.options[0]).images[0]">
+                </v-img> -->
+
+                <div class="tw-rounded-lg">
+                  <ItemImage :options="item.options" :width="270"  />
+              </div>
+
                   <h3 class="font-weight-medium mt-2 text-truncate text-white">{{item.name}}</h3>
 
  </v-card>
@@ -357,10 +366,10 @@ class="bgh">
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col  v-for="(n, i) in eventsList.slice(0, 3)" :key="i" class="pt-6 d-flex justify-center" :cols="cols[3]">
+          <v-col  v-for="(n, i) in events.slice(0, 3)" :key="i" class="pt-6 d-flex justify-center" :cols="cols[3]">
             <v-card  width="100%"
             max-width="500px"
-            :to="'/event/'+ encodeURIComponent(n.name)" color="transparent" class="pa-3">
+            :to="'/event/'+ encodeURIComponent(n.id)" color="transparent" class="pa-3">
               <v-img eager
                 cover
                 height="350px"
@@ -369,7 +378,7 @@ class="bgh">
                 :src="n.image"
               ></v-img>
               
-              <h2 style="font-size: 30px" class="logoText text-grey-lighten-2 pt-3">
+              <h2 style="font-size: 30px" class="logoText font-weight-bold text-grey-lighten-2 pt-3">
                 {{n.name}}
               </h2>
       
@@ -378,7 +387,9 @@ class="bgh">
                   style="font-family: monospace !important"
                   class="text-body-1 text-grey-lighten-1 font-weight-light"
                 >
-                {{n.created_at}}
+
+                {{formatDate(n.date)}}
+
               </p>
               <p
               style=""
@@ -589,6 +600,8 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 // import { mapState, mapGetters, mapActions, mapMutations} from 'vuex'
 import {gsap, Back, Bounce, CSSPlugin } from 'gsap';
 
+import {formatDate} from '@/composables/mixins'
+
 export default {
  
  components:{
@@ -618,75 +631,9 @@ export default {
 'https://res.cloudinary.com/payhospi/image/upload/v1700924461/brainjotter_sh3mua.png',
 'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
 'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png'],
-    items: [
-  {
-    name: 'T-Shirts',
-    id: '',
-    price: '10k',
-    options: [
-      {
-        colors: ['White', 'Dark green', 'Pink', 'Black', 'Brown'],
-        images: [
-          'white_tee_1_cmav9b',
-          'pink_tee_wxk1ji',
-          'nude_tee_msmolc',
-          'green_tee_rxt0r3'
-        ],
-        sizes: ['M', 'L', 'XL', 'XXL']
-      }
-    ]
-  },
-  {
-    name: 'Shorts',
-    id: '',
-    price: '8k',
-    options: [
-      {
-        colors: ['Dark green', 'Black', 'Brown', 'Grey'],
-        images: [
-          'green_shorts_eynkmi',
-          'brown_shorts_ny3pg4',
-          'BLACK_SHORT_qfoivh'
-        ],
-        sizes: ['M', 'L', 'XL', 'XXL']
-      }
-    ]
-  },
-  {
-    name: 'Hoodies',
-    id: '',
-    price: '15k',
-    options: [
-      {
-        colors: ['Brown', 'Dark green', 'Grey'],
-        images: [
-          'brown_hoodie_1_xpdegk',
-          'nude_hoodie_1_qhkeuf',
-          'black_crop_hoodie_x3qcoc',
-          'pink_crop_hoodie_ecvpwt'
-        ],
-        sizes: ['M', 'L', 'XL', 'XXL']
-      }
-    ]
-  },
-  {
-    name: 'Armless Shirts',
-    id: '',
-    price: '8k',
-    options: [
-      {
-        colors: ['Brown', 'Army green', 'White', 'Black'],
-        images: [
-          'white_armless_msu5ix',
-          'black_armless_pxfanl',
-          'army_green_armless_mfzdnp',
-          'nude_armless_p5svtm'
-        ],
-        sizes: ['M', 'L', 'XL', 'XXL']
-      }
-    ]
-  },
-],
+    
+
+
     rules: {
       required: (value) => !!value || "Required.",
       email: (value) => {
@@ -707,6 +654,7 @@ export default {
     whatsapp: "",
     email: "",
     loading: false,
+    isLoading:false,
     consent: false,
     dialog: false,
     booked: false,
@@ -764,6 +712,24 @@ export default {
   }),
 
   computed: {
+    screenWidth() {
+        return this.$vuetify.display.width;
+    },
+
+    itemSize(){
+
+      if (this.screenWidth >= 1264) {
+      return 500; // Customize size names and breakpoints
+
+      } else if (this.screenWidth >= 960) {
+      return 500;
+
+      } else {
+      return 450;
+
+      }
+
+    } ,
     fetchedVideo(){
     return this.$store.state.myvideo.home_page_video_url
    } ,
@@ -786,11 +752,16 @@ var seconds = (endDate.getTime() - startDate.getTime()) ;
 return seconds
     },
     articles () {
-      return this.$store.state.articles
+      return this.$store.state.myarticles
     },
     events () {
-      return this.$store.state.events
+      return this.$store.state.myevents
     },
+
+    items () {
+      return this.$store.state.myitems
+    },
+
     eventsList () {
       return this.events.filter(events =>  !events.onSale)
     },
@@ -816,7 +787,9 @@ return seconds
 
 
   async mounted() {
-    this,isLoading= true
+   
+
+    this.isLoading= true
     try{
           const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
               method:"Get",
@@ -834,7 +807,61 @@ return seconds
       }catch(e){
          console.log(e)
     }
-     console.log(this.fetchedVideo)
+
+    try {
+      const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
+        method:"GET",
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      }).then(res=>res.json());
+      console.log(data)
+
+      const payload =  [...data.items]
+      payload.reverse(payload)
+      this.$store.dispatch("setMyItems", payload);
+    } catch (error) {
+      console.error(error);
+    }
+
+  
+      try {
+      const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+        method:"GET",
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      }).then(res=>res.json());
+      console.log(data.events)
+
+
+      const payload =  [...data.events]
+      payload.reverse(payload)
+      this.$store.dispatch("setMyEvents", payload);
+
+     this.isLoading = false
+    } catch (error) {
+      console.error(error);
+    }
+
+
+    try {
+      const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
+        method:"GET",
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      }).then(res=>res.json());
+      console.log(data)
+
+      const payload =  [...data.articles]
+     this.$store.dispatch("setMyArticles", payload);
+
+     this.isLoading = false
+     
+    } catch (error) {
+      console.error(error);
+    }
    
     setTimeout(() => {
       this.dialog = true;

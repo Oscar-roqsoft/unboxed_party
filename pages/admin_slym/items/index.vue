@@ -41,6 +41,11 @@
                 </div>
   
                 <div class="tw-mt-3">
+                  <span class="font-bold">Name:</span>
+                  <span class="ml-2">{{ item.name }}</span>
+                </div>
+                
+                <div class="tw-mt-3">
                   <span class="font-bold">Price:</span>
                   <span class="ml-2">N{{ addCommas(item.price) }}</span>
                 </div>

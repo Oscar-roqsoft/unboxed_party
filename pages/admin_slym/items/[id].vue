@@ -274,6 +274,7 @@ mounted() {
 
 
       async addColor(){
+
             const {secure_url} = await uploadToCloudinary(this.selectedimage);
             if(!secure_url) return alert("failed to upload file");
 

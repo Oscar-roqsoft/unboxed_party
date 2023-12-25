@@ -12,22 +12,22 @@
 
             <div class="tw-flex tw-flex-col tw-justify-center  tw-border-b tw-border-gray-700  ">
              
-                <a value="shop"  @click.prevent="navigateTo('/shop')" class="tw-p-6   text-capitalize hover:tw-bg-[#393939]  font-weight-bold">
+                <a value="shop"  @click.prevent="navigateTo('/shop')" class="tw-p-5   text-capitalize hover:tw-bg-[#393939]  font-weight-bold">
                   <span style="font-family: Permanent Marker !important;font-size: 20px;"> Shop! </span>
                 </a>
-                <a  @click.prevent="navigateTo('/events')" class=" tw-p-6 tw-capitalize tw hover:tw-bg-[#393939]  tw-font-bold" value="left">
+                <a  @click.prevent="navigateTo('/events')" class=" tw-p-5 tw-capitalize tw hover:tw-bg-[#393939]  tw-font-bold" value="left">
                   Events
                 </a>
 
-                <a  @click.prevent="navigateTo('/about')" class="tw-p-6 text-capitalize hover:tw-bg-[#393939] font-weight-bold" value="center">
+                <a  @click.prevent="navigateTo('/about')" class="tw-p-5 text-capitalize hover:tw-bg-[#393939] font-weight-bold" value="center">
                   About us
                 </a>
 
-                <a  @click.prevent="navigateTo('/articles')" class="tw-p-6 text-capitalize hover:tw-bg-[#393939]  font-weight-bold" value="right">
+                <a  @click.prevent="navigateTo('/articles')" class="tw-p-5 text-capitalize hover:tw-bg-[#393939]  font-weight-bold" value="right">
                   Quick Reads
                 </a>
 
-                <a  href="#contact" class="tw-p-6  text-capitalize hover:tw-bg-[#393939]  font-weight-bold" value="justify">
+                <a  href="#contact" class="tw-p-5  text-capitalize hover:tw-bg-[#393939]  font-weight-bold" value="justify">
                   Contact Us
                 </a>
                
@@ -35,12 +35,9 @@
             <!-- <a  href="/back_to_school" class="rounded-xl text-yellow text-capitalize font-weight-bold" value="justify">
                   <span style="font-family: Permanent Marker !important;font-size: 20px;"> Back to school! </span>
                 </a> -->
-              
-            </div>
-
                 <a
-                  class="font-weight-bold text-capitalize tw-rounded  tw-text-center tw-p-4 "
-                  style="
+            class="font-weight-bold rounded-xl mx-4 my-4 tw-text-center tw-p-4 "
+            style="
                     background: linear-gradient(
                       132.03deg,
                       #c471ed 14.22%,
@@ -51,11 +48,31 @@
                   color="green"
                   >
                   Register
-                </a>
+              </a>
+            </div>
 
+            <!-- <a href="#" target="blank" 
+                class="tw-inline-flex tw-relative tw-items-center tw-justify-center tw-px-4 tw-py-4 tw-bg-gradient-to-tr tw-from-yellow-400 tw-via-yellow-500
+                  tw-to-yellow-500 tw-text-white tw-font-bold tw-hover:bg-blue-600 tw-focus:ring-4 tw-focus:outline-none tw-focus:ring-blue-300">
+                  
+                  Scanner
+                  <svg class="tw-ml-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M10.75 1a.75.75 0 0 0 0 1.5h1.69L8.22 6.72a.75.75 0 0 0 1.06 1.06l4.22-4.22v1.69a.75.75 0 0 0 1.5 0V1zM2.5 4v9a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V8.75a.75.75 0 0 1 1.5 0V13a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4.25a.75.75 0 0 1 0 1.5H3a.5.5 0 0 0-.5.5" clip-rule="evenodd"/></svg>
+                
+              </a> -->
+
+            
+            
+          
+
+
+
+               
+
+
+                
                 <div class="  tw-h-full   tw-flex tw-flex-col tw-justify-end ">
-                   
-
+                  
+                  
                     <div class="tw-bg-[#232220] tw-p-4 tw-border-t tw-border-gray-700">
                         <v-btn
                         target="_blank"

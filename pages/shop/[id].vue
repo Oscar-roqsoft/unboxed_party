@@ -18,15 +18,16 @@
 
           </div>
           
+
           <v-row class="d-flex py-0">
 
             <v-col  :cols="cols[7]">
+
               <div class="d-flex justify-center">
-  
                 <v-card @vnode-mounted="image = JSON.parse(item.options).images[newIndex || 0] ; color = JSON.parse(item.options).colors[newIndex || 0]" 
                 color="transparent" width="100%" v-if="item.name" class="pa-0">
                   
-                  <h2 style="font-size: 40px" class="font-weight-bold text-grey-lighten-2   pb-6">
+                  <h2 style="font-size: 40px" class="font-weight-bold text-capitalize text-grey-lighten-2   pb-6">
                     {{item.name}} 
                   </h2>
                 
@@ -54,22 +55,23 @@
               <div class="d-flex justify-center mt-4">
  
                 <v-card color="transparent" width="100%" v-if="item.name" class="pa-0">
-              <h2 style="font-size: 30px" class=" font-weight-medium  pb-6">
-                Colors
-              </h2>
+                  <h2 style="font-size: 30px" class=" font-weight-medium  pb-6">
+                    Colors
+                  </h2>
             <v-row>
 
               <v-col style="cursor: pointer;" @click="newIndex = i" cols="4"  v-for="(n, i) in JSON.parse(item.options).images">
                   <div  @click.prevent="color = JSON.parse(item.options).colors[i] ; image = JSON.parse(item.options).images[i] " style="transition: 0.2s all ease-in-out;" :style="(newIndex == i) || (newIndex == null && i == 0)? 'scale:0.9':''">
 
-                       <v-img  eager   
-                      class="rounded-lg" height="120" width="100%" cover 
+                       <v-img  eager   class="rounded-lg" height="120" width="100%" cover 
                       :src="n">
                       <v-overlay persistent="" :model-value="true" v-if="(newIndex == i) || (newIndex == null && i == 0)" contained="" scrim="black" 
                       absolute=""></v-overlay>
+
                   </v-img> 
               </div>
-                  <h4  :class="(newIndex == i) || (newIndex == null && i == 0)? 'text-grey font-weight-black pl-4':''">
+                  <h4 class=text-capitalize  style="transition:  0.2s all ease-in-out;cursor: pointer;font-size: 20px" 
+                  :class="(newIndex == i) || (newIndex == null && i == 0)? 'text-grey font-weight-bold pl-4':''">
                     {{ JSON.parse(item.options).colors[i] }}</h4>       
               </v-col>
               
@@ -93,10 +95,10 @@
                       <v-row>
 
                         <v-col cols="3"  v-for="(n, i) in JSON.parse(item.options).sizes">
-                            <v-sheet  @click="size = n" style="transition:  0.2s all ease-in-out;cursor: pointer;"  
-                            :style="size == n? 'border:4px solid #fff;scale:0.9':''" 
-                            class="rounded-lg d-flex align-center justify-center" height="50" width="100%" >
-                            <h3 >{{ n }}</h3>       
+                            <v-sheet  @click="size = n" style="transition:  0.2s all ease-in-out;cursor: pointer;font-size: 25px"  
+                            :style="size == n? 'border:4px solid #fff;scale:0.9;':''" 
+                            class="rounded-lg d-flex align-center justify-center font-weight-bold" height="50" width="100%" >
+                            <h3 class="text-uppercase" >{{ n }}</h3>       
                           </v-sheet>  
                         </v-col>
 
@@ -116,13 +118,13 @@
 
                 <div class="d-flex">
 
-                <v-btn @click.prevent="decrement" size="large" color="grey-darken-3" ><v-icon size="25" icon="mdi mdi-minus"></v-icon></v-btn>
+                <v-btn class="font-weight-bold"  @click.prevent="decrement" size="large" color="grey-darken-3" ><v-icon size="25" icon="mdi mdi-minus"></v-icon></v-btn>
 
                     <v-sheet  
                       class="rounded-lg mx-4 d-flex align-center justify-center px-4" height="" width="60" >
-                      <h3 >{{ quantity }}</h3>       
+                      <h3 class="font-weight-bold" style="transition:  0.2s all ease-in-out;cursor: pointer;font-size: 20px"  >{{ quantity }}</h3>       
                     </v-sheet>     
-                <v-btn @click.prevent="increment" size="large" color="white"><v-icon size="25" icon="mdi mdi-plus"></v-icon></v-btn>
+                <v-btn class="font-weight-bold"  @click.prevent="increment" size="large" color="white"><v-icon size="25" icon="mdi mdi-plus"></v-icon></v-btn>
                 </div>
                 
                 </v-card> 
@@ -156,7 +158,7 @@
             <v-row class=" py-3">
 
                 <v-col v-show="!n.onSale" cols="12" lg="4" v-for="(n, i) in items" :key="i" class="py-4" :cols="cols[2]">
-                  <v-card :to="'/shop/'+encodeURIComponent(n.name)" color="transparent" class="pa-2">
+                  <v-card :to="'/shop/'+encodeURIComponent(n.id)" color="transparent" class="pa-2">
 
                     <!-- <v-img
                       cover
@@ -167,13 +169,13 @@
                     ></v-img> -->
 
                     <div class="tw-rounded-lg">
-                       <ItemImage :options="item.options" :width="450" />
+                       <ItemImage :options="n.options" :width="450" />
                     </div>
 
                     <div class=" pt-3" style=" width:100%;   background: linear-gradient(360deg, black, transparent);
                       line-height: 1.2;position:;bottom:0">
 
-                          <h3 class="font-weight-medium text-grey-lighten-1">{{n.name}}</h3>
+                          <h3 class="font-weight-medium text-capitalize text-grey-lighten-1">{{n.name}}</h3>
                     </div>
                   
                   </v-card>
@@ -279,12 +281,12 @@
     },
 
     async mounted() {
-      var name = decodeURIComponent(this.$route.params.name)
+      var name = decodeURIComponent(this.$route.params.id)
       this.item = this.items.find(el=>{
-        return el.name = name
+        return el.id == name
       })
 
-      console.log(JSON.parse(this.item.options).images)
+      console.log(this.item.category)
 
 
    
