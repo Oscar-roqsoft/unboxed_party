@@ -63,7 +63,7 @@
                 <div v-if="reveal == false" class="tw-text-white"  >
 
 
-                    <h1 class="mb-5 text-white  text-center">
+                    <h1 style="font-size: 30px;" class="mb-5 text-white  font-weight-bold text-center">
                         Enter your email to checkout.
                     </h1>
                     <v-form @submit.prevent="checkemail()" ref="email" class="w-100 h-auto px-5 ">
@@ -84,8 +84,8 @@
                 </div>
                 
                 <div v-if="reveal == 4">
-                    <h1 class="mb-5 text-white  text-center">
-                        Thank you, check your email for your ticket.
+                    <h1 style="font-size: 30px;" class="mb-5 text-white font-weight-bold  text-center">
+                        Thank you, check your email.
                     </h1>
              
                 </div>
@@ -100,8 +100,8 @@
                     @submit.prevent="submit()" ref="form"
                     class="w-100 h-auto px-5">
                     <h1
-                        style=" "
-                        class="mb-5 text-white  text-center">
+                         style="font-size: 30px;"
+                        class="mb-5 text-white font-weight-bold  text-center">
                         Welcome 😍, kindly fill the form to continue🚀.
                     </h1>
 
@@ -188,14 +188,43 @@
                    
 
                     </v-form>
+
+
+                    
                     </v-card>
                 </v-expand-transition>
 
                 
-
                 
-              
-            </v-card>
+                
+                
+                
+              </v-card>
+
+              <v-expand-transition>
+                <v-card v-if="reveal == 2" class="v-card--reveal" color="transparent"
+                style="height: 100%;"  width="100%">
+                <div  class="mb-5">
+                    <h1  style="font-size: 30px;" class="mb-5 text-white font-weight-bold  text-center">
+                                      Proceed to Pay
+                                 </h1>
+
+                                  <!-- <p 
+                                     style="
+                                          background: rgb(21 21 21);
+                                          padding: 10px 15px;
+                                          border-radius: 8px;line-height:19px;
+                                          margin-top: 20px; font-size:15px" 
+                                          class="text-orange-darken-1 text-left"><span style="
+                                          font-size:18px" class="text-grey font-weight-bold">Note</span>  
+                                          <br> <br> 1.  Kindly wait for your payment to be confirmed by flutterwave before closing the payment screen <br><br>  
+                                          2. Final amount will include payment gateway charges <br><br>  
+                                     3. Contact Support for any payment issues
+                                  </p> -->
+
+                          </div>
+                </v-card>
+              </v-expand-transition>
             
         </v-col>
         <div class=" tw-w-full  md:tw-mt-4 tw-opacity-70  tw-shadow tw-rounded-md tw-min-h-[300px]  
@@ -222,23 +251,10 @@
                             <span>N{{ addCommas(totalPrice) }}.00</span>
                             </div>
 
-                            <h1  v-if="reveal == 2" class="mb-5 text-white  text-center">
-                                  Proceed to Pay
-                             </h1>
+                           
 
-                            <div v-if="reveal == 2" class="mb-5">
-                                    <p 
-                                    style="
-                                            background: rgb(21 21 21);
-                                            padding: 10px 15px;
-                                            border-radius: 8px;line-height:19px;
-                                            margin-top: 20px; font-size:15px" 
-                                            class="text-orange-darken-1 text-left"><span style="
-                                            font-size:18px" class="text-grey font-weight-bold">Note</span>  
-                                            <br> <br> 1.  Kindly wait for your payment to be confirmed by flutterwave before closing the payment screen <br><br>  
-                                            2. Final amount will include payment gateway charges <br><br>  
-                                            3. Contact Support for any payment issues</p>
-                            </div>
+                           
+
                       </div>
 
                         <v-row class="tw-p-2 tw-grid tw-grid-cols-2 tw-gap-3">
@@ -324,7 +340,7 @@ export default {
 
   methods:{
     setActiveCategory(tab) {
-      this.selecteditemsToD = this.$store.state.items.filter((item) =>  item.category.includes(tab))
+      this.selecteditemsToD = this.$store.state.shop_items.list.filter((item) =>  item.category.includes(tab))
      
       console.log(this.activeCategory)
     },
@@ -484,7 +500,7 @@ export default {
 
   computed:{
       items () {
-      return this.$store.state.myitems
+      return  this.$store.state.shop_items.list
     },
     subtotalPrice() {
         return this.$store.state.cartItems.reduce(

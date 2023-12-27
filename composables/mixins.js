@@ -50,12 +50,13 @@ export const uploadToCloudinary = async ( file) => {
 
 
 
-export const imageFilter = (imageUrl,w,h)=>{
+export const imageFilter = (imageUrl,w)=>{
   const parts = imageUrl.split("upload/");
   return parts[0]+'upload/c_fit,w_'+w+parts[1]
 }
 
 
+// date are formatted in this form (24th Nov 2023)
 export const formatDate = (dat) =>{
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const date = new Date(dat);
@@ -68,5 +69,12 @@ export const formatDate = (dat) =>{
   const formattedDate = `${day.toString().padStart(2, '0')}th ${months[monthindex]}. ${year} `;
 
   return formattedDate;
+}
 
+
+
+//set expiration date 
+export function addMinutes(minutesToAdd) {
+ 
+  return new Date(new Date().getTime() + minutesToAdd * 60000);
 }

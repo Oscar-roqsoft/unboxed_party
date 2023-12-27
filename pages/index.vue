@@ -301,7 +301,7 @@ class="bgh">
                   <ItemImage :options="item.options" :width="270"  />
               </div>
 
-                  <h3 class="font-weight-medium mt-2 text-truncate text-white">{{item.name}}</h3>
+                  <h3 style="font-size: 20px;" class="font-weight-medium mt-2 text-capitalize text-truncate text-white">{{item.name}}</h3>
 
  </v-card>
       </v-col>
@@ -759,7 +759,7 @@ return seconds
     },
 
     items () {
-      return this.$store.state.myitems
+      return this.$store.state.shop_items.list
     },
 
     eventsList () {
@@ -809,19 +809,26 @@ return seconds
     }
 
     try {
+
       const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
+
         method:"GET",
+
         headers:{
           'Content-Type': 'application/json',
         }
+
       }).then(res=>res.json());
+
       console.log(data)
 
       const payload =  [...data.items]
       payload.reverse(payload)
       this.$store.dispatch("setMyItems", payload);
+      this.$store.dispatch("setMyItemsExpirationDate", addMinutes(30));
+
     } catch (error) {
-      console.error(error);
+    console.error(error);
     }
 
   

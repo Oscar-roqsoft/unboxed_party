@@ -49,7 +49,6 @@ import { imageFilter } from "@/composables/mixins";
 
             const parsedOptions = JSON.parse(this.options);
             if (parsedOptions.images && parsedOptions.images.length > 0) {
-                console.log(parsedOptions.images[0])
             return parsedOptions.images[0];
 
         }

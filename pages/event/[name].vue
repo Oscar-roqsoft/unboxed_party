@@ -238,20 +238,25 @@
           : [6, 12, 12, 12, 12, 12, 12, 12, 12];
       },
       events () {
-      return this.$store.state.events
-    },
+        return this.$store.state.myevents.list
+      },
     },
     mounted() {
-      var name = decodeURIComponent(this.$route.params.name)
-      
-     this.event = this.events.find(el=>{
-        return el.name == name
-      })
       setTimeout(() => {
+       this.getEvent();
+      }, 1000);
+
+     setTimeout(() => {
         this.dialog = true;
       }, 10000);
     },
     methods: {
+      getEvent(){
+        var name = decodeURIComponent(this.$route.params.name)
+        
+        this.event = this.events.find(el=> el.name.toLowerCase() == name.toLowerCase())
+        console.log(this.event,this.$store.state.myevents)
+      },
       async submit() {
         this.booked = true;
   

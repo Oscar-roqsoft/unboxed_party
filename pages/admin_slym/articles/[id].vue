@@ -90,7 +90,7 @@ export default {
 
   computed:{
     fetchedarticles() {
-    return this.$store.state.myarticles;
+    return this.$store.state.myarticles.list;
       },
   },
 

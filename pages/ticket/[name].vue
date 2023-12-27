@@ -130,7 +130,7 @@
 
               <div v-if="reveal == false">
 
-                  <h1 class="mb-5 text-white  text-center">
+                  <h1 style="font-size: 30px;" class="mb-5 text-white font-weight-bold  text-center">
                    Enter your email to purchase ticket.
                   </h1>
 
@@ -169,7 +169,8 @@
 
                 </div>
                 <div v-if="reveal == 4">
-                  <h1 class="mb-5 text-white  text-center">
+                  <h1  style="font-size: 30px;"
+                  class="mb-5 text-white font-weight-bold   text-center">
                       Thank you, check your email for your ticket.
                   </h1>
                  
@@ -186,8 +187,8 @@
                   @submit.prevent="submit()" ref="form"
                   class="w-100 h-auto px-5">
                   <h1
-                    style=" "
-                    class="mb-5 text-white  text-center">
+                  style="font-size: 30px;"
+                    class="mb-5 text-white font-weight-bold text-center">
                     Welcome 😍, kindly fill the form to continue🚀.
                   </h1>
 
@@ -308,7 +309,7 @@
                   class="v-card--reveal " color="transparent"
                   style="height: 100%;"
                 >
-                <h1 class="mb-5 text-white  text-center">
+                <h1 style="font-size: 30px;" class="mb-5 text-white text-capitalize font-weight-bold  text-center">
                     Proceed to Pay
                 </h1>
                 <div class="d-flex mb-3 px-3 align-center justify-space-between">

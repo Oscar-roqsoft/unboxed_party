@@ -5,7 +5,7 @@
             class="d-flex py-0 justify-space-between align-center"
             style="height: "
           >
-          <v-img eager @click="$router.push('/')" width="auto" max-width="200" 
+          <v-img eager @click="$router.push('/')" width="auto" max-width="200"  style="cursor: pointer;"
           src="https://res.cloudinary.com/crushcontest-com/image/upload/v1684055372/Unboxed_Web_rggvdz.png">
         </v-img>
             <v-col

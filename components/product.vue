@@ -32,8 +32,8 @@
                         <th scope="row" class="px-4 py-4 font-medium  whitespace-nowrap " style="min-width: 200px;">
                           <div class="tw-w-full tw-flex ">
                             <div class="tw-w-[100px] ">
-                              <img class="tw-w-full  tw-rounded-md" 
-                              :src="imageFilter(item.image,200)" 
+                              <img class="tw-w-[200px]  tw-rounded-md" 
+                              :src="item.image" 
                                />
                             </div>
                       
@@ -48,7 +48,7 @@
 
                         </th>
 
-                        <td class="px-6 tw-py-4 tw-font-bold">
+                        <td class="px-6 tw-py-4 tw-uppercase tw-font-bold">
 
                           <!-- <div class="tw-flex tw-flex-col   tw-justify-center tw-items-start ">
                             <select v-model.trim="selected" class="tw-bg-gray-transparent tw-border tw-shadow-sm tw-text-center  tw-text-sm

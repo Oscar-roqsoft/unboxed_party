@@ -99,30 +99,33 @@ export default {
   computed: {
     
       events () {
-      return this.$store.state.myevents
+      return this.$store.state.myevents.list
     },
   },
 
   async mounted(){
     console.log(this.events)
     try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
-        method:"GET",
-        headers:{
-          'Content-Type': 'application/json',
+          const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+            method:"GET",
+            headers:{
+              'Content-Type': 'application/json',
+            }
+          }).then(res=>res.json());
+          console.log(data.events)
+    
+    
+          const payload =  [...data.events]
+          payload.reverse(payload)
+          this.$store.dispatch("setMyEvents", payload);
+          this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+    
+        this.isLoading = false
+        } catch (error) {
+          console.error(error);
         }
-      }).then(res=>res.json());
-      console.log(data.events)
 
 
-      const payload =  [...data.events]
-      payload.reverse(payload)
-      this.$store.dispatch("setMyEvents", payload);
-
-
-    } catch (error) {
-      console.error(error);
-    }
   },
 
 

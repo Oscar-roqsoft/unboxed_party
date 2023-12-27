@@ -24,7 +24,7 @@
             <v-col  :cols="cols[7]">
 
               <div class="d-flex justify-center">
-                <v-card @vnode-mounted="image = JSON.parse(item.options).images[newIndex || 0] ; color = JSON.parse(item.options).colors[newIndex || 0]" 
+                <v-card @vue:mounted="image = JSON.parse(item.options).images[newIndex || 0] ; color = JSON.parse(item.options).colors[newIndex || 0]" 
                 color="transparent" width="100%" v-if="item.name" class="pa-0">
                   
                   <h2 style="font-size: 40px" class="font-weight-bold text-capitalize text-grey-lighten-2   pb-6">
@@ -175,7 +175,7 @@
                     <div class=" pt-3" style=" width:100%;   background: linear-gradient(360deg, black, transparent);
                       line-height: 1.2;position:;bottom:0">
 
-                          <h3 class="font-weight-medium text-capitalize text-grey-lighten-1">{{n.name}}</h3>
+<h3 class="font-weight-medium my-4 text-capitalize text-truncate text-white" style="font-size: 20px;">{{n.name}}</h3>
                     </div>
                   
                   </v-card>
@@ -273,13 +273,14 @@
 
     } ,
       items() {
-      return this.$store.state.myitems
+      return this.$store.state.shop_items.list
     },
       mycartItems () {
       return this.$store.state.cartItems
     },
     },
 
+    
     async mounted() {
       var name = decodeURIComponent(this.$route.params.id)
       this.item = this.items.find(el=>{
@@ -381,7 +382,9 @@
   };
   </script>
   <style>
+
   @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,200&display=swap");
+  
   .v-input__control {
     display: flex;
     grid-area: control;

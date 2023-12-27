@@ -1,15 +1,30 @@
 import { createStore } from "vuex";
 // import { store } from ".";
 
-// import { version } from "../package.json";
+import { version } from "../package.json";
 
 
  const state = () => ({
   //  image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_600/v1683359349/Screenshot_2023-05-06_at_8.48.45_AM_wfh3xb.png',
-    myevents:[],
-    myarticles:[],
+    // myevents:[],
+    version,
     mycategory:[],
-    myitems:[],
+    
+    myarticles:{
+      list:[],
+      expire_at:'',
+    },
+
+    shop_items:{
+      list:[],
+      expire_at:'',
+    },
+
+    myevents:{
+       list:[],
+       expire_at:'',
+    },
+
     myvideo:[],
 
     events: [
@@ -401,7 +416,7 @@ import { createStore } from "vuex";
           }
         ]
       },
-      
+
       {
         category:'Trousers',
         name: 'Cargo Pants',
@@ -574,6 +589,7 @@ import { createStore } from "vuex";
     getEvents(state) {
       return state.events
     },
+
     getMyEvents(state) {
       return state.myevents
     },
@@ -638,18 +654,44 @@ import { createStore } from "vuex";
         //update store version to current version
         state.version = version;
       }
-      // setTheme(state);
     },
 
+
+    CLEAR_EXPIRED_ITEMS( state ) {
+      if (state.shop_items?.expire_at && Date.now() >= state.shop_items?.expire_at) {
+        state.shop_items = {};
+      }
+      console.log('clearing....')
+    },
+
+    CLEAR_EXPIRED_EVENTS( state ) {
+      if (state.myevents?.expire_at && Date.now() >= state.myevents?.expire_at) {
+        state.myevents = {};
+      }
+      console.log('clearing....')
+    },
+    CLEAR_EXPIRED_ARTICLES( state ) {
+      if (state.myarticles?.expire_at && Date.now() >= state.myarticles?.expire_at) {
+        state.myarticles = {};
+      }
+      console.log('clearing....')
+    },
+    
 
 
     setArticles(state, {article}) {
       state.articles = article
     },
 
+
     SET_MY_ARTICLES(state, payload) {
-      state.myarticles = payload
+      state.myarticles.list = payload
     },
+
+    SET_MY_ARTICLES_EXPIRATION_DATE(state, payload) {
+      state.myarticles.expire_at = payload
+    },
+
 
     SET_MY_CATEGORY(state, payload) {
       state.mycategory = payload
@@ -663,12 +705,23 @@ import { createStore } from "vuex";
       state.article = article
     },
 
+
     SET_MY_EVENTS(state, payload) {
-      state.myevents = payload
+      state.myevents.list = payload
     },
 
+    SET_MY_EVENTS_EXPIRATION_DATE(state, payload) {
+      state.myevents.expire_at = payload
+    },
+
+   
+
     SET_MY_ITEMS(state, payload) {
-      state.myitems = payload
+      state.shop_items.list = payload
+    },
+
+    SET_MY_ITEMS_EXPIRATION_DATE(state, payload) {
+      state.shop_items.expire_at = payload
     },
   
     setEvents(state, {event}) {
@@ -701,6 +754,10 @@ import { createStore } from "vuex";
 
   
    const actions = {
+    initStore({commit}){
+       commit('INIT_STORE')
+    },
+
     setMyCategory({commit},payload) {
       console.log("category payload from store...",payload)
       commit("SET_MY_CATEGORY",payload)
@@ -723,16 +780,48 @@ import { createStore } from "vuex";
     },
 
 
+     setMyArticlesExpirationDate({ commit }, payload) {
+      // make request
+      commit('SET_MY_ARTICLES_EXPIRATION_DATE', payload)
+    },
+
+    clearExpiredItems({commit}){
+      commit('CLEAR_EXPIRED_ITEMS')
+    },
+
+    clearExpiredEvents({commit}){
+      commit('CLEAR_EXPIRED_EVENTS')
+    },
+
+    clearExpiredArticles({commit}){
+      commit(' CLEAR_EXPIRED_ARTICLES')
+    },
+
+
     setMyEvents({ commit }, payload) {
        // make request
        console.log("events payload from store...",payload)
       commit('SET_MY_EVENTS', payload)
     },
 
+    setMyEventsExpirationDate({ commit }, payload) {
+       // make request
+       console.log("events payload from store...",payload)
+      commit('SET_MY_EVENTS_EXPIRATION_DATE', payload)
+    },
+
     setMyItems({ commit }, payload) {
        // make request
        console.log("items payload from store...",payload)
       commit('SET_MY_ITEMS', payload)
+    },
+
+   
+
+    setMyItemsExpirationDate({ commit }, payload) {
+       // make request
+       console.log("items payload from store...",payload)
+      commit('SET_MY_ITEMS_EXPIRATION_DATE', payload)
     },
 
      setEvent({ commit }, event) {
@@ -782,5 +871,7 @@ import { createStore } from "vuex";
   export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(store);
     // Install the store instance as a plugin
+
+    store.dispatch("initStore");
   });
   

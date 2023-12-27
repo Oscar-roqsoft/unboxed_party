@@ -53,7 +53,7 @@
 
   <v-row  class=" tw-min-w-[280px] tw-rounded tw-px-[14px]">
       
-          <div v-for="tab in fetchedcategory"   :key="tab.id"  class="bg-transparent  tw-p-1 ">
+          <div v-for="tab in fetchedcategory"   :key="tab.id" style="font-size:35px"  class="bg-transparent font-weight-bold  tw-p-1 ">
               
               <v-btn @click.prevent=" setActiveCategory(tab.name); activeCategory = tab.name " 
               class=" tw-border-t  text-capitalize  font-weight-bold" elevation="0"
@@ -74,14 +74,14 @@
 
       
 
-      <v-card v-else class="block items-center tw-text-center"  :to="'/shop/'+item.id" style="cursor: pointer;"  color="transparent" flat height="">
+      <v-card v-else class="block items-center "  :to="'/shop/'+item.id" style="cursor: pointer;"  color="transparent" flat height="">
           <!-- <v-img  eager  max-width="500px"
             class="rounded-lg" height="400" width="100%" cover 
             :src="'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_800/v1694578910/unboxed/'+ item.options[0].images[0] +'.png'"></v-img> -->
             <div class="tw-rounded-lg">
                   <ItemImage :options="item.options" :width="itemSize" />
               </div>
-            <h3 class="font-weight-medium my-4 text-truncate text-white">{{item.name}}</h3>
+            <h3 class="font-weight-medium my-4 text-capitalize text-truncate text-white" style="font-size: 20px;">{{item.name}}</h3>
 
      </v-card>
 
@@ -96,7 +96,7 @@
 
 </template>
 <script>
-
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -127,7 +127,7 @@ export default {
     } ,
 
       items () {
-      return this.$store.state.myitems
+      return this.$store.state.shop_items.list
     },
     
     fetchedcategory(){
@@ -136,7 +136,10 @@ export default {
   },
 
  async mounted(){
+
+
   this.isLoading = true
+
     try {
         const data = await fetch(`https://backend.unboxedparty.com/api/category`,{
             method:"GET",
@@ -155,32 +158,52 @@ export default {
       console.error(error);
     }
 
-    try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
-        method:"GET",
-        headers:{
-          'Content-Type': 'application/json',
-        }
-      }).then(res=>res.json());
-      console.log(data)
 
-      const payload =  [...data.items]
-      payload.reverse(payload)
-      this.$store.dispatch("setMyItems", payload);
-    } catch (error) {
-      console.error(error);
-    }
-    // console.log(this.fetchedCategory)
+
+  if(Date.now() >= this.$store.state.shop_items?.expire_at){
+
+       try {
+         const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
+           method:"GET",
+           headers:{
+             'Content-Type': 'application/json',
+           }
+ 
+         }).then(res=>res.json());
+ 
+         console.log(data)
+   
+         const payload =  [...data.items]
+         payload.reverse(payload)
+         this.$store.dispatch("setMyItems", payload);
+         this.$store.dispatch("setMyItemsExpirationDate", addMinutes(30));
+ 
+       } catch (error) {
+         console.error(error);
+       }
+
+  }else{
+  return this.items
+  }
+      
+
+
   },
+
+  watch:{
+    items(){
+      this.$store.dispatch('clearExpiredItems')
+    }
+  },
+
 
   methods:{
 
     setActiveCategory(tab) {
-      this.selecteditemsToD = this.$store.state.myitems.filter((item) =>  item.category.toUpperCase().includes(tab.toUpperCase()))
-     
+      this.selecteditemsToD = this.items.filter((item) =>  item.category.toUpperCase().includes(tab.toUpperCase()))
       console.log(this.selecteditemsToD)
-
     },
+
   },
 
  
@@ -188,6 +211,8 @@ export default {
 
 
 </script>
+
+
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,200&display=swap");
 

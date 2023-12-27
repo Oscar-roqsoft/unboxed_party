@@ -44,7 +44,7 @@
 
 
                 <div class=" pt-3" style=" width:100%;   background: linear-gradient(360deg, black, transparent);
-    line-height: 1.2;position:;bottom:0">
+                  line-height: 1.2;position:;bottom:0">
                 <h3 class="font-weight-medium text-truncate text-white">{{n.name}}</h3>
               </div>
               
@@ -117,34 +117,52 @@
       return this.$store.state.events
     },
       myevents () {
-      return this.$store.state.myevents
+      return this.$store.state.myevents.list
     },
     },
 
     async mounted() {
-      this.isLoading = true
-      try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
-        method:"GET",
-        headers:{
-          'Content-Type': 'application/json',
+
+
+      if(Date.now() >= this.$store.state.myevents?.expire_at){
+
+          this.isLoading = true
+          try {
+          const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+            method:"GET",
+            headers:{
+              'Content-Type': 'application/json',
+            }
+          }).then(res=>res.json());
+          console.log(data.events)
+    
+    
+          const payload =  [...data.events]
+          payload.reverse(payload)
+          this.$store.dispatch("setMyEvents", payload);
+          this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+    
+        this.isLoading = false
+        } catch (error) {
+          console.error(error);
         }
-      }).then(res=>res.json());
-      console.log(data.events)
+      }else{
+        return this.myevents
+      }
 
 
-      const payload =  [...data.events]
-      payload.reverse(payload)
-      this.$store.dispatch("setMyEvents", payload);
-
-     this.isLoading = false
-    } catch (error) {
-      console.error(error);
-    }
       setTimeout(() => {
         this.dialog = true;
       }, 10000);
     },
+
+
+    watch:{
+    myevents(){
+      this.$store.dispatch('clearExpiredEvents')
+    }
+  },
+
 
     methods: {
       async submit() {

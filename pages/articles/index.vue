@@ -38,7 +38,7 @@
                   class="rounded-xl"
                   :src="n.image"
                 ></v-img>
-                <div class=" pt-3" style=" width:100%;   background: linear-gradient(360deg, black, transparent);
+                <div class=" pt-3" style=" width:100%; font-size: 20px;  background: linear-gradient(360deg, black, transparent);
     line-height: 1.2;position:;bottom:0">
                 <h3 class="font-weight-medium text-truncate text-white">{{n.name}}</h3>
               </div>
@@ -112,33 +112,50 @@
       return this.$store.state.articles
       },
       myarticles () {
-      return this.$store.state.myarticles
+      return this.$store.state.myarticles.list
     },
     },
     async mounted() {
-      this.isLoading = true
-      try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
-        method:"GET",
-        headers:{
-          'Content-Type': 'application/json',
+
+      if(Date.now() >= this.$store.state.myarticles?.expire_at){
+
+          this.isLoading = true
+          try {
+          const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
+            method:"GET",
+            headers:{
+              'Content-Type': 'application/json',
+            }
+    
+          }).then(res=>res.json());
+          console.log(data)
+    
+          const payload =  [...data.articles]
+        this.$store.dispatch("setMyArticles", payload);
+        this.$store.dispatch("setMyArticlesExpirationDate", addMinutes(30));
+    
+        this.isLoading = false
+        
+        } catch (error) {
+          console.error(error);
         }
-      }).then(res=>res.json());
-      console.log(data)
+      }else{
+        return this.myarticles
+      }
 
-      const payload =  [...data.articles]
-     this.$store.dispatch("setMyArticles", payload);
 
-     this.isLoading = false
-     
-    } catch (error) {
-      console.error(error);
-    }
 
       setTimeout(() => {
         this.dialog = true;
       }, 10000);
     },
+
+
+    watch:{
+    myarticles(){
+      this.$store.dispatch('clearExpiredArticles')
+    }
+  },
 
     methods: {
       async submit() {

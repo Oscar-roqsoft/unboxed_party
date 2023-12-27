@@ -40,7 +40,7 @@
               >
 </v-img>
 </div>          
-              <h2 style="font-size: 35px" class="  py-3">
+              <h2 style="font-size: 35px" class="font-weight-bold  py-3">
                 {{article.name}}
               </h2>
             
@@ -69,9 +69,11 @@
             </v-card>  </div>
             <v-col class="px-0 pt-0" :cols="cols[1]">
    
+
          </v-col>
             </v-col>
             <v-col   :cols="cols[8]">
+
               <h2 style="font-size: 30px" class="font-weight-medium text-grey-lighten-2   pb-0 py-0 px-1">
                            Quick Reads 
                            </h2>
@@ -85,7 +87,7 @@
                   class="rounded-xl"
                   :src="n.image"
                 ></v-img>
-                <div class=" pt-3" style=" width:100%;   background: linear-gradient(360deg, black, transparent);
+                <div class=" pt-3" style=" width:100%; font-size: 20px;  background: linear-gradient(360deg, black, transparent);
     line-height: 1.2;position:;bottom:0">
                 <h3 class="font-weight-medium text-truncate text-grey-lighten-1">{{n.name}}</h3>
               </div>
@@ -191,6 +193,8 @@
           title: "Pisces (February 19 - March 20)",
         },
       ],
+
+      
     }),
     computed: {
       displ() {
@@ -206,8 +210,9 @@
           ? [6, 12, 12, 12, 12, 12, 12, 12, 12]
           : [6, 12, 12, 12, 12, 12, 12, 12, 12];
       },
+
       articles () {
-      return this.$store.state.articles
+      return this.$store.state.myarticles.list
     },
     },
     mounted() {

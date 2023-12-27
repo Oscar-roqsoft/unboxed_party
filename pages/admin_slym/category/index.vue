@@ -76,10 +76,13 @@ export default {
     };
   },
 
+  
 computed: {
+
   fetchedcategory() {
     return this.$store.state.mycategory;
   },
+
 },
 
 

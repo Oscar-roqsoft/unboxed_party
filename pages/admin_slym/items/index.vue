@@ -44,7 +44,7 @@
                   <span class="font-bold">Name:</span>
                   <span class="ml-2">{{ item.name }}</span>
                 </div>
-                
+
                 <div class="tw-mt-3">
                   <span class="font-bold">Price:</span>
                   <span class="ml-2">N{{ addCommas(item.price) }}</span>
@@ -97,7 +97,7 @@ export default {
     },
   computed: {
     items() {
-      return this.$store.state.myitems;
+      return this.$store.state.shop_items.list;
     },
     screenWidth() {
         return this.$vuetify.display.width;
@@ -122,24 +122,32 @@ export default {
   },
 
  async mounted(){
+  
     console.log(this.$vuetify.display.width)
-    try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
-        method:"GET",
-        headers:{
-          'Content-Type': 'application/json',
-        }
-      }).then(res=>res.json());
-      console.log(data)
 
-      const payload =  [...data.items]
-      payload.reverse(payload)
-      this.$store.dispatch("setMyItems", payload);
-    } catch (error) {
-      console.error(error);
-    }
+        try {
+          const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
+            method:"GET",
+            headers:{
+              'Content-Type': 'application/json',
+            }
+
+          }).then(res=>res.json());
+
+          console.log(data)
+
+          const payload =  [...data.items]
+          payload.reverse(payload)
+          this.$store.dispatch("setMyItems", payload);
+          this.$store.dispatch("setMyItemsExpirationDate", addMinutes(30));
+
+        } catch (error) {
+          console.error(error);
+        }
+
  
   },
+
   methods: {
     addCommas(num) {
       // ... your method logic
@@ -173,7 +181,7 @@ export default {
           body: JSON.stringify(id),
         });
 
-        const filteredItems = this.$store.state.myitems.filter(
+        const filteredItems = this.items.filter(
           (item) => item.id !== itemId
           );
           this.$store.dispatch("setMyItems", filteredItems);

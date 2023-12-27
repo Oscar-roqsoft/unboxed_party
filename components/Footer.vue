@@ -1,7 +1,8 @@
 <template>
   <Testimonial />
   <v-container :class="$vuetify.display.smAndDown?'px-0':''" class="py-12 px-6" style="overflow:hidden">
-            <h2 :style="$vuetify.display.smAndDown?'padding-top:100px':''" style="font-size:46px!important;padding-bottom: 0px;color:#fff" class=" my-0 mb-12 coreupcard hidden text-center logoText   px-5 ">Our Partners </h2>
+            <h2 :style="$vuetify.display.smAndDown?'padding-top:100px':''" style="font-size:46px!important; padding-bottom: 0px;color:#fff" 
+            class=" my-0 mb-12 coreupcard hidden text-center logoText font-weight-bold   px-5 ">Our Partners </h2>
         <v-row class="flex-wrap d-flex" wrap >
             <v-col class="pa-1 d-flex align-center justify-center" :cols="cols[5]">
                 <v-img eager height="150" class="ma-a25o" max-width="300" width="100%" src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_500,h_500/v1683285416/reboot_luxuryc_place_xzbd3l.png"></v-img>

@@ -75,7 +75,7 @@ export default {
 
   computed:{
       fetchedArticles(){
-        return this.$store.state.myarticles
+        return this.$store.state.myarticles.list
       }
 
   },
@@ -83,20 +83,24 @@ export default {
   async mounted(){
     console.log(this.fetchedArticles)
     try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
-        method:"GET",
-        headers:{
-          'Content-Type': 'application/json',
+          const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
+            method:"GET",
+            headers:{
+              'Content-Type': 'application/json',
+            }
+    
+          }).then(res=>res.json());
+          console.log(data)
+    
+          const payload =  [...data.articles]
+        this.$store.dispatch("setMyArticles", payload);
+        this.$store.dispatch("setMyArticlesExpirationDate", addMinutes(30));
+    
+        this.isLoading = false
+        
+        } catch (error) {
+          console.error(error);
         }
-      }).then(res=>res.json());
-      console.log(data)
-
-      const payload =  [...data.articles]
-      payload.reverse.payload
-     this.$store.dispatch("setMyArticles", payload);
-    } catch (error) {
-      console.error(error);
-    }
   },
 
 

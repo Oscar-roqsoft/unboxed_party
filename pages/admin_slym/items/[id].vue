@@ -2,7 +2,7 @@
     <div>
 
         <v-container>
-            <Backbutton class=" md:tw-max-w-[800px] mx-auto"/>
+            <Backbutton  class=" md:tw-max-w-[800px] mx-auto"/>
         </v-container>
 
         <v-container>
@@ -213,7 +213,7 @@ export default {
         },
 
      items () {
-         return this.$store.state.myitems
+         return this.$store.state.shop_items.list
         },
         
     },

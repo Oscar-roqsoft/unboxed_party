@@ -46,8 +46,8 @@
             <v-col class="my-6" :cols="cols[2]">
               <h1 class="herotitle">Data driven party experience</h1>
               <p
-                style="max-width: 450px"
-                class="py-3 mb-4 text-grey-lighten-1 centerIt"
+                style="max-width: 450px;"
+                class="py-3 mb-4 font-weight-bold text-grey-lighten-1 centerIt"
               >
                 We only use your data to send you relevant information from unboxedparty.com, we do not sell or share your data with any third party.
               </p>
