@@ -28,7 +28,7 @@
             <v-col  v-for="(n, i) in myarticles" :key="i" class="pt-3" :cols="cols[3]">
 
                     <!-- skeleton loader -->
-              <v-skeleton-loader v-if="isLoading" type=" image, heading" :style="{ backgroundColor: '#999' }"  />
+              <v-skeleton-loader v-if="isLoading" type=" image, heading" style="background: #000000 !important;"  />
 
               <v-card v-else :to="'/article/'+ encodeURIComponent(n.name)" variant="dark" class="pa-2">
                 <v-img

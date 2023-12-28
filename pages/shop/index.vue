@@ -67,7 +67,7 @@
     <v-col cols="12" md="6" lg="4" class="mb-4" v-for="(item, i) in activeCategory === 'all' ? items : selecteditemsToD " :key="item.id">
       
       <!-- skeleton loader -->
-      <v-card style="background: #050505 !important;" v-if="isLoading"  class="tw-rounded-lg  ">
+      <v-card  v-if="isLoading"  class="tw-rounded-lg  ">
            <v-skeleton-loader
             type="image,heading" 
             style="background: #000000 !important;"  />
@@ -182,9 +182,12 @@ export default {
          console.error(error);
        }
 
-  }else{
-  return this.items
-  }
+      }else{
+
+        this.isLoading = false
+
+      return this.items
+      }
       
 
 

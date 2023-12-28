@@ -29,7 +29,7 @@
 
                <!-- skeleton loader -->
                <v-card v-if="isLoading" class="tw-rounded-lg bg-gray-400">
-                    <v-skeleton-loader type="image, heading" style="background: #050505 !important;"/>
+                    <v-skeleton-loader type="image, heading"  style="background: #000000 !important;" />
              </v-card>
               
                <v-card v-else :to="'/event/'+ encodeURIComponent(n.name)" variant="dark" class="pa-2">
@@ -122,11 +122,11 @@
     },
 
     async mounted() {
-
+      this.isLoading = true
 
       if(Date.now() >= this.$store.state?.myevents?.expire_at){
 
-          this.isLoading = true
+          
           try {
           const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
             method:"GET",
@@ -135,17 +135,18 @@
             }
           }).then(res=>res.json());
     
+          this.isLoading = false
     
           const payload =  [...data.events]
           payload.reverse(payload)
           this.$store.dispatch("setMyEvents", payload);
           this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
     
-        this.isLoading = false
         } catch (error) {
           console.error(error);
         }
       }else{
+        this.isLoading = false
         return this.myevents
       }
 

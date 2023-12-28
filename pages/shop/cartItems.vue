@@ -517,9 +517,9 @@ export default {
       // alert('Are you having issues with your payment? kindly contact us on 09012770000')
     },
     
-    // public_key: "FLWPUBK-7efa3db90b59bb99bd153e108da68608-X",
+    public_key: "FLWPUBK-7efa3db90b59bb99bd153e108da68608-X",
     
-    public_key: "FLWPUBK_TEST-dc78942734a59f37eb0cd2f432ecf155-X",
+    // public_key: "FLWPUBK_TEST-dc78942734a59f37eb0cd2f432ecf155-X",
     // redirect_url: undefined,
     
     tx_ref: `${this.phone}_${random}_${+ new Date()}`,

@@ -136,7 +136,7 @@ export default{
         async updateOrder(){
 
             if(!this.selected) return this.message = 'select order status'
-            // this.isLoading = true
+            this.isLoading = true
             const orderInfo = {
                 id: this.order.id,
                 status: this.selected

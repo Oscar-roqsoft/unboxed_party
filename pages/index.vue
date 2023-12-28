@@ -574,7 +574,7 @@ class="bgh">
                 class="rounded-xl"
                 :src="n.image"
               ></v-img>
-              <h2 style="font-size: 40px" class="text-truncate text-grey-lighten-2 logoText pt-1">
+              <h2 style="font-size: 40px " class="text-truncate text-grey-lighten-2 logoText pt-1">
                 {{n.name}}
               </h2>
            
