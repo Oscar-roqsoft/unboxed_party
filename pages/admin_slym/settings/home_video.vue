@@ -52,7 +52,17 @@
 </template>
 
 <script>
+import { createToast } from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
+
 export default {
+  setup () {
+    const toast = (message) => {
+        createToast(message)
+    }
+    return { toast }
+  },
+
   data() {
     return {
         name: "",
@@ -85,11 +95,14 @@ export default {
               },
               body:JSON.stringify(video)
           }).then(res=>res.json())
+
+          if(data.success) this.toast('Video Uploaded successfully')
           this.loading= false
           console.log(data)
             navigateTo('/admin_slym')
       }catch(e){
          console.log(e)
+         this.toast('message status:  Video failed to upload')
       }
 
     },

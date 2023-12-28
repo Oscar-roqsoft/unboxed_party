@@ -241,13 +241,13 @@
                             <!-- <v-money>${{ totalPrice}}</v-money> -->
                             </div>
 
-                            <div class="tw-flex tw-justify-between tw-pb-4 tw-border-b tw-border-gray-900">
+                            <!-- <div class="tw-flex tw-justify-between tw-pb-4 tw-border-b tw-border-gray-900">
                             <span class="tw-capitalize">Discount:</span>
                             <span>N{{ addCommas(discountPrice)}}.00</span>
-                            </div>
+                            </div> -->
 
                             <div class="tw-flex tw-justify-between tw-py-4">
-                            <span class="tw-capitalize">total:</span>
+                            <span class="tw-capitalize">total Amount:</span>
                             <span>N{{ addCommas(totalPrice) }}.00</span>
                             </div>
 
@@ -308,10 +308,18 @@
 
 </template>
 <script>
-
+import { createToast } from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
 import {useFlutterwave} from "flutterwave-vue3"
 
 export default {
+  setup () {
+    const toast = (message) => {
+        createToast(message)
+    }
+    return { toast }
+  },
+
   data() {
     return {
       rules: {
@@ -331,11 +339,24 @@ export default {
       id: '',
       phone: "",
       address: "",
+      order_ID:'',
       consent: true,
       isVisible: true,
       loading: false,
       reveal: false,
     };
+  },
+
+
+  mounted(){
+
+
+    if(!this.$store.state.cartItems.length){
+         this.$router.push('/shop')
+         console.log('done')
+       }
+
+    
   },
 
   methods:{
@@ -411,44 +432,114 @@ export default {
       },
 
 
+      async verify_trans(transaction_reference){
+        console.log(transaction_reference)
+        try{
+            const data = await fetch(`https://backend.unboxedparty.com/api/order/verify?reference=${transaction_reference}`,{
+              method:"GET",
+              headers:{
+                'Content-Type': 'application/json',
+              }
+            }) .then(resp=>resp.json())
+
+            if(data.success) this.toast("Transaction successfully, we will get back to you")
+            this.$store.state.cartItems = []
+            this.$router.push('/shop')
+
+        }catch(e){
+           this.toast(e)
+        }
+          
+      },
+
+
+      async addOrder(){
+
+        const cart_items ={
+          user_id:this.user.id,
+          total_amount:this.totalPrice,
+          cart_items:JSON.stringify(this.cartitems)
+        }
+
+        console.log(cart_items)
+        try{
+          const data = await fetch('https://backend.unboxedparty.com/api/order',{
+            method:"POST",
+            headers:{
+              'Content-Type': 'application/json',
+            },
+            body:JSON.stringify(cart_items)
+          }).then(resp=>resp.json())
+
+        // if(data.success) this.toast('Order placed Successfully')
+
+        localStorage.setItem("order_id", data.order_id)
+
+        }catch(e){
+          this.toast(e)
+        }
+      },
+
+
     paynow(){
-    this.loading = true
 
-    var random = Math.random().toString(36).slice(2, 8);
+      this.loading = true
+      if(!this.totalPrice){
+        this.loading = true
+        return
+      }
 
-    var datas ={email: this.email, id: this.user.id, name: this.name, phone_number: this.phone}
-    //this will launch Fluterwave payment modal
-    if (this.totalPrice == 0) return
+      this.addOrder()
+      const order_id = localStorage.getItem("order_id");
+        
+      var random = Math.random().toString(36).slice(2, 8);
 
-  
+    var data = {email: this.email, id: this.user.id, name: this.name, phone_number: this.phone}
+    // //this will launch Fluterwave payment modal
+    // if (!this.totalPrice) return;
+
+  console.log(order_id)
+
    const modal = useFlutterwave({
     // amount: 200,//amount
-    amount: this.totalPrice,//amount
+    amount: this.totalPrice, //amount
+    currency: "NGN",
+
+
     callback: (e)=>{
       console.log(e)
-  this.verify_trans(e)
+      const transaction_reference = e.transaction_id;
+      this.verify_trans(transaction_reference)
       modal.close();
     },
-    country: "NG",
-    currency: "NGN",
-    customer: datas,
-    customizations: {logo: "https://res.cloudinary.com/dnqw7x4bp/image/upload/c_fit,w_200/v1582290476/e_dey_e_only_2.png", title: "E Dey App"},
+
+
+    // country: "NG",
     onclose: ()=>{
       this.loading = false
-// alert('Are you having issues with your payment? kindly contact us on 09012770000')
+      // alert('Are you having issues with your payment? kindly contact us on 09012770000')
     },
+    
+    // public_key: "FLWPUBK-7efa3db90b59bb99bd153e108da68608-X",
+    
+    public_key: "FLWPUBK_TEST-dc78942734a59f37eb0cd2f432ecf155-X",
+    // redirect_url: undefined,
+    
+    tx_ref: `${this.phone}_${random}_${+ new Date()}`,
+
     payment_options:  "card, banktransfer, ussd",
     bank_transfer_options: {
       expires: 3600
     },
+
     meta: {
-    //   qty: this.qty,
-      amount: this.totalPrice
+      consumer_mac: order_id,
     },
-    public_key: "FLWPUBK-7efa3db90b59bb99bd153e108da68608-X",
-    // redirect_url: undefined,
-    tx_ref: this.phone+'-'+random+'-'+this.email
+    
+    customer: data,
+    customizations: {logo: "https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_200/v1684055372/Unboxed_Web_rggvdz.png", title: "Unboxed_Party"},
   })
+
 },
 
     async checkemail() {
@@ -511,7 +602,12 @@ export default {
     totalPrice(){
       return parseFloat(this.subtotalPrice - this.discountPrice)
 
-    }
+    },
+    cartitems(){
+        return this.$store.state.cartItems
+      
+    },
+
   }
 }
 

@@ -86,9 +86,10 @@ class="bgh">
           </v-col>
           <v-col :class="$vuetify.display.smAndDown?'justify-center':'justify-end'" class="d-flex  align-center  mb-12" style="max-width: 700px;" :cols="cols[2]">
             
-                  <!-- skeleton loader -->
-                  <v-skeleton-loader v-if="isLoading" type=" image, heading" 
-                  :style="{ backgroundColor: '#999' }"  />
+               
+                <v-card  v-if="isLoading" class="tw-w-full">
+                    <v-skeleton-loader type="card" style="background: #010107 !important;" />
+                </v-card>
 
             <iframe v-else class="rounded-lg" width="450" height="250" :src="fetchedVideo" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -752,10 +753,10 @@ var seconds = (endDate.getTime() - startDate.getTime()) ;
 return seconds
     },
     articles () {
-      return this.$store.state.myarticles
+      return this.$store.state.myarticles.list
     },
     events () {
-      return this.$store.state.myevents
+      return this.$store.state.myevents.list
     },
 
     items () {
@@ -808,67 +809,86 @@ return seconds
          console.log(e)
     }
 
+    if(Date.now() >= this.$store.state.shop_items?.expire_at){
+
+     try {
+  const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
+    method:"GET",
+    headers:{
+      'Content-Type': 'application/json',
+          }
+
+        }).then(res=>res.json());
+
+        console.log(data)
+
+        const payload =  [...data.items]
+        payload.reverse(payload)
+        this.$store.dispatch("setMyItems", payload);
+        this.$store.dispatch("setMyItemsExpirationDate", addMinutes(30));
+
+      } catch (error) {
+        console.error(error);
+      }
+
+      }else{
+      return this.items
+      }
+
+
+    if(Date.now() >= this.$store.state?.myevents?.expire_at){
+
+     this.isLoading = true
     try {
+    const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+      method:"GET",
+      headers:{
+        'Content-Type': 'application/json',
+      }
+    }).then(res=>res.json());
+    console.log(data.events)
 
-      const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
 
-        method:"GET",
+    const payload =  [...data.events]
+    payload.reverse(payload)
+    this.$store.dispatch("setMyEvents", payload);
+    this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
 
-        headers:{
-          'Content-Type': 'application/json',
-        }
-
-      }).then(res=>res.json());
-
-      console.log(data)
-
-      const payload =  [...data.items]
-      payload.reverse(payload)
-      this.$store.dispatch("setMyItems", payload);
-      this.$store.dispatch("setMyItemsExpirationDate", addMinutes(30));
-
+    this.isLoading = false
     } catch (error) {
     console.error(error);
     }
-
-  
-      try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
-        method:"GET",
-        headers:{
-          'Content-Type': 'application/json',
-        }
-      }).then(res=>res.json());
-      console.log(data.events)
-
-
-      const payload =  [...data.events]
-      payload.reverse(payload)
-      this.$store.dispatch("setMyEvents", payload);
-
-     this.isLoading = false
-    } catch (error) {
-      console.error(error);
+    }else{
+    return this.myevents
     }
 
 
-    try {
+   
+    if(Date.now() >= this.$store.state.myarticles?.expire_at){
+
+      this.isLoading = true
+      try {
       const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
         method:"GET",
         headers:{
           'Content-Type': 'application/json',
         }
+
       }).then(res=>res.json());
       console.log(data)
 
       const payload =  [...data.articles]
-     this.$store.dispatch("setMyArticles", payload);
+      this.$store.dispatch("setMyArticles", payload);
+      this.$store.dispatch("setMyArticlesExpirationDate", addMinutes(30));
 
-     this.isLoading = false
-     
-    } catch (error) {
+      this.isLoading = false
+
+      } catch (error) {
       console.error(error);
-    }
+      }
+      }else{
+      return this.myarticles
+      }
    
     setTimeout(() => {
       this.dialog = true;

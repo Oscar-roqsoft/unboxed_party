@@ -3,17 +3,38 @@ export default defineNuxtConfig({
   components: true,
   ssr: false,
   css: [
+
     '~/assets/css/main.css',
+    
     "vuetify/lib/styles/main.sass",
+
     "@mdi/font/css/materialdesignicons.min.css",
+
+
+
   ],
   
   experimental:{payloadExtraction:false},
   
   modules: [
+    
+    // '@nuxtjs/toast',
     // '@pinia/nuxt',
     // '@pinia-plugin-persistedstate/nuxt',
   ],
+  notivue: {
+    position: 'top-right',
+    limit: 4,
+    enqueue: true,
+    notifications: {
+      global: {
+        duration: 10000
+      }
+    }
+  },
+
+
+
 
   postcss: {
     plugins: {

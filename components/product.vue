@@ -89,6 +89,7 @@
                           </div>
                         </td>
 
+                        
                         <td class="px-6 tw-py-4 tw-font-bold">
                             N{{ addCommas(item.price * item.quantity) }}
                         </td>

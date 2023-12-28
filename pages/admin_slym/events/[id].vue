@@ -3,6 +3,7 @@
 
     <div class="">
         <v-container >
+
             <div class="tw-flex tw-justify-between md:tw-max-w-[800px] mx-auto">
 
               <Backbutton/>
@@ -182,10 +183,22 @@
 
 
 </template>
+
+
+
   
   <script>
+import { createToast } from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
+
   import {handleFileChange,uploadToCloudinary,asyncRequest} from "@/composables/mixins"
   export default {
+    setup () {
+    const toast = (message) => {
+        createToast(message)
+    }
+    return { toast }
+  },
     data() {
       return {
         event:[],
@@ -197,8 +210,12 @@
 
           selectedimage:null,
           message:'',
+          itemm:'sucess',
+
+          messageBoxContent:'',
 
           loading:false,
+          showToast: false,
 
       };
     },
@@ -224,6 +241,8 @@
 
 
     methods: {
+    
+
         addTicketType(){
             const tic = {name:this.ticketName,value:this.ticketValue}
             this.ticketList.push(tic)
@@ -247,6 +266,10 @@
             this.ticketList.splice(itemIndex, 1);
            }
         },
+
+
+
+        
 
        async EditEvent() {
         this.loading = true
@@ -273,6 +296,7 @@
         }
 
         console.log(event)
+       
 
         try{
             const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
@@ -283,6 +307,10 @@
                 body:JSON.stringify(event)
             }).then(res=>res.json())
 
+            if(data.success) this.toast('Event edited successfully');
+
+
+
             this.loading =false
 
             console.log(data)
@@ -291,6 +319,8 @@
 
         }catch(e){
            console.log(e)
+           this.toast("message status:  failed to update Event")
+           
         }
 
       },
@@ -298,6 +328,7 @@
 
 
     computed: {
+      
       eventId(){
         return this.$router.currentRoute.value.params.id;
       },

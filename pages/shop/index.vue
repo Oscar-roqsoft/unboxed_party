@@ -40,12 +40,11 @@
               src="https://res.cloudinary.com/crushcontest-com/video/upload/v1680267203/WhatsApp_Video_2023-03-31_at_8.40.28_AM_pvaijr.mp4"
             />
           </video>
-          <!-- <v-avatar  tile width="100%" height="100%"><v-img eager src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_1000/v1664318468/C0042.MP4.16_29_36_17.Still001_1_br9fzu.jpg"></v-img></v-avatar> -->
+          <!-- <v-avatar  tile width="100%" height="100%"><v-img eager 
+            src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_1000/v1664318468/C0042.MP4.16_29_36_17.Still001_1_br9fzu.jpg"></v-img></v-avatar> -->
         </div>
      <Header />
     </div>
-
-   
 
 <v-container>
 
@@ -68,8 +67,10 @@
     <v-col cols="12" md="6" lg="4" class="mb-4" v-for="(item, i) in activeCategory === 'all' ? items : selecteditemsToD " :key="item.id">
       
       <!-- skeleton loader -->
-      <v-card v-if="isLoading"  class="tw-rounded-lg tw-bg-gray-200 ">
-           <v-skeleton-loader type="image,heading"  />
+      <v-card style="background: #050505 !important;" v-if="isLoading"  class="tw-rounded-lg  ">
+           <v-skeleton-loader
+            type="image,heading" 
+            style="background: #000000 !important;"  />
       </v-card>
 
       

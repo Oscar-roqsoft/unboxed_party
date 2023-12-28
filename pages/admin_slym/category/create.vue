@@ -46,7 +46,16 @@
 </template>
 
 <script>
+import { createToast } from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
 export default {
+  setup () {
+    const toast = (message) => {
+        createToast(message)
+    }
+    return { toast }
+  },
+
   data() {
     return {
         category: "",
@@ -77,13 +86,18 @@ export default {
               },
               body:JSON.stringify(category)
           }).then(res=>res.json())
-           
+
+          if(data.success) this.toast("Category created successfully");
+
           this.loading = false
           console.log(data)
 
         this.$router.go(-1)
       }catch(e){
          console.log(e)
+         this.toast(
+              "message status: failed to create Category ",
+           )
       }
 
     },

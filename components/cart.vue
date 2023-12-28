@@ -1,15 +1,15 @@
 <template>
-    <div class="">
-      <span @click="showModal = true" class="cart-icon">
+    <div >
+      <span @click.prevent="navigateTo('/shop/cartItems')" class="cart-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" 
             d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19ZM19 16H7a1 1 0 0 1 0-2h8.491a3.013 3.013 0 0 0 2.885-2.176l1.585-5.55A1
              1 0 0 0 19 5H6.74a3.007 3.007 0 0 0-2.82-2H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 
              0 7 18h12a1 1 0 0 0 0-2Zm-1.326-9l-1.22 4.274a1.005 1.005 0 0 1-.963.726H8.754l-.255-.892L7.326 7ZM16.5 19a1.5 1.5 0 1 0 1.5 
              1.5a1.5 1.5 0 0 0-1.5-1.5Z"/></svg>
-        <span>{{ $store.state.cartItems.length }}</span>
+        <span >{{ $store.state.cartItems.length }}</span>
       </span>
 
-        <div v-if="showModal" class="modal-wrapper active overflow-y-scrol tw-z-[99999px]">
+        <!-- <div v-if="showModal" class="modal-wrapper active overflow-y-scrol tw-z-[99999px]">
             <div class="modal-content tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-3 tw-overflow-y-scroll tw-mt-12 
             tw-mx-2 md:tw-mx-0 md:tw-mt-0 tw-z-[99999px]" >
                 <button @click="showModal = false" class="modal-close-button">
@@ -18,7 +18,6 @@
                 </button>
                 
 
-                <!-- item lists -->
                 <Product class="md:tw-col-span-2 ">
                     <slot></slot>
                 </Product>
@@ -28,14 +27,14 @@
 
                 <div class=" tw-bg-gradient-to-t tw-mt-4 tw-opacity-70  tw-shadow tw-rounded-md tw-min-h-[300px]  md:tw-h-[520px] tw-overflow-y-scroll tw-p-4">
                   <h5 class="tw-py-2 tw-pb-4 tw-border-b tw-border-gray-700  tw-text-white tw-text-center tw-rounded-t tw-capitalize tw-text-xl">Payment Info</h5>
-                  <!-- <br><hr class=" tw-text-xs"><br> -->
+                  <br><hr class=" tw-text-xs"><br>
                    
                   <div class="tw-flex tw-justify-end tw-items-center  tw-mt-4 tw-w-full">
                       <div class="tw-w-full">
                         <div class="tw-flex tw-justify-between tw-py-4">
                           <span>Substotal:</span>
                           <span>#{{ subtotalPrice }}</span>
-                          <!-- <v-money>${{ totalPrice}}</v-money> -->
+                           <v-money>${{ totalPrice}}</v-money> 
                         </div>
 
                         <div class="tw-flex tw-justify-between tw-pb-4">
@@ -58,7 +57,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
   

@@ -711,9 +711,10 @@ var random = Math.random().toString(36).slice(2, 8);
     amount: this.mainAmt,//amount
     callback: (e)=>{
       console.log(e)
-  this.verify_trans(e)
+      this.verify_trans(e)
       modal.close();
     },
+    
     country: "NG",
     currency: "NGN",
     customer: datas,
@@ -734,6 +735,7 @@ var random = Math.random().toString(36).slice(2, 8);
     // redirect_url: undefined,
     tx_ref: this.phone+'-'+random+'-'+this.email
   })
+
   }
       },
 

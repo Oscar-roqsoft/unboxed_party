@@ -25,6 +25,11 @@ import { version } from "../package.json";
        expire_at:'',
     },
 
+    orders:{
+      list:[],
+      expire_at:'',
+    },
+
     myvideo:[],
 
     events: [
@@ -719,11 +724,19 @@ import { version } from "../package.json";
     SET_MY_ITEMS(state, payload) {
       state.shop_items.list = payload
     },
-
+    
     SET_MY_ITEMS_EXPIRATION_DATE(state, payload) {
       state.shop_items.expire_at = payload
     },
+    
+    SET_MY_ORDERS(state, payload) {
+      state.orders.list = payload
+    },
   
+    SET_MY_ORDERS_EXPIRATION_DATE(state, payload) {
+      state.shop_items.expire_at = payload
+    },
+
     setEvents(state, {event}) {
       state.events = event
     },
@@ -815,14 +828,27 @@ import { version } from "../package.json";
        console.log("items payload from store...",payload)
       commit('SET_MY_ITEMS', payload)
     },
-
-   
+    
+    
 
     setMyItemsExpirationDate({ commit }, payload) {
        // make request
        console.log("items payload from store...",payload)
       commit('SET_MY_ITEMS_EXPIRATION_DATE', payload)
     },
+
+    
+    setMyOrders({ commit }, payload) {
+       // make request
+       console.log("orders payload from store...",payload)
+       commit('SET_MY_ORDERS', payload)
+      },
+
+      setMyOrdersExpirationDate({ commit }, payload) {
+         // make request
+         console.log("items payload from store...",payload)
+        commit('SET_MY_ORDERS_EXPIRATION_DATE', payload)
+      },
 
      setEvent({ commit }, event) {
       // make request

@@ -168,8 +168,18 @@
 </template>
 
 <script>
+import { createToast } from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
+
 import {handleFileChange,uploadToCloudinary,asyncRequest} from "@/composables/mixins"
 export default {
+    setup () {
+    const toast = (message) => {
+        createToast(message)
+    }
+    return { toast }
+  },
+
   data() {
     return {
         item:'',
@@ -343,6 +353,8 @@ mounted() {
 
               body:JSON.stringify(item)
           }).then(res=>res.json())
+
+          if(data.success) this.toast("Item edited successfully")
          
           this.loading = false
           console.log(data)
@@ -351,6 +363,9 @@ mounted() {
 
       }catch(e){
          console.log(e)
+         this.toast(
+              "message status:  failed to update Item",
+           )
       }
 
     },

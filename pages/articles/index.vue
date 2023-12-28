@@ -10,7 +10,7 @@
 
   
   
-        <v-container :class="$vuetify.display.smAndDown? 'mt-0': 'mt-6 '">
+        <v-container  :class="$vuetify.display.smAndDown? 'mt-0': 'mt-6 '">
           <div class="centerIt" style="position:relative">
             <!-- <v-avatar class="scehimg"  size="200" tile>
   

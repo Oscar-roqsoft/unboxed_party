@@ -48,7 +48,16 @@
 </template>
 
 <script>
+import { createToast } from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
 export default {
+  setup () {
+    const toast = (message) => {
+        createToast(message)
+    }
+    return { toast }
+  },
+
   data() {
     return {
         cateitem:'',
@@ -97,6 +106,8 @@ export default {
               },
               body:JSON.stringify(categoryobj)
           }).then(res=>res.json())
+
+          if(data.success) this.toast("Category edited successfully");
          
           this.loading = false
           console.log(data)
@@ -104,6 +115,9 @@ export default {
 
       }catch(e){
          console.log(e)
+         this.toast(
+              "message status: Category failed to update",
+           )
       }
 
     },

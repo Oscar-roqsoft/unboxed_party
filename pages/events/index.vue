@@ -29,7 +29,7 @@
 
                <!-- skeleton loader -->
                <v-card v-if="isLoading" class="tw-rounded-lg bg-gray-400">
-                    <v-skeleton-loader type="image, heading" />
+                    <v-skeleton-loader type="image, heading" style="background: #050505 !important;"/>
              </v-card>
               
                <v-card v-else :to="'/event/'+ encodeURIComponent(n.name)" variant="dark" class="pa-2">
@@ -124,7 +124,7 @@
     async mounted() {
 
 
-      if(Date.now() >= this.$store.state.myevents?.expire_at){
+      if(Date.now() >= this.$store.state?.myevents?.expire_at){
 
           this.isLoading = true
           try {

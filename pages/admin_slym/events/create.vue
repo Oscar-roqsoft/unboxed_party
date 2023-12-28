@@ -158,8 +158,17 @@
 </template>
   
   <script>
+  import { createToast } from 'mosha-vue-toastify'
+  import 'mosha-vue-toastify/dist/style.css'
   import {handleFileChange,uploadToCloudinary,asyncRequest} from "@/composables/mixins"
   export default {
+    setup () {
+        const toast = (message) => {
+            createToast(message)
+        }
+        return { toast }
+   },
+
     data() {
       return {
           name: "",
@@ -263,6 +272,8 @@
 
             console.log(data)
 
+            if(data.success) this.toast("Event created successfully");
+
             this.loading = false
            
             navigateTo("/admin_slym/events")
@@ -270,6 +281,7 @@
         }catch(e){
 
            console.log(e)
+           this.toast("message status:  failed to create Event")
         }
 
       },
