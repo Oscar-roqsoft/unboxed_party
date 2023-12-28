@@ -76,7 +76,7 @@ export default {
     };
   },
 
-  
+
 computed: {
 
   fetchedcategory() {
@@ -95,7 +95,6 @@ computed: {
             'Content-Type': 'application/json',
             }
         }).then(res=>res.json());
-        console.log(data.categories)
 
         
 
@@ -118,7 +117,6 @@ computed: {
         id:categoryId
        }
 
-       console.log(id)
         try{
           const data = await fetch(`https://backend.unboxedparty.com/api/category`,{
             method:'DELETE',
@@ -130,7 +128,6 @@ computed: {
               
             }).then(res=>res.json())
        
-            console.log(data)
           
            const filteredItems = this.$store.state.mycategory.filter(item => item.id !== categoryId)
            this.$store.dispatch("setMyCategory", filteredItems);

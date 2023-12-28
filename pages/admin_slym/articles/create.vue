@@ -124,7 +124,6 @@ export default {
       const {secure_url} = await uploadToCloudinary(this.selectedimage);
       if(!secure_url) return alert("failed to upload file");
 
-      console.log(secure_url)
       
       const event ={
           name: this.name,
@@ -133,7 +132,6 @@ export default {
           image:secure_url,
       }
 
-      console.log(event)
 
       try{
           const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
@@ -148,7 +146,6 @@ export default {
           if(data.success) this.toast("Article created successfully")
 
           this.loading = true
-          console.log(data)
 
           navigateTo("/admin_slym/articles")
 

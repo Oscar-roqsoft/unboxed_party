@@ -85,7 +85,6 @@ export default {
 
       }
 
-      console.log(video)
 
       try{
           const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
@@ -98,7 +97,6 @@ export default {
 
           if(data.success) this.toast('Video Uploaded successfully')
           this.loading= false
-          console.log(data)
             navigateTo('/admin_slym')
       }catch(e){
          console.log(e)

@@ -15,12 +15,13 @@
                     <th style="min-width: 150px;" scope="col" class="tw-px-6 tw-py-3 tw-text-left  tw-text-xs tw-font-bold tw-text-gray-400 tw-uppercase tw-tracking-wider">
                         Customer Name
                     </th>
-                    <th scope="col" class="tw-px-6 tw-py-3  tw-text-left tw-text-xs tw-font-bold tw-text-gray-400 tw-uppercase tw-tracking-wider">
-                        Phone Number
+                    
+                    <th style="min-width: 150px;"  scope="col" class="tw-px-6 tw-py-3 tw-text-left  tw-text-xs tw-font-bold tw-text-gray-400 tw-uppercase tw-tracking-wider">
+                        date
                     </th>
 
-                    <th style="min-width: 150px;"  scope="col" class="tw-px-6 tw-py-3 tw-text-left  tw-text-xs tw-font-bold tw-text-gray-400 tw-uppercase tw-tracking-wider">
-                     date
+                    <th scope="col" class="tw-px-6 tw-py-3  tw-text-left tw-text-xs tw-font-bold tw-text-gray-400 tw-uppercase tw-tracking-wider">
+                        Order Status
                     </th>
 
                     <th style="min-width: 100px;"  scope="col" class="tw-px-6 tw-py-3 tw-text-left  tw-text-xs tw-font-bold tw-text-gray-400 tw-uppercase tw-tracking-wider">
@@ -39,10 +40,11 @@
                         {{order.user.name}}
                     </td>
                     <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap">
-                        {{order.user.phone}}
-                    </td>
-                    <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap">
                         {{formatDate(order.updated_at)}}
+                    </td>
+                    <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap" 
+                    :class="order.status === pending_payment?'tw-text-red-500': order.status === delivered?'tw-text-blue-500':''">
+                        {{order.status}}
                     </td>
                     <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap">
                         <v-btn  color="primary">
@@ -117,8 +119,11 @@ export default {
   },
   async mounted(){
 
-    this.itemlist = this.orders
-     console.log(this.itemlist)
+    setTimeout(() => {
+        this.itemlist = this.orders
+        console.log('updated')
+    },3000);
+
 
 
          try{
@@ -129,7 +134,6 @@ export default {
                 }
             }).then(resp=>resp.json())
     
-            console.log(data.orders)
     
             const payload =  [...data.orders]
               payload.reverse(payload)

@@ -363,7 +363,6 @@ export default {
     setActiveCategory(tab) {
       this.selecteditemsToD = this.$store.state.shop_items.list.filter((item) =>  item.category.includes(tab))
      
-      console.log(this.activeCategory)
     },
 
     addCommas(num) {
@@ -461,7 +460,6 @@ export default {
           cart_items:JSON.stringify(this.cartitems)
         }
 
-        console.log(cart_items)
         try{
           const data = await fetch('https://backend.unboxedparty.com/api/order',{
             method:"POST",
@@ -498,7 +496,6 @@ export default {
     // //this will launch Fluterwave payment modal
     // if (!this.totalPrice) return;
 
-  console.log(order_id)
 
    const modal = useFlutterwave({
     // amount: 200,//amount

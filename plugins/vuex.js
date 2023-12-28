@@ -666,20 +666,17 @@ import { version } from "../package.json";
       if (state.shop_items?.expire_at && Date.now() >= state.shop_items?.expire_at) {
         state.shop_items = {};
       }
-      console.log('clearing....')
     },
 
     CLEAR_EXPIRED_EVENTS( state ) {
       if (state.myevents?.expire_at && Date.now() >= state.myevents?.expire_at) {
         state.myevents = {};
       }
-      console.log('clearing....')
     },
     CLEAR_EXPIRED_ARTICLES( state ) {
       if (state.myarticles?.expire_at && Date.now() >= state.myarticles?.expire_at) {
         state.myarticles = {};
       }
-      console.log('clearing....')
     },
     
 
@@ -772,12 +769,10 @@ import { version } from "../package.json";
     },
 
     setMyCategory({commit},payload) {
-      console.log("category payload from store...",payload)
       commit("SET_MY_CATEGORY",payload)
     },
 
     setMyVideo({commit},payload) {
-      console.log("category payload from store...",payload)
       commit("SET_MY_Video",payload)
     },
 
@@ -813,19 +808,16 @@ import { version } from "../package.json";
 
     setMyEvents({ commit }, payload) {
        // make request
-       console.log("events payload from store...",payload)
       commit('SET_MY_EVENTS', payload)
     },
 
     setMyEventsExpirationDate({ commit }, payload) {
        // make request
-       console.log("events payload from store...",payload)
       commit('SET_MY_EVENTS_EXPIRATION_DATE', payload)
     },
 
     setMyItems({ commit }, payload) {
        // make request
-       console.log("items payload from store...",payload)
       commit('SET_MY_ITEMS', payload)
     },
     
@@ -833,20 +825,17 @@ import { version } from "../package.json";
 
     setMyItemsExpirationDate({ commit }, payload) {
        // make request
-       console.log("items payload from store...",payload)
       commit('SET_MY_ITEMS_EXPIRATION_DATE', payload)
     },
 
     
     setMyOrders({ commit }, payload) {
        // make request
-       console.log("orders payload from store...",payload)
        commit('SET_MY_ORDERS', payload)
       },
 
       setMyOrdersExpirationDate({ commit }, payload) {
          // make request
-         console.log("items payload from store...",payload)
         commit('SET_MY_ORDERS_EXPIRATION_DATE', payload)
       },
 

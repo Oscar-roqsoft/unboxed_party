@@ -73,12 +73,10 @@ export default {
 
   mounted() {
       var name = decodeURIComponent(this.$route.params.name)
-      console.log(name)
       this.cateitem = this.fetchedcategory.find(el=>{
           return el.name == name
         })
 
-        console.log(this.cateitem.name)
         
       setTimeout(() => {
         this.dialog = true;
@@ -96,7 +94,6 @@ export default {
         name:this.cateitem.name,
       }
 
-      console.log(categoryobj)
 
       try{
           const data = await fetch(`https://backend.unboxedparty.com/api/category`,{
@@ -110,7 +107,7 @@ export default {
           if(data.success) this.toast("Category edited successfully");
          
           this.loading = false
-          console.log(data)
+          
           navigateTo('/admin_slym/category')
 
       }catch(e){

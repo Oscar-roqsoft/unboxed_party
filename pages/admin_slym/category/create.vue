@@ -74,7 +74,6 @@ export default {
       const category ={
         name: this.category,
       }
-      console.log(category)
 
 
 
@@ -90,7 +89,6 @@ export default {
           if(data.success) this.toast("Category created successfully");
 
           this.loading = false
-          console.log(data)
 
         this.$router.go(-1)
       }catch(e){

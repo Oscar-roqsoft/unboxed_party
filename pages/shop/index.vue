@@ -172,7 +172,6 @@ export default {
  
          }).then(res=>res.json());
  
-         console.log(data)
    
          const payload =  [...data.items]
          payload.reverse(payload)

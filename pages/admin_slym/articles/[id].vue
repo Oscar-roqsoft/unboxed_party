@@ -104,13 +104,11 @@ export default {
   },
 
   mounted() {
-    console.log(this.fetchedarticles)
       var name = decodeURIComponent(this.$route.params.id)
       this.articles = this.fetchedarticles.find(el=>{
           return el.id = name
         })
         
-    console.log(this.articles)
       setTimeout(() => {
         this.dialog = true;
       }, 10000);
@@ -137,7 +135,6 @@ export default {
 
       const {secure_url} = await uploadToCloudinary(this.selectedimage);
 
-      console.log(secure_url)
       
       const event ={
           name: this.articles.name,
@@ -146,7 +143,6 @@ export default {
           image:secure_url ? secure_url : this.articles.image,
       }
 
-      console.log(event)
 
       try{
           const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
@@ -160,7 +156,6 @@ export default {
           if(data.success) this.toast("Article edited successfully")
           
           this.loading = false
-          console.log(data)
 
           navigateTo("/admin_slym/articles")
 

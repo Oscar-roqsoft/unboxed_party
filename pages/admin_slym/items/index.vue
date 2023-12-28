@@ -122,7 +122,7 @@ export default {
   },
 
  async mounted(){
-  
+
     console.log(this.$vuetify.display.width)
 
         try {
@@ -166,6 +166,7 @@ export default {
         // Return the formatted string
         return str;
     },
+    
     navigateTo(item) {
       this.$router.push(`/admin_slym/items/${item.id}`);
     },

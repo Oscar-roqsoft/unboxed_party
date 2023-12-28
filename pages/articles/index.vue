@@ -128,7 +128,6 @@
             }
     
           }).then(res=>res.json());
-          console.log(data)
     
           const payload =  [...data.articles]
         this.$store.dispatch("setMyArticles", payload);

@@ -799,7 +799,6 @@ return seconds
               },
           }).then(res=>res.json())
 
-          console.log(data)
         const payload =  data.settings
         this.$store.dispatch("setMyVideo", payload);
 
@@ -846,7 +845,6 @@ return seconds
         'Content-Type': 'application/json',
       }
     }).then(res=>res.json());
-    console.log(data.events)
 
 
     const payload =  [...data.events]
@@ -875,7 +873,6 @@ return seconds
         }
 
       }).then(res=>res.json());
-      console.log(data)
 
       const payload =  [...data.articles]
       this.$store.dispatch("setMyArticles", payload);

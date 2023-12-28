@@ -134,7 +134,6 @@
               'Content-Type': 'application/json',
             }
           }).then(res=>res.json());
-          console.log(data.events)
     
     
           const payload =  [...data.events]
