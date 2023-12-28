@@ -28,13 +28,14 @@
           <v-card variant="dark" width="100%" v-if="event.name" class="pa-0">
            
            <div  style="min-height:400px" 
-           class="grey w-100 rounded- d-flex align-center justify-center"
->
-<iframe v-if="event.video" allowfullscreen style="border-radius: 24px;border-width: 0px;box-shadow:none!important" width="100%" height="400px"
-:src="event.video">
-</iframe>
-<h1 v-else class="text-grey-darken-3">No Video Yet</h1>
-</div>          
+           class="grey w-100 rounded- d-flex align-center justify-center">
+            <iframe v-if="event.video" allowfullscreen style="border-radius: 24px;border-width: 0px;box-shadow:none!important" width="100%" height="400px"
+            :src="event.video">
+            </iframe>
+
+          <h1 v-else class="text-grey-darken-3">No Video Yet</h1>
+
+          </div>          
               <h2 style="font-size: 40px" class="  py-3">
                 {{event.name}}
               </h2>

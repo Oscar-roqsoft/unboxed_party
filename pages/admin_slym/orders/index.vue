@@ -116,7 +116,7 @@ export default {
     }
   },
   async mounted(){
-    
+
     this.itemlist = this.orders
      console.log(this.itemlist)
 
@@ -147,13 +147,13 @@ export default {
   methods:{
     handlePageNextChange (){
         if (this.currentPage < this.totalPages) {
-        currentPage.value++;
+        this.currentPage++;
         }
     },
 
     handlePagePrevChange(){
         if (this.currentPage > 1) {
-           currentPage.value--;
+           this.currentPage--;
          }
     }
   }
