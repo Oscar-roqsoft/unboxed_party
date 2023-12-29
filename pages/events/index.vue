@@ -130,7 +130,6 @@
         this.dialog = true;
       }, 10000);
 
-      if(Date.now() >= this.$store.state?.myevents.expire_at){
 
           
           try {
@@ -151,9 +150,7 @@
         } catch (error) {
           console.error(error);
         }
-      }else{
-        this.myevents
-      }
+      
 
       this.isLoading = false
 

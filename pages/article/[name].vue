@@ -31,14 +31,19 @@
            <div   
            class="grey w-100 rounded- d-flex align-center justify-center"
 >
-<v-img
 
+              <!-- skeleton loader -->
+              <div v-if="isLoading" class=" tw-w-full rounded">
+                <div class="skeleton  tw-max-w-[700px] tw-rounded-3xl" :class="$vuetify.display.smAndDown? 'tw-h-[340px]': 'tw-h-[600px] '"></div>
+             </div>
+            <v-img
+                v-else
                 cover
                 height="auto"
                 class="rounded-xl d-flex align-center justify-center"
                 :src="article.image"
               >
-</v-img>
+            </v-img>
 </div>          
               <h2 style="font-size: 35px" class="font-weight-bold  py-3">
                 {{article.name}}
@@ -80,6 +85,9 @@
           <v-row class="d-flex py-3">
             <v-col v-show="!n.onSale" v-for="(n, i) in articles" :key="i" class="pt-3" :cols="cols[2]">
               <v-card :to="'/article/'+encodeURIComponent(n.name)" variant="dark" class="pa-2">
+
+              
+
                 <v-img
                   cover
                   height="210px"
@@ -87,6 +95,8 @@
                   class="rounded-xl"
                   :src="n.image"
                 ></v-img>
+
+
                 <div class=" pt-3" style=" width:100%; font-size: 20px;  background: linear-gradient(360deg, black, transparent);
     line-height: 1.2;position:;bottom:0">
                 <h3 class="font-weight-medium text-truncate text-grey-lighten-1">{{n.name}}</h3>
@@ -138,6 +148,7 @@
       email: "",
       article: {},
       loading: false,
+      isLoading:false,
       consent: false,
       dialog: false,
       read_more: false,
@@ -194,7 +205,7 @@
         },
       ],
 
-      
+
     }),
     computed: {
       displ() {
@@ -216,10 +227,17 @@
     },
     },
     mounted() {
+      this.isLoading = true
       var name = decodeURIComponent(this.$route.params.name)
      this.article = this.articles.find(el=>{
         return el.name == name
       })
+
+
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 500);
+
       setTimeout(() => {
         this.dialog = true;
       }, 10000);
@@ -444,6 +462,19 @@
       line-height: 46px;
       font-size: 28px;
     }
+    
+  .skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  @keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 10%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 8%);
+  }
+}
   }
   </style>
   
