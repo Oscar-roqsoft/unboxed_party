@@ -101,22 +101,29 @@
               </v-card-text>
 
               <v-col>
-                  <v-row>
+                  <v-col>
+                    
                       <v-checkbox
-                          v-model="event.on_sale"
+                          v-model="on_salecheck"
                           label="isActive"
                           color="primary"
+                          class="mx-4"
                           >
         
+                          <div class="">{{ on_salecheck }}</div>
                       </v-checkbox>
+
+
                       <v-checkbox
-                          v-model="event.active"
+                          v-model="activecheck"
                           label="is_On_Sale"
                           color="primary"
+                          class="mx-4"
                           >
         
+                          <div class="">{{ activecheck }}</div>
                       </v-checkbox>
-                  </v-row>
+                  </v-col>
 
                   <h3 class="text-h6 tw-mb-3  tw-mt-10 tw-text-center tw-font-bold" style="font-family: 'Permanent Marker', cursive !important;"> Create ticket price lists</h3>
                   
@@ -217,6 +224,9 @@ import 'mosha-vue-toastify/dist/style.css'
           loading:false,
           showToast: false,
 
+          activecheck:null,
+          on_salecheck:null,
+
       };
     },
 
@@ -229,6 +239,19 @@ import 'mosha-vue-toastify/dist/style.css'
         this.event = this.events.find(el=>{
             return el.id == name
         })
+      
+
+        if(this.event.active == "0"){
+          this.activecheck = false
+        }else{
+          this.activecheck =  true
+        }
+
+        if(this.event.on_sale == "0"){
+          this.on_salecheck = false
+        }else{
+          this.on_salecheck =  true
+        }
         // this.ticketName = JSON.parse(this.event.tickets).name
         this.ticketList = JSON.parse(this.event.tickets)
         console.log(this.ticketList)
@@ -288,8 +311,8 @@ import 'mosha-vue-toastify/dist/style.css'
             venue:this.event.venue,
             date:this.event.date,
             time:this.event.time,
-            on_sale:this.event.on_sale,
-            active:this.event.active,
+            on_sale:this.on_salecheck,
+            active:this.activecheck,
             video:this.event.video,
             tickets:JSON.stringify(this.ticketList),
             image: secure_url ? secure_url : this.event.image,

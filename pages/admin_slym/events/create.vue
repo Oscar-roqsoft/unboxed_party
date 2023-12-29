@@ -79,22 +79,29 @@
               </v-card-text>
 
               <v-col>
-                  <v-row>
-                      <v-checkbox
-                          v-model="isActiveChecked"
-                          label="isActive"
-                          color="primary"
-                          >
-        
-                      </v-checkbox>
-                      <v-checkbox
-                          v-model="isOnSaleChecked"
-                          label="is_On_Sale"
-                          color="primary"
-                          >
-        
-                      </v-checkbox>
-                  </v-row>
+                <v-col>
+                    
+                    <v-checkbox
+                        v-model="isActiveChecked"
+                        label="isActive"
+                        color="primary"
+                        class="mx-4"
+                        >
+      
+                        <div class="">{{ isActiveChecked }}</div>
+                    </v-checkbox>
+
+
+                    <v-checkbox
+                        v-model="isOnSaleChecked"
+                        label="is_On_Sale"
+                        color="primary"
+                        class="mx-4"
+                        >
+      
+                        <div class="">{{ isOnSaleChecked }}</div>
+                    </v-checkbox>
+                </v-col>
 
                   <h3 class="text-h6 tw-mb-6 tw-text-center tw-font-bold" style="font-family: 'Permanent Marker', cursive !important;"> Create ticket price lists</h3>
                   

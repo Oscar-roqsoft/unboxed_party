@@ -152,11 +152,10 @@
           console.error(error);
         }
       }else{
-
-        this.isLoading = false
-
-        return this.myevents
+        this.myevents
       }
+
+      this.isLoading = false
 
 
     

@@ -29,7 +29,7 @@
            
            <div  style="min-height:400px" 
            class="grey w-100 rounded- d-flex align-center justify-center">
-            <iframe v-if="event.video" allowfullscreen style="border-radius: 24px;border-width: 0px;box-shadow:none!important" width="100%" height="400px"
+            <iframe v-if="hasHttp" allowfullscreen style="border-radius: 24px;border-width: 0px;box-shadow:none!important" width="100%" height="400px"
             :src="event.video">
             </iframe>
 
@@ -226,6 +226,9 @@
       ],
     }),
     computed: {
+      hasHttp() {
+      return this.event.video.startsWith('http');
+    },
       displ() {
         return this.$vuetify.display;
       },
@@ -244,9 +247,16 @@
       },
     },
     mounted() {
-      setTimeout(() => {
-       this.getEvent();
-      }, 1000);
+      var name = decodeURIComponent(this.$route.params.name)
+        
+        this.event = this.events.find(el=> el.name.toLowerCase() == name.toLowerCase())
+        console.log(this.event,this.$store.state.myevents)
+        console.log(this.event.video)
+
+        
+      // setTimeout(() => {
+      //   this.getEvent();
+      // }, 1000);
 
      setTimeout(() => {
         this.dialog = true;

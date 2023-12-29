@@ -20,7 +20,7 @@
          max-height="500px"
          :src="n.image"
        ></v-img>
-       <h2 style="font-size: 30px" class="logoText pt-3">
+       <h2 style="font-size: 30px" class="logoText font-weight-bold pt-3">
                 {{n.name}}
               </h2>
               <div class="d-flex justify-space-between my-2 align-center">
@@ -28,7 +28,7 @@
                   style="font-family: monospace !important"
                   class="text-body-1 text-grey-lighten-1 font-weight-light"
                 >
-                {{n.created_at}}
+                {{formatDate(n.created_at)}}
               </p>
               <p
               style=""
@@ -51,7 +51,8 @@
               class="text-capitalize font-weight-bold"
               rounded
               >
-              <v-icon size="15" class="mb-1" color="yellow" icon="mdi mdi-clock"></v-icon>     <vue-countdown class="text-yellow " style="  font-weight: 700;
+              <v-icon size="15" class="mb-1" color="yellow" icon="mdi mdi-clock"></v-icon>     
+              <vue-countdown class="text-yellow " style="  font-weight: 700 !important;
     font-size:" :time="timediff(n.deadline)" v-slot="{ days, hours, minutes, seconds }">
      {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
     </vue-countdown>
@@ -148,7 +149,7 @@
       },
  
       events () {
-        return this.$store.state.events
+        return this.$store.state.myevents.list
       },
     
       cols() {
@@ -167,8 +168,9 @@
       setTimeout(() => {
         this.dialog = true;
       }, 10000);
+
       this.eventsList = this.events.filter(el=>{
-        return el.onSale == true
+        return el.on_sale == 1
       }).reverse()
     },
     methods: {

@@ -120,9 +120,9 @@
     },
     async mounted() {
 
+      this.isLoading = true
       if(Date.now() >= this.$store.state.myarticles?.expire_at){
 
-          this.isLoading = true
           try {
           const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
             method:"GET",
@@ -142,9 +142,10 @@
           console.error(error);
         }
       }else{
-        return this.myarticles
+        this.myarticles
       }
-
+      
+      this.isLoading = false
 
 
       setTimeout(() => {
