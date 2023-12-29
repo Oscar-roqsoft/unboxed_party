@@ -106,7 +106,7 @@
 
 		<tr>
 			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{event.amount? 'N'+addCommas(event.amount): 'FREE'}}</td>
-			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{event.created_at}}</td>
+			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{formatDate(event.date)}}</td>
 			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{event.time}}</td>
 			<!-- <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{1000 - sold}}</td> -->
 		</tr>
@@ -608,6 +608,7 @@ export default {
         },
       ],
     }),
+
     computed: {
       routen:{
         get(){
@@ -622,11 +623,12 @@ export default {
       displ() {
         return this.$vuetify.display;
       },
+
       timediff(){
         if(!this.event.name) return null
       var startDate = new Date();
 // Do your operations
-var endDate   = new Date(this.event.deadline);
+var endDate   = new Date(this.event.date);
 var seconds = (endDate.getTime() - startDate.getTime()) ;
 return seconds
     },
@@ -634,7 +636,7 @@ return seconds
         return this.amount * this.qty
       },
       events () {
-        return this.$store.state.events
+        return this.$store.state.myevents.list
       },
       event() {
         var ev = this.$store.state.event
@@ -714,7 +716,7 @@ var random = Math.random().toString(36).slice(2, 8);
       this.verify_trans(e)
       modal.close();
     },
-    
+
     country: "NG",
     currency: "NGN",
     customer: datas,

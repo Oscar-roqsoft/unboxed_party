@@ -28,7 +28,7 @@
                   style="font-family: monospace !important"
                   class="text-body-1 text-grey-lighten-1 font-weight-light"
                 >
-                {{formatDate(n.created_at)}}
+                {{formatDate(n.date)}}
               </p>
               <p
               style=""
@@ -53,7 +53,7 @@
               >
               <v-icon size="15" class="mb-1" color="yellow" icon="mdi mdi-clock"></v-icon>     
               <vue-countdown class="text-yellow " style="  font-weight: 700 !important;
-    font-size:" :time="timediff(n.deadline)" v-slot="{ days, hours, minutes, seconds }">
+    font-size:" :time="timediff(n.date)" v-slot="{ days, hours, minutes, seconds }">
      {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
     </vue-countdown>
                 </p>

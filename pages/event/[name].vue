@@ -58,7 +58,7 @@
                   style="font-family: monospace !important"
                   class="text-body-1 text-grey-lighten-1 font-weight-light"
                   >
-                  {{formatDate(event.created_at)}}
+                  {{formatDate(event.date)}}
                 </p>
             </div>
                 <div class="d-flex px-5 py-4  justify-space-between  align-center">
@@ -253,7 +253,7 @@
         console.log(this.event,this.$store.state.myevents)
         console.log(this.event.video)
 
-        
+
       // setTimeout(() => {
       //   this.getEvent();
       // }, 1000);
