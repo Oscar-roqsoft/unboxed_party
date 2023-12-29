@@ -38,7 +38,7 @@
                   class="rounded-xl"
                   :src="n.image"
                 ></v-img>
-                <div class=" pt-3" style=" width:100%; font-size: 20px;  background: linear-gradient(360deg, black, transparent);
+                <div class=" pt-3" style=" width:100%; font-size: 19px;  background: linear-gradient(360deg, black, transparent);
     line-height: 1.2;position:;bottom:0">
                 <h3 class="font-weight-medium text-truncate text-white">{{n.name}}</h3>
               </div>

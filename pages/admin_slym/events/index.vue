@@ -7,7 +7,7 @@
         </v-container>
       <v-container class="">
 
-        <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[18%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-[#282828] tw-z-40
+        <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[12%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-[#282828] tw-z-40
       tw-transition tw-duration-300 tw-ease-in-out tw-transform">
             <div class="tw-p-4 tw-py-6 tw-text-center ">
                 <span class="tw-text-gray-100 ">Do You Want Delete {{ itemName }} </span>
