@@ -3,7 +3,7 @@
        <h3 class=" tw-text-3xl tw-mb-2 tw-mx-2 tw-font-bold" color="deep-purple-accent-3">Cart({{ $store.state.cartItems.length }})</h3>
         <div >
 
-        <div class="tw-relative tw-overflow-auto   sm:tw-rounded-lg  ">
+        <div class="tw-relative tw-overflow-auto frame  sm:tw-rounded-lg  ">
             <table class="tw-w-full tw-text-sm tw-text-left rtl:tw-text-right  ">
                 <thead class="tw-text-sm tw-border-b tw-border-gray-900 tw-capitalize  " color="deep-purple-accent-3">
                     <tr>
@@ -89,7 +89,7 @@
                           </div>
                         </td>
 
-                        
+
                         <td class="px-6 tw-py-4 tw-font-bold">
                             N{{ addCommas(item.price * item.quantity) }}
                         </td>
@@ -202,6 +202,32 @@ export default {
 
 };
 </script>
+
+<style scoped>
+.frame {
+    overflow-x: auto;
+    border: 0.1px solid black;
+}
+
+.frame::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.frame::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.frame::-webkit-scrollbar:horizontal {
+    height: 3px;
+}
+
+.frame::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, .5);
+}
+
+</style>
 
 <!-- <style scoped>
 

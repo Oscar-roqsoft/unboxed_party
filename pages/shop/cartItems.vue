@@ -778,4 +778,5 @@ export default {
     font-size: 28px;
   }
 }
+
 </style>
