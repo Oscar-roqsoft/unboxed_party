@@ -39,10 +39,10 @@
                       
                             <div class=" tw-px-2 tw-py-2 tw-leading-5 tw-w-full">
 
-                              <div class="price-size">
+                              <div class="price-size tw-capitalize">
                                   <h3>{{item.name }}</h3>
                               </div>
-                              <p>{{ item.color }}</p>
+                              <p class="tw-capitalize">{{ item.color }}</p>
                             </div>
                           </div>
 
