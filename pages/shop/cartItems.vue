@@ -209,7 +209,7 @@
                                       Proceed to Pay
                                  </h1>
 
-                                  <!-- <p 
+                                  <p 
                                      style="
                                           background: rgb(21 21 21);
                                           padding: 10px 15px;
@@ -220,7 +220,7 @@
                                           <br> <br> 1.  Kindly wait for your payment to be confirmed by flutterwave before closing the payment screen <br><br>  
                                           2. Final amount will include payment gateway charges <br><br>  
                                      3. Contact Support for any payment issues
-                                  </p> -->
+                                  </p>
 
                           </div>
                 </v-card>
@@ -235,7 +235,7 @@
                   color="deep-purple-accent-3">
 
                       <div class="tw-w-full">
-                            <div class="tw-flex tw-justify-between tw-py-4">
+                            <div class="tw-flex tw-justify-between tw-border-b tw-border-gray-900 tw-py-4">
                             <span>Substotal:</span>
                             <span>N{{ addCommas(subtotalPrice) }}.00</span>
                             <!-- <v-money>${{ totalPrice}}</v-money> -->

@@ -68,9 +68,10 @@
       
       <!-- skeleton loader -->
       <v-card  v-if="isLoading"  class="tw-rounded-lg  ">
-           <v-skeleton-loader
+           <v-skeleton-loader  
             type="image,heading" 
-            style="background: #000000 !important;"  />
+            style="background: #000000 !important;"  
+            />
       </v-card>
 
       
