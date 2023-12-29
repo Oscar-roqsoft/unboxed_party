@@ -87,11 +87,15 @@ class="bgh">
           <v-col :class="$vuetify.display.smAndDown?'justify-center':'justify-end'" class="d-flex  align-center  mb-12" style="max-width: 700px;" :cols="cols[2]">
             
                
-                <v-card  v-if="isLoading" class="tw-w-full">
+                <!-- <v-card  v-if="isLoading" class="tw-w-full">
                     <v-skeleton-loader type="card" style="background: #010107 !important;" />
-                </v-card>
+                </v-card> -->
 
-            <iframe v-else class="rounded-lg" width="450" height="250" :src="fetchedVideo" 
+                <div v-if="isLoading" class=" skeleton-container tw-h-[250px] tw-w-[450px]">
+                  <div class="skeleton-item tw-h-full tw-w-full"></div>
+                </div>
+
+            <iframe v-else  class="rounded-lg" width="450" height="250" :src="fetchedVideo" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </v-col>
         </v-row>
@@ -1265,5 +1269,27 @@ z-index: 99!important;
     line-height: 46px;
     font-size: 28px;
   }
+
+ 
+
+   .w {
+  animation: wav 2s ease-in-out infinite;
+  }  
+ 
+
+
+  @keyframes wav {
+    0% {
+    background-position: -100px 0;
+  }
+  50% {
+    background-position: 50px 0;
+  }
+  100% {
+    background-position: -100px 0;
+  }
+
+}
+
 }
 </style>

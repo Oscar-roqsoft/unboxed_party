@@ -1,13 +1,15 @@
 <template>
 
-    <aside class="lg:tw-hidden tw-fixed tw-inset-y-0 tw-left-0 z-40  tw-flex tw-flex-col tw-h-screen tw-transition-all tw-z-50  
+    <aside @click="toggleDrawer"  class="lg:tw-hidden tw-fixed tw-inset-y-0 tw-left-0 z-40  tw-flex tw-flex-col tw-h-screen tw-transition-all tw-z-50  tw-w-[65%] 
     tw-duration-300 tw-transform 
        tw-bg-[#282828] tw-overflow-y-auto tw-lg:translate-x-0" :class="{ 'tw--translate-x-full': !open }">
 
-           <div class="tw-border-b tw-border-gray-700 tw-p-4">
+           <div class="tw-border-b tw-border-gray-700 tw-p-4 tw-flex tw-justify-center tw-items-center">
+
                 <v-img eager @click="$router.push('/')" width="auto" max-width="200" 
                 src="https://res.cloudinary.com/crushcontest-com/image/upload/v1684055372/Unboxed_Web_rggvdz.png">
                 </v-img>
+
            </div>
 
             <div class="tw-flex tw-flex-col tw-justify-center  tw-border-b tw-border-gray-700  ">
@@ -70,10 +72,10 @@
 
 
                 
-                <div class="  tw-h-full   tw-flex tw-flex-col tw-justify-end ">
+                <div class="  tw-flex tw-flex-col tw-justify-end tw-h-full">
                   
                   
-                    <div class="tw-bg-[#232220] tw-p-4 tw-border-t tw-border-gray-700">
+                    <div class="tw-bg-[#232220] tw-w-full tw-flex tw-justify-center  tw-items-center tw-p-4 tw-border-t tw-border-gray-700">
                         <v-btn
                         target="_blank"
                         href="https://www.instagram.com/the_unboxedparty/"
@@ -104,7 +106,7 @@
 
     </aside>
 
-   <button @click="open = !open" class=" lg:tw-hidden tw-text-xl hover:tw-bg-[#151515]  tw-rounded-full tw-p-2 tw-transition tw-ease-in-out">
+   <button @click="toggleDrawer" class=" lg:tw-hidden tw-text-xl hover:tw-bg-[#151515]  tw-rounded-full tw-p-2 tw-transition tw-ease-in-out">
     <svg class="tw-w-10 tw-h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
    </button>
 
@@ -113,12 +115,20 @@
 
 <script>
   export default {
+   
+    emits: ['toggle-drawer'],
+
     data () {
       return {
         drawer: null,
         open: false,
       }
     },
+    methods:{
+      toggleDrawer(){
+        this.open = !this.open
+      }
+    }
     
   }
 </script>

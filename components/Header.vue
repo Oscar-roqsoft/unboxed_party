@@ -43,30 +43,39 @@
                 </v-btn> -->
               </v-btn-toggle>
             </v-col>
-            <v-btn  v-if="$store.state.cartItems.length"  href="#"  
-            class="rounded-xl text-capitalize font-weight-bold md:tw-mr-4" value="justify">
-                  <cart>
-                     <slot></slot>
-                  </cart>
-             </v-btn>
-            
-            <div class="tw-hidden lg:tw-block">
 
-              <v-btn
-                class="font-weight-bold text-capitalize tw-hidden md:tw-block"
-                rounded
-                outline
-                style="
-                  background: linear-gradient(
-                    132.03deg,
-                    #c471ed 14.22%,
-                    #a044ff 97.95%
-                    );
-                "
-                to="/reserve"
-                color="green"
-                >Register</v-btn
-                >
+             <div class="tw-flex tw-items-center">
+
+               <v-btn  v-if="$store.state.cartItems.length"  href="#"  
+               class="rounded-xl text-capitalize font-weight-bold  tw-mr-3" value="justify">
+                     <cart>
+                        <slot></slot>
+                     </cart>
+                </v-btn>
+ 
+                <drawer >
+                 <slot></slot>
+                 
+               </drawer>
+             </div>
+              
+              <div class="tw-hidden lg:tw-block">
+  
+                <v-btn
+                  class="font-weight-bold text-capitalize tw-hidden md:tw-block"
+                  rounded
+                  outline
+                  style="
+                    background: linear-gradient(
+                      132.03deg,
+                      #c471ed 14.22%,
+                      #a044ff 97.95%
+                      );
+                  "
+                  to="/reserve"
+                  color="green"
+                  >Register</v-btn
+                  >
               </div>
 
               
@@ -74,10 +83,7 @@
               <span > DJ_Mix </span>
             </v-btn> -->
             
-            <drawer>
-                <slot></slot>
-                
-              </drawer>
+           
 
 
               <!-- <div class="tw-hidden lg:tw-block">
@@ -117,6 +123,28 @@
           </v-row>
         </v-container>
 </template>
+
+<script>
+ export default {
+
+
+    data(){
+
+      return {
+        drawer: null,
+        open: false,
+      }
+
+    },
+
+    methods:{
+      toggleDrawer(){
+        this.open = !this.open
+      }
+    }
+    
+  }
+</script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 @media only screen and (max-width: 768px) {
@@ -126,5 +154,5 @@
       line-height: 30px !important;
     }
   }
-  
+
 </style>

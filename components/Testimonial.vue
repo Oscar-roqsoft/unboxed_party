@@ -3,7 +3,8 @@
 
     <div style="background: #000!important;padding:0px 0" class="mb-12">
 
-    <h2 v-if="$vuetify.display.smAndDown" :style="$vuetify.display.smAndDown?'padding-top:60px':''" style="font-size:46px!important;padding-bottom: 34px;color:#fff" class=" my-0 mb-6 coreupcard hidden text-center    px-5 ">With ❤️ from Unboxed FC </h2>
+    <h2 v-if="$vuetify.display.smAndDown" :style="$vuetify.display.smAndDown?'padding-top:60px':''" 
+    style="font-size:46px!important;padding-bottom: 34px;color:#fff" class=" my-0 mb-6 coreupcard hidden text-center font-weight-bold px-5 ">With ❤️ from Unboxed FC </h2>
                 <v-container :class="$vuetify.display.smAndDown?'px-0':''" class="py-0" style="overflow:hidden">
     
     <v-row wrap style="position:relative;" class="d-flex align-center ">

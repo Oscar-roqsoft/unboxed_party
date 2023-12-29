@@ -71,7 +71,7 @@
                             :read-only="loading"
                             :rules="[rules.required, rules.email]"
                             class="mb-2 em rounded-xl"
-                            type="email shadow-none"
+                            type="email"
                             v-model="email"
                             label="Email"
                             hint="eg hello@unboxedparty.com"
@@ -265,26 +265,27 @@
                                 go back
                             </v-btn>
 
-                            <v-btn v-if="isVisible"  @click.prevent="isVisible = false" rounded  size="x-large"
+                            <v-btn v-if="isVisible" style="color:white !important;"  @click.prevent="isVisible = false" rounded  size="x-large"
                                 color="blue-darken-4" type="submit" class="tw-mt-4  mb-0  
                                 font-weight-bold text-capitalize mx-auto ">
                                 check out
                             </v-btn>
 
                             <div v-else>
-                                <v-btn v-if="reveal == false"  :loading="loading" @click.prevent="checkemail" rounded   size="x-large"
+                                <v-btn v-if="reveal == false" style="color:white !important;"  :loading="loading" @click.prevent="checkemail" rounded   size="x-large"
                                     color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
                                     font-weight-bold text-capitalize mx-auto ">
                                     check out
                                 </v-btn>
 
-                                <v-btn v-if="reveal == 1"  :loading="loading" @click.prevent="submit()" rounded   size="x-large"
+                                <v-btn v-if="reveal == 1" style="color:white !important;"  :loading="loading" @click.prevent="submit()" rounded   size="x-large"
                                     color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
                                     font-weight-bold text-capitalize mx-auto ">
                                     Submit
                                 </v-btn>
 
-                                <v-btn v-if="reveal == 2"  :loading="loading" @click.prevent="paynow()" rounded   size="x-large"
+                                <v-btn v-if="reveal == 2" style="color:white !important;"  :loading="loading" 
+                                @click.prevent="paynow()" rounded   size="x-large"
                                     color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
                                     font-weight-bold text-capitalize mx-auto ">
                                      pay now

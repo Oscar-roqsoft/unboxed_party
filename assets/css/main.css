@@ -3,3 +3,42 @@
 @tailwind components;
 @tailwind utilities;
 
+.skeleton-container {
+  @apply tw-bg-black  tw-rounded-lg; /* Adjust background and padding */
+}
+
+.skeleton-item {
+  @apply tw-bg-black tw-rounded-lg; /* Adjust background */
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        
+        background-color: hsl(180, 7%, 6%);
+
+      }
+    25% {
+        
+        background-color: hsl(180, 8%, 8%);
+
+      }
+
+    50% {
+        
+        background-color: hsl(180, 8%, 10%);
+
+      }
+    75% {
+        
+        background-color: hsl(180, 8%, 8%);
+
+      }
+
+
+      100% {
+        background-color: hsl(210, 17%, 6%);
+        
+      }
+
+}

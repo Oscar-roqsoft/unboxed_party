@@ -58,7 +58,7 @@
                   style="font-family: monospace !important"
                   class="text-body-1 text-grey-lighten-1 font-weight-light"
                   >
-                  {{event.created_at}}
+                  {{formatDate(event.created_at)}}
                 </p>
             </div>
                 <div class="d-flex px-5 py-4  justify-space-between  align-center">
@@ -145,6 +145,7 @@
   </template>
   
   <script>
+  import {formatDate} from '@/composables/mixins'
   export default {
     data: () => ({
       rules: {

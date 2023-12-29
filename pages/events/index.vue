@@ -28,10 +28,11 @@
             <v-col v-show="!n.onSale" v-for="(n, i) in myevents" :key="i" class="pt-3" :cols="cols[3]">
 
                <!-- skeleton loader -->
-               <v-card v-if="isLoading" class="tw-rounded-lg bg-gray-400">
-                    <v-skeleton-loader type="image, heading"  style="background: #000000 !important;" />
-             </v-card>
-              
+             <div v-if="isLoading" class=" tw-w-full rounded">
+                <div class="skeleton tw-h-[210px] tw-max-w-[500px] tw-rounded-3xl"></div>
+                <div class="skeleton tw-h-[25px] my-4 tw-w-[100px] tw-mx-1  tw-rounded-lg"></div>
+             </div>
+                  
                <v-card v-else :to="'/event/'+ encodeURIComponent(n.name)" variant="dark" class="pa-2">
 
                 <v-img
@@ -122,9 +123,14 @@
     },
 
     async mounted() {
+
       this.isLoading = true
 
-      if(Date.now() >= this.$store.state?.myevents?.expire_at){
+      setTimeout(() => {
+        this.dialog = true;
+      }, 10000);
+
+      if(Date.now() >= this.$store.state?.myevents.expire_at){
 
           
           try {
@@ -146,14 +152,15 @@
           console.error(error);
         }
       }else{
+
         this.isLoading = false
+
         return this.myevents
       }
 
 
-      setTimeout(() => {
-        this.dialog = true;
-      }, 10000);
+    
+
     },
 
 
@@ -385,5 +392,20 @@
       font-size: 28px;
     }
   }
+
+
+
+  .skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 10%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 8%);
+  }
+}
   </style>
   

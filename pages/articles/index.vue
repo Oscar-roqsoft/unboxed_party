@@ -27,8 +27,11 @@
           <v-row class="d-flex py-3">
             <v-col  v-for="(n, i) in myarticles" :key="i" class="pt-3" :cols="cols[3]">
 
-                    <!-- skeleton loader -->
-              <v-skeleton-loader v-if="isLoading" type=" image, heading" style="background: #000000 !important;"  />
+               <!-- skeleton loader -->
+              <div v-if="isLoading" class=" tw-w-full rounded">
+                <div class="skeleton tw-h-[210px] tw-max-w-[500px] tw-rounded-3xl"></div>
+                <div class="skeleton tw-h-[25px] my-4 tw-mx-w-[500px] tw-mx-1  tw-rounded-lg"></div>
+             </div>
 
               <v-card v-else :to="'/article/'+ encodeURIComponent(n.name)" variant="dark" class="pa-2">
                 <v-img
@@ -377,5 +380,18 @@
       font-size: 28px;
     }
   }
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 10%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 8%);
+  }
+}
   </style>
   
