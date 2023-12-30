@@ -81,6 +81,7 @@
                      
                        <div class="tw-bg-[#232220] tw-w-full tw-flex tw-justify-center  tw-items-center tw-p-4 tw-border-t tw-border-gray-700">
                            <v-btn
+                           
                            target="_blank"
                            href="https://www.instagram.com/the_unboxedparty/"
                            size="x-small"

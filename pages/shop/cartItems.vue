@@ -549,7 +549,7 @@ export default {
     },
     
     customer: data,
-    customizations: {logo: "https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_200/v1684055372/Unboxed_Web_rggvdz.png", title: "Unboxed_Party"},
+    customizations: {logo: "https://res.cloudinary.com/dnqw7x4bp/image/upload/c_fit,w_200/v1582290476/e_dey_e_only_2.png", title: "E Dey App"},
   })
 
 },
