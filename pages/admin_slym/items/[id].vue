@@ -306,7 +306,7 @@ mounted() {
 
       addSize(){
             this.sizeList.push(this.itemSize)
-            this.sizeList.reverse(this.sizeList)
+            // this.sizeList.reverse(this.sizeList)
             this.itemSize = null
         },
 
