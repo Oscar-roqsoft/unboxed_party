@@ -152,7 +152,7 @@
           console.error(error);
         }
       } else{
-        
+        this.isLoading = false
        return this.myevents
       }  
       

@@ -23,67 +23,70 @@
           </div>
           
           <v-row class="d-flex py-0">
-              <v-col l  :cols="cols[7]">
-                <div class="d-flex justify-center">
- 
-          <v-card variant="dark" width="100%" v-if="article.name" class="pa-0">
-           
-           <div   
-           class="grey w-100 rounded- d-flex align-center justify-center"
->
-
-              <!-- skeleton loader -->
-              <div v-if="isLoading" class=" tw-w-full rounded">
-                <div class="skeleton  tw-max-w-[700px] tw-rounded-3xl" :class="$vuetify.display.smAndDown? 'tw-h-[340px]': 'tw-h-[600px] '"></div>
-             </div>
-            <v-img
-                v-else
-                cover
-                height="auto"
-                class="rounded-xl d-flex align-center justify-center"
-                :src="article.image"
-              >
-            </v-img>
-</div>          
-              <h2 style="font-size: 35px" class="font-weight-bold  py-3">
-                {{article.name}}
-              </h2>
+            <!-- skeleton loader -->
             
-              <p v-html="read_more?  article.body : article.body.substring(0, 200)+'...'" class="text-body-1 mt-0 text-grey-lighten-2 font-weight-light">
-              </p>
-              <p class="pt-3" @click="read_more = !read_more">read {{ !read_more? ' more':' less' }}.</p>
-              <div  style="border:1px solid grey " class="rounded-lg my-7">
+            <v-col   l  :cols="cols[7]">
               
-                <div class="d-flex px-5 py-4  justify-space-between  align-center">
-                    <p
-                    variant="outlined"
-                    style=""
-                    class="text-capitalize text-grey font-weight-bold"
-                    rounded
-                    >
-                    Author
-                </p>
-                <p
-                  style="font-family: monospace !important"
-                  class="text-body-1 text-grey-lighten-1 font-weight-light"
-                  >
-                  {{article.author}}
-                </p>
-            </div>
-              </div>
-            </v-card>  </div>
+              <div class="d-flex justify-center">
+
+                  <v-card variant="dark" width="100%" v-if="article.name" class="pa-0">
+                  
+                    <div v-if="isLoading" class=" tw-w-full rounded">
+                      <div class="skeleton  tw-max-w-[700px] tw-rounded-3xl" :class="$vuetify.display.smAndDown? 'tw-h-[340px]': 'tw-h-[600px] '"></div>
+                   </div>
+                    <div v-else :class="$vuetify.display.smAndDown? 'tw-min-h-[340px]': 'tw-min-h-[600px] '"  class="grey w-100 rounded- d-flex align-center justify-center">
+
+                        <v-img
+                     
+                            cover
+                            height="auto"
+                            class="rounded-xl d-flex align-center justify-center"
+                            :src="article.image"
+                          >
+                        </v-img>
+                      </div>          
+                      <h2 style="font-size: 35px" class="font-weight-bold  py-3">
+                        {{article.name}}
+                      </h2>
+                    
+                      <p v-html="read_more?  article.body : article.body.substring(0, 200)+'...'" class="text-body-1 mt-0 text-grey-lighten-2 font-weight-light">
+                      </p>
+                      <p class="pt-3" @click="read_more = !read_more">read {{ !read_more? ' more':' less' }}.</p>
+                      <div  style="border:1px solid grey " class="rounded-lg my-7">
+                      
+                        <div class="d-flex px-5 py-4  justify-space-between  align-center">
+                            <p
+                            variant="outlined"
+                            style=""
+                            class="text-capitalize text-grey font-weight-bold"
+                            rounded
+                            >
+                            Author
+                        </p>
+                        <p
+                          style="font-family: monospace !important"
+                          class="text-body-1 text-grey-lighten-1 font-weight-light"
+                          >
+                          {{article.author}}
+                        </p>
+                    </div>
+                      </div>
+                  </v-card>  
+
+                </div>
+
             <v-col class="px-0 pt-0" :cols="cols[1]">
    
 
          </v-col>
-            </v-col>
+              </v-col>
             <v-col   :cols="cols[8]">
 
               <h2 style="font-size: 30px" class="font-weight-medium text-grey-lighten-2   pb-0 py-0 px-1">
                            Quick Reads 
                            </h2>
           <v-row class="d-flex py-3">
-            <v-col v-show="!n.onSale" v-for="(n, i) in articles" :key="i" class="pt-3" :cols="cols[2]">
+            <v-col v-show="!n.onSale" v-for="(n, i) in myarticles" :key="i" class="pt-3" :cols="cols[2]">
               <v-card :to="'/article/'+encodeURIComponent(n.name)" variant="dark" class="pa-2">
 
               
@@ -119,7 +122,7 @@
        
           </v-row>
         </v-container>
-        
+
         <Footer />
       </v-card>
     </v-app>
@@ -154,6 +157,8 @@
       dialog: false,
       read_more: false,
       booked: false,
+
+      myarticles:[],
       sign: "",
       signs: [
         {
@@ -207,6 +212,7 @@
       ],
 
 
+
     }),
     computed: {
       displ() {
@@ -227,17 +233,23 @@
       return this.$store.state.myarticles.list
     },
     },
+    
     mounted() {
-      this.isLoading = true
-      var name = decodeURIComponent(this.$route.params.name)
-     this.article = this.articles.find(el=>{
-        return el.name == name
-      })
-
-
+      
+      // this.isLoading = true
+      
       setTimeout(() => {
-        this.isLoading = false;
+        var name = decodeURIComponent(this.$route.params.name)
+        this.article = this.articles.find(el=>{
+          return el.name == name
+        })
+
+        this.isLoading = false
+        
       }, 500);
+
+      this.myarticles = this.articles
+
 
       setTimeout(() => {
         this.dialog = true;
