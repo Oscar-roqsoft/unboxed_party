@@ -250,8 +250,6 @@
       var name = decodeURIComponent(this.$route.params.name)
         
         this.event = this.events.find(el=> el.name.toLowerCase() == name.toLowerCase())
-        console.log(this.event,this.$store.state.myevents)
-        console.log(this.event.video)
 
 
       // setTimeout(() => {
@@ -262,6 +260,7 @@
         this.dialog = true;
       }, 10000);
     },
+    
     methods: {
       getEvent(){
         var name = decodeURIComponent(this.$route.params.name)

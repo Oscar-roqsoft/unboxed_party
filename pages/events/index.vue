@@ -131,7 +131,8 @@
       }, 10000);
 
 
-          
+      if(Date.now() >= this.$store.state.shop_items?.expire_at){
+
           try {
           const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
             method:"GET",
@@ -150,9 +151,12 @@
         } catch (error) {
           console.error(error);
         }
+      } else{
+        
+       return this.myevents
+      }  
       
 
-      this.isLoading = false
 
 
     

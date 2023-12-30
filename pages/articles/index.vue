@@ -122,24 +122,31 @@
 
       this.isLoading = true
 
-          try {
-          const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
-            method:"GET",
-            headers:{
-              'Content-Type': 'application/json',
-            }
-    
-          }).then(res=>res.json());
-    
-          const payload =  [...data.articles]
-        this.$store.dispatch("setMyArticles", payload);
-        this.$store.dispatch("setMyArticlesExpirationDate", addMinutes(30));
-    
-        this.isLoading = false
-        
-        } catch (error) {
-          console.error(error);
-        }
+      
+      if(Date.now() >= this.$store.state.shop_items?.expire_at){
+
+            try {
+            const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
+              method:"GET",
+              headers:{
+                'Content-Type': 'application/json',
+              }
+
+            }).then(res=>res.json());
+
+            const payload =  [...data.articles]
+          this.$store.dispatch("setMyArticles", payload);
+          this.$store.dispatch("setMyArticlesExpirationDate", addMinutes(30));
+
+          this.isLoading = false
+          
+          } catch (error) {
+            console.error(error);
+          }
+      }else{
+        return this.myarticles
+      }
+
      
       
       this.isLoading = false
