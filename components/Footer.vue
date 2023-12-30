@@ -1,7 +1,7 @@
 <template>
   <Testimonial />
   <v-container :class="$vuetify.display.smAndDown?'px-0':''" class="py-12 px-6" style="overflow:hidden">
-            <h2 :style="$vuetify.display.smAndDown?'padding-top:100px':''" style="font-size:46px!important; padding-bottom: 0px;color:#fff" 
+            <h2 :style="$vuetify.display.smAndDown?'padding-top:100px;font-size:40px !important':'font-size: 60px'" style=" padding-bottom: 0px;color:#fff" 
             class=" my-0 mb-12 coreupcard hidden text-center logoText font-weight-bold   px-5 ">Our Partners </h2>
         <v-row class="flex-wrap d-flex" wrap >
             <v-col class="pa-1 d-flex align-center justify-center" :cols="cols[5]">

@@ -111,7 +111,7 @@
        </aside>
      </div>
 
-   <button @click="toggleDrawer" class=" lg:tw-hidden tw-text-xl hover:tw-bg-[#151515]  tw-rounded-full tw-p-2 tw-transition tw-ease-in-out">
+   <button @click="toggleDrawer" style="z-index: 999px;" class=" tw-fixed tw-right-4 lg:tw-hidden tw-text-xl tw-bg-[#151515]  tw-rounded-full tw-p-2 tw-transition tw-ease-in-out">
     <svg class="tw-w-10 tw-h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
    </button>
 

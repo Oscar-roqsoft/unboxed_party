@@ -372,7 +372,18 @@ class="bgh">
         </div>
         <v-row class="d-flex pt-9">
           <v-col  v-for="(n, i) in events.slice(0, 3)" :key="i" class="pt-6 d-flex justify-center" :cols="cols[3]">
-            <v-card  width="100%"
+             
+               <!-- skeleton loader -->
+             <div v-if="isLoading" class=" tw-w-full  tw-rounded-3xl ">
+                <div class="skeleton tw-h-[350px] tw-max-w-[500px] tw-rounded-3xl"></div>
+                <div class="skeleton tw-h-[30px] my-4 tw-w-[120px] tw-mx-1  tw-rounded-lg"></div>
+                <div class="tw-flex tw-justify-between tw-items-center">
+                  <div class="skeleton tw-h-[25px] my-2 tw-w-[120px] tw-mx-1  tw-rounded-lg"></div>
+                  <div class="skeleton tw-h-[25px] my-2 tw-w-[120px] tw-mx-1  tw-rounded-lg"></div>
+                </div>
+             </div>
+
+            <v-card v-else  width="100%"
             max-width="500px"
             :to="'/event/'+ encodeURIComponent(n.id)" color="transparent" class="pa-3">
               <v-img eager
@@ -568,7 +579,16 @@ class="bgh">
         </div>
         <v-row class="d-flex pt-9">
           <v-col v-for="n in articles.slice(0, 2)" :key="n.name" class="pt-3 pb-3" :cols="cols[2]">
-            <v-card max-width="650px" :height="$vuetify.display.mdAndDown? 'auto': '540px'" :to="'/article/'+encodeURIComponent(n.name)"  class="rounded-xl mx-auto  pa-3">
+
+               <!-- skeleton loader -->
+              <div v-if="isLoading" class=" tw-w-full  tw-rounded-3xl ">
+                <div class="skeleton tw-h-[400px] tw-max-w-[500px] tw-rounded-3xl"></div>
+                <div class="skeleton tw-h-[30px] my-4 tw-max-w-[500px] tw-mx-1  tw-rounded-lg"></div>
+                <div class="skeleton tw-h-[30px] my-4 tw-max-w-[500px] tw-mx-1  tw-rounded-lg"></div>
+               
+             </div>
+
+            <v-card v-else max-width="650px" :height="$vuetify.display.mdAndDown? 'auto': '540px'" :to="'/article/'+encodeURIComponent(n.name)"  class="rounded-xl mx-auto  pa-3">
               <v-img
                 cover eager
                 height="auto"
@@ -1293,5 +1313,18 @@ z-index: 99!important;
 
 }
 
+}
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 10%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 8%);
+  }
 }
 </style>

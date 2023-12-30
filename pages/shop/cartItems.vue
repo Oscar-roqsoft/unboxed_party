@@ -1,5 +1,6 @@
 
 <template>
+
     
     <v-card class="pa-0 ma-0" color="black" tile flat min-height="100vh">
      
@@ -47,15 +48,18 @@
      <Header />
     </div>
 
+
+    
+
    
 
 <v-container class="p-4">
     
-   <div class="tw-max-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 md:tw-w-full tw-justify-center">
+   <div class="tw-max-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 md:tw-max-w-full tw-justify-center">
 
-        <Product v-if="isVisible" class="tw-col-span-2" />
+        <Product v-if="isVisible" class="tw-w-full tw-col-span-2"/>
 
-        <v-col v-else class="md:tw-mt-[76px] tw-col-span-2 tw-mx-auto"> 
+        <v-col v-else class="md:tw-mt-[76px] lg:tw-col-span-2 tw-mx-auto"> 
             <v-card height="auto" color="#000" style="background: hsla(0, 0%, 13%, 0.38); backdrop-filter: blur(8px);"  
             class=" rounded-lg align-center pa-4" :style="{ display: reveal === 2 ? 'none' : 'block' }">
 
@@ -227,11 +231,12 @@
               </v-expand-transition>
             
         </v-col>
-        <div class=" tw-w-full  md:tw-mt-4 tw-opacity-70  tw-shadow tw-rounded-md tw-min-h-[300px]  
-        md:tw-h-[520px] tw-overflow-y-scroll md:tw-p-4">
+        <div class=" tw-w-full  md:tw-mt-4 tw-opacity-70 tw-col-span-1 tw-shadow tw-rounded-md tw-min-h-[300px]  
+        md:tw-h-[520px] tw-overflow-y-scroll md:tw-p-4 ">
                  
                    
-                <div class="tw-flex tw-flex-col tw-justify-end tw-items-center tw-font-bold  tw-mt-14 tw-w-full tw-border tw-rounded tw-p-4 tw-border-gray-900"
+                <div class="tw-flex tw-flex-col tw-justify-end tw-items-center tw-font-bold  tw-mt-14 tw-w-full tw-border tw-rounded 
+                tw-p-4 tw-border-gray-900"
                   color="deep-purple-accent-3">
 
                       <div class="tw-w-full">
@@ -268,7 +273,7 @@
                             <v-btn v-if="isVisible" style="color:white !important;"  @click.prevent="isVisible = false" rounded  size="x-large"
                                 color="blue-darken-4" type="submit" class="tw-mt-4  mb-0  
                                 font-weight-bold text-capitalize mx-auto ">
-                               <span style="color:white!important;opacity: 1!important;">
+                               <span style="color:white!important">
                                  check out
 
                                </span> 
@@ -278,9 +283,7 @@
                                 <v-btn v-if="reveal == false" style="color:white !important;"  :loading="loading" @click.prevent="checkemail" rounded   size="x-large"
                                     color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
                                     font-weight-bold text-capitalize mx-auto ">
-                                    <span style="color:white!important;opacity: 1!important;">
-check out
-                                    </span> 
+                                    check out
                                 </v-btn>
 
                                 <v-btn v-if="reveal == 1" style="color:white !important;"  :loading="loading" @click.prevent="submit()" rounded   size="x-large"
@@ -350,6 +353,8 @@ export default {
       isVisible: true,
       loading: false,
       reveal: false,
+
+      isopen:false,
     };
   },
 
@@ -366,6 +371,10 @@ export default {
   },
 
   methods:{
+    
+   
+
+
     setActiveCategory(tab) {
       this.selecteditemsToD = this.$store.state.shop_items.list.filter((item) =>  item.category.includes(tab))
      
@@ -593,6 +602,10 @@ export default {
   },
 
   computed:{
+    isopen(){
+      return this.isopen
+    },
+
       items () {
       return  this.$store.state.shop_items.list
     },

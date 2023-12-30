@@ -47,7 +47,7 @@
              <div class="tw-flex tw-items-center">
 
                <v-btn  v-if="$store.state.cartItems.length"  href="#"  
-               class="rounded-xl text-capitalize font-weight-bold  tw-mr-3" value="justify">
+               class="rounded-xl text-capitalize font-weight-bold  tw-mr-20 tw-mr-3" value="justify">
                      <cart>
                         <slot></slot>
                      </cart>
