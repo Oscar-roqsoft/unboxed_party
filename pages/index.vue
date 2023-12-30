@@ -861,7 +861,8 @@ return seconds
     console.error(error);
     }
     }else{
-    return this.myevents
+      this.isLoading = false
+      this.myevents
     }
 
 
@@ -888,7 +889,8 @@ return seconds
       console.error(error);
       }
       }else{
-      return this.myarticles
+        this.isLoading = false
+     this.myarticles
       }
    
     setTimeout(() => {

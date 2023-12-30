@@ -1,4 +1,48 @@
 <template>
+
+      <!-- remove item dialog box -->
+
+      
+
+      <div v-if="isopen " class="tw-fixed  tw-top-1/3 tw-left-[0] tw-py-4  tw-opac tw-mx-4 lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg tw-bg-[#282828] 
+       tw-z-40  tw-transform" :class="!isopen?'tw-opacity-0': 'tw-opacity-100 tw-transition tw-duration-700 tw-ease-in-out tw-delay-75' ">
+            <div class="tw-text-center ">
+                <div class=" tw-px-4  tw-pb-4 sm:tw-p-6 sm:tw-pb-4">
+                  <div class="sm:tw-flex sm:tw-items-start">
+                  <div class="tw-text-center sm:tw-mt-0 sm:tw-ml-4 sm:tw-text-left">
+                    <h3 class="tw-text-xl tw-leading-6 tw-font-semibold tw-text-gray-50" >
+                      Remove Item from Cart
+                    </h3>
+                    <div class="tw-mt-2">
+                      <p class="tw-text-sm tw-text-gray-300">
+                        Are you sure you want to remove this item? This action cannot be undone.
+                      </p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class=" px-4 py-2 tw-w-full sm:tw-px-2 sm:tw-flex sm:tw-flex-row">
+                  <button type="button" class="tw-mt-2  tw-inline-flex tw-justify-center tw-mx-2 tw-rounded-3xl tw-border tw-border-gray-300 tw-shadow-sm
+                  tw-px-5 tw-py-3 tw-bg-gray-700 tw-text-base tw-font-medium tw-text-gray-700 hover:tw-bg-gray-600 
+                  focus:tw-outline-none sm:tw-mt-0 sm:tw-ml-3 sm:tw-w-auto sm:tw-text-sm" @click="closeDialog">
+                    Cancel
+                  </button>
+                  <button type="button" class=" tw-inline-flex tw-justify-center tw-rounded-3xl tw-mx-2 tw-border tw-border-transparent 
+                  tw-shadow-sm tw-px-5 tw-py-3 tw-bg-red-600 tw-text-base tw-font-medium tw-text-white hover:tw-bg-red-700 focus:tw-outline-none 
+                   sm:tw-ml-3 sm:tw-w-auto sm:tw-text-sm" @click="deleteItem(item_id)">
+                    Remove
+                  </button>
+
+                </div>
+            </div>
+       </div>
+
+
+      <!-- end of remove item dialog box -->
+
+
+
     <div class="">
        <h3 class=" tw-text-3xl tw-mb-2 tw-mx-2 tw-font-bold" color="deep-purple-accent-3">Cart({{ $store.state.cartItems.length }})</h3>
         <div >
@@ -95,7 +139,7 @@
                         </td>
 
                         <td class="px-6 tw-py-4 text-right ">
-                            <a href="#" @click.prevent="deleteItem(item.id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            <a href="#" @click.prevent="removeItem(item.id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 352 512">
                                 <path fill="red" d="m242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 
                                 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28L75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 
@@ -131,7 +175,9 @@ export default {
       ],
 
       selected:'',
-      options:[]
+      options:[],
+      isopen:false,
+      item_id:null,
     
     }
   },
@@ -150,6 +196,9 @@ export default {
 
 
   methods: {
+    closeDialog(){
+       this.isopen = false
+    },
     updateQuantity(product) {
       // Update the product quantity in the cart state
       this.$store.dispatch('updateCartItemQuantity', { product, quantity: product.quantity });
@@ -167,6 +216,11 @@ export default {
     removeFromCart(product) {
       // Remove the product from the cart state
       this.$store.dispatch('removeItemFromCart', product);
+    },
+
+    removeItem(itemId){
+        this.item_id = itemId
+        this.isopen = true
     },
 
     deleteItem(itemId) {

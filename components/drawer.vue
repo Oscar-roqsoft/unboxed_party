@@ -15,6 +15,9 @@
    
                <div class="tw-flex tw-flex-col tw-justify-center  tw-border-b tw-border-gray-700  ">
                 
+                 <a  @click.prevent="navigateTo('/ticket/list')" class=" tw-p-5 tw-capitalize tw hover:tw-bg-[#393939]  tw-font-bold" value="left">
+                   Tickets
+                 </a>
                    <a value="shop"  @click.prevent="navigateTo('/shop')" class="tw-p-5   text-capitalize hover:tw-bg-[#393939]  font-weight-bold">
                      <span style="font-family: Permanent Marker !important;font-size: 20px;"> Shop! </span>
                    </a>
