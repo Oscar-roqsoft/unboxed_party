@@ -57,7 +57,7 @@
     
    <div class="tw-max-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 md:tw-max-w-full tw-justify-center">
 
-        <Product v-if="isVisible" class="tw-w-full tw-col-span-2"/>
+        <Product v-if="isVisible" class=""/>
 
         <v-col v-else class="md:tw-mt-[76px] lg:tw-col-span-2 tw-mx-auto"> 
             <v-card height="auto" color="#000" style="background: hsla(0, 0%, 13%, 0.38); backdrop-filter: blur(8px);"  
@@ -361,7 +361,6 @@ export default {
 
   mounted(){
 
-
     if(!this.$store.state.cartItems.length){
          this.$router.push('/shop')
          console.log('done')
@@ -602,9 +601,7 @@ export default {
   },
 
   computed:{
-    isopen(){
-      return this.isopen
-    },
+   
 
       items () {
       return  this.$store.state.shop_items.list

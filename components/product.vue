@@ -169,7 +169,6 @@
 export default {
   props: {
     product: Object,
-    isopen:Boolean,
 
   },
 
@@ -246,6 +245,10 @@ export default {
       const itemIndex = this.$store.state.cartItems.findIndex((item) => item.id === itemId);
       if (itemIndex >= 0) {
         this.$store.state.cartItems.splice(itemIndex, 1);
+        if( this.$store.state.cartItems.length == 0){
+          return this.$router.push('/shop')
+        }
+       return
     }
     
    },
