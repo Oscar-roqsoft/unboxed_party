@@ -2,7 +2,7 @@
     <div>
 
         <v-container>
-            <Backbutton class="md:tw-max-w-[800px] mx-auto"/>
+            <Backbutton class="md:tw-max-w-[980px] mx-auto"/>
         </v-container>
 
         <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[12%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg tw-bg-[#282828]  tw-z-40
@@ -16,22 +16,22 @@
             </div>
        </div>
 
-      <v-container class="pt-14">
+      <v-container class="pt-14 ">
 
-        <v-row class="mb-6 tw-flex tw-justify-between">
+        <v-row class="mb-6 tw-flex tw-justify-between md:tw-max-w-[980px] mx-auto">
           <h1  class="text-white px-4">Articles</h1>
           <v-btn class="mx-4 rounded-xl"  color="success" fab @click="$router.push('/admin_slym/articles/create')">
               Create article
           </v-btn>
         </v-row>
 
-        <v-card theme="dark"  class="text-white pa-4">
+        <v-card theme="dark"  class="text-white pa-4 md:tw-max-w-[980px] mx-auto">
           
             <div  class="tw-flex tw-flex-wrap tw-gap-2">
                 <div v-for="(i,index) in fetchedArticles" class="tw-flex tw-flex-col ">
                     <div class="tw-max-w-[310px]  tw-rounded-md tw-gap-3">
             
-                        <img class="tw-w-full" :src="i.image" alt="">
+                        <img class="tw-w-full tw-rounded-lg tw-mb-2" :src="i.image" alt="">
                         <div>Name: {{ i.name }}</div>
                         <div>Author: {{ i.author }}</div>
                         <article class="py-2">

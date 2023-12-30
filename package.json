@@ -34,7 +34,7 @@
     "vue-toastification": "^2.0.0-rc.5",
     "vue-virtual-scroll-list": "^2.3.4",
     "vue3-paystack": "^0.0.5",
-    "vuetify": "^3.1.1",
+    "vuetify": "^3.4.0",
     "vuex": "^4.0.2"
   }
 }

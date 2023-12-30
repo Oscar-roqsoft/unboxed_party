@@ -268,14 +268,19 @@
                             <v-btn v-if="isVisible" style="color:white !important;"  @click.prevent="isVisible = false" rounded  size="x-large"
                                 color="blue-darken-4" type="submit" class="tw-mt-4  mb-0  
                                 font-weight-bold text-capitalize mx-auto ">
-                                check out
+                               <span style="color:white!important;opacity: 1!important;">
+                                 check out
+
+                               </span> 
                             </v-btn>
 
                             <div v-else>
                                 <v-btn v-if="reveal == false" style="color:white !important;"  :loading="loading" @click.prevent="checkemail" rounded   size="x-large"
                                     color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
                                     font-weight-bold text-capitalize mx-auto ">
-                                    check out
+                                    <span style="color:white!important;opacity: 1!important;">
+check out
+                                    </span> 
                                 </v-btn>
 
                                 <v-btn v-if="reveal == 1" style="color:white !important;"  :loading="loading" @click.prevent="submit()" rounded   size="x-large"

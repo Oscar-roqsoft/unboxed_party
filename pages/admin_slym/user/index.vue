@@ -4,7 +4,7 @@
   
       <v-card tile theme="dark" >
 
-        <div class="pa-5 d-flex justify-space-between tw-flex-wrap">
+        <div class="pa-5 d-flex justify-space-between align-center tw-flex-wrap">
 
           <h1 >Users({{ users.length }})</h1>
           <!-- <h1  class="text-blue font-weight-medium" @click="$router.push('/admin_slym/ticket_dash/2')">Tickets({{ ticket_no.tickets }})</h1> -->
@@ -13,7 +13,7 @@
           <!-- <h1  class="text-blue font-weight-medium" @click="$router.push('/admin_slym/bts_dash')">Students({{ student_no }})</h1> -->
 
           <div class=" tw-mt-4 md:tw-mt-0">
-            <v-btn @click="toggleModal" type="submit" class="pa-2 mx-4"  color="blue-darken-4">send bulk sms</v-btn><!-- toggle modal display -->
+            <v-btn @click="toggleModal" type="submit" class="pa-2 mx-4"  color="blue-darken-4">send bulk email</v-btn><!-- toggle modal display -->
   
             <v-btn :loading="loader" @click="getUsers(true)" icon size="small"><v-icon icon="mdi mdi-reload"></v-icon></v-btn>
           </div>
@@ -37,9 +37,30 @@
 
         <!-- end modal -->
 
+        <!-- <v-data-table-virtual
+    :headers="headers"
+    :items="users"
+    height="400"
+    item-value="name"
+  ></v-data-table-virtual> -->
+  <!-- <template v-slot:text>
+      <v-text-field
+        v-model="search"
+        label="Search"
+        prepend-inner-icon="mdi-magnify"
+        single-line
+        variant="outlined"
+        hide-details
+      ></v-text-field>
+    </template>
 
-
-        <v-table theme="dark" class=" pb-12 px-3 mb-12">
+    <v-data-table
+      :headers="headers" :next-icon="'mdi mdi-heart'"
+      :items="users"
+      :search="search"
+    ></v-data-table> -->
+    
+        <v-table  theme="dark" class=" pb-12 px-3 mb-12">
           <thead>
             <tr>
               <th class="text-left font-weight-black text-h5">
@@ -97,6 +118,7 @@
             </tr>
           </tbody>
         </v-table>
+
       </v-card>
       <v-dialog z-index="9"
         v-model="dialog2"
@@ -129,10 +151,7 @@
       <v-dialog z-index="9"
         v-model="dialog"
         width="300"
-      >
-  
-      
-            
+      >  
       </v-dialog>
     </div>
   
@@ -165,8 +184,16 @@
         showModal:false,
         dialog:false,
         loader:false,
+        search:'',
         chosen:{},
         ticket:{},
+        headers: [
+          { title: 'Name', align: 'start', key: 'name' },
+          { title: 'Email', align: 'end', key: 'email' },
+          { title: 'Phone', align: 'end', key: 'phone' },
+          { title: 'Whatsapp', align: 'end', key: 'whatsapp' },
+          { title: 'Created', align: 'end', key: 'created_at' },
+        ],
         dialog2:false,
         loading:false,
         loading2:false,
