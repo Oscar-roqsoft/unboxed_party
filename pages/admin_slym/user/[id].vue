@@ -166,6 +166,10 @@ Actions
           <v-btn @click="incrementTicket" color="white" size="x-small"  class="font-weight-bold d-flex align-center"><v-icon icon="mdi mdi-plus" size="19px"> </v-icon></v-btn>
         </div>
       </div>
+      <div>
+
+      </div>
+      
          <v-select
                   
                     :items="events"
@@ -176,20 +180,29 @@ Actions
                     v-model="event"
                     label="Event"
                   >
-                  </v-select>
-         <v-select
+         </v-select>
+         <v-text-field
+            class="mb-2 rounded-xl"
+            v-model="price"
+            label="Price"
+            density="compact"
+            variant="solo"
+          ></v-text-field>
+
+         <!-- <v-select
                   
-                    :items="['0','1000', '2000', '10000', '5000']"
-                    item-text="title"
-                    item-value="value"
+                    :items="JSON.parse(this.events[0].tickets)"
+                    item-title="amount"
+                    item-value="id"
                     variant="solo"
                     density="compact"
                     v-model="price"
                     label="Price"
-                  >
-                  </v-select>
+                    >
+          </v-select> -->
       <!-- come back nd finalize the offline ticket process -->
     <v-btn
+
     :loading="loading2"
                 @click="sendTicket(chosen)"
                 size="x-large"
@@ -216,12 +229,14 @@ Actions
   export default {
    
       mounted(){
+        console.log(JSON.parse(this.events[0].tickets))
      this.getUser()
+
       },
     data () {
       return {
         users: [],
-        events: [ {id: 5,name:'All White Affair'}],
+        // events: [ {id: 5,name:'All White Affair'}],
         dialog:false,
         chosen:{},
         ticket:{},
@@ -230,9 +245,10 @@ Actions
         loading2:false,
         activeId: null,
         qty: 1,
-        event: 5,
+        event: 'MeMe Edition',
         price: '2000',
-        ticket_code: '123'
+        ticket_code: '123',
+        event_ticket_name:'',
       }
     },
     computed:{
@@ -242,9 +258,21 @@ Actions
     tickets () {
       return this.user ? this.user.tickets : []
     },
+    events(){
+      return this.$store.state.myevents.list
+    },
+    event_name(){
+      return  get_on_sale_events_name()
+    }
     
     },
+
+
+ 
+
     methods:{
+  
+
       getUser(){
         fetch("https://backend.unboxedparty.com/api/get_tickets?id="+this.$route.params.id, {
             method: "GET",

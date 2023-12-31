@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div style="z-index: 99 !important;">
       <span @click.prevent="navigateTo('/shop/cartItems')" class="cart-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" 
             d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19ZM19 16H7a1 1 0 0 1 0-2h8.491a3.013 3.013 0 0 0 2.885-2.176l1.585-5.55A1
