@@ -54,9 +54,12 @@
                 </v-btn>
  
                 <drawer >
+                  
                  <slot></slot>
                  
                </drawer>
+
+               
              </div>
               
               <div class="tw-hidden lg:tw-block">
