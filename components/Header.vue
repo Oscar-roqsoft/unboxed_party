@@ -46,7 +46,7 @@
 
              <div class="tw-flex tw-items-center">
 
-               <v-btn  style="z-index: 99 !important;" v-if="$store.state.cartItems.length"  href="#"  
+               <v-btn  style="z-index: 20 !important;" v-if="$store.state.cartItems.length"  href="#"  
                class="rounded-xl text-capitalize  font-weight-bold  tw-mr-20 md:tw-mr-3" value="justify">
                      <cart>
                         <slot></slot>
@@ -54,7 +54,7 @@
                 </v-btn>
  
                 <drawer >
-                  
+
                  <slot></slot>
                  
                </drawer>
