@@ -123,7 +123,6 @@
       this.isLoading = true
 
       
-      if(Date.now() >= this.$store.state.shop_items?.expire_at){
 
             try {
             const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
@@ -143,10 +142,7 @@
           } catch (error) {
             console.error(error);
           }
-      }else{
-        this.isLoading = false
-        return this.myarticles
-      }
+     
 
      
       
