@@ -281,8 +281,8 @@
     },
 
 
-    async mounted() {
-      var name = decodeURIComponent(this.$route.params.id)
+     mounted() {
+      var name = this.$route.params.id
       this.item = this.items.find(el=>{
         return el.id == name
       })
