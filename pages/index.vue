@@ -836,7 +836,6 @@ return seconds
          console.log(e)
     }
 
-    if(Date.now() >= this.$store.state.shop_items?.expire_at){
 
      try {
   const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
@@ -858,14 +857,10 @@ return seconds
         console.error(error);
       }
 
-      }else{
-      return this.items
-      }
+     
 
 
-    if(Date.now() >= this.$store.state?.myevents?.expire_at){
-
-     this.isLoading = true
+    this.isLoading = true
     try {
     const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
       method:"GET",
@@ -884,14 +879,11 @@ return seconds
     } catch (error) {
     console.error(error);
     }
-    }else{
-      this.isLoading = false
-      this.myevents
-    }
+
+   
 
 
    
-    if(Date.now() >= this.$store.state.myarticles?.expire_at){
 
       this.isLoading = true
       try {
@@ -912,10 +904,7 @@ return seconds
       } catch (error) {
       console.error(error);
       }
-      }else{
-        this.isLoading = false
-     this.myarticles
-      }
+     
 
    
    

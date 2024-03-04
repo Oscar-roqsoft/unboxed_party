@@ -551,6 +551,9 @@ export default {
     customizations: {logo: "https://res.cloudinary.com/dnqw7x4bp/image/upload/c_fit,w_200/v1582290476/e_dey_e_only_2.png", title: "E Dey App"},
   })
 
+
+  this.cartItems = []
+
 },
 
     async checkemail() {
