@@ -81,7 +81,7 @@
 
       
 
-      <v-card v-else class="block items-center "  :to="'/shop/'+item.id" style="cursor: pointer;"  color="transparent" flat height="">
+      <v-card v-else class="block items-center "  :to="'/shop/'+item.name" style="cursor: pointer;"  color="transparent" flat height="">
           <!-- <v-img  eager  max-width="500px"
             class="rounded-lg" height="400" width="100%" cover 
             :src="'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_800/v1694578910/unboxed/'+ item.options[0].images[0] +'.png'"></v-img> -->
