@@ -160,12 +160,19 @@ class="bgh">
      <v-col  @click="openEvent(n);"    style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
       <div class=" d-flex pt-0 pb-0 align-end justify-center">
 
-        <v-img
+            <!-- skeleton loader
+            <div v-if="isLoading" class=" tw-w-full  tw-rounded-3xl ">
+                <div class="skeleton tw-h-[350px] tw-max-w-[500px] tw-rounded-3xl"></div>
+                <div class="skeleton tw-h-[30px] my-4 tw-w-[120px] tw-mx-1  tw-rounded-lg"></div>
+             </div> -->
+
+        <v-img 
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
         :src="n.image"
         ></v-img>
+
       </div>
    </v-col> 
    <v-col style="
@@ -901,13 +908,14 @@ return seconds
       }
      
 
-
-      this.eventsLists = this.events.filter(el=>{
-        return el.on_sale == 1
-      }).reverse()
-   
-     this.mydate = this.eventsLists[0].date
-  
+      if(this.events.length){
+        this.eventsLists = this.events.filter(el=>{
+          return el.on_sale == 1
+        }).reverse()
+     
+       this.mydate = this.eventsLists[0].date
+    
+      }
 
    
    
