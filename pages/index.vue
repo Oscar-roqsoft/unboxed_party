@@ -811,14 +811,9 @@ return seconds
 
 
   async mounted() {
-    this.eventsLists = this.events.filter(el=>{
-        return el.on_sale == 1
-      }).reverse()
    
-     this.mydate = this.eventsLists[0].date
-  
+    this.isLoading= true
 
-     this.isLoading= true
     try{
           const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
               method:"Get",
@@ -905,6 +900,14 @@ return seconds
       console.error(error);
       }
      
+
+
+      this.eventsLists = this.events.filter(el=>{
+        return el.on_sale == 1
+      }).reverse()
+   
+     this.mydate = this.eventsLists[0].date
+  
 
    
    

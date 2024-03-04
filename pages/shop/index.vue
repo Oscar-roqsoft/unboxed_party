@@ -167,7 +167,6 @@ export default {
 
 
 
-  if(Date.now() >= this.$store.state.shop_items?.expire_at){
 
        try {
          const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
@@ -188,12 +187,7 @@ export default {
          console.error(error);
        }
 
-      }else{
-
-        this.isLoading = false
-
-      return this.items
-      }
+     
       
 
 
