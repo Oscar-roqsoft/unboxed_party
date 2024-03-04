@@ -129,7 +129,7 @@ class="bgh">
           :src="n"
         ></v-img>
  </div>
-    <v-container :class="$vuetify.display.smAndDown? 'bg-black':''" class="pt-0" style="box-shadow: 0px -42px 29px 8px #000000f0;overflow: visible; position: relative;" fluid>
+    <v-container   v-for="(n,index) in eventsLists" :key="n.name"   :class="$vuetify.display.smAndDown? 'bg-black':''" class="pt-0" style="box-shadow: 0px -42px 29px 8px #000000f0;overflow: visible; position: relative;" fluid>
       <div  v-if="!$vuetify.display.smAndDown" style="    max-height: 543px;"  class="photobanner0 d-flex align-end justify-start">
       <div v-if="true" style="height: 80vh;
     position: absolute;
@@ -157,10 +157,10 @@ class="bgh">
     width: 100%;
     background: linear-gradient(360deg, black, transparent);
     z-index: 0;"></div> -->
-     <v-col  @click="openEvent(n);"     v-for="(n,index) in eventsLists" :key="n.name"  style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
+     <v-col  @click="openEvent(n);"    style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
       <div class=" d-flex pt-0 pb-0 align-end justify-center">
 
-        <v-img @click="$router.push('/ticket/Meme Edition 2')"
+        <v-img
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
@@ -184,7 +184,8 @@ class="bgh">
 
 <div class="py-3 centerIt  text-right my-4">
   <v-btn
-  to="/ticket/Meme Edition 2"
+
+  @click="openEvent(n);"
   size="x-large"
   style="
            background: linear-gradient(132.03deg, rgb(162 11 6) 14.22%, rgb(127 9 11) 97.95%)
