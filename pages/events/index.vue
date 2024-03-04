@@ -87,6 +87,7 @@
         (v) => v[0] === "0" || 'Phone number must start with "0"',
         (v) => /^[0-9]*$/.test(v) || "Number must be valid",
       ],
+
       name: "",
       text: null,
       phone: "",
@@ -155,7 +156,6 @@
         this.isLoading = false
        return this.myevents
       }  
-      
 
 
 
@@ -165,9 +165,9 @@
 
 
     watch:{
-    myevents(){
-      this.$store.dispatch('clearExpiredEvents')
-    }
+      myevents(){
+        this.$store.dispatch('clearExpiredEvents')
+      }
   },
 
 

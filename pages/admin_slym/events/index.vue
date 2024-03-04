@@ -5,7 +5,9 @@
       <v-container>
             <Backbutton class=" md:tw-max-w-[1000px] mx-auto"/>
         </v-container>
-      <v-container class="">
+
+        
+      <v-container>
 
         <div v-if="toast" class="tw-fixed tw-top-1/3 tw-left-[12%] lg:tw-left-[40%] tw-min-h-28 tw-min-w-28 tw-rounded-lg  tw-bg-[#282828] tw-z-40
       tw-transition tw-duration-300 tw-ease-in-out tw-transform">

@@ -31,7 +31,8 @@ class="bgh">
           <!-- <v-avatar  tile width="100%" height="100%"><v-img eager src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_1000/v1664318468/C0042.MP4.16_29_36_17.Still001_1_br9fzu.jpg"></v-img></v-avatar> -->
         </div>
         <div class="bgh" v-else>
-    <v-img width="auto" height="100%" src="https://res.cloudinary.com/payhospi/image/upload/v1698310701/unboxed/Screenshot_2023-10-26_at_3.58.05_AM_cy5krs.png">
+    <v-img width="auto" height="100%" 
+    src="https://res.cloudinary.com/payhospi/image/upload/v1698310701/unboxed/Screenshot_2023-10-26_at_3.58.05_AM_cy5krs.png">
     </v-img>
         </div>
      <Header />
@@ -156,14 +157,14 @@ class="bgh">
     width: 100%;
     background: linear-gradient(360deg, black, transparent);
     z-index: 0;"></div> -->
-     <v-col style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
+     <v-col  @click="openEvent(n);"     v-for="(n,index) in eventsLists" :key="n.name"  style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
       <div class=" d-flex pt-0 pb-0 align-end justify-center">
 
         <v-img @click="$router.push('/ticket/Meme Edition 2')"
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1700458125/Unboxed_Party_Meme_Party_2_usm8ub.jpg"
+        :src="n.image"
         ></v-img>
       </div>
    </v-col> 
@@ -176,7 +177,7 @@ class="bgh">
    font-size: 50px;
    line-height: 60px;" class="text--white bigtext centerIt text-right">Countdown <br>
     <vue-countdown style="  font-weight: 700;
-  font-size:40px;" class="text-yellow-darken-1" :time="timediff" v-slot="{ days, hours, minutes, seconds }">
+  font-size:40px;" class="text-yellow-darken-1" :time="timediff(mydate)" v-slot="{ days, hours, minutes, seconds }">
    {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
   </vue-countdown>
 </h1>
@@ -685,6 +686,8 @@ export default {
     dialog: false,
     booked: false,
     sign: "",
+    eventsLists:null,
+    mydate:null,
     signs: [
       {
         value: "Aries",
@@ -770,13 +773,7 @@ var endDate   = new Date('2023-12-08');
 var seconds = (endDate.getTime() - startDate.getTime()) ;
 return seconds
     },
-    timediff(){
-      var startDate = new Date();
-// Do your operations
-var endDate   = new Date('2023-12-08');
-var seconds = (endDate.getTime() - startDate.getTime()) ;
-return seconds
-    },
+   
     articles () {
       return this.$store.state.myarticles.list
     },
@@ -813,9 +810,14 @@ return seconds
 
 
   async mounted() {
+    this.eventsLists = this.events.filter(el=>{
+        return el.on_sale == 1
+      }).reverse()
    
+     this.mydate = this.eventsLists[0].date
+  
 
-    this.isLoading= true
+     this.isLoading= true
     try{
           const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
               method:"Get",
@@ -913,6 +915,8 @@ return seconds
         this.isLoading = false
      this.myarticles
       }
+
+   
    
     setTimeout(() => {
       this.dialog = true;
@@ -921,6 +925,17 @@ return seconds
   },
 
   methods: {
+    openEvent(e){
+        e.active? this.$router.push('/ticket/'+encodeURIComponent(e.name)): alert('Coming Soon!!!')
+      },
+    timediff(x){
+        var startDate = new Date();
+  // Do your operations
+  var endDate   = new Date(x)
+  var seconds = (endDate.getTime() - startDate.getTime()) ;
+  return seconds
+      },
+
     animImg(){
       setTimeout(() => {
       this.animImg2()

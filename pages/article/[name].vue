@@ -23,18 +23,25 @@
           </div>
           
           <v-row class="d-flex py-0">
-            <!-- skeleton loader -->
+
+            
             
             <v-col   l  :cols="cols[7]">
               
-              <div class="d-flex justify-center">
+              <!-- skeleton loader -->
+              <div v-if="isLoading" class=" tw-w-full rounded">
+                <div class="skeleton   tw-rounded-3xl" :class="$vuetify.display.smAndDown? 'tw-h-[340px]': 'tw-h-[600px] '"></div>
+                <div class="skeleton tw-h-[40px] my-4  tw-mx-1  tw-rounded-lg"></div>
+                <div class="skeleton tw-h-[35px] my-4  tw-mx-1  tw-rounded-lg"></div>
+             </div>
+
+              <div v-else  style="min-height: 500px;" class="d-flex justify-center">
 
                   <v-card variant="dark" width="100%" v-if="article.name" class="pa-0">
                   
-                    <div v-if="isLoading" class=" tw-w-full rounded">
-                      <div class="skeleton  tw-max-w-[700px] tw-rounded-3xl" :class="$vuetify.display.smAndDown? 'tw-h-[340px]': 'tw-h-[600px] '"></div>
-                   </div>
-                    <div v-else :class="$vuetify.display.smAndDown? 'tw-min-h-[340px]': 'tw-min-h-[600px] '"  class="grey w-100 rounded- d-flex align-center justify-center">
+                   
+                    <div  :class="$vuetify.display.smAndDown? 'tw-min-h-[340px]': 'tw-min-h-[600px] '"  class="grey w-100 rounded- d-flex align-center
+                     justify-center">
 
                         <v-img
                      
@@ -44,6 +51,7 @@
                             :src="article.image"
                           >
                         </v-img>
+
                       </div>          
                       <h2 style="font-size: 35px" class="font-weight-bold  py-3">
                         {{article.name}}
