@@ -57,7 +57,7 @@
               
                   <div class="tw-flex tw-my-4 pa-2">
                     <v-btn color="primary" @click="navigateTo(`/admin_slym/events/${i.id}`)">Edit</v-btn>
-                    <v-btn class="mx-2" color="error" @click="toast = true; idItem = i.id; itemName = i.name">Delete</v-btn>
+                    <v-btn class="mx-2" color="error" @click="toast = true; idItem = i.id; itemName = i.name" :loading="loading">Delete</v-btn>
                   </div>
                 </v-card>
 
@@ -94,6 +94,7 @@ export default {
       toast:false,
       idItem:null,
       itemName:'',
+      loading:false,
     };
   },
 
@@ -138,6 +139,7 @@ export default {
         id:eventId
        }
        console.log(id)
+       this.loading = true
         try{
           const data = await fetch('https://backend.unboxedparty.com/api/event',{
             method:'DELETE',
@@ -148,7 +150,8 @@ export default {
               body:JSON.stringify(id)
               
             }).then(res=>res.json())
-         
+            this.loading = false
+
             const filteredItems = this.$store.state.myevents.filter(item => item.id !== eventId)
            this.$store.dispatch("setMyEvents", filteredItems)
           

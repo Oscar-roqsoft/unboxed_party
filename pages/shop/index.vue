@@ -144,26 +144,31 @@ export default {
 
  async mounted(){
 
+      if( this.$store.state.shop_items.list){
+        this.$store.state.shop_items.list
+      }else{
 
-  this.isLoading = true
-
-    try {
-        const data = await fetch(`https://backend.unboxedparty.com/api/category`,{
-            method:"GET",
-            headers:{
-            'Content-Type': 'application/json',
-            }
-        }).then(res=>res.json());
-
-        
-        const payload =  [...data.categories]
-        this.$store.dispatch("setMyCategory", payload);
-        
-        this.isLoading = false
-
-    } catch (error) {
-      console.error(error);
-    }
+        this.isLoading = true
+   
+       try {
+           const data = await fetch(`https://backend.unboxedparty.com/api/category`,{
+               method:"GET",
+               headers:{
+               'Content-Type': 'application/json',
+               }
+           }).then(res=>res.json());
+   
+           
+           const payload =  [...data.categories]
+           this.$store.dispatch("setMyCategory", payload);
+           
+           this.isLoading = false
+   
+       } catch (error) {
+         console.error(error);
+       }
+       
+      }
 
 
 

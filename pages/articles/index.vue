@@ -121,27 +121,32 @@
 
     async mounted() {
 
-      this.isLoading = true
+      if(this.$store.state.myarticles.list){
+        this.$store.state.myarticles.list
+      }else{
 
-
-            try {
-            const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
-              method:"GET",
-              headers:{
-                'Content-Type': 'application/json',
-              }
-
-            }).then(res=>res.json());
-
-            const payload =  [...data.articles]
-          this.$store.dispatch("setMyArticles", payload);
-          this.$store.dispatch("setMyArticlesExpirationDate", addMinutes(30));
-
-          this.isLoading = false
-          
-          } catch (error) {
-            console.error(error);
-          }
+        this.isLoading = true
+  
+  
+              try {
+              const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
+                method:"GET",
+                headers:{
+                  'Content-Type': 'application/json',
+                }
+  
+              }).then(res=>res.json());
+  
+              const payload =  [...data.articles]
+            this.$store.dispatch("setMyArticles", payload);
+            this.$store.dispatch("setMyArticlesExpirationDate", addMinutes(30));
+  
+            this.isLoading = false
+            
+            } catch (error) {
+              console.error(error);
+            }
+      }
      
 
      

@@ -125,32 +125,39 @@
 
     async mounted() {
 
-      this.isLoading = true
+     
 
       setTimeout(() => {
         this.dialog = true;
       }, 10000);
 
 
+         if(this.$store.state.myevents.list){
+              return this.$store.state.myevents.list
+         }else{
 
-          try {
-          const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
-            method:"GET",
-            headers:{
-              'Content-Type': 'application/json',
-            }
-          }).then(res=>res.json());
-    
-          this.isLoading = false
-    
-          const payload =  [...data.events]
-          payload.reverse(payload)
-          this.$store.dispatch("setMyEvents", payload);
-          this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
-    
-        } catch (error) {
-          console.error(error);
-        }
+          this.isLoading = true
+
+            try {
+            const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+              method:"GET",
+              headers:{
+                'Content-Type': 'application/json',
+              }
+            }).then(res=>res.json());
+      
+            this.isLoading = false
+      
+            const payload =  [...data.events]
+            payload.reverse(payload)
+            this.$store.dispatch("setMyEvents", payload);
+            this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+      
+          } catch (error) {
+            console.error(error);
+          }
+         }
+
      
 
 

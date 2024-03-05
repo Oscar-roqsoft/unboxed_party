@@ -823,27 +823,35 @@ return seconds
 
   async mounted() {
    
-    this.isLoading= true
+    if(this.$store.state.myvideo.home_page_video_url){
+      this.$store.state.myvideo.home_page_video_url
+      return
+    }else{
 
-    try{
-          const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
-              method:"Get",
-              headers:{
-                  'Content-Type': 'application/json',
-              },
-          }).then(res=>res.json())
-
-        const payload =  data.settings
-        this.$store.dispatch("setMyVideo", payload);
-
-        this.isLoading = false
-
-      }catch(e){
-         console.log(e)
+      this.isLoading= true
+      try{
+            const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
+                method:"Get",
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+            }).then(res=>res.json())
+  
+          const payload =  data.settings
+          this.$store.dispatch("setMyVideo", payload);
+  
+          this.isLoading = false
+  
+        }catch(e){
+           console.log(e)
+      }
+      return
     }
 
 
+   
      try {
+      this.isLoading= true
   const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
     method:"GET",
     headers:{
@@ -861,7 +869,6 @@ return seconds
 
         this.isLoading = false
 
-
       } catch (error) {
         console.error(error);
       }
@@ -870,6 +877,7 @@ return seconds
 
 
     try {
+      this.isLoading= true
     const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
       method:"GET",
       headers:{
@@ -894,6 +902,7 @@ return seconds
    
 
       try {
+        this.isLoading= true
       const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
         method:"GET",
         headers:{
