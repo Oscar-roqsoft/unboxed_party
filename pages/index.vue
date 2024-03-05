@@ -381,8 +381,10 @@ class="bgh">
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col  v-for="(n, i) in events.slice(0, 3)" :key="i" class="pt-6 d-flex justify-center" :cols="cols[3]">
-             
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]"
+          >
+             <div    class="pt-6 d-flex justify-center">
+
                <!-- skeleton loader -->
              <div v-if="isLoading" class=" tw-w-full  tw-rounded-3xl ">
                 <div class="skeleton tw-h-[350px] tw-max-w-[500px] tw-rounded-3xl"></div>
@@ -393,7 +395,7 @@ class="bgh">
                 </div>
              </div>
 
-            <v-card v-else  width="100%"
+            <v-card v-else   width="100%"
             max-width="500px"
             :to="'/event/'+ encodeURIComponent(n.name)" color="transparent" class="pa-3">
               <v-img eager
@@ -429,7 +431,9 @@ class="bgh">
                 {{n.description}}
               </p> -->
             </v-card>
+             </div>
           </v-col>
+
         </v-row>
         <div class="py-12 d-flex justify-center" >
           <v-btn to="/events" size="x-large" class="mx-auto text-capitalize font-weight-bold " rounded color="white">See more</v-btn></div>
@@ -592,7 +596,7 @@ class="bgh">
 
                <!-- skeleton loader -->
               <div v-if="isLoading" class=" tw-w-full  tw-rounded-3xl ">
-                <div class="skeleton tw-h-[400px] tw-max-w-[500px] tw-rounded-3xl"></div>
+                <div class="skeleton tw-min-h-[400px] tw-max-w-[650px] tw-rounded-3xl"></div>
                 <div class="skeleton tw-h-[30px] my-4 tw-max-w-[500px] tw-mx-1  tw-rounded-lg"></div>
                 <div class="skeleton tw-h-[30px] my-4 tw-max-w-[500px] tw-mx-1  tw-rounded-lg"></div>
                
@@ -854,7 +858,7 @@ return seconds
         payload.reverse(payload)
         this.$store.dispatch("setMyItems", payload);
         this.$store.dispatch("setMyItemsExpirationDate", addMinutes(30));
-        
+
         this.isLoading = false
 
 

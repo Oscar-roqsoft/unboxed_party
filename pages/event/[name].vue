@@ -108,7 +108,7 @@
                            Past Events 
                            </h2>
           <v-row class="d-flex py-3">
-            <v-col v-show="!n.onSale" v-for="(n, i) in events" :key="i" class="pt-3" :cols="cols[2]">
+            <v-col v-show="!parseFloat(n.on_sale)" v-for="(n, i) in events.slice(0,9)" :key="i" class="pt-3" :cols="cols[2]">
               <v-card variant="dark" :to="'/event/'+encodeURIComponent(n.name)"  class="pa-2">
                 <v-img
                   cover
