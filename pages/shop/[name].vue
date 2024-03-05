@@ -158,7 +158,7 @@
             <v-row class=" py-3">
 
                 <v-col v-show="!n.onSale" cols="12" lg="4" v-for="(n, i) in items" :key="i" class="py-4" :cols="cols[2]">
-                  <v-card :to="'/shop/'+encodeURIComponent(n.id)" color="transparent" class="pa-2">
+                  <v-card :to="'/shop/'+encodeURIComponent(n.name)" color="transparent" class="pa-2">
 
                     <!-- <v-img
                       cover
