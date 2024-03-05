@@ -97,7 +97,7 @@ class="bgh">
                   <div class="skeleton-item tw-h-full tw-w-full"></div>
                 </div>
 
-            <iframe v-else  class="rounded-lg" width="450" height="250" :src="fetchedVideo" 
+            <iframe v-else eager class="rounded-lg" width="450" height="250" :src="fetchedVideo" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </v-col>
         </v-row>
@@ -854,6 +854,9 @@ return seconds
         payload.reverse(payload)
         this.$store.dispatch("setMyItems", payload);
         this.$store.dispatch("setMyItemsExpirationDate", addMinutes(30));
+        
+        this.isLoading = false
+
 
       } catch (error) {
         console.error(error);
@@ -862,7 +865,6 @@ return seconds
      
 
 
-    this.isLoading = true
     try {
     const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
       method:"GET",
@@ -887,7 +889,6 @@ return seconds
 
    
 
-      this.isLoading = true
       try {
       const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
         method:"GET",

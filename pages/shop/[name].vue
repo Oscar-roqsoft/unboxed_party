@@ -173,7 +173,7 @@
                     </div>
 
                     <div class=" pt-3" style=" width:100%;   background: linear-gradient(360deg, black, transparent);
-                      line-height: 1.2;position:;bottom:0">
+                      line-height: 1.2;bottom:0;position:">
 
 <h3 class="font-weight-medium my-4 text-capitalize text-truncate text-white" style="font-size: 20px;">{{n.name}}</h3>
                     </div>
