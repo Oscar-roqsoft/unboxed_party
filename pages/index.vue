@@ -395,7 +395,7 @@ class="bgh">
 
             <v-card v-else  width="100%"
             max-width="500px"
-            :to="'/event/'+ encodeURIComponent(n.id)" color="transparent" class="pa-3">
+            :to="'/event/'+ encodeURIComponent(n.name)" color="transparent" class="pa-3">
               <v-img eager
                 cover
                 height="350px"
@@ -405,7 +405,7 @@ class="bgh">
               ></v-img>
               
               <h2 style="font-size: 30px" class="logoText font-weight-bold text-grey-lighten-2 pt-3">
-                {{n.name}}
+                {{n.name.substring(0, 15)}}{{  n.name.length > 15 ? '...':''}}  
               </h2>
       
               <div class="d-flex justify-space-between my-2 align-center">
@@ -422,7 +422,7 @@ class="bgh">
               class="text-capitalize text-grey-darken-2 font-weight-bold"
               rounded
               >
-              <v-icon size="15" class="mb-1" icon="mdi mdi-map-marker"></v-icon> {{n.venue}}  
+              <v-icon size="15" class="mb-1" icon="mdi mdi-map-marker"></v-icon> {{n.venue.substring(0, 15)}}{{  n.venue.length > 15 ? '...':''}}  
                 </p>
               </div>
               <!-- <p class="text-body-2 mt-0 text-grey-lighten-2 font-weight-light">

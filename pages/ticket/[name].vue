@@ -703,7 +703,8 @@ var random = Math.random().toString(36).slice(2, 8);
 
     var datas ={email: this.email, id: this.user.id, name: this.name, phone_number: this.phone}
     //this will launch Fluterwave payment modal
-    if (this.event.amount == 0) {
+    console.log(this.event)
+    if (!this.event.amount) {
       this.reserveTicket(datas)
     }else{
 

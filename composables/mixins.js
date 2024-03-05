@@ -72,6 +72,12 @@ export const formatDate = (dat) =>{
 }
 
 
+export const textFommatter = (value,endnum)=>{
+  if(value.length > 15){
+    value.substring(0,endnum)
+  }
+}
+
 
 //set expiration date 
 export function addMinutes(minutesToAdd) {

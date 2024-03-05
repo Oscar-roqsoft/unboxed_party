@@ -57,254 +57,256 @@
     
    <div class="tw-max-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 md:tw-max-w-full tw-justify-center">
 
-        <Product v-if="isVisible" class=""/>
-
-        <v-col v-else class="md:tw-mt-[76px] lg:tw-col-span-2 tw-mx-auto"> 
-            <v-card height="auto" color="#000" style="background: hsla(0, 0%, 13%, 0.38); backdrop-filter: blur(8px);"  
-            class=" rounded-lg align-center pa-4" :style="{ display: reveal === 2 ? 'none' : 'block' }">
-
-
-                <div v-if="reveal == false" class="tw-text-white"  >
+    <row>
+      <Product v-if="isVisible" class=""/>
+      <v-col v-else class="md:tw-mt-[76px] lg:tw-col-span-2 tw-mx-auto"> 
+          <v-card height="auto" color="#000" style="background: hsla(0, 0%, 13%, 0.38); backdrop-filter: blur(8px);"  
+          class=" rounded-lg align-center pa-4" :style="{ display: reveal === 2 ? 'none' : 'block' }">
 
 
-                    <h1 style="font-size: 30px;" class="mb-5 text-white  font-weight-bold text-center">
-                        Enter your email to checkout.
-                    </h1>
-                    <v-form @submit.prevent="checkemail()" ref="email" class="w-100 h-auto px-5 ">
-                        <v-text-field
-                            :read-only="loading"
-                            :rules="[rules.required, rules.email]"
-                            class="mb-2 em rounded-xl"
-                            type="email"
-                            v-model="email"
-                            label="Email"
-                            hint="eg hello@unboxedparty.com"
-                            persistent-hint
-                            density="compact"
-                            variant="solo"
-                        ></v-text-field>
-                  </v-form>
-                  
-                </div>
+              <div v-if="reveal == false" class="tw-text-white"  >
+
+
+                  <h1 style="font-size: 30px;" class="mb-5 text-white  font-weight-bold text-center">
+                      Enter your email to checkout.
+                  </h1>
+                  <v-form @submit.prevent="checkemail()" ref="email" class="w-100 h-auto px-5 ">
+                      <v-text-field
+                          :read-only="loading"
+                          :rules="[rules.required, rules.email]"
+                          class="mb-2 em rounded-xl"
+                          type="email"
+                          v-model="email"
+                          label="Email"
+                          hint="eg hello@unboxedparty.com"
+                          persistent-hint
+                          density="compact"
+                          variant="solo"
+                      ></v-text-field>
+                </v-form>
                 
-                <div v-if="reveal == 4">
-                    <h1 style="font-size: 30px;" class="mb-5 text-white font-weight-bold  text-center">
-                        Thank you, check your email.
-                    </h1>
-             
-                </div>
-                  
-                <v-expand-transition>
-
-                    <v-card flat v-if="reveal == 1"
-                    class="v-card--reveal" color="transparent"
-                    style="height: 100%;"  width="100%">
-
-                    <v-form
-                    @submit.prevent="submit()" ref="form"
-                    class="w-100 h-auto px-5">
-                    <h1
-                         style="font-size: 30px;"
-                        class="mb-5 text-white font-weight-bold  text-center">
-                        Welcome 😍, kindly fill the form to continue🚀.
-                    </h1>
-
-                    <v-text-field
-                        
-                        :loading="loading"
-                        :rules="[rules.required]"
-                        class="mb-2 rounded-xl"
-                        v-model="name"
-                        label="Full name"
-                        hint="eg Ada Obi"
-                        persistent-hint
-                        density="compact"
-                        variant="solo"
-                    ></v-text-field>
-
-                    <v-text-field
-                        :loading="loading"
-                        :rules="numberRules"
-                        class="mb-2 rounded-xl"
-                        type="tel"
-                        v-model="phone"
-                        label="Phone Number"
-                        hint="eg. 08023456789"
-                        persistent-hint
-                        density="compact"
-                        variant="solo"
-                    ></v-text-field>
-
-                    <v-text-field
-                        :loading="loading"
-                        :rules="numberRules"
-                        class="mb-2 rounded-xl"
-                        type="tel"
-                        v-model="whatsapp"
-                        label="Whatsapp Number"
-                        hint="eg. 08023456789"
-                        persistent-hint
-                        density="compact"
-                        variant="solo"
-                    ></v-text-field>
-
-                    <v-text-field
-                        :loading="loading"
-                        :rules="numberRules"
-                        class="mb-2 rounded-xl"
-                        type="tel"
-                        v-model="address"
-                        label="Address"
-                        hint="eg. ifunanya lodge ifite ,Awka "
-                        persistent-hint
-                        density="compact"
-                        variant="solo"
-                    ></v-text-field>
-                    <v-text-field
-                        :loading="loading"
-                        :rules="[rules.required, rules.email]"
-                        class="mb-2 rounded-xl"
-                        type="email"
-                        v-model="email"
-                        label="Email"
-                        hint="eg hello@unboxedparty.com"
-                        persistent-hint
-                        density="compact"
-                        variant="solo"
-                    ></v-text-field>
-                    <!-- your ticket will be sent here -->
-
-                  
-
-                    <!-- <div class="text-center py-3">
-                        <v-btn
-                        :loading="loading"
-                        @click="submit()"
-                        size="x-large"
-                        rounded
-                        color=""
-                        theme=""
-                        class="font-weight-bold text-capitalize mx-auto"
-                        >submit</v-btn
-                        >
-                    </div> -->
-
-                   
-
-                    </v-form>
-
-
-                    
-                    </v-card>
-                </v-expand-transition>
-
+              </div>
+              
+              <div v-if="reveal == 4">
+                  <h1 style="font-size: 30px;" class="mb-5 text-white font-weight-bold  text-center">
+                      Thank you, check your email.
+                  </h1>
+           
+              </div>
                 
-                
-                
-                
-                
-              </v-card>
-
               <v-expand-transition>
-                <v-card v-if="reveal == 2" class="v-card--reveal" color="transparent"
-                style="height: 100%;"  width="100%">
-                <div  class="mb-5">
-                    <h1  style="font-size: 30px;" class="mb-5 text-white font-weight-bold  text-center">
-                                      Proceed to Pay
-                                 </h1>
 
-                                  <p 
-                                     style="
-                                          background: rgb(21 21 21);
-                                          padding: 10px 15px;
-                                          border-radius: 8px;line-height:19px;
-                                          margin-top: 20px; font-size:15px" 
-                                          class="text-orange-darken-1 text-left"><span style="
-                                          font-size:18px" class="text-grey font-weight-bold">Note</span>  
-                                          <br> <br> 1.  Kindly wait for your payment to be confirmed by flutterwave before closing the payment screen <br><br>  
-                                          2. Final amount will include payment gateway charges <br><br>  
-                                     3. Contact Support for any payment issues
-                                  </p>
+                  <v-card flat v-if="reveal == 1"
+                  class="v-card--reveal" color="transparent"
+                  style="height: 100%;"  width="100%">
 
-                          </div>
-                </v-card>
-              </v-expand-transition>
-            
-        </v-col>
-        <div class=" tw-w-full  md:tw-mt-4 tw-opacity-70 tw-col-span-1 tw-shadow tw-rounded-md tw-min-h-[300px]  
-        md:tw-h-[520px] tw-overflow-y-scroll md:tw-p-4 ">
+                  <v-form
+                  @submit.prevent="submit()" ref="form"
+                  class="w-100 h-auto px-5">
+                  <h1
+                       style="font-size: 30px;"
+                      class="mb-5 text-white font-weight-bold  text-center">
+                      Welcome 😍, kindly fill the form to continue🚀.
+                  </h1>
+
+                  <v-text-field
+                      
+                      :loading="loading"
+                      :rules="[rules.required]"
+                      class="mb-2 rounded-xl"
+                      v-model="name"
+                      label="Full name"
+                      hint="eg Ada Obi"
+                      persistent-hint
+                      density="compact"
+                      variant="solo"
+                  ></v-text-field>
+
+                  <v-text-field
+                      :loading="loading"
+                      :rules="numberRules"
+                      class="mb-2 rounded-xl"
+                      type="tel"
+                      v-model="phone"
+                      label="Phone Number"
+                      hint="eg. 08023456789"
+                      persistent-hint
+                      density="compact"
+                      variant="solo"
+                  ></v-text-field>
+
+                  <v-text-field
+                      :loading="loading"
+                      :rules="numberRules"
+                      class="mb-2 rounded-xl"
+                      type="tel"
+                      v-model="whatsapp"
+                      label="Whatsapp Number"
+                      hint="eg. 08023456789"
+                      persistent-hint
+                      density="compact"
+                      variant="solo"
+                  ></v-text-field>
+
+                  <v-text-field
+                      :loading="loading"
+                      :rules="numberRules"
+                      class="mb-2 rounded-xl"
+                      type="tel"
+                      v-model="address"
+                      label="Address"
+                      hint="eg. ifunanya lodge ifite ,Awka "
+                      persistent-hint
+                      density="compact"
+                      variant="solo"
+                  ></v-text-field>
+                  <v-text-field
+                      :loading="loading"
+                      :rules="[rules.required, rules.email]"
+                      class="mb-2 rounded-xl"
+                      type="email"
+                      v-model="email"
+                      label="Email"
+                      hint="eg hello@unboxedparty.com"
+                      persistent-hint
+                      density="compact"
+                      variant="solo"
+                  ></v-text-field>
+                  <!-- your ticket will be sent here -->
+
+                
+
+                  <!-- <div class="text-center py-3">
+                      <v-btn
+                      :loading="loading"
+                      @click="submit()"
+                      size="x-large"
+                      rounded
+                      color=""
+                      theme=""
+                      class="font-weight-bold text-capitalize mx-auto"
+                      >submit</v-btn
+                      >
+                  </div> -->
+
                  
-                   
-                <div class="tw-flex tw-flex-col tw-justify-end tw-items-center tw-font-bold  tw-mt-14 tw-w-full tw-border tw-rounded 
-                tw-p-4 tw-border-gray-900"
-                  color="deep-purple-accent-3">
 
-                      <div class="tw-w-full">
-                            <div class="tw-flex tw-justify-between tw-border-b tw-border-gray-900 tw-py-4">
-                            <span>Substotal:</span>
-                            <span>N{{ addCommas(subtotalPrice) }}.00</span>
-                            <!-- <v-money>${{ totalPrice}}</v-money> -->
-                            </div>
-
-                            <!-- <div class="tw-flex tw-justify-between tw-pb-4 tw-border-b tw-border-gray-900">
-                            <span class="tw-capitalize">Discount:</span>
-                            <span>N{{ addCommas(discountPrice)}}.00</span>
-                            </div> -->
-
-                            <div class="tw-flex tw-justify-between tw-py-4">
-                            <span class="tw-capitalize">total Amount:</span>
-                            <span>N{{ addCommas(totalPrice) }}.00</span>
-                            </div>
-
-                           
-
-                           
-
-                      </div>
-
-                        <v-row class="tw-p-2 tw-grid tw-grid-cols-2 tw-gap-3">
-
-                            <v-btn  @click.prevent="navigateTo('/shop')" rounded size="x-large"
-                                 type="submit" class="tw-mt-4  mb-2
-                                font-weight-bold text-capitalize mx-auto ">
-                                go back
-                            </v-btn>
-
-                            <v-btn v-if="isVisible" style="color:white !important;"  @click.prevent="isVisible = false" rounded  size="x-large"
-                                color="blue-darken-4" type="submit" class="tw-mt-4  mb-0  
-                                font-weight-bold text-capitalize mx-auto ">
-                               <span style="color:white!important">
-                                 check out
-
-                               </span> 
-                            </v-btn>
-
-                            <div v-else>
-                                <v-btn v-if="reveal == false" style="color:white !important;"  :loading="loading" @click.prevent="checkemail" rounded   size="x-large"
-                                    color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
-                                    font-weight-bold text-capitalize mx-auto ">
-                                    check out
-                                </v-btn>
-
-                                <v-btn v-if="reveal == 1" style="color:white !important;"  :loading="loading" @click.prevent="submit()" rounded   size="x-large"
-                                    color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
-                                    font-weight-bold text-capitalize mx-auto ">
-                                    Submit
-                                </v-btn>
-
-                                <v-btn v-if="reveal == 2" style="color:white !important;"  :loading="loading" 
-                                @click.prevent="paynow()" rounded   size="x-large"
-                                    color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
-                                    font-weight-bold text-capitalize mx-auto ">
-                                     pay now
-                                </v-btn>
-                            </div>
-
-                      </v-row>
-                  </div>
+                  </v-form>
 
 
-        </div>
+                  
+                  </v-card>
+              </v-expand-transition>
+
+              
+              
+              
+              
+              
+            </v-card>
+
+            <v-expand-transition>
+              <v-card v-if="reveal == 2" class="v-card--reveal" color="transparent"
+              style="height: 100%;"  width="100%">
+              <div  class="mb-5">
+                  <h1  style="font-size: 30px;" class="mb-5 text-white font-weight-bold  text-center">
+                                    Proceed to Pay
+                               </h1>
+
+                                <p 
+                                   style="
+                                        background: rgb(21 21 21);
+                                        padding: 10px 15px;
+                                        border-radius: 8px;line-height:19px;
+                                        margin-top: 20px; font-size:15px" 
+                                        class="text-orange-darken-1 text-left"><span style="
+                                        font-size:18px" class="text-grey font-weight-bold">Note</span>  
+                                        <br> <br> 1.  Kindly wait for your payment to be confirmed by flutterwave before closing the payment screen <br><br>  
+                                        2. Final amount will include payment gateway charges <br><br>  
+                                   3. Contact Support for any payment issues
+                                </p>
+
+                        </div>
+              </v-card>
+            </v-expand-transition>
+          
+      </v-col>
+
+      <div class=" tw-w-full  md:tw-mt-4 tw-opacity-70 tw-col-span-1 tw-shadow tw-rounded-md tw-min-h-[300px]  
+      md:tw-h-[520px] tw-overflow-y-scroll md:tw-p-4 ">
+               
+                 
+              <div class="tw-flex tw-flex-col tw-justify-end tw-items-center tw-font-bold  tw-mt-14 tw-w-full tw-border tw-rounded 
+              tw-p-4 tw-border-gray-900"
+                color="deep-purple-accent-3">
+
+                    <div class="tw-w-full">
+                          <div class="tw-flex tw-justify-between tw-border-b tw-border-gray-900 tw-py-4">
+                          <span>Substotal:</span>
+                          <span>N{{ addCommas(subtotalPrice) }}.00</span>
+                          <!-- <v-money>${{ totalPrice}}</v-money> -->
+                          </div>
+
+                          <!-- <div class="tw-flex tw-justify-between tw-pb-4 tw-border-b tw-border-gray-900">
+                          <span class="tw-capitalize">Discount:</span>
+                          <span>N{{ addCommas(discountPrice)}}.00</span>
+                          </div> -->
+
+                          <div class="tw-flex tw-justify-between tw-py-4">
+                          <span class="tw-capitalize">total Amount:</span>
+                          <span>N{{ addCommas(totalPrice) }}.00</span>
+                          </div>
+
+                         
+
+                         
+
+                    </div>
+
+                      <v-row class="tw-p-2 tw-grid tw-grid-cols-2 tw-gap-3">
+
+                          <v-btn  @click.prevent="navigateTo('/shop')" rounded size="x-large"
+                               type="submit" class="tw-mt-4  mb-2
+                              font-weight-bold text-capitalize mx-auto ">
+                              go back
+                          </v-btn>
+
+                          <v-btn v-if="isVisible" style="color:white !important;"  @click.prevent="isVisible = false" rounded  size="x-large"
+                              color="blue-darken-4" type="submit" class="tw-mt-4  mb-0  
+                              font-weight-bold text-capitalize mx-auto ">
+                             <span style="color:white!important">
+                               check out
+
+                             </span> 
+                          </v-btn>
+
+                          <div v-else>
+                              <v-btn v-if="reveal == false" style="color:white !important;"  :loading="loading" @click.prevent="checkemail" rounded   size="x-large"
+                                  color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
+                                  font-weight-bold text-capitalize mx-auto ">
+                                  check out
+                              </v-btn>
+
+                              <v-btn v-if="reveal == 1" style="color:white !important;"  :loading="loading" @click.prevent="submit()" rounded   size="x-large"
+                                  color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
+                                  font-weight-bold text-capitalize mx-auto ">
+                                  Submit
+                              </v-btn>
+
+                              <v-btn v-if="reveal == 2" style="color:white !important;"  :loading="loading" 
+                              @click.prevent="paynow()" rounded   size="x-large"
+                                  color="blue-darken-4" type="submit" class="tw-mt-4 mb-0 
+                                  font-weight-bold text-capitalize mx-auto ">
+                                   pay now
+                              </v-btn>
+                          </div>
+
+                    </v-row>
+                </div>
+
+
+      </div>
+    </row>
 
         
    </div>
