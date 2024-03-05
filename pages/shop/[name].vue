@@ -132,7 +132,7 @@
               </div>
       <v-btn @click.prevent="addToCart(item)" block rounded="lg" class="mt-12 text-capitalize  font-weight-bold" height="80" size="x-large" 
       color="white">Add to cart</v-btn>
-      <p class="text-grey mt-4">Contact Support To Order, Online Purchase will be active soon.</p>
+      <!-- <p class="text-grey mt-4">Contact Support To Order, Online Purchase will be active soon.</p> -->
             </v-col>
 
 
