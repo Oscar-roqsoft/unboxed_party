@@ -195,7 +195,7 @@ class="bgh">
   @click="openEvent(n);"
   size="x-large"
   style="
-           background: linear-gradient(132.03deg, rgb(162 11 6) 14.22%, rgb(127 9 11) 97.95%)
+           background: linear-gradient(132.03deg, rgb(16 221 81) 14.22%, rgb(3 108 39) 97.95%)
            "
          class="text-capitalize font-weight-bold"
          rounded

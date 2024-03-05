@@ -20,7 +20,7 @@
          max-height="500px"
          :src="n.image"
        ></v-img>
-       <h2 style="font-size: 30px" class="logoText font-weight-bold pt-3">
+       <h2 style="font-size: 30px" class="logoText font-weight-bold pt-3 text-capitalize">
                 {{n.name}}
               </h2>
               <div class="d-flex justify-space-between my-2 align-center">

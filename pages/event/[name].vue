@@ -43,7 +43,7 @@
               <p class="text-body-1 mt-0 text-grey-lighten-2 font-weight-light">
                 {{ read_more?  event.description : event.description.substring(0, 200)+'...' }} <br>
               </p>
-              <p class="pt-3" @click="read_more = !read_more">read {{ !read_more? ' more':' less' }}.</p>
+              <p class="pt-3 text-capitalize" @click="read_more = !read_more">read {{ !read_more? ' more':' less' }}.</p>
               <div  style="border:1px solid grey " class="rounded-lg my-7">
                 <div class="d-flex px-5 py-4  justify-space-between  align-center">
                     <p
@@ -61,7 +61,7 @@
                   {{formatDate(event.date)}}
                 </p>
             </div>
-                <div class="d-flex px-5 py-4  justify-space-between  align-center">
+                <div class="d-flex px-4 py-4  justify-space-between  align-center tw-gap-10">
                     <p
                     variant="outlined"
                     style=""
@@ -72,7 +72,7 @@
                 </p>
                 <p
                   style="font-family: monospace !important"
-                  class="text-body-1 text-grey-lighten-1 font-weight-light"
+                  class="text-body-1 text-grey-lighten-1 font-weight-light text-capitalize tw-text-end"
                   >
                   {{event.venue}}
                 </p>
