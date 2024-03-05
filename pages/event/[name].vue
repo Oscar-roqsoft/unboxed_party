@@ -25,7 +25,7 @@
               <v-col l  :cols="cols[7]">
                 <div class="d-flex justify-center">
  
-          <v-card variant="dark" width="100%" v-if="event.name" class="pa-0">
+          <v-card variant="dark"  width="100%" v-if="event.name" class="pa-0">
            
            <div  style="min-height:400px" 
            class="grey w-100 rounded- d-flex align-center justify-center">
@@ -87,7 +87,7 @@
                          <v-row class="d-flex justify-space-between py-3">
 
                          <v-col v-for="(n, i) in event.photos" :key="i" class="pa-1 pb-5" :cols="cols[2]">
-              <v-card  variant="dark" class="pa-2">
+              <v-card variant="dark"  class="pa-2">
                 <v-img
                   cover
                   height="210px"
@@ -109,7 +109,7 @@
                            </h2>
           <v-row class="d-flex py-3">
             <v-col v-show="!n.onSale" v-for="(n, i) in events" :key="i" class="pt-3" :cols="cols[2]">
-              <v-card :to="'/event/'+encodeURIComponent(n.name)" variant="dark" class="pa-2">
+              <v-card variant="dark" :to="'/event/'+encodeURIComponent(n.name)"  class="pa-2">
                 <v-img
                   cover
                   height="210px"

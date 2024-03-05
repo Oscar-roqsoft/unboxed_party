@@ -105,9 +105,9 @@
     <tbody>
 
 		<tr>
-			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{event.amount? 'N'+addCommas(event.amount): 'FREE'}}</td>
-			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{formatDate(event.date)}}</td>
-			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{event.time}}</td>
+			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{mytickets[0]?.value > 0 || mytickets[1]?.value > 0 ? 'Paid': 'FREE'}}</td>
+			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{formatDate(event?.date)}}</td>
+			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{event?.time}}</td>
 			<!-- <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{1000 - sold}}</td> -->
 		</tr>
     </tbody>
@@ -302,10 +302,65 @@
                 </v-card>
               </v-expand-transition>
 
-                <v-expand-transition>
+              <v-expand-transition>
 
                 <v-card flat
                   v-if="reveal == 2"
+                  class="v-card--reveal " color="transparent"
+                  style="height: 100%;"
+                >
+                <h1 style="font-size: 30px;" class="mb-5 text-white text-capitalize font-weight-bold  text-center">
+                    Select ticket Type
+                </h1>
+                <div class="d-flex mb-3 px-3 align-center justify-space-between">
+
+                <div  class="w-100 mb-0 d-flex align-center justify-space-around ">
+
+                  <v-select
+                    v-model="selectedticket"
+                    label="Select"
+                    :items="mytickets"
+                    item-title="name"
+                    item-value=""
+                    variant="solo"
+                    background="transparent"
+                    elevation="0"
+                  ></v-select>
+                
+                </div>
+                </div>
+                <!-- <h4 class="my-3  mt-8 text-center ">Online Payment</h4> -->
+                  <div class="text-center pt-6 ">
+                <v-btn
+                :loading="loading"  size="x-large"
+                                color="blue-darken-4"
+                @click="uploadTicket()" block rounded
+                class=" mb-0 font-weight-bold text-capitalize mx-auto"
+                >
+                Proceed
+                </v-btn>
+
+                              <!-- <p v-if="event.amount > 0" 
+                              style="
+                background: rgb(21 21 21);
+                padding: 10px 15px;
+                border-radius: 8px;line-height:19px;
+                margin-top: 20px; font-size:15px
+                " class="text-orange-darken-1 text-left"><span style="
+                font-size:18px" class="text-grey font-weight-bold">Note</span> 
+                 <br> <br> 1.  Kindly wait for your payment to be confirmed by flutterwave before closing the payment screen <br><br> 
+                  2. Final amount will include payment gateway charges <br><br>  3. Contact Support for any payment issues</p> -->
+                           
+                          </div>
+                            
+                </v-card>
+
+              </v-expand-transition>
+
+                <v-expand-transition>
+
+                <v-card flat
+                  v-if="reveal == 3"
                   class="v-card--reveal " color="transparent"
                   style="height: 100%;"
                 >
@@ -439,6 +494,7 @@
                 </v-card>
                 
                 </v-expand-transition>
+
               </v-card>
             </v-col>
 
@@ -540,6 +596,9 @@ export default {
       booked: false,
       total: 0,
       sold: 1000,
+      mytickets:[],
+      selectedticket:'',
+      selectedticketAmout:null,
       reference: '',
       
       sign: "",
@@ -633,7 +692,7 @@ var seconds = (endDate.getTime() - startDate.getTime()) ;
 return seconds
     },
       mainAmt(){
-        return this.amount * this.qty
+        return this.selectedticketAmout.value * this.qty
       },
       events () {
         return this.$store.state.myevents.list
@@ -666,7 +725,7 @@ return seconds
           : [6, 12, 12, 12, 12, 12, 12];
       },
     },
-    mounted() {
+    async mounted() {
 
       this.get_number()
       setTimeout(() => {
@@ -677,9 +736,31 @@ return seconds
         return el.name == name
       })
       this.$store.dispatch('setEvent', eventb)
+      
+
+      this.mytickets =  JSON.parse(eventb.tickets)
+      console.log(this.mytickets)
 
     },
     methods: {
+      uploadTicket(){
+        this.selectedticketAmout = this.mytickets.find(i => i.name == this.selectedticket)
+        var datas ={email: this.email, id: this.user.id, name: this.name, phone_number: this.phone}
+        //this will launch Fluterwave payment modal
+        if (!parseFloat(this.selectedticketAmout.value)) {
+          datas.amount = 0;
+          this.reserveTicket(datas)
+        }else{
+          this.reveal ++
+        }
+        return 
+
+      },
+      itemProps (item) {
+        return {
+          title: item.name,
+        }
+      },
       addCommas(num) {
   // Convert the number to a string
   let str = num.toString();
@@ -696,112 +777,101 @@ return seconds
   // Return the formatted string
   return str;
 },
-    paynow(){
-this.loading = true
-
-var random = Math.random().toString(36).slice(2, 8);
-
+  paynow(){
+    this.loading = true
+    var random = Math.random().toString(36).slice(2, 8);
     var datas ={email: this.email, id: this.user.id, name: this.name, phone_number: this.phone}
     //this will launch Fluterwave payment modal
-    console.log(this.event)
-    if (!this.event.amount) {
-      this.reserveTicket(datas)
-    }else{
 
-  
-   const modal = useFlutterwave({
-    // amount: 200,//amount
-    amount: this.mainAmt,//amount
-    callback: (e)=>{
-      console.log(e)
-      this.verify_trans(e)
-      modal.close();
-    },
-
-    country: "NG",
-    currency: "NGN",
-    customer: datas,
-    customizations: {logo: "https://res.cloudinary.com/dnqw7x4bp/image/upload/c_fit,w_200/v1582290476/e_dey_e_only_2.png", title: "E Dey App"},
-    onclose: ()=>{
-      this.loading = false
-// alert('Are you having issues with your payment? kindly contact us on 09012770000')
-    },
-    payment_options:  "card, banktransfer, ussd",
-    bank_transfer_options: {
-      expires: 3600
-    },
-    meta: {
-      qty: this.qty,
-      amount: this.mainAmt
-    },
-    public_key: "FLWPUBK-7efa3db90b59bb99bd153e108da68608-X",
-    // redirect_url: undefined,
-    tx_ref: this.phone+'-'+random+'-'+this.email
-  })
-
-  }
+    const modal = useFlutterwave({
+      amount: this.mainAmt,//amount
+      callback: (e)=>{
+        this.verify_trans(e)
+        modal.close();
       },
 
-      close: ()=>{
+      country: "NG",
+      currency: "NGN",
+      customer: datas,
+      customizations: {logo: "https://res.cloudinary.com/dnqw7x4bp/image/upload/c_fit,w_200/v1582290476/e_dey_e_only_2.png", title: "E Dey App"},
+      onclose: ()=>{
         this.loading = false
+        // alert('Are you having issues with your payment? kindly contact us on 09012770000')
+      },
+      payment_options:  "card, banktransfer, ussd",
+      bank_transfer_options: {
+        expires: 3600
+      },
+      meta: {
+        qty: this.qty,
+        amount: this.mainAmt
+      },
+      public_key: "FLWPUBK-7efa3db90b59bb99bd153e108da68608-X",
+      // redirect_url: undefined,
+      tx_ref: this.phone+'-'+random+'-'+this.email
+    })
+
+    },
+
+    close: ()=>{
+      this.loading = false
       alert('transaction has been canceled')
       this.booked = false;
+    },
+    incrementTicket(){
+      this.qty ++
+    },
+    decrementTicket(){
+      if(this.qty <= 1){
+        return
+      }else{
+        this.qty --
+      }
+    },
 
-      },
-      incrementTicket(){
-        this.qty ++
-      },
-      decrementTicket(){
-        if(this.qty <= 1){
-          return
-        }else{
-          this.qty --
+    async checkemail() {
+      this.booked = false;
+      var bol = await this.$refs.email.validate()
+      if (bol.valid) {
+        this.loading = true;
+        var dat = {
+          email: this.email
         }
-      },
-
-      async checkemail() {
-        this.booked = false;
-        var bol = await this.$refs.email.validate()
-        if (bol.valid) {
-          this.loading = true;
-          var dat = {
-            email: this.email
-          }
-          fetch("https://backend.unboxedparty.com/api/checkmail?email="+this.email, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-              "Accept": "application/json"
-            },
+        fetch("https://backend.unboxedparty.com/api/checkmail?email="+this.email, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Accept": "application/json"
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Something went wrong");
           })
-            .then((response) => {
-              if (response.ok) {
-                return response.json();
-              }
-              throw new Error("Something went wrong");
-            })
-            .then((res) => {
-              if(res.success.msg === null){
-                this.reveal = 1
-              }else{
-                this.user = res.success.msg
-                this.email =  this.user.email
-                 this.phone =  this.user.phone
-                 this.name =  this.user.name
-                this.reveal = 2
+          .then((res) => {
+            if(res.success.msg === null){
+              this.reveal = 1
+            }else{
+              this.user = res.success.msg
+              this.email =  this.user.email
+                this.phone =  this.user.phone
+                this.name =  this.user.name
+              this.reveal = 2
 
-              }
-              this.loading = false;
+            }
+            this.loading = false;
 
-            })
-            .catch((err) => {
-              console.log(err)
-              this.dialog = true;
-              this.loading = false;
-            });
-        }
-      },
+          })
+          .catch((err) => {
+            console.log(err)
+            this.dialog = true;
+            this.loading = false;
+          });
+      }
+    },
 
        get_number() {
           fetch("https://backend.unboxedparty.com/api/get_number?id="+this.event.id, {
@@ -891,7 +961,7 @@ var random = Math.random().toString(36).slice(2, 8);
         this.booked = true;
 
           this.loading = true;
-            fetch("https://backend.unboxedparty.com/api/sendTicket?amount="+(this.event.amount * this.qty)+"&email="+e.email+"&user_id="+e.id+"&event_id="+this.event.id+"&event="+this.event.name+"&qty="+this.qty, {
+            fetch("https://backend.unboxedparty.com/api/sendTicket?amount="+((this.event.amount || 0) * this.qty)+"&email="+e.email+"&user_id="+e.id+"&event_id="+this.event.id+"&event="+this.event.name+"&qty="+this.qty, {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",

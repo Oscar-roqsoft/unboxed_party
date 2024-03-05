@@ -284,7 +284,7 @@ class="bgh">
 
  </v-row>
 </v-container>   -->
-<v-container style="min-height: ;"  :class="$vuetify.display.smAndDown? 'mt-0': 'pt-12 mt-12'">
+<v-container style="min-height: "  :class="$vuetify.display.smAndDown? 'mt-0': 'pt-12 mt-12'">
   <div class="centerIt mb-6" style="position:relative">
         <h1 class="herotitle  my-4 text-center">Merch</h1>
          <div class=" px-2 justify-space-between align-center">
@@ -305,7 +305,7 @@ class="bgh">
   <v-col cols="12"  lg="4">
     <v-row>
       <v-col  v-for="(item, i) in items.slice(0,4)" :key="item.id" cols="6">
-        <v-card  :to="'/shop/'+item.id" color="transparent" flat height="">
+        <v-card  :to="'/shop/'+item.name" color="transparent" flat height="">
 
                <!-- <v-img eager  style="cursor: pointer;"   max-width="500px"
                   class="rounded-lg" height="200" width="100%" cover 
@@ -405,7 +405,7 @@ class="bgh">
               ></v-img>
               
               <h2 style="font-size: 30px" class="logoText font-weight-bold text-grey-lighten-2 pt-3">
-                {{n.name.substring(0, 15)}}{{  n.name.length > 15 ? '...':''}}  
+                {{n.name.substring(0, 21)}}{{  n.name.length > 15 ? '...':''}}  
               </h2>
       
               <div class="d-flex justify-space-between my-2 align-center">

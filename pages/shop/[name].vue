@@ -284,7 +284,7 @@
      mounted() {
       var name = decodeURIComponent(this.$route.params.name)
       this.item = this.items.find(el=>{
-        return el.name.toLowerCase() == name.toLowerCase()
+        return el.name.toLowerCase() === name.toLowerCase()
       })
 
       console.log(this.item.category)
