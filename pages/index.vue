@@ -662,14 +662,22 @@ export default {
     'https://res.cloudinary.com/payhospi/image/upload/v1701176146/9_1_yafs60.png',
     'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],  
-    memes:['https://res.cloudinary.com/payhospi/image/upload/v1700924470/shaggi_B_W_kais6g.png',
-    'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
-    'https://res.cloudinary.com/payhospi/image/upload/v1700924460/sabi_B_W_usr7bx.png',
-    'https://res.cloudinary.com/payhospi/image/upload/v1700924459/igreet_buorgn.png',
-  'https://res.cloudinary.com/payhospi/image/upload/v1700924465/taaoma_vhehpx.png',
-'https://res.cloudinary.com/payhospi/image/upload/v1700924461/brainjotter_sh3mua.png',
-'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
-'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png'],
+    memes:[
+      '/Artboard6.png',
+      '/Artboard1.png',
+      '/Artboard4.png',
+      '/Artboard3.png',
+      '/Artboard7.png',
+      '/Artboard5.png',
+      '/Artboard8.png',
+//     'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
+//     'https://res.cloudinary.com/payhospi/image/upload/v1700924460/sabi_B_W_usr7bx.png',
+//     'https://res.cloudinary.com/payhospi/image/upload/v1700924459/igreet_buorgn.png',
+//   'https://res.cloudinary.com/payhospi/image/upload/v1700924465/taaoma_vhehpx.png',
+// 'https://res.cloudinary.com/payhospi/image/upload/v1700924461/brainjotter_sh3mua.png',
+// 'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
+// 'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png'
+],
     
 
 
@@ -822,6 +830,8 @@ return seconds
 
 
   async mounted() {
+    // const {secure_url} = await uploadToCloudinary(/Artboard2.png);
+
    
     this.isLoading= true
     if(this.$store.state.myvideo.home_page_video_url){
