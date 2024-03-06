@@ -791,7 +791,8 @@ export default {
     timediff2(){
       var startDate = new Date();
 // Do your operations
-var endDate   = new Date('2023-12-08');
+
+var endDate   = new Date('2024-3-14');
 var seconds = (endDate.getTime() - startDate.getTime()) ;
 return seconds
     },
@@ -863,7 +864,7 @@ return seconds
 
 
    
-     try {
+  try {
   const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
     method:"GET",
     headers:{
@@ -885,28 +886,33 @@ return seconds
         console.error(error);
       }
 
-    try {
-    const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
-      method:"GET",
-      headers:{
-        'Content-Type': 'application/json',
+
+  
+    if(this.$store.state.myevents.list){
+      this.$store.state.myevents.list
+    }else{
+
+      try {
+      const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+        method:"GET",
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      }).then(res=>res.json());
+  
+  
+      const payload =  [...data.events]
+      payload.reverse(payload)
+      this.$store.dispatch("setMyEvents", payload);
+      this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+  
+      this.isLoading = false
+      } catch (error) {
+      console.error(error);
       }
-    }).then(res=>res.json());
-
-
-    const payload =  [...data.events]
-    payload.reverse(payload)
-    this.$store.dispatch("setMyEvents", payload);
-    this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
-
-    this.isLoading = false
-    } catch (error) {
-    console.error(error);
     }
 
    
-
-
    
 
       try {
