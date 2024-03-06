@@ -665,9 +665,10 @@ export default {
     memes:[
       '/Artboard6.png',
       '/Artboard1.png',
-      '/Artboard4.png',
+      '/Artboard2.png',
       '/Artboard3.png',
       '/Artboard7.png',
+      '/Artboard4.png',
       '/Artboard5.png',
       '/Artboard8.png',
 //     'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
