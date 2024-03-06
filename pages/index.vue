@@ -184,10 +184,11 @@ class="bgh">
    font-size: 50px;
    line-height: 60px;" class="text--white bigtext centerIt text-right">Countdown <br>
     <vue-countdown style="  font-weight: 700;
-  font-size:40px;" class="text-yellow-darken-1" :time="timediff(mydate)" v-slot="{ days, hours, minutes, seconds }">
+  font-size:40px;" class="text-yellow-darken-1" :time="timediff(i.date)" v-slot="{ days, hours, minutes, seconds }">
    {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
   </vue-countdown>
 </h1>
+
 
 <div class="py-3 centerIt  text-right my-4">
   <v-btn
