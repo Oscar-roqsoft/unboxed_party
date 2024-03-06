@@ -825,7 +825,8 @@ return seconds
    
     this.isLoading= true
     if(this.$store.state.myvideo.home_page_video_url){
-      this.$store.state.myvideo.home_page_video_url
+       this.$store.state.myvideo.home_page_video_url
+      
     }else{
 
       
@@ -837,14 +838,15 @@ return seconds
                 },
             }).then(res=>res.json())
   
+          this.isLoading = false
           const payload =  data.settings
           this.$store.dispatch("setMyVideo", payload);
   
-          this.isLoading = false
   
         }catch(e){
            console.log(e)
       }
+
     }
 
 
@@ -930,6 +932,7 @@ return seconds
       this.dialog = true;
 
     }, 10000);
+
   },
 
   methods: {

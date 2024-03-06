@@ -36,12 +36,12 @@
           <h1 v-else class="text-grey-darken-3">No Video Yet</h1>
 
           </div>          
-              <h2 style="font-size: 40px" class="  py-3">
+              <h2 style="font-size: 40px" class="text-capitalize  py-3">
                 {{event.name}}
               </h2>
             
               <p class="text-body-1 mt-0 text-grey-lighten-2 font-weight-light">
-                {{ read_more?  event.description : event.description.substring(0, 200)+'...' }} <br>
+                {{ read_more?  event.description.charAt(0).toUpperCase() + this.event.description.slice(1) : event.description.charAt(0).toUpperCase() + this.event.description.slice(1).substring(0, 200)+'...' }} <br>
               </p>
               <p class="pt-3 text-capitalize" @click="read_more = !read_more">read {{ !read_more? ' more':' less' }}.</p>
               <div  style="border:1px solid grey " class="rounded-lg my-7">
@@ -226,6 +226,12 @@
       ],
     }),
     computed: {
+      computed: {
+    // Capitalize the first word of the sentence
+    capitalizedSentence() {
+      return this.event.description.charAt(0).toUpperCase() + this.event.description.slice(1);
+    }
+  },
       hasHttp() {
       return this.event.video.startsWith('http');
     },
@@ -255,6 +261,7 @@
       // setTimeout(() => {
       //   this.getEvent();
       // }, 1000);
+      
 
      setTimeout(() => {
         this.dialog = true;
