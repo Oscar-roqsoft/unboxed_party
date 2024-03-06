@@ -129,7 +129,7 @@ class="bgh">
           :src="n"
         ></v-img>
  </div>
-    <v-container   v-for="(n,index) in eventsLists" :key="n.name"   :class="$vuetify.display.smAndDown? 'bg-black':''" class="pt-0" style="box-shadow: 0px -42px 29px 8px #000000f0;overflow: visible; position: relative;" fluid>
+    <v-container   v-for="(i,index) in eventsLists" :key="index"   :class="$vuetify.display.smAndDown? 'bg-black':''" class="pt-0" style="box-shadow: 0px -42px 29px 8px #000000f0;overflow: visible; position: relative;" fluid>
       <div  v-if="!$vuetify.display.smAndDown" style="    max-height: 543px;"  class="photobanner0 d-flex align-end justify-start">
       <div v-if="true" style="height: 80vh;
     position: absolute;
@@ -157,7 +157,7 @@ class="bgh">
     width: 100%;
     background: linear-gradient(360deg, black, transparent);
     z-index: 0;"></div> -->
-     <v-col  @click="openEvent(n);"    style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
+     <v-col  @click="openEvent(i);"    style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
       <div class=" d-flex pt-0 pb-0 align-end justify-center">
 
             <!-- skeleton loader
@@ -170,7 +170,7 @@ class="bgh">
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        :src="n.image"
+        :src="i.image"
         ></v-img>
 
       </div>
@@ -192,7 +192,7 @@ class="bgh">
 <div class="py-3 centerIt  text-right my-4">
   <v-btn
 
-  @click="openEvent(n);"
+  @click="openEvent(i);"
   size="x-large"
   style="
            background: linear-gradient(132.03deg, rgb(16 221 81) 14.22%, rgb(3 108 39) 97.95%)
@@ -798,7 +798,7 @@ return seconds
     },
 
     eventsList () {
-      return this.events.filter(events =>  !events.onSale)
+      return this.events.filter(event =>  !event.on_sale)
     },
     upcoming () {
       return this.events.filter(events =>  events.onSale)
@@ -823,12 +823,12 @@ return seconds
 
   async mounted() {
    
+    this.isLoading= true
     if(this.$store.state.myvideo.home_page_video_url){
       this.$store.state.myvideo.home_page_video_url
-      return
     }else{
 
-      this.isLoading= true
+      
       try{
             const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
                 method:"Get",
@@ -845,13 +845,11 @@ return seconds
         }catch(e){
            console.log(e)
       }
-      return
     }
 
 
    
      try {
-      this.isLoading= true
   const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
     method:"GET",
     headers:{
@@ -873,11 +871,7 @@ return seconds
         console.error(error);
       }
 
-     
-
-
     try {
-      this.isLoading= true
     const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
       method:"GET",
       headers:{
@@ -902,7 +896,6 @@ return seconds
    
 
       try {
-        this.isLoading= true
       const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
         method:"GET",
         headers:{
