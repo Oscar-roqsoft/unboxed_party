@@ -65,7 +65,7 @@
 	</div>
 	<div class="">
 
-		<v-img v-if="ticket" eager :src="events[(ticket.event_id == 7? 0 : 1)].image" alt="Movie: Only God Forgives" >
+		<v-img v-if="ticket" eager :src="eventp[0].image" alt="Movie: Only God Forgives" >
       <div style="position:absolute" class="w-100 h-75 d-flex justify-center align-center">
 <div>
 
@@ -210,13 +210,36 @@
       qty:0,
       ticket: null,
       amount:0,
+      eventsLists:[],
+      eventp:null,
       selected:0
     }),
-    mounted() {
+
+    computed:{
+      events () {
+      return this.$store.state.myevents.list
+    },
+      eventsList () {
+      return this.$store.state.myevents.list.filter(event =>  event.on_sale === "1")
+    },
+    },
+
+    mounted() { 
+      console.log(this.eventsList)
       this.getQty()
       setTimeout(() => {
         this.dialog = true;
       }, 10000);
+
+      if(this.events.length){
+        this.eventsLists = this.events.filter(el=>{
+          return el.on_sale === "1"
+        }).reverse()
+      }
+      this.eventp =  [...this.eventsList]
+      console.log(this.eventp[0])
+     
+
     },
     methods: {
       getQty(){
