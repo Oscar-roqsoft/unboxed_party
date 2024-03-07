@@ -1,25 +1,33 @@
 <template>
+
   <Testimonial />
+
   <v-container :class="$vuetify.display.smAndDown?'px-0':''" class="py-12 px-6" style="overflow:hidden">
             <h2 :style="$vuetify.display.smAndDown?'padding-top:100px;font-size:40px !important':'font-size: 60px'" style=" padding-bottom: 0px;color:#fff" 
             class=" my-0 mb-12 coreupcard hidden text-center logoText font-weight-bold   px-5 ">Our Partners </h2>
         <v-row class="flex-wrap d-flex" wrap >
-            <v-col class="pa-1 d-flex align-center justify-center" :cols="cols[6]">
+            <v-col class="pa-1 d-flex align-center justify-center" :cols="cols[5]">
                 <v-img eager height="150" class="ma-a25o" max-width="300" width="100%" 
                 src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_500,h_500/v1683285416/reboot_luxuryc_place_xzbd3l.png"></v-img>
             </v-col>
-            <v-col class="pa-1 d-flex align-center justify-center" :cols="cols[6]">
-                <v-img eager height="150" class="ma-a25o" max-width="300" width="100%" 
-                src="https://res.cloudinary.com/dpehz96bs/image/upload/c_fit,w_500,h_500/v1709808009/odogwu_nppldw.png"></v-img>
-            </v-col>
-            <v-col class="pa-1 d-flex align-center justify-center"  :cols="cols[6]">
+           
+            <v-col class="pa-1 d-flex align-center justify-center"  :cols="cols[5]">
                 <v-img eager style="scale:1.8" height="150" max-width="320" width="100%" src="https://res.cloudinary.com/crushcontest-com/image/upload/v1683285421/IMG_20221225_121832_198_hugzir.png"></v-img>
             </v-col>
-            <v-col class="pa-1 d-flex align-center justify-center"  :cols="cols[6]">
+            <v-col class="pa-1 d-flex align-center justify-center"  :cols="cols[5]">
                 <v-img eager height="150" max-width="300" width="100%" src="https://res.cloudinary.com/crushcontest-com/image/upload/v1683286002/E_dey_place_ads_1_ftwgyc.png"></v-img>
             </v-col>
         </v-row>
+        <v-row class="flex-wrap d-flex ju align-center" wrap >
+           
+            <v-col class="pa-1 d-flex align-center justify-center justify-center" :cols="cols[12]">
+                <v-img eager height="150" class="ma-a25o" max-width="300" width="100%" 
+                src="https://res.cloudinary.com/dpehz96bs/image/upload/c_fit,w_500,h_500/v1709808009/odogwu_nppldw.png"></v-img>
+            </v-col>
+           
+        </v-row>
     </v-container>
+
   <div id="contact">
 
     <v-container style="position: relative" class="my-12 pa-6">
