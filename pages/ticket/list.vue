@@ -36,13 +36,14 @@
               rounded
               >
               <v-icon size="15" class="mb-1" icon="mdi mdi-map-marker"></v-icon> 
-              {{n.venue}}  
+                           {{n.venue.substring(0, 21)}}{{  n.venue.length > 20 ? '...':''}}  
+ 
                 </p>
               </div>
               <div class="d-flex justify-space-between my-2 align-center">
                 <p
                   
-                  class="text-body-1 text-grey-lighten-1 font-weight-bold"
+                  class="text-body-1 text-capitalize text-grey-lighten-1 font-weight-bold"
                 >
                 {{n.caption}}
               </p>

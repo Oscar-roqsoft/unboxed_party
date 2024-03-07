@@ -88,7 +88,6 @@ class="bgh">
           </v-col>
           <v-col :class="$vuetify.display.smAndDown?'justify-center':'justify-end'" class="d-flex  align-center  mb-12" style="max-width: 700px;" :cols="cols[2]">
             
-               
                 <!-- <v-card  v-if="isLoading" class="tw-w-full">
                     <v-skeleton-loader type="card" style="background: #010107 !important;" />
                 </v-card> -->
@@ -170,7 +169,7 @@ class="bgh">
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="/Cosplay.JPG"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/c_fit/v1709789229/Unboxed_Party_Celebrity_Cosplay_gfhhru.jpg"
         ></v-img>
 
       </div>
@@ -664,14 +663,15 @@ export default {
     'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],  
     memes:[
-      '/Artboard6.png',
-      '/Artboard1.png',
-      '/Artboard2.png',
-      '/Artboard3.png',
-      '/Artboard7.png',
-      '/Artboard4.png',
-      '/Artboard5.png',
-      '/Artboard8.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789004/Artboard6_xdqryq.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788646/Artboard1_avbdau.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788782/Artboard2_mnioug.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788851/Artboard3_fqpj3z.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789041/Artboard7_bohoh0.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788889/Artboard4_kqyrin.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788929/Artboard5_cgmrhd.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789146/Artboard8_hkriyh.png',
+
 //     'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
 //     'https://res.cloudinary.com/payhospi/image/upload/v1700924460/sabi_B_W_usr7bx.png',
 //     'https://res.cloudinary.com/payhospi/image/upload/v1700924459/igreet_buorgn.png',
@@ -793,7 +793,7 @@ export default {
 // Do your operations
 
 var endDate   = new Date('2024-3-14');
-var seconds = (endDate.getTime() - startDate.getTime()) ;
+var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
    
