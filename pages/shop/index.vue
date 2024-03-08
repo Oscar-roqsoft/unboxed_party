@@ -50,12 +50,12 @@
 
   <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">Shop</h1>
 
-  <v-row  class=" tw-min-w-[280px] tw-rounded tw-px-[14px]">
+  <v-row  class=" tw-min-w-[280px] tw-px-[14px]">
       
           <div v-for="tab in fetchedcategory"   :key="tab.id" style="font-size:35px"  class="bg-transparent font-weight-bold  tw-p-1 ">
               
               <v-btn @click.prevent=" setActiveCategory(tab.name); activeCategory = tab.name " 
-              class=" tw-border-t  text-capitalize  font-weight-bold" elevation="0"
+              class=" tw-border-t  text-capitalize  rounded-xl   font-weight-bold" elevation="0" 
               :class=" !(activeCategory === tab.name )? 'bg-transparent':''">{{ tab.name}}</v-btn>
             
           </div>
@@ -167,7 +167,7 @@ export default {
        } catch (error) {
          console.error(error);
        }
-       
+
       }
 
 
