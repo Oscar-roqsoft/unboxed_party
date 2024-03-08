@@ -10,13 +10,28 @@
             <v-card class="pa-4 mb-10 md:tw-max-w-[800px] mx-auto" style="background: #22222261;">
 
                 <v-form>
-                    <v-text-field
+                    <!-- <v-text-field  
                     class="mb-2 rounded-xl"
                     v-model="category"
                     label="Category"
                     persistent-hint
                     variant="solo"
-                    ></v-text-field>
+                    ></v-text-field> -->
+
+                    <div  class="w-100 mb-0 d-flex align-center justify-space-around ">
+
+                        <v-select
+                        v-model="category"
+                        label="Select Category"
+                        :items="fetchedcategory"
+                        item-title="name"
+                        item-value=""
+                        variant="solo"
+                        background="transparent"
+                        elevation="0"
+                        ></v-select>
+
+                    </div>
 
                     <v-text-field
                     class="mb-2 rounded-xl"
@@ -62,7 +77,7 @@
                             ></v-text-field>
                         
     
-                    <v-btn @click.prevent="addColor" class="mb-2">add item type </v-btn>
+                    <v-btn @click.prevent="addColor" color="blue" class="mb-2">add item type </v-btn>
                     
                     <v-list class="pa-2 roounded tw-min-h-20">
                         <span class="border-b" color="primary ">Review list of added Item Image </span>
@@ -114,7 +129,7 @@
                         ></v-text-field>
                         
     
-                      <v-btn @click.prevent="addSize" class="mb-2">add Size </v-btn>
+                      <v-btn @click.prevent="addSize" color="blue" class="mb-2">add Size </v-btn>
 
 
                   <v-list class="pa-2 roounded tw-min-h-20">
@@ -187,6 +202,9 @@ export default {
 
         itemList:[],
 
+        selectedCategory:'',
+        se:'',
+
        
         imageList:[],
         colorList:[],
@@ -209,14 +227,24 @@ computed:{
     itemOption(){
 
         return this.itemOptionList = {images:this.imageList,colors:this.colorList,sizes:this.sizeList};
-    }
+    },
+    fetchedcategory(){
+    return this.$store.state.mycategory;
+    },
+},
+
+mounted(){
+
+    this.se = this.selectedCategory
+    console.log(this.se)
+
 },
 
  
 
 
   methods: {
-
+  
     // addImg(){
     //         const tic = {img:this.itemImage,color:this.itemColor}
     //         this.ticketList.push(tic)
@@ -254,6 +282,7 @@ computed:{
         },
 
       addSize(){
+            console.log(this.selectedCategory) 
             this.sizeList.push(this.itemSize)
             // this.sizeList.reverse(this.sizeList)
             this.itemSize = null
@@ -269,6 +298,7 @@ computed:{
            }
     
         },
+
         deleteSize(itemId) {
             const itemIndex = this.sizeList.findIndex((item) => item.name === itemId);
             if (itemIndex >= 0) {

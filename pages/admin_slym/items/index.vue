@@ -52,15 +52,17 @@
   
                 <div class="tw-mt-3">
                   <span class="font-bold">Color:</span>
-                  <span v-for="color in JSON.parse(item.options).colors">
+                  <span v-for="(color,index) in JSON.parse(item.options).colors" :key="index">
                       <span class="ml-2">{{ color}}</span>
+                      <span v-if="index !== JSON.parse(item.options).colors.length - 1">,</span>
                   </span>
                 </div>
   
                 <div class="tw-mt-3">
                   <span class="font-bold">Sizes:</span>
-                  <span v-for="sizes in JSON.parse(item.options).sizes">
-                      <span class="ml-2">{{ sizes}}</span>
+                  <span v-for="(sizes,index) in JSON.parse(item.options).sizes" :key="index">
+                      <span class="ml-2">{{ sizes }}</span>
+                      <span v-if="index !== JSON.parse(item.options).sizes.length - 1">,</span>
                   </span>
                   <!-- <span class="ml-2">{{ item.options.sizes.join(', ') }}</span> -->
                 </div>
@@ -124,6 +126,26 @@ export default {
  async mounted(){
 
     console.log(this.$vuetify.display.width)
+
+  
+   
+       try {
+           const data = await fetch(`https://backend.unboxedparty.com/api/category`,{
+               method:"GET",
+               headers:{
+               'Content-Type': 'application/json',
+               }
+           }).then(res=>res.json());
+   
+           
+           const payload =  [...data.categories]
+           this.$store.dispatch("setMyCategory", payload);
+           
+   
+       } catch (error) {
+         console.error(error);
+       }
+       
 
         try {
           const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
