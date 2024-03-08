@@ -47,6 +47,8 @@
 </template>
 
 <script setup>
+  import { createToast } from 'mosha-vue-toastify'
+  import 'mosha-vue-toastify/dist/style.css'
 import {handleFileChange,uploadToCloudinary,asyncRequest} from "@/composables/mixins"
 
 const smsImage = ref('')
@@ -60,6 +62,11 @@ const closed = ref(false)
 
 
 const emit = defineEmits('close');
+
+
+const toast = (message) => {
+            createToast(message)
+        }
 
 
 const handleImageUpload = async(event) => await handleFileChange(event,selectedImage,img)
@@ -86,11 +93,13 @@ const sendBulkSms = async()=>{
        })
 
        isLoading.value = false
+       if(data.success) toast.value("Email sent successfully")
 
        console.log(data)
     }catch(e){
         console.log(e)
       isLoading.value = false
+      toast.value("Email sending failed")
     }
 }
 
