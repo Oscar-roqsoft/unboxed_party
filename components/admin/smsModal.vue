@@ -1,7 +1,7 @@
 <template>
 
     <v-card class="pa-4 " style="background: #22222261;">
-        <v-form  @submit.prevent="sendBulkSms" color="transparent tw-bg-gray-900">
+        <v-form  color="transparent tw-bg-gray-900" @submit.prevent="null">
             <v-text-field
                 class="mb-2 rounded-xl"
                 v-model="smsSubject"
@@ -35,8 +35,8 @@
             </v-card-text>
 
             <v-row class="tw-flex tw-justify-center tw-gap-4">
-                <v-btn type="submit"   size="large">Cancel</v-btn>
-                <v-btn type="submit" color="blue-darken-4" size="large" :disabled="!smsSubject || !smsMessage">
+                <v-btn @click.prevent="emit('close',closed = false)"   size="large">Cancel</v-btn>
+                <v-btn  @click.prevent="sendBulkSms" :loading="isLoading"  color="blue-darken-4" size="large" :disabled="!smsSubject || !smsMessage">
                     Proceed
                 </v-btn>
 
@@ -54,6 +54,12 @@ const smsMessage = ref('')
 const smsSubject = ref('')
 const selectedImage = ref('')
 const img = ref('')
+const isLoading = ref(false)
+
+const closed = ref(false)
+
+
+const emit = defineEmits('close');
 
 
 const handleImageUpload = async(event) => await handleFileChange(event,selectedImage,img)
@@ -62,6 +68,7 @@ const sendBulkSms = async()=>{
 
     const {secure_url} = await uploadToCloudinary(selectedImage.value);
     if(!secure_url) return alert("failed to upload file");
+    isLoading.value = true
 
     const options = {
         msg: smsMessage.value ,
@@ -78,9 +85,12 @@ const sendBulkSms = async()=>{
         body:JSON.stringify(options)
        })
 
+       isLoading.value = false
+
        console.log(data)
     }catch(e){
         console.log(e)
+      isLoading.value = false
     }
 }
 

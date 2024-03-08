@@ -66,15 +66,6 @@
                    
                  </a> -->
    
-               
-               
-             
-   
-   
-   
-                  
-   
-   
                    
                    <div class="  tw-flex tw-flex-col tw-justify-end tw-h-full">
                      
@@ -113,7 +104,23 @@
 
      <button @click="toggleDrawer" style="z-index: 999px;" class=" tw-fixed tw-right-4 lg:tw-hidden tw-z-50 tw-text-xl tw-bg-[#151515]  
      tw-rounded-full tw-p-2 tw-transition tw-ease-in-out">
-      <svg class="tw-w-10 tw-h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      <svg v-if="!open" class="menu-icon close tw-w-10 tw-h-10 tw-transition-all tw-duration-500 tw-ease-out" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" 
+        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" 
+        clip-rule="evenodd"></path></svg>
+      
+        <svg v-else class="menu-icon open tw-w-10 tw-h-10 tw-transition-all tw-duration-500 tw-ease-out" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275q-.275-.275-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7q-.275.275-.7.275t-.7-.275z"/></svg>
+
+
+        <!-- <svg v-if="!open"  class="menu-icon close" viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+
+        <svg v-else class="menu-icon open" viewBox="0 0 24 24">
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="18" x2="20" y2="18" />
+        </svg> -->
      </button>
 
 
@@ -139,3 +146,16 @@
     
   }
 </script>
+
+
+<style>
+
+.menu-icon {
+ 
+  stroke-width: 2;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+
+</style>

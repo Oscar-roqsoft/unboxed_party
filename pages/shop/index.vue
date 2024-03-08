@@ -3,6 +3,7 @@
      
       <div style="position:relative;    min-height: 100vh;" class="overflow-hidden">
        <div>
+        
         <div
         v-if="$vuetify.display.mdAndUp"
           style="

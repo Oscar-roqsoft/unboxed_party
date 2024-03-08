@@ -109,7 +109,7 @@
 
 
                 <div class=" pt-3" style=" width:100%; font-size: 20px;  background: linear-gradient(360deg, black, transparent);
-    line-height: 1.2;position:;bottom:0">
+    line-height: 1.2;bottom:0;position:">
                 <h3 class="font-weight-medium text-truncate text-grey-lighten-1">{{n.name}}</h3>
               </div>
               

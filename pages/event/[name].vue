@@ -118,7 +118,7 @@
                   :src="n.image"
                 ></v-img>
                 <div class=" pt-3" style=" width:100%;   background: linear-gradient(360deg, black, transparent);
-    line-height: 1.2;position:;bottom:0">
+    line-height: 1.2;bottom:0">
                 <h3 class="font-weight-medium text-grey-lighten-1">{{n.name}}</h3>
               </div>
               
