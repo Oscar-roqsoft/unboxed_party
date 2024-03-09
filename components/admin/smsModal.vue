@@ -94,9 +94,13 @@ const sendBulkSms = async()=>{
        })
 
        isLoading.value = false
-       if(data.success) toast("Email sent successfully")
+       toast("Email sent successfully")
 
-       console.log(data)
+       smsMessage.value = ''
+       smsSubject.value = ''
+      //  console.log(data)
+
+
     }catch(e){
         console.log(e)
       isLoading.value = false
