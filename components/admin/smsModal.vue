@@ -59,7 +59,7 @@ const img = ref('')
 const isLoading = ref(false)
 
 const closed = ref(false)
-
+const message = ref('')
 
 const emit = defineEmits('close');
 
@@ -72,6 +72,7 @@ const toast = (message) => {
 const handleImageUpload = async(event) => await handleFileChange(event,selectedImage,img)
 
 const sendBulkSms = async()=>{
+  
 
     const {secure_url} = await uploadToCloudinary(selectedImage.value);
     if(!secure_url) return alert("failed to upload file");
@@ -93,13 +94,13 @@ const sendBulkSms = async()=>{
        })
 
        isLoading.value = false
-       if(data.success) toast.value("Email sent successfully")
+       if(data.success) toast("Email sent successfully")
 
        console.log(data)
     }catch(e){
         console.log(e)
       isLoading.value = false
-      toast.value("Email sending failed")
+      toast("Email sending failed")
     }
 }
 
