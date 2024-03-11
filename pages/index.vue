@@ -169,7 +169,7 @@ class="bgh">
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/c_fit/v1709789229/Unboxed_Party_Celebrity_Cosplay_gfhhru.jpg"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1710150210/Celebrity_Cosplay_Hammer_k9wvui.jpg"
         ></v-img>
 
       </div>
