@@ -44,7 +44,7 @@ class="bgh">
               <!-- 😎 -->
               <!-- 🥳 -->
               <!-- 🎅🏾 -->
-            <h1 class="herotitleb"> <span class="herotitle">Your Monthly Themed Party</span> 🥳</h1>
+            <h1 class="herotitleb"> <span class="herotitle">Your Favorite Themed Party</span> 🥳</h1>
             <p 
               style="max-width: 450px"
               class="py-3 mb-4 text-grey-lighten-1 centerIt"
