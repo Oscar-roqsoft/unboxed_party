@@ -2,8 +2,16 @@
     <div>
         
         <v-container>
-            <Backbutton class=" md:tw-max-w-[800px] mx-auto"/>
+            <div  class=" md:tw-max-w-[1000px] mx-auto">
+
+              <v-btn color="blue-darken-4" @click.prevent="navigateTo('/admin_slym/items')" class="rounded-xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64"/>
+                  </svg>
+              </v-btn>
+            </div>
         </v-container>
+
         <v-container>
             <h1 class="tw-text-center tw-font-bold pa-3  text-capitalize tw-text-2xl md:tw-max-w-[800px] mx-auto">Create Items</h1>
 
