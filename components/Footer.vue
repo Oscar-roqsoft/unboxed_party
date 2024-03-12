@@ -11,7 +11,7 @@
                 src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_500,h_500/v1683285416/reboot_luxuryc_place_xzbd3l.png"></v-img>
             </v-col>
             <v-col class="pa-1 d-flex align-center justify-center"  :cols="cols[5]">
-              <v-img eager style="scale:1.8" height="150" max-width="320" width="100%" src="https://res.cloudinary.com/crushcontest-com/image/upload/v1683285421/IMG_20221225_121832_198_hugzir.png"></v-img>
+              <v-img eager  height="150" max-width="320" width="100%" src="https://res.cloudinary.com/dpehz96bs/image/upload/c_fit,w_500,h_500/v1710232447/Artboard11_ea2gi4.png"></v-img>
             </v-col>
             <v-col class="pa-1 d-flex align-center justify-center"  :cols="cols[5]">
               <v-img eager height="150" max-width="300" width="100%" src="https://res.cloudinary.com/crushcontest-com/image/upload/v1683286002/E_dey_place_ads_1_ftwgyc.png"></v-img>
