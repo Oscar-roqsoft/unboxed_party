@@ -82,16 +82,16 @@
                            /></v-btn>
    
                            <v-btn icon class="mr-4" variant="outlined" size="x-small"
-                           href="https://twitter.com/theunboxedparty"
+                           href="https://twitter.com/theunboxedparty" target="blank"
                            ><v-icon icon="mdi:mdi-twitter"
                            /></v-btn>
    
                            <v-btn icon class="mr-4" variant="outlined" size="x-small"
-                           href="https://www.tiktok.com/@the_unboxedparty"
+                           href="https://www.tiktok.com/@the_unboxedparty" target="blank"
                            ><v-icon icon="mdi:mdi-music-note"
                            /></v-btn>
                            <v-btn icon class="mr-4" variant="outlined" size="x-small"
-                           href="https://www.youtube.com/@unboxedparty"
+                           href="https://www.youtube.com/@unboxedparty" target="blank"
                            ><v-icon icon="mdi:mdi-youtube" 
                            /></v-btn>
                        </div>
