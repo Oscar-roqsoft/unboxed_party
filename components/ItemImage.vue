@@ -2,7 +2,7 @@
     <div>
       <v-img
         eager 
-        :src="imageUrl"
+        :src="imageFilter(imageUrl,700)"
         :width="width"
         :height="height"
         alt="Item image"
@@ -49,7 +49,9 @@ import { imageFilter } from "@/composables/mixins";
 
             const parsedOptions = JSON.parse(this.options);
             if (parsedOptions.images && parsedOptions.images.length > 0) {
+              console.log(imageFilter(parsedOptions.images[0],700))
             return parsedOptions.images[0];
+            
 
         }
          }

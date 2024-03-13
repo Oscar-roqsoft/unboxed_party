@@ -40,7 +40,7 @@
                   height="210px"
                   max-width="500px"
                   class="rounded-xl"
-                  :src="n.image"
+                  :src="imageFilter(n.image,700)"
                 ></v-img>
 
 
