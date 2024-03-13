@@ -17,7 +17,7 @@
               <v-img eager height="184" max-width="300" width="100%" src="https://res.cloudinary.com/crushcontest-com/image/upload/v1683286002/E_dey_place_ads_1_ftwgyc.png"></v-img>
             </v-col>
             <v-col class="pa-1 d-flex align-center justify-center" :cols="cols[5]">
-                <v-img eager height="184" class="ma-a25o" max-width="300" width="100%" 
+                <v-img  eager height="184" class="ma-a25o" max-width="300" width="100%" 
                 src="https://res.cloudinary.com/dpehz96bs/image/upload/c_fit,w_500,h_500/v1709808009/odogwu_nppldw.png"></v-img>
             </v-col>
         </v-row>

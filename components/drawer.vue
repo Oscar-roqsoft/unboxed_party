@@ -1,9 +1,9 @@
 <template>
 
-     <div @click="toggleDrawer" class="tw-w-full  tw-duration-300 tw-transform tw-overflow-y-auto  tw-lg:translate-x-0 tw-fixed tw-left-0 tw-top-0 
+     <div  @click="toggleDrawer" class="tw-w-full  tw-duration-300 tw-transform tw-overflow-y-auto  tw-lg:translate-x-0 tw-fixed tw-left-0 tw-top-0 
      tw-z-40" :class="{ 'tw--translate-x-full': !open }">
-       <aside   class="lg:tw-hidden  tw-inset-y-0  z-40  tw-flex tw-flex-col tw-h-screen tw-transition-all tw-z-50  tw-w-[65%] 
-       tw-duration-300 tw-transform tw-bg-[#282828] tw-overflow-y-auto tw-lg:translate-x-0" :class="{ 'tw--translate-x-full': !open }">
+       <aside style="background: #0e042787; backdrop-filter: blur(15px) !important;"   class="lg:tw-hidden  tw-inset-y-0  z-40  tw-flex tw-flex-col tw-h-screen tw-transition-all tw-z-50  tw-w-[65%] 
+       tw-duration-300 tw-transform  tw-overflow-y-auto tw-lg:translate-x-0" :class="{ 'tw--translate-x-full': !open }">
    
               <div class="tw-border-b tw-border-gray-700 tw-p-4 tw-flex tw-justify-center tw-items-center">
    
@@ -13,27 +13,27 @@
    
               </div>
    
-               <div class="tw-flex tw-flex-col tw-justify-center  tw-border-b tw-border-gray-700  ">
+               <div  class="tw-flex tw-flex-col tw-justify-center  tw-border-b tw-border-gray-700  ">
                 
-                 <a  @click.prevent="navigateTo('/ticket/list')" class=" tw-p-5 tw-capitalize tw hover:tw-bg-[#393939]  tw-font-bold" value="left">
+                 <a  @click.prevent="navigateTo('/ticket/list')" class=" tw-p-5 tw-capitalize tw hover:tw-bg-[#1d133687]  tw-font-bold" value="left">
                    Tickets
                  </a>
-                   <a value="shop"  @click.prevent="navigateTo('/shop')" class="tw-p-5   text-capitalize hover:tw-bg-[#393939]  font-weight-bold">
+                   <a value="shop"  @click.prevent="navigateTo('/shop')" class="tw-p-5   text-capitalize hover:tw-bg-[#1d133687] font-weight-bold">
                      <span style="font-family: Permanent Marker !important;font-size: 20px;"> Shop! </span>
                    </a>
-                   <a  @click.prevent="navigateTo('/events')" class=" tw-p-5 tw-capitalize tw hover:tw-bg-[#393939]  tw-font-bold" value="left">
+                   <a  @click.prevent="navigateTo('/events')" class=" tw-p-5 tw-capitalize tw hover:tw-bg-[#1d133687]  tw-font-bold" value="left">
                      Events
                    </a>
    
-                   <a  @click.prevent="navigateTo('/about')" class="tw-p-5 text-capitalize hover:tw-bg-[#393939] font-weight-bold" value="center">
+                   <a  @click.prevent="navigateTo('/about')" class="tw-p-5 text-capitalize hover:tw-bg-[#1d133687] font-weight-bold" value="center">
                      About us
                    </a>
    
-                   <a  @click.prevent="navigateTo('/articles')" class="tw-p-5 text-capitalize hover:tw-bg-[#393939]  font-weight-bold" value="right">
+                   <a  @click.prevent="navigateTo('/articles')" class="tw-p-5 text-capitalize hover:tw-bg-[#1d133687]  font-weight-bold" value="right">
                      Quick Reads
                    </a>
    
-                   <a  href="#contact" class="tw-p-5  text-capitalize hover:tw-bg-[#393939]  font-weight-bold" value="justify">
+                   <a  href="#contact" class="tw-p-5  text-capitalize hover:tw-bg-[#1d133687]  font-weight-bold" value="justify">
                      Contact Us
                    </a>
                   
@@ -70,7 +70,7 @@
                    <div class="  tw-flex tw-flex-col tw-justify-end tw-h-full">
                      
                      
-                       <div class="tw-bg-[#232220] tw-w-full tw-flex tw-justify-center  tw-items-center tw-p-4 tw-border-t tw-border-gray-700">
+                       <div class="tw-bg-[#0c0c0c] tw-w-full tw-flex tw-justify-center  tw-items-center tw-p-4 tw-border-t tw-border-gray-700">
                            <v-btn
                            target="_blank"
                            href="https://www.instagram.com/the_unboxedparty/"
