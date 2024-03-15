@@ -2,7 +2,7 @@
 
      <div  @click="toggleDrawer" class="tw-w-full  tw-duration-300 tw-transform tw-overflow-y-auto  tw-lg:translate-x-0 tw-fixed tw-left-0 tw-top-0 
      tw-z-40" :class="{ 'tw--translate-x-full': !open }">
-       <aside style="background: rgba(14, 4, 39, 0.53); backdrop-filter: blur(15px) !important;-webkit-backdrop-filter: blur(15px) !important;"   class="lg:tw-hidden  tw-inset-y-0  z-40  tw-flex tw-flex-col tw-h-screen tw-transition-all tw-z-50  tw-w-[65%] 
+       <aside style="background: rgba(14, 4, 39, 0.6); backdrop-filter: blur(15px) !important;-webkit-backdrop-filter: blur(15px) !important;"   class="lg:tw-hidden  tw-inset-y-0  z-40  tw-flex tw-flex-col tw-h-screen tw-transition-all tw-z-50  tw-w-[65%] 
        tw-duration-300 tw-transform  tw-overflow-y-auto tw-lg:translate-x-0" :class="{ 'tw--translate-x-full': !open }">
    
               <div class="tw-border-b tw-border-gray-700 tw-p-4 tw-flex tw-justify-center tw-items-center">
