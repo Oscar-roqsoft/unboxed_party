@@ -57,19 +57,32 @@ export const imageFilter = (imageUrl,w)=>{
 
 
 // date are formatted in this form (24th Nov 2023)
-export const formatDate = (dat) =>{
+export const formatDate = (dat) => {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const date = new Date(dat);
   // Extract the date components
   const year = date.getFullYear();
-  const monthindex = date.getMonth(); // Months are zero-indexed
+  const monthIndex = date.getMonth(); // Months are zero-indexed
   const day = date.getDate();
 
-  // Format the date components into a desired format, for example:
-  const formattedDate = `${day.toString().padStart(2, '0')}th ${months[monthindex]}. ${year} `;
+  // Format the date components into a desired format
+  let formattedDate = `${day}`;
+  if (day % 10 === 1 && day !== 11) {
+    formattedDate += "st ";
+  } else if (day % 10 === 2 && day !== 12) {
+    formattedDate += "nd ";
+  } else if (day % 10 === 3 && day !== 13) {
+    formattedDate += "rd ";
+  } else {
+    formattedDate += "th ";
+  }
+
+  formattedDate += `${months[monthIndex]}. ${year}`;
 
   return formattedDate;
-}
+};
+
+
 
 
 export const textFommatter = (value,endnum)=>{
