@@ -16,7 +16,7 @@
         <v-row v-if="!eventsList.length">
             <div style="min-height: 400px; width: 100%; display: flex; justify-content: center; align-items: center;">
 
-               <p style="color: gray;">No tickets available</p>
+               <h1  class="text-grey-darken-3">No Tickets Available</h1>
 
             </div>
         </v-row>
