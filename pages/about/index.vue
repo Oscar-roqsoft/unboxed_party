@@ -48,7 +48,8 @@
        </div>
        
        <v-container>
-         <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">About Us</h1>
+
+        <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">About Us</h1>
          
         <v-row class="d-flex">
          
@@ -62,9 +63,9 @@
               variant="outlined"
               style="border: 2px solid #ffffff"
               class="text-capitalize mt-4"
-              >See Upcoming Events</v-btn
-            >
+              >See Upcoming Events</v-btn>
           </v-col>
+
         </v-row>
 
 
