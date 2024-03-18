@@ -242,7 +242,7 @@
 
                     <div class="tw-w-full">
                           <div class="tw-flex tw-justify-between tw-border-b tw-border-gray-900 tw-py-4">
-                          <span>Substotal:</span>
+                          <span>Subtotal:</span>
                           <span>N{{ addCommas(subtotalPrice) }}.00</span>
                           <!-- <v-money>${{ totalPrice}}</v-money> -->
                           </div>

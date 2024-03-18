@@ -3,7 +3,7 @@
      
       <div style="position:relative;    min-height: 100vh;" class="overflow-hidden">
        <div>
-        
+
         <div
         v-if="$vuetify.display.mdAndUp"
           style="
@@ -56,8 +56,8 @@
           <div v-for="tab in fetchedcategory"   :key="tab.id" style="font-size:35px"  class="bg-transparent font-weight-bold  tw-p-1 ">
               
               <v-btn @click.prevent=" setActiveCategory(tab.name); activeCategory = tab.name " 
-              class=" tw-border-t  text-capitalize  rounded-xl   font-weight-bold" elevation="0" 
-              :class=" !(activeCategory === tab.name )? 'bg-transparent':''">{{ tab.name}}</v-btn>
+            class=" tw-border-t  text-capitalize  rounded-xl tw-text-gray-900   font-weight-bold" elevation="0" 
+              :class=" !(activeCategory === tab.name )? 'bg-transparent text-grey-darken-2':''">{{ tab.name}}</v-btn>
             
           </div>
 

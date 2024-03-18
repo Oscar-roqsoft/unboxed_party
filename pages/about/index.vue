@@ -46,14 +46,19 @@
           </div>
        <Header />
        </div>
-       
-       <v-container>
 
-        <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">About Us</h1>
+       <div style="position:absolute; top: 160px;width: 100%;">
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">About Us</h1>
+          </div>
+        </div>
+       
+       <v-container >
+
          
-        <v-row class="d-flex">
+        <v-row class="d-flex " style="margin-top: 10px;">
          
-          <v-col :class="$vuetify.display.smAndDown? 'pt-0':'pt-4'" class=" centerIt" :cols="cols[8]">
+          <v-col :class="$vuetify.display.smAndDown? 'pt-0':'pt-4'" class=" centerIt mt-8" :cols="cols[8]" >
             <p :class="$vuetify.display.smAndDown? 'mb-4':''" class="text-grey-lighten-1 px-2 py-4" >
               Unboxed Party is your go-to destination for unique and exciting events in the Nigeria (for now sha 😉). From Arabian Fest to Halloween, Meme Party to Royal Ball/Prom, we bring you the best in themed entertainment. Since our inception, we have been growing rapidly, with each event exceeding expectations and setting new standards. Our monthly events are the talk of the town, and we pride ourselves on delivering unforgettable experiences that keep people coming back for more. Join us and unleash the fun at Unboxed Parties!
             </p>
@@ -63,7 +68,8 @@
               variant="outlined"
               style="border: 2px solid #ffffff"
               class="text-capitalize mt-4"
-              >See Upcoming Events</v-btn>
+              >See Upcoming Events</v-btn
+>
           </v-col>
 
         </v-row>

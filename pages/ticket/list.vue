@@ -9,9 +9,14 @@
         </div>
 
       
+        <div style="position:absolute; top: 160px;width: 100%;">
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">Tickets</h1>
+          </div>
+        </div>
+
       <v-container class="pt-12">
 
-        <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">Tickets</h1>
 
         <v-row v-if="!eventsList.length">
             <div style="min-height: 400px; width: 100%; display: flex; justify-content: center; align-items: center;">

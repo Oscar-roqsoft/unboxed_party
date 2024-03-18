@@ -9,25 +9,29 @@
         <div
         v-if="$vuetify.display.mdAndUp"
 class="bgh">
+
+          <KeepAlive>
+
+            <video
+              id="heroVideo"
+              :style="$vuetify.display.smAndDown ? ' width: 1365px ' : ' width: 100%'"
+              style="
+                position: absolute;
+                top: 0;
+                scale: 1.2;
+                height: 900px;
+                z-index: 1;
+              "
+              autoplay
+              muted
+              loop
+            >
+              <source
+                src="https://res.cloudinary.com/crushcontest-com/video/upload/v1680267203/WhatsApp_Video_2023-03-31_at_8.40.28_AM_pvaijr.mp4"
+              />
+            </video>
+          </KeepAlive>
               
-          <video
-            id="heroVideo"
-            :style="$vuetify.display.smAndDown ? ' width: 1365px ' : ' width: 100%'"
-            style="
-              position: absolute;
-              top: 0;
-              scale: 1.2;
-              height: 900px;
-              z-index: 1;
-            "
-            autoplay
-            muted
-            loop
-          >
-            <source
-              src="https://res.cloudinary.com/crushcontest-com/video/upload/v1680267203/WhatsApp_Video_2023-03-31_at_8.40.28_AM_pvaijr.mp4"
-            />
-          </video>
           <!-- <v-avatar  tile width="100%" height="100%"><v-img eager src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_1000/v1664318468/C0042.MP4.16_29_36_17.Still001_1_br9fzu.jpg"></v-img></v-avatar> -->
         </div>
         <div class="bgh" v-else>

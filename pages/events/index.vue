@@ -6,15 +6,21 @@
       
             <Header />
         </div>
+
+
+        <div style="position:absolute; top: 160px;width: 100%;">
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">Events</h1>
+          </div>
+        </div>
   
 
   
   
         <v-container :class="$vuetify.display.smAndDown? 'mt-0': 'mt-6 '">
 
-          <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">Events</h1>
 
-          <div class="centerIt" style="position:relative">
+          <div class="centerIt" style="position:relative; margin-top: 50px;">
             <!-- <v-avatar class="scehimg"  size="200" tile>
   
               <v-img  src="https://res.cloudinary.com/crushcontest-com/image/upload/v1680238979/Character_Mary_Skin_tone_Black_Posture_1_Happy_ephuz0.png"></v-img>
