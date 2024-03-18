@@ -5,7 +5,7 @@
        <aside style="background: rgba(14, 4, 39, 0.6); backdrop-filter: blur(15px) !important;-webkit-backdrop-filter: blur(15px) !important;"   class="lg:tw-hidden  tw-inset-y-0  z-40  tw-flex tw-flex-col tw-h-screen tw-transition-all tw-z-50  tw-w-[65%] 
        tw-duration-300 tw-transform  tw-overflow-y-auto tw-lg:translate-x-0" :class="{ 'tw--translate-x-full': !open }">
    
-              <div class="tw-border-b tw-border-gray-700 tw-p-4 tw-flex tw-justify-center tw-items-center">
+              <div class=" tw-p-4 tw-flex tw-justify-start tw-items-start">
    
                    <v-img eager @click="$router.push('/')" width="auto" max-width="200" 
                    src="https://res.cloudinary.com/crushcontest-com/image/upload/v1684055372/Unboxed_Web_rggvdz.png">
@@ -13,7 +13,7 @@
    
               </div>
    
-               <div  class="tw-flex tw-flex-col tw-justify-center  tw-border-b tw-border-gray-700  ">
+               <div  class="tw-flex tw-flex-col tw-justify-center ">
                 
                  <a  @click.prevent="navigateTo('/ticket/list')" class=" tw-p-5 tw-capitalize tw hover:tw-bg-[#1d133687]  tw-font-bold" value="left">
                    Tickets

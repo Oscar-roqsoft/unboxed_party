@@ -1,7 +1,9 @@
 <template>
     <v-app>
       <v-card class="pa-0 ma-0" color="black" tile flat min-height="100vh">
+        
         <div style="position:relative" class="overflow-hidden">
+          
      
           <div
           v-if="$vuetify.display.mdAndUp"
@@ -13,12 +15,15 @@
               display: flex;
               width: 100%;
               justify-content: center;">
+
+              
                    <div style="height: 60vh;
       position: absolute;
       width: 100%;
       bottom: 0;
       background: linear-gradient(360deg, black, transparent);
       z-index: 2;"></div>
+      
             <video
               id="heroVideo"
               :style="$vuetify.display.smAndDown ? ' width: 1365px ' : ' width: 100%'"
@@ -41,7 +46,30 @@
           </div>
        <Header />
        </div>
-  
+       
+       <v-container>
+         <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">About Us</h1>
+         
+        <v-row class="d-flex">
+         
+          <v-col :class="$vuetify.display.smAndDown? 'pt-0':'pt-4'" class=" centerIt" :cols="cols[8]">
+            <p :class="$vuetify.display.smAndDown? 'mb-4':''" class="text-grey-lighten-1 px-2 py-4" >
+              Unboxed Party is your go-to destination for unique and exciting events in the Nigeria (for now sha 😉). From Arabian Fest to Halloween, Meme Party to Royal Ball/Prom, we bring you the best in themed entertainment. Since our inception, we have been growing rapidly, with each event exceeding expectations and setting new standards. Our monthly events are the talk of the town, and we pride ourselves on delivering unforgettable experiences that keep people coming back for more. Join us and unleash the fun at Unboxed Parties!
+            </p>
+            <v-btn
+              size="large"
+              rounded to="/ticket/list"
+              variant="outlined"
+              style="border: 2px solid #ffffff"
+              class="text-capitalize mt-4"
+              >See Upcoming Events</v-btn
+            >
+          </v-col>
+        </v-row>
+
+
+      </v-container>
+
   
     <Footer />
       </v-card>

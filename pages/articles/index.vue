@@ -11,6 +11,8 @@
   
   
         <v-container  :class="$vuetify.display.smAndDown? 'mt-0': 'mt-6 '">
+          <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">Quick Reads</h1>
+
           <div class="centerIt" style="position:relative">
             <!-- <v-avatar class="scehimg"  size="200" tile>
   

@@ -6,9 +6,22 @@
        
        <Header />
     
-      </div>
+        </div>
+
+      
       <v-container class="pt-12">
-          <v-row 
+
+        <h1 class="mb-8 text-center  text-capitalize tw-text-2xl  tw-font-extrabold">Tickets</h1>
+
+        <v-row v-if="!eventsList.length">
+            <div style="min-height: 400px; width: 100%; display: flex; justify-content: center; align-items: center;">
+
+               <p>No tickets available</p>
+
+            </div>
+        </v-row>
+
+        <v-row 
           class="d-flex flex-wrap align-center mb-12">
           <v-col
           @click="openEvent(n)" 
@@ -62,8 +75,8 @@
      </v-col> 
 
   
-   </v-row>
-  </v-container> 
+        </v-row>
+      </v-container> 
   
   
       

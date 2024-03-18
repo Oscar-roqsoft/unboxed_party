@@ -179,33 +179,33 @@ class="bgh">
 "  class="mb-0 d-flex  justify-center" :cols="cols[2]">
 <div>
 
-  <h1 style="  font-weight: 700;
-   font-size: 50px;
-   line-height: 60px;" class="text--white bigtext centerIt text-right">Countdown <br>
-    <vue-countdown style="  font-weight: 700;
-  font-size:40px;" class="text-yellow-darken-1" :time="timediff2" v-slot="{ days, hours, minutes, seconds }">
-   {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
-  </vue-countdown>
-</h1>
+      <h1 v-if="timediff2 > 0" style="  font-weight: 700;
+        font-size: 50px;
+        line-height: 60px;" class="text--white bigtext centerIt text-right">Countdown <br>
+          <vue-countdown style="  font-weight: 700;
+        font-size:40px;" class="text-yellow-darken-1" :time="timediff2" v-slot="{ days, hours, minutes, seconds }">
+        {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
+        </vue-countdown>
+      </h1>
 
 
-<div class="py-3 centerIt  text-right my-4">
-  <v-btn
-    @click="navigateTo('/ticket/Celebrity%20cosplay')"
-  
-  size="x-large"
-  style="
-           background: linear-gradient(132.03deg, rgb(16 221 81) 14.22%, rgb(3 108 39) 97.95%)
-           "
-         class="text-capitalize font-weight-bold"
-         rounded
-         >Reserve</v-btn
-         >
-         
-        </div>
+      <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
+        <v-btn
+          @click="navigateTo('/ticket/Celebrity%20cosplay')"
         
+        size="x-large"
+        style="
+                background: linear-gradient(132.03deg, rgb(16 221 81) 14.22%, rgb(3 108 39) 97.95%)
+                "
+              class="text-capitalize font-weight-bold"
+              rounded
+              >Reserve</v-btn
+              >
+              
       </div>
-   </v-col>
+        
+    </div>
+  </v-col>
 
  </v-row>
 </v-container> 
