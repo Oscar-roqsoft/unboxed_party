@@ -381,7 +381,7 @@ class="bgh">
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]"
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 3)" :key="i"  :cols="cols[3]"
           >
              <div    class="pt-6 d-flex justify-center">
 
