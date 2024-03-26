@@ -45,13 +45,13 @@
 
         <!-- end modal -->
 
-        <!-- <v-data-table-virtual
+      <!-- <v-data-table-virtual
     :headers="headers"
     :items="users"
     height="400"
     item-value="name"
-  ></v-data-table-virtual> -->
-  <!-- <template v-slot:text>
+  ></v-data-table-virtual>
+  <template v-slot:text>
       <v-text-field
         v-model="search"
         label="Search"
@@ -60,15 +60,19 @@
         variant="outlined"
         hide-details
       ></v-text-field>
-    </template>
+    </template> -->
 
-    <v-data-table
-      :headers="headers" :next-icon="'mdi mdi-heart'"
-      :items="users"
-      :search="search"
-    ></v-data-table> -->
+    <div class="table-btn">
+
+      <v-data-table
+        :headers="headers" :next-icon="'mdi mdi-heart'"
+        :items="users"
+        :search="search"
+      ></v-data-table>
+
+    </div>
     
-        <v-table  theme="dark" class=" pb-12 px-3 mb-12">
+        <!-- <v-table  theme="dark" class=" pb-12 px-3 mb-12">
           <thead>
             <tr>
               <th class="text-left font-weight-black text-h5">
@@ -92,9 +96,7 @@
               <th class="text-left font-weight-black text-h5">
                 Created
               </th>
-              <!-- <th class="text-left font-weight-black text-h5">
-                Updated
-              </th> -->
+            
             </tr>
           </thead>
           <tbody >
@@ -106,9 +108,6 @@
               <td class="text-blue font-weight-medium" @click.stop="openTicketBtn(item)">{{ item.name }}</td>
               <td>{{ item.email }}</td>
               <td><a target="_blank" :href="'tel:'+item.phone">{{ item.phone }}<v-icon>mdi-phone</v-icon></a></td>
-              <!-- <p>{{   'https://wa.me/+234' +
-                            item.whatsapp +
-                            '?text=Hello%20'+ item.name + '%0a,%20this%20is%20UNBOXED%20PARTY%20whatsapp%20tv%20(KINDLY%20SAVE%20📡)%20.......%20We%20have%20taken%20you%20on%20the%20wildest%20ride%20of%20your%20time%20in%20the%20past%20weeks%20from%20AWKA%20-%20NSUKKA%20-%20EKITI%20and%20we%20are%20just%20getting%20started.%0aWe%20will%20be%20constantly%20evolving%20and%20will%20add%20a%20new%20dimension%20of%20excitement%20to%20keep%20up%20with%20your%20ever%20changing%20tastes.%0afollow%20us%20❤️😍%0aIG:%20https://www.instagram.com/the_unboxedparty/%0aFACEBOOK:%20https://web.facebook.com/Unboxedparty%0aTWITTER:%20https://twitter.com/Theunboxedparty%0aTIKTOK:%20https://www.tiktok.com/@the_unboxedparty'}}</p> -->
               <td><a 
   
                 :href="
@@ -121,11 +120,10 @@
   
         
               <td>{{ formatDated(item.created_at) }}</td>
-              <!-- <td>{{ formatDated(item.updated_at) }}</td> -->
   
             </tr>
           </tbody>
-        </v-table>
+        </v-table> -->
 
       </v-card>
       <v-dialog z-index="9"
@@ -342,6 +340,10 @@
 
 
 <style scoped>
+
+.table-btn :deep(.v-btn){
+  background-color: rgb(228, 230, 232) !important;
+}
 
 .modal-wrapper {
   position: fixed;
