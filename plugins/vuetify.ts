@@ -16,7 +16,7 @@ export default defineNuxtPlugin((nuxt) => {
             defaultTheme: 'dark'
         },
         icons: {
-            defaultSet: 'mdi',
+            defaultSet: 'mdi' ,
             aliases,
             sets: {
                 mdi,

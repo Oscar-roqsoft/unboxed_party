@@ -48,7 +48,6 @@
       <!-- <v-data-table-virtual
     :headers="headers"
     :items="users"
-    height="400"
     item-value="name"
   ></v-data-table-virtual>
   <template v-slot:text>
@@ -64,13 +63,40 @@
 
     <div class="table-btn">
 
-      <v-data-table
-        :headers="headers" :next-icon="'mdi mdi-heart'"
-        :items="users"
-        :search="search"
-      ></v-data-table>
-
+      <v-card
+        flat
+      >
+        <template v-slot:text>
+          <v-text-field
+            v-model="search"
+            label="Search"
+            prepend-inner-icon="mdi-magnify"
+            variant="outlined"
+            hide-details
+            single-line
+          ></v-text-field>
+        </template>
+  
+        <v-data-table
+          :headers="headers"
+          :items="users"
+          :search="search"
+        ></v-data-table>
+      </v-card>
     </div>
+
+
+   
+<!--     
+    <div class="table-btn">
+    <v-data-table
+      :headers="headers"
+      :items="users"
+      :search="search"
+    >
+    
+    </v-data-table>
+  </div> -->
     
         <!-- <v-table  theme="dark" class=" pb-12 px-3 mb-12">
           <thead>
