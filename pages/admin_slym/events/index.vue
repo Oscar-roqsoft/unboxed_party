@@ -62,9 +62,13 @@
                     <div>Desc: {{ i.description.substring(0, 100) }}...</div>
                   </div>
               
-                  <div class="tw-flex tw-my-4 pa-2">
+                  <div class="tw-flex tw-mt-4 pa-2">
                     <v-btn color="primary" @click="navigateTo(`/admin_slym/events/${i.id}`)">Edit</v-btn>
                     <v-btn class="mx-2" color="error" @click="toast = true; idItem = i.id; itemName = i.name" :loading="loading">Delete</v-btn>
+                  </div>
+                  <div class="tw-flex tw-mb-4 pa-2">
+                    <v-btn @click="navigateTo(`/admin_slym/ticket_dash/${i.id}`)"
+                    color="blue-darken-3">Ticket Lists</v-btn>
                   </div>
                 </v-card>
 
