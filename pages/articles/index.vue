@@ -59,6 +59,8 @@
             <v-col class="pt-5 text-center" cols="12" >
                 <v-btn
                 size="x-large"
+                 target="_blank"
+                 href="https://www.instagram.com/the_unboxedparty/"
               
                 theme="dark"
                 class="text-capitalize rounded-lg font-weight-bold"
