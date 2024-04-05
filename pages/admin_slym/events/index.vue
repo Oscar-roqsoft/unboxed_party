@@ -41,7 +41,7 @@
 
           <div  class="tw-flex tw-flex-wrap tw-gap-4">
             <div v-for="(i,index) in events" :key="i.name" class="tw-flex tw-flex-col ">
-              <div class="tw-w-[310px]  tw-rounded-md">
+              <div  class="tw-w-[310px]  tw-rounded-md">
                 
                 <v-card>
                   <!-- <img class="tw-w-full" :src="imageFilter(i.image,700,700)" alt=""> -->
@@ -60,6 +60,7 @@
                     <div class="tw-mt-2">Name: {{ i.name }}</div>
                     <div>Caption: {{ i.caption }}</div>
                     <div>Desc: {{ i.description.substring(0, 100) }}...</div>
+                    <div >Total Tickets Sold: {{i.total_tickets_sold}}</div>
                   </div>
               
                   <div class="tw-flex tw-mt-4 pa-2">
@@ -106,6 +107,7 @@ export default {
       idItem:null,
       itemName:'',
       loading:false,
+      qty:null,
     };
   },
 
@@ -115,18 +117,21 @@ export default {
       events () {
       return this.$store.state.myevents.list
     },
+    myticketQty () {
+      return this.$store.state.myticketQty.list
+    },
   },
 
   async mounted(){
     console.log(this.events)
     try {
-          const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+          const data = await fetch(`https://backend.unboxedparty.com/api/events_list_qty`,{
             method:"GET",
             headers:{
               'Content-Type': 'application/json',
             }
           }).then(res=>res.json());
-          console.log(data.events)
+          console.log('new',data.events)
     
     
           const payload =  [...data.events]
@@ -140,10 +145,71 @@ export default {
         }
 
 
+        // try {
+        //     for (let i = 0; i < this.$store.state.myevents.list.length; i++) {
+        //       const eventId = this.events[i].id;
+        //       console.log(eventId)
+        //       const response = await fetch(`https://backend.unboxedparty.com/api/ticket_list?id=${eventId}`, {
+        //         method: "GET",
+        //         headers: {
+        //           'Content-Type': 'application/json',
+        //           'Access-Control-Allow-Origin': '*',
+        //           'Accept': 'application/json'
+        //         }
+        //       });
+              
+        //       const data = await response.json();
+        //       let dataArray = []
+        //       dataArray.push(data)
+        //       // console.log(dataArray);
+
+        //       this.qty = data.success.users[0]?.tickets[0]?.event
+        //       console.log(this.qty?.users[0]?.tickets[0]?.event)
+
+        //       // If you want to dispatch data to the store, do it here
+        //       // const payload =  [...data.events];
+        //       // payload.reverse(payload);
+        //       // this.$store.dispatch("setMyEvents", payload);
+        //       // this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+        //     }
+        //   } catch (error) {
+        //     console.error(error);
+        //   }
+        
+  
+
+
+
   },
 
 
   methods:{
+    //  async getUsers(x){
+    //   let ticketQty = null
+    //   try {
+    //       const data = await fetch(`https://backend.unboxedparty.com/api/ticket_list?id=`+ x,{
+    //         method:"GET",
+    //         headers:{
+    //            'Content-Type': 'application/json',
+    //         'Access-Control-Allow-Origin': '*',
+    //         'Accept': 'application/json'
+    //         }
+    //       }).then(res=>res.json());
+          
+    //       ticketQty = data.success.total_quantity
+          
+    //       console.log(ticketQty)
+    //       // const payload =  [...data.events]
+    //       // payload.reverse(payload)
+    //       // this.$store.dispatch("setMyEvents", payload);
+    //       // this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+    
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+
+          
+      // },
     async deleteEvent(eventId) {
       // Implement delete logic with API call and update events list
        const id ={
@@ -152,7 +218,7 @@ export default {
        console.log(id)
        this.loading = true
         try{
-          const data = await fetch('https://backend.unboxedparty.com/api/event',{
+          const data = await fetch('https://backend.unboxedparty.com/api/events_list_qty',{
             method:'DELETE',
             headers:{
                 'Content-Type': 'application/json',

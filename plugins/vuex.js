@@ -25,6 +25,16 @@ import { version } from "../package.json";
        expire_at:'',
     },
 
+    myticketQty:{
+       list:[],
+       expire_at:'',
+    },
+
+    myevents:{
+       list:[],
+       expire_at:'',
+    },
+
     orders:{
       list:[],
       expire_at:'',
@@ -599,6 +609,10 @@ import { version } from "../package.json";
       return state.myevents
     },
 
+    getMyticketQty(state) {
+      return state.myticketQty
+    },
+
     getItems(state) {
       return state.items
     },
@@ -711,6 +725,9 @@ import { version } from "../package.json";
     SET_MY_EVENTS(state, payload) {
       state.myevents.list = payload
     },
+    SET_MY_TICKETQTY(state, payload) {
+      state.myticketQty.list = payload
+    },
 
     SET_MY_EVENTS_EXPIRATION_DATE(state, payload) {
       state.myevents.expire_at = payload
@@ -809,6 +826,11 @@ import { version } from "../package.json";
     setMyEvents({ commit }, payload) {
        // make request
       commit('SET_MY_EVENTS', payload)
+    },
+
+    setMyTicketQty({ commit }, payload) {
+       // make request
+      commit('SET_MY_TICKETQTY', payload)
     },
 
     setMyEventsExpirationDate({ commit }, payload) {

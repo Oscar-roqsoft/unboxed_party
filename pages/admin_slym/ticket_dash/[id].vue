@@ -97,19 +97,20 @@
       v-model="dialog"
       width="300"
     >
-  
-    
-          
     </v-dialog>
     </div>
   
-    </template>
+  </template>
+
   <style>
   @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
   
   * {
     font-family: "Permanent Marker", cursive !important;
-  }</style>
+  }
+  </style>
+
+
   <script>
   import moment from 'moment';
   
@@ -142,44 +143,50 @@
         ticket_code: '123'
       }
     },
+
     methods:{
+
       getUsersbtn(){
           this.getUsers()
       
       },
+
       getUsers(x){
         this.loader = true
         this.$store.dispatch('setTickets',[])
         fetch("https://backend.unboxedparty.com/api/ticket_list?id="+this.$route.params.id, {
             method: "GET",
             headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Accept': 'application/json'
-  
-  
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Accept': 'application/json'
             }})
+
             .then((response) => {
               if (response.ok) {
                 return response.json();
               }
               throw new Error("Something went wrong");
             })
+
             .then((res) => {
               console.log(res)
               this.loader = false
               this.$store.dispatch('setTickets', res.success.users)
-  
+               console.log( res.success)
             })
+
             .catch(() => {
               alert("An error has occurred");
               this.loading = false;
             });
           
       },
+
       incrementTicket(){
           this.qty ++
         },
+
         decrementTicket(){
           if(this.qty <= 1){
             return
@@ -212,6 +219,7 @@
             
             
           }})
+
           .then((response) => {
             if (response.ok) {
               this.loading = false

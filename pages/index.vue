@@ -173,7 +173,7 @@ class="bgh">
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1710150210/Celebrity_Cosplay_Hammer_k9wvui.jpg"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1712255968/UNBOXED_xorskw.jpg"
         ></v-img>
 
       </div>
@@ -195,11 +195,11 @@ class="bgh">
 
       <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
         <v-btn
-          @click="navigateTo('/ticket/Celebrity%20cosplay')"
+          @click="navigateTo('/ticket/jersey%20fest')"
         
         size="x-large"
         style="
-                background: linear-gradient(132.03deg, rgb(16 221 81) 14.22%, rgb(3 108 39) 97.95%)
+          background: linear-gradient(132.03deg, rgba(255, 0, 0, 0.8) 14.22%, rgba(139, 0, 0, 0.8) 97.95%);
                 "
               class="text-capitalize font-weight-bold"
               rounded
@@ -385,7 +385,7 @@ class="bgh">
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 3)" :key="i"  :cols="cols[3]"
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]"
           >
              <div    class="pt-6 d-flex justify-center">
 
@@ -440,8 +440,10 @@ class="bgh">
 
         </v-row>
         <div class="py-12 d-flex justify-center" >
-          <v-btn to="/events" size="x-large" class="mx-auto text-capitalize font-weight-bold " rounded color="white">See more</v-btn></div>
-      </v-container>
+          <v-btn to="/events" size="x-large" class="mx-auto text-capitalize font-weight-bold " rounded color="white">See more</v-btn>
+        </div>
+      
+        </v-container>
 
       <v-container style="position: relative" class="">
         <v-img eager 
@@ -629,6 +631,10 @@ class="bgh">
         <div class="py-12 d-flex justify-center" >
           <!-- <v-btn to="/article" size="x-large" class="mx-auto text-capitalize font-weight-bold " rounded color="white">See more</v-btn> -->
         </div>
+
+        <div class="py-12 d-flex justify-center" >
+          <v-btn to="/articles" size="x-large" class="mx-auto text-capitalize font-weight-bold " rounded color="white">See more</v-btn>
+        </div>
       
       </v-container>
       </div>
@@ -667,14 +673,22 @@ export default {
     'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],  
     memes:[
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789004/Artboard6_xdqryq.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788646/Artboard1_avbdau.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788782/Artboard2_mnioug.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788851/Artboard3_fqpj3z.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789041/Artboard7_bohoh0.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788889/Artboard4_kqyrin.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788929/Artboard5_cgmrhd.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789146/Artboard8_hkriyh.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353619/debruyne_cbw6b9.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353840/odegaard_h1phsv.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353925/salah_icorpj.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353988/ronaldo_b84oq1.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354065/ganarcho_e4ries.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354123/palmer_m1g3fo.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354087/foden_lfl7ok.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354570/messi_gp5aqh.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789004/Artboard6_xdqryq.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788646/Artboard1_avbdau.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788782/Artboard2_mnioug.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788851/Artboard3_fqpj3z.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789041/Artboard7_bohoh0.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788889/Artboard4_kqyrin.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788929/Artboard5_cgmrhd.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789146/Artboard8_hkriyh.png',
 
 //     'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
 //     'https://res.cloudinary.com/payhospi/image/upload/v1700924460/sabi_B_W_usr7bx.png',
@@ -796,7 +810,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-03-14');
+var endDate   = new Date('2024-04-11');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
@@ -895,7 +909,7 @@ return seconds
     
 
       try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+      const data = await fetch(`https://backend.unboxedparty.com/api/events_list_qty`,{
         method:"GET",
         headers:{
           'Content-Type': 'application/json',

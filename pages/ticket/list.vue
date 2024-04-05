@@ -15,7 +15,7 @@
           </div>
         </div>
 
-      <v-container class="pt-12">
+      <v-container class="p" style="padding-top: 100px;">
 
 
         <v-row v-if="!eventsList.length">
