@@ -131,7 +131,7 @@
               <div v-if="reveal == false">
 
                   <h1 style="font-size: 30px;" class="mb-5 text-white font-weight-bold  text-center">
-                   Enter your email to purchase ticket.
+                   Enter your email to reserve ticket.
                   </h1>
 
                   <v-form
