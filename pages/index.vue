@@ -629,7 +629,7 @@ class="bgh">
           </v-col>
         </v-row>
         <div class="py-12 d-flex justify-center" >
-          <v-btn to="/article" size="x-large" class="mx-auto text-capitalize font-weight-bold " rounded color="white">See more</v-btn>
+          <v-btn to="/articles" size="x-large" class="mx-auto text-capitalize font-weight-bold " rounded color="white">See more</v-btn>
         </div>
 
         <!-- <div class="py-12 d-flex justify-center" >
