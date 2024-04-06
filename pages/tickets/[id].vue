@@ -65,7 +65,7 @@
 	</div>
 	<div class="">
 
-		<v-img v-if="ticket" eager :src="eventp[0].image" alt="Movie: Only God Forgives" >
+		<v-img v-if="ticket" eager :src="eventsList[0].image" alt="Movie: Only God Forgives" >
       <div style="position:absolute" class="w-100 h-75 d-flex justify-center align-center">
 <div>
 
@@ -237,7 +237,7 @@
         }).reverse()
       }
       this.eventp =  [...this.eventsList]
-      console.log(this.eventp[0])
+      console.log(this.eventsList[0].image)
      
 
     },
