@@ -40,7 +40,7 @@
        <!-- <v-avatar  tile width="100%" height="100%"><v-img eager src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_1000/v1664318468/C0042.MP4.16_29_36_17.Still001_1_br9fzu.jpg"></v-img></v-avatar> -->
      </div>
   </div>
-        <v-container class="pa-0" style="position: relative; max-width: 1100px">
+        <v-container class="pa-0" style="position: relative; max-width: 990px">
           <div
             style="width: 100%; min-height: 100vh"
             class="pa-6 d-flex justify-center align-center"
@@ -55,7 +55,7 @@
                 <v-card
                   width="100%"
                   color=""
-                  max-width="310" style="position:relative"
+                  max-width="450" style="position:relative"
                   height="auto"
                   class=" pa-0">
 
@@ -138,7 +138,6 @@
   
 </p>
         </v-container>
-
         <v-dialog width="100%" max-width="310" v-model="dialog">
           <a
             style="text-decoration: none"
