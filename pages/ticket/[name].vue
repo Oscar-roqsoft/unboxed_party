@@ -726,20 +726,22 @@ return seconds
       },
     },
     async mounted() {
+       try{
 
-      this.get_number()
-      setTimeout(() => {
-        this.dialog = true;
-      }, 30000);
-      var name = decodeURIComponent(this.$route.params.name)
-     var eventb = this.events.find(el=>{
-        return el.name == name
-      })
-      this.$store.dispatch('setEvent', eventb)
-      
-
-      this.mytickets =  JSON.parse(eventb.tickets)
-      console.log(this.mytickets)
+         this.get_number()
+         setTimeout(() => {
+           this.dialog = true;
+         }, 30000);
+         var name = decodeURIComponent(this.$route.params.name)
+        var eventb = this.events.find(el=>{
+           return el.name.toLowerCase() == name.toLowerCase()
+         })
+         this.$store.dispatch('setEvent', eventb)
+         
+         this.mytickets =  JSON.parse(eventb?.tickets)
+       }catch(e){
+        console.log(e)
+       }
 
     },
     methods: {
