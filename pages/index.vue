@@ -810,7 +810,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-04-11');
+var endDate   = new Date('2024-04-12');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
