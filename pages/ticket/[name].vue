@@ -858,11 +858,11 @@ return seconds
             if(res.success.msg === null){
               this.reveal = 1
             }else{
+              this.user = res.success.msg
               this.email =  this.user.email
               this.phone =  this.user.phone
               this.name =  this.user.name
               this.reveal = 2
-              this.user = res.success.msg
 
             }
             this.loading = false;
@@ -950,13 +950,16 @@ return seconds
               //  this.sign = ''
               console.log('nice')
               this.reveal = 2
-              
+
               this.loading = false;
               this.user = res.success.msg
 
               this.email =  this.user.email
               this.phone =  this.user.phone
               this.name =  this.user.name
+              // this.email =  this.email
+              // this.phone =  this.phone
+              // this.name =  this.name
                
             })
             .catch(() => {
