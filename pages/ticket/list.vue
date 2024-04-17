@@ -54,7 +54,7 @@
               rounded
               >
               <v-icon size="15" class="mb-1" icon="mdi mdi-map-marker"></v-icon> 
-                           {{n.venue.substring(0, 21)}}{{  n.venue.length > 20 ? '...':''}}  
+                           {{n.venue.substring(0, 15)}}{{  n.venue.length > 15 ? '...':''}}  
  
                 </p>
               </div>

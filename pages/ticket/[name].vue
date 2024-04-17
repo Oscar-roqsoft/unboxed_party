@@ -314,7 +314,7 @@
                 </h1>
                 <div class="d-flex mb-3 px-3 align-center justify-space-between">
 
-                <div  class="w-100 mb-0 d-flex align-center justify-space-around ">
+                <div  class="w-100 mb-0 d-flex align-center justify-space-around text-capitalize" >
 
                   <v-select
                     v-model="selectedticket"
@@ -325,6 +325,7 @@
                     variant="solo"
                     background="transparent"
                     elevation="0"
+                    class="text-capitalize"
                   ></v-select>
                 
                 </div>
