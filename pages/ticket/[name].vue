@@ -858,11 +858,11 @@ return seconds
             if(res.success.msg === null){
               this.reveal = 1
             }else{
-              this.user = res.success.msg
               this.email =  this.user.email
-                this.phone =  this.user.phone
-                this.name =  this.user.name
+              this.phone =  this.user.phone
+              this.name =  this.user.name
               this.reveal = 2
+              this.user = res.success.msg
 
             }
             this.loading = false;
@@ -937,7 +937,6 @@ return seconds
             .then((response) => {
               if (response.ok) {
                 response.json();
-                this.reveal = 2
                 return 
                 
               }
@@ -949,13 +948,16 @@ return seconds
               //  this.phone = ''
               //  this.whatsapp = ''
               //  this.sign = ''
+              console.log('nice')
+              this.reveal = 2
+              
               this.loading = false;
               this.user = res.success.msg
+
               this.email =  this.user.email
               this.phone =  this.user.phone
               this.name =  this.user.name
                
-              this.reveal = 2
             })
             .catch(() => {
 
