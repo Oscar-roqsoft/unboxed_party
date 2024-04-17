@@ -195,7 +195,7 @@ class="bgh">
 
       <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
         <v-btn
-          @click="navigateTo('/ticket/jersey%20fest')"
+          @click="navigateTo('/ticket/GOAT_tbco8l')"
         
         size="x-large"
         style="
