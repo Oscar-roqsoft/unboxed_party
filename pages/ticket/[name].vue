@@ -747,9 +747,13 @@ return seconds
     },
     methods: {
       uploadTicket(){
-        this.selectedticketAmout = this.mytickets.find(i => i.name == this.selectedticket)
+        this.selectedticketAmout = this.mytickets.find(i => i.name === this.selectedticket)
+
         var datas ={email: this.email, id: this.user.id, name: this.name, phone_number: this.phone}
         //this will launch Fluterwave payment modal
+        console.log(datas)
+
+
         if (!parseFloat(this.selectedticketAmout.value)) {
           datas.amount = 0;
           this.reserveTicket(datas)
@@ -936,8 +940,7 @@ return seconds
           })
             .then((response) => {
               if (response.ok) {
-                response.json();
-                return 
+                return response.json();
                 
               }
               throw new Error("Something went wrong");
@@ -948,15 +951,20 @@ return seconds
               //  this.phone = ''
               //  this.whatsapp = ''
               //  this.sign = ''
-              console.log('nice')
-              this.reveal = 2
 
-              this.loading = false;
               this.user = res.success.msg
+              console.log(this.user)
 
               this.email =  this.user.email
               this.phone =  this.user.phone
               this.name =  this.user.name
+
+              console.log('nice')
+              this.reveal = 2
+
+              this.loading = false;
+
+
               // this.email =  this.email
               // this.phone =  this.phone
               // this.name =  this.name
