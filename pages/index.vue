@@ -173,7 +173,7 @@ class="bgh">
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1712255968/UNBOXED_xorskw.jpg"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1713373846/GOAT_tbco8l.png"
         ></v-img>
 
       </div>
@@ -385,7 +385,7 @@ class="bgh">
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 3)" :key="i"  :cols="cols[3]"
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]"
           >
              <div    class="pt-6 d-flex justify-center">
 
@@ -407,7 +407,7 @@ class="bgh">
                 height="350px"
                 max-width="500px"
                 class="rounded-xl"
-                :src="n.image"
+                :src="imageFilter(n.image,700)"
               ></v-img>
               
               <h2 style="font-size: 30px" class="logoText font-weight-bold text-grey-lighten-2 pt-3">
@@ -673,14 +673,14 @@ export default {
     'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],  
     memes:[
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353619/debruyne_cbw6b9.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353840/odegaard_h1phsv.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353925/salah_icorpj.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353988/ronaldo_b84oq1.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354065/ganarcho_e4ries.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354123/palmer_m1g3fo.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354087/foden_lfl7ok.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354570/messi_gp5aqh.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353619/debruyne_cbw6b9.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353840/odegaard_h1phsv.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353925/salah_icorpj.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353988/ronaldo_b84oq1.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354065/ganarcho_e4ries.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354123/palmer_m1g3fo.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354087/foden_lfl7ok.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354570/messi_gp5aqh.png',
       // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789004/Artboard6_xdqryq.png',
       // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788646/Artboard1_avbdau.png',
       // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788782/Artboard2_mnioug.png',
@@ -810,7 +810,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-04-12');
+var endDate   = new Date('2024-05-01');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
