@@ -257,7 +257,7 @@
                   <v-checkbox
                   :rules="[rules.required]"
                   v-model="consent" color="red"
-          label="I consent to receiving emails from Unboxed Party "
+                  label="I consent to receiving emails from Unboxed Party "
                 ></v-checkbox>
                   <div class="text-center py-3">
                     <v-btn
@@ -505,7 +505,7 @@
 
       </div>
     <Footer />
-    <v-dialog width="100%" max-width="400" v-model="dialog">
+    <!-- <v-dialog width="100%" max-width="400" v-model="dialog">
         <a
           style="text-decoration: none"
           href="https://www.instagram.com/the_unboxedparty/"
@@ -554,7 +554,7 @@
             </v-card-actions>
           </v-card></a
         >
-      </v-dialog>
+    </v-dialog> -->
       </v-card>
     </v-app>
   </template>
@@ -924,6 +924,7 @@ return seconds
             // sign: this.sign,
           };
           console.log(dat);
+
           fetch("https://backend.unboxedparty.com/api/save", {
             method: "POST",
             headers: {
@@ -935,7 +936,10 @@ return seconds
           })
             .then((response) => {
               if (response.ok) {
-                return response.json();
+                response.json();
+                this.reveal = 2
+                return 
+                
               }
               throw new Error("Something went wrong");
             })
@@ -947,9 +951,10 @@ return seconds
               //  this.sign = ''
               this.loading = false;
               this.user = res.success.msg
-                this.email =  this.user.email
-                 this.phone =  this.user.phone
-                 this.name =  this.user.name
+              this.email =  this.user.email
+              this.phone =  this.user.phone
+              this.name =  this.user.name
+               
               this.reveal = 2
             })
             .catch(() => {
