@@ -673,22 +673,15 @@ export default {
     'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],  
     memes:[
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353619/debruyne_cbw6b9.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353840/odegaard_h1phsv.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353925/salah_icorpj.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712353988/ronaldo_b84oq1.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354065/ganarcho_e4ries.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354123/palmer_m1g3fo.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354087/foden_lfl7ok.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1712354570/messi_gp5aqh.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789004/Artboard6_xdqryq.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788646/Artboard1_avbdau.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788782/Artboard2_mnioug.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788851/Artboard3_fqpj3z.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789041/Artboard7_bohoh0.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788889/Artboard4_kqyrin.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709788929/Artboard5_cgmrhd.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1709789146/Artboard8_hkriyh.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433043/cod_glrfwu.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433066/dunno_rhfhah.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433260/frudo_sjhmph.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433278/gta_ajrrwx.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433291/liu_kang_zrf6ke.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433305/mario_mgkrwl.png',
+      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433594/pubg_ocjkes.png'
+
+    
 
 //     'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
 //     'https://res.cloudinary.com/payhospi/image/upload/v1700924460/sabi_B_W_usr7bx.png',

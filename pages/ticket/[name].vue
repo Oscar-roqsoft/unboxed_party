@@ -953,13 +953,11 @@ return seconds
               //  this.sign = ''
 
               this.user = res.success.msg
-              console.log(this.user)
 
               this.email =  this.user.email
               this.phone =  this.user.phone
               this.name =  this.user.name
 
-              console.log('nice')
               this.reveal = 2
 
               this.loading = false;
