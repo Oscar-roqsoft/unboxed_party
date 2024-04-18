@@ -199,7 +199,7 @@ class="bgh">
         
         size="x-large"
         style="
-          background: linear-gradient(132.03deg, rgba(255, 0, 0, 0.8) 14.22%, rgba(139, 0, 0, 0.8) 97.95%);
+          background: linear-gradient(132.03deg, #bf00ffcc 14.22%, #54118acc 97.95%);
                 "
               class="text-capitalize font-weight-bold"
               rounded
