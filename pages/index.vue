@@ -173,7 +173,7 @@ class="bgh">
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1713373846/GOAT_tbco8l.png"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/c_fit,w_800/v1713373846/GOAT_tbco8l.png"
         ></v-img>
 
       </div>
