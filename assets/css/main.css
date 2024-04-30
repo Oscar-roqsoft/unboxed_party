@@ -12,6 +12,7 @@
   animation: shimmer 1.5s linear infinite;
 }
 
+
 @keyframes shimmer {
     0% {
         

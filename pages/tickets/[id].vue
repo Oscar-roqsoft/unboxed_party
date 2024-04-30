@@ -69,7 +69,7 @@
       <div style="position:absolute" class="w-100 h-75 d-flex justify-center align-center">
 <div>
 
-  <vue-qrcode width="150" height="150" color="#ec38bc"
+  <vue-qrcode :width="150" :height="150" color="#ec38bc"
   :value="$route.params.id"
   />
   <h1 style=" text-shadow: 0 0 15px black;" class="text-center text-white">{{ $route.params.id }}</h1>
@@ -225,7 +225,7 @@
     },
 
     mounted() { 
-      console.log(this.eventsList)
+      // console.log('IMG',this.eventsList[0].image)
       this.getQty()
       setTimeout(() => {
         this.dialog = true;
@@ -237,7 +237,7 @@
         }).reverse()
       }
       this.eventp =  [...this.eventsList]
-      console.log(this.eventsList[0].image)
+      // console.log(this.eventsList[0].image)
      
 
     },
