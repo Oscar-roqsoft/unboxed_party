@@ -803,7 +803,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-05-01');
+var endDate   = new Date('2024-05-02');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
