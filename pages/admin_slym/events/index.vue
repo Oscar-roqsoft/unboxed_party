@@ -71,6 +71,10 @@
                     <v-btn @click="navigateTo(`/admin_slym/ticket_dash/${i.id}`)"
                     color="blue-darken-3">Ticket Lists</v-btn>
                   </div>
+                  <div class="tw-flex tw-mb-4 pa-1">
+                    <v-btn @click="navigateTo(`/admin_slym/get_emails/${i.id}`)"
+                    color="blue-darken-3">View emails of attendees</v-btn>
+                  </div>
                 </v-card>
 
 

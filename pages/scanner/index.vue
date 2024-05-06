@@ -19,9 +19,9 @@
 </template>
   
 <script>
-import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader';
-import { createToast } from 'mosha-vue-toastify';
-import 'mosha-vue-toastify/dist/style.css';
+    import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader';
+    import { createToast } from 'mosha-vue-toastify';
+    import 'mosha-vue-toastify/dist/style.css';
 
   export default {
     setup () {
