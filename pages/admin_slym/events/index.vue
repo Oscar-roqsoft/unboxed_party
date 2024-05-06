@@ -30,9 +30,25 @@
 
         <v-row class="mb-6 tw-flex tw-justify-between tw-items-center md:tw-max-w-[1000px] mx-auto">
           <h1  class="text-white px-4">Events</h1>
-          <v-btn class="mx-4 rounded-xl" color="success" fab @click="$router.push('/admin_slym/events/create')">
-              Create Event
-          </v-btn>
+
+          <div class="d-flex  align-items-center ">
+
+            <div class="tw-flex tw-mb-4 pa-1">
+              <v-btn @click="navigateTo(`/admin_slym/get_general_numbers`)" color="blue-darken-3 " class="mx-1 rounded-xl">
+                 phones No 
+              </v-btn>
+            </div>
+            <div class="tw-flex tw-mb-4 pa-1">
+              <v-btn @click="navigateTo(`/admin_slym/get_general_emails`)" color="blue-darken-3 " class="mx-1 rounded-xl">
+                emails
+              </v-btn>
+            </div>
+
+             <v-btn class="mx-4 rounded-xl" color="success" fab @click="$router.push('/admin_slym/events/create')">
+                  Create Event
+              </v-btn> 
+
+          </div>
         </v-row>
 
 
@@ -74,6 +90,10 @@
                   <div class="tw-flex tw-mb-4 pa-1">
                     <v-btn @click="navigateTo(`/admin_slym/get_emails/${i.id}`)"
                     color="blue-darken-3">View emails of attendees</v-btn>
+                  </div>
+                  <div class="tw-flex tw-mb-4 pa-1">
+                    <v-btn @click="navigateTo(`/admin_slym/get_phones/${i.id}`)"
+                    color="blue-darken-3">View phones of attendees</v-btn>
                   </div>
                 </v-card>
 
