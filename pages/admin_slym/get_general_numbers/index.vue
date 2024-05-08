@@ -6,10 +6,12 @@
         </v-col>
       </v-row>
       <v-card>
-              <div class="pa-2">
+              <div class="pa-2 tw-grid tw-grid-cols-3 md:tw-grid-cols-8" >
   
-                <div v-for="(i,index) in phones" :key="index" class="d-flex" style="display: flex !important">
-                      <span>{{ i  + ' ' }}</span>
+                <div v-for="(i,index) in phones" :key="index" >
+                        <div style="display: flex !important;">
+                            <span>{{ i  + ',' }}</span>
+                        </div>
                 </div>
   
               </div>

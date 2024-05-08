@@ -8,10 +8,10 @@
         </v-col>
       </v-row>
       <v-card>
-              <div class="pa-2">
+              <div class="pa-2 tw-flex tw-flex-wrap" >
   
                 <div v-for="(i,index) in emails" :key="index" class="d-flex" style="display: flex !important">
-                      <span>{{ i  + ' ' }}</span>
+                      <span>{{ i + ',' }}</span>
                 </div>
   
               </div>
