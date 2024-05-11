@@ -173,7 +173,7 @@ class="bgh">
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/c_fit,w_800/v1713373846/GOAT_tbco8l.png"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1715407166/Unboxed_Party_Jean_Party_2_frnmdw.jpg"
         ></v-img>
 
       </div>
@@ -195,11 +195,11 @@ class="bgh">
 
       <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
         <v-btn
-          @click="navigateTo('/ticket/goat')"
+          @click="navigateTo('/ticket/Jean%20Carnival')"
         
         size="x-large"
         style="
-          background: linear-gradient(132.03deg, #bf00ffcc 14.22%, #54118acc 97.95%);
+           background: linear-gradient(132.03deg, #007bff 14.22%, #0056b3 97.95%);
                 "
               class="text-capitalize font-weight-bold"
               rounded
@@ -385,7 +385,7 @@ class="bgh">
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 3)" :key="i"  :cols="cols[3]"
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]"
           >
              <div    class="pt-6 d-flex justify-center">
 
@@ -673,23 +673,23 @@ export default {
     'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],  
     memes:[
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433043/cod_glrfwu.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433066/dunno_rhfhah.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433260/frudo_sjhmph.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433278/gta_ajrrwx.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433291/liu_kang_zrf6ke.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433305/mario_mgkrwl.png',
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433594/pubg_ocjkes.png'
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433043/cod_glrfwu.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433066/dunno_rhfhah.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433260/frudo_sjhmph.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433278/gta_ajrrwx.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433291/liu_kang_zrf6ke.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433305/mario_mgkrwl.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433594/pubg_ocjkes.png'
 
     
 
-//     'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
-//     'https://res.cloudinary.com/payhospi/image/upload/v1700924460/sabi_B_W_usr7bx.png',
-//     'https://res.cloudinary.com/payhospi/image/upload/v1700924459/igreet_buorgn.png',
-//   'https://res.cloudinary.com/payhospi/image/upload/v1700924465/taaoma_vhehpx.png',
-// 'https://res.cloudinary.com/payhospi/image/upload/v1700924461/brainjotter_sh3mua.png',
-// 'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
-// 'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png'
+    'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
+    'https://res.cloudinary.com/payhospi/image/upload/v1700924460/sabi_B_W_usr7bx.png',
+    'https://res.cloudinary.com/payhospi/image/upload/v1700924459/igreet_buorgn.png',
+  'https://res.cloudinary.com/payhospi/image/upload/v1700924465/taaoma_vhehpx.png',
+'https://res.cloudinary.com/payhospi/image/upload/v1700924461/brainjotter_sh3mua.png',
+'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
+'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png'
 ],
     
 
@@ -803,7 +803,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-05-02');
+var endDate   = new Date('2024-05-31');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
