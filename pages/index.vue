@@ -691,14 +691,14 @@ export default {
 // 'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
 // 'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png',
 
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581317/1_eg2lnr.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581330/2_rs24xe.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581337/3_xo770u.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581343/4_qeuk7r.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581349/5_u8tkkv.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581357/6_wjo6of.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581367/7_bimyan.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581373/8_hjnfyr.png'
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879914/1_1_bwqmw1.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879922/2_1_opxjhk.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879927/3_1_xlawfi.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879934/4_1_f6bws5.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879939/5_1_fvbs5m.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879944/7_1_mcx9yk.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879954/6_1_gla74t.png',
+    //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581373/8_hjnfyr.png'
 
 ],
     
