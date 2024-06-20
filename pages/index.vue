@@ -173,7 +173,7 @@ class="bgh">
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1715407166/Unboxed_Party_Jean_Party_2_frnmdw.jpg"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1718875187/Unboxed_Party_Rep_Your_Style_tyayzr.jpg"
         ></v-img>
 
       </div>
@@ -195,7 +195,7 @@ class="bgh">
 
       <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
         <v-btn
-          @click="navigateTo('/ticket/Jean%20Carnival')"
+          @click="navigateTo('/ticket/Rep%20your%20style')"
         
         size="x-large"
         style="
@@ -813,7 +813,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-05-31');
+var endDate   = new Date('2024-07-04');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
