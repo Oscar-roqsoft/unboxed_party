@@ -54,7 +54,7 @@
             Join the Party Revolution and Experience Unforgettable Moments with Our Monthly Themed Events. Let's Unbox the Fun Together!            </p>
             <div class="py-1 centerIt mb-6">
               <v-btn
-              to="/ticket/list"
+              to="/ticket"
                 size="large" height="55"
                 style="
                   background: linear-gradient(
@@ -158,7 +158,7 @@
     width: 100%;
     background: linear-gradient(360deg, black, transparent);
     z-index: 0;"></div> -->
-     <v-col  @click="navigateTo('/ticket/list')"    style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
+     <v-col  @click="navigateTo('/ticket')"    style="position: relative;z-index: 7;" class="py-0 pb-0" :cols="cols[2]">
       <div class=" d-flex pt-0 pb-0 align-end justify-center">
 
             <!-- skeleton loader
