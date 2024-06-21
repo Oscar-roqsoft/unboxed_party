@@ -42,7 +42,7 @@
        <div class="">
          <h1 style="  font-weight: 700; max-width:700px;
  font-size: 54px;
- line-height: 66px;" class="bigtext mx-auto px-4 text-capitalize text-grey-lighten-2 mt-6 centerIt text-center">{{event.caption}} <br>
+ line-height: 66px;" class="bigtext mx-auto px-4 text-capitalize text-grey-lighten-2 mt-6 centerIt text-center">{{event?.caption}} <br>
    <vue-countdown class="text-yellow-darken-2" :time="timediff" v-slot="{ days, hours, minutes, seconds }">
      {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
     </vue-countdown>
@@ -76,9 +76,9 @@
 	<div class="">
 	</div>
 	<div class="poster">
-  		<v-img  :src="event.image" :alt="event.name+ ' image'">
+  		<v-img  :src="event?.image" :alt="event?.name+ ' image'">
   <div style="position:absolute" class="w-100 h-100 d-flex justify-center align-center">
-<div v-if="event.id < 5" style="
+<div v-if="event?.id < 5" style="
     filter: blur(4px);
 ">
 
@@ -482,7 +482,7 @@
                                 class="my-3  font-weight-bold text-capitalize mx-auto"
                                 >Transfer Done <v-icon class="ml-2" icon="mdi mdi-whatsapp"></v-icon></v-btn
                               > -->
-                              <p v-if="event.amount > 0" 
+                              <p v-if="event?.amount > 0" 
                               style="
               background: rgb(21 21 21);
               padding: 10px 15px;
@@ -696,10 +696,10 @@ return seconds
         return this.selectedticketAmout.value * this.qty
       },
       events () {
-        return this.$store.state.myevents.list
+        return this.$store.state.myevents?.list
       },
       event() {
-        var ev = this.$store.state.event
+        var ev = this.$store.state?.event
         // if(ev.id >= 7){
         //   ev.image = 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1699725435/Unboxed_Party_Neon_Fest_u6khvp.jpg'
         // }
@@ -712,7 +712,7 @@ return seconds
       //   return this.$store.state.event
       // },
       amount() {
-        return this.event.amount
+        return this.event?.amount
       },
     
       cols() {
@@ -749,7 +749,7 @@ return seconds
       uploadTicket(){
         this.selectedticketAmout = this.mytickets.find(i => i.name === this.selectedticket)
 
-        var datas ={email: this.email, id: this.user.id, name: this.name, phone_number: this.phone}
+        var datas ={email: this.email, id: this.user?.id, name: this.name, phone_number: this.phone}
         //this will launch Fluterwave payment modal
         console.log(datas)
 
@@ -787,7 +787,7 @@ return seconds
   paynow(){
     this.loading = true
     var random = Math.random().toString(36).slice(2, 8);
-    var datas ={email: this.email, id: this.user.id, name: this.name, phone_number: this.phone}
+    var datas ={email: this.email, id: this.user?.id, name: this.name, phone_number: this.phone}
     //this will launch Fluterwave payment modal
 
     const modal = useFlutterwave({
@@ -862,10 +862,10 @@ return seconds
             if(res.success.msg === null){
               this.reveal = 1
             }else{
-              this.user = res.success.msg
-              this.email =  this.user.email
-              this.phone =  this.user.phone
-              this.name =  this.user.name
+              this.user = res.success?.msg
+              this.email =  this.user?.email
+              this.phone =  this.user?.phone
+              this.name =  this.user?.name
               this.reveal = 2
 
             }
@@ -954,9 +954,9 @@ return seconds
 
               this.user = res.success.msg
 
-              this.email =  this.user.email
-              this.phone =  this.user.phone
-              this.name =  this.user.name
+              this.email =  this.user?.email
+              this.phone =  this.user?.phone
+              this.name =  this.user?.name
 
               this.reveal = 2
 
@@ -980,7 +980,7 @@ return seconds
         this.booked = true;
 
           this.loading = true;
-            fetch("https://backend.unboxedparty.com/api/sendTicket?amount="+((this.event.amount || 0) * this.qty)+"&email="+e.email+"&user_id="+e.id+"&event_id="+this.event.id+"&event="+this.event.name+"&qty="+this.qty, {
+            fetch("https://backend.unboxedparty.com/api/sendTicket?amount="+((this.event?.amount || 0) * this.qty)+"&email="+e.email+"&user_id="+e.id+"&event_id="+this.event?.id+"&event="+this.event.name+"&qty="+this.qty, {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
@@ -1008,7 +1008,7 @@ return seconds
     
       verify_trans(e) {
         this.loading = true;
-          fetch("https://backend.unboxedparty.com/api/verify_trans?amount="+this.mainAmt+"&reference="+e.transaction_id+"&pay_ref="+e.tx_ref+"&email="+this.email+"&user_id="+this.user.id+"&event_id="+this.event.id+"&event=Neon&qty="+this.qty, {
+          fetch("https://backend.unboxedparty.com/api/verify_trans?amount="+this.mainAmt+"&reference="+e.transaction_id+"&pay_ref="+e.tx_ref+"&email="+this.email+"&user_id="+this.user?.id+"&event_id="+this.event?.id+"&event=Neon&qty="+this.qty, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
