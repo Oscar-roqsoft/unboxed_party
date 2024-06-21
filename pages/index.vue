@@ -7,8 +7,7 @@
    min-height: 900px;" class="overflow-hidden">
        <div>
         <div
-        v-if="$vuetify.display.mdAndUp"
-class="bgh">
+        v-if="$vuetify.display.mdAndUp" class="bgh">
 
           <KeepAlive>
 
@@ -179,8 +178,7 @@ class="bgh">
       </div>
    </v-col> 
    <v-col style="
-    z-index: 99;
-"  class="mb-0 d-flex  justify-center" :cols="cols[2]">
+    z-index: 99;"  class="mb-0 d-flex  justify-center" :cols="cols[2]">
 <div>
 
       <h1 v-if="timediff2 > 0" style="  font-weight: 700;
@@ -385,7 +383,7 @@ class="bgh">
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]"
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 5)" :key="i"  :cols="cols[3]"
           >
              <div    class="pt-6 d-flex justify-center">
 
