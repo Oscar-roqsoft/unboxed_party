@@ -727,7 +727,25 @@ return seconds
       },
     },
     async mounted() {
-       try{
+      try {
+          const data = await fetch(`https://backend.unboxedparty.com/api/events_list_qty`,{
+            method:"GET",
+            headers:{
+              'Content-Type': 'application/json',
+            }
+          }).then(res=>res.json());
+      
+      
+          const payload =  [...data.events]
+          payload.reverse(payload)
+          this.$store.dispatch("setMyEvents", payload);
+          this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+      
+      } catch (error) {
+        console.error(error);
+      }
+
+      try{
 
          this.get_number()
          setTimeout(() => {
@@ -744,24 +762,7 @@ return seconds
         console.log(e)
        }
 
-       try {
-      const data = await fetch(`https://backend.unboxedparty.com/api/events_list_qty`,{
-        method:"GET",
-        headers:{
-          'Content-Type': 'application/json',
-        }
-      }).then(res=>res.json());
-  
-  
-      const payload =  [...data.events]
-      payload.reverse(payload)
-      this.$store.dispatch("setMyEvents", payload);
-      this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
-  
-      } catch (error) {
-      console.error(error);
-      }
-
+ 
     },
     methods: {
       uploadTicket(){
