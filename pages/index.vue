@@ -3,8 +3,7 @@
   <v-app>
     <v-card class="pa-0 ma-0" color="black" tile flat min-height="900px">
      
-      <div style="position:relative;  z-index: 99;  
-   min-height: 900px;" class="overflow-hidden">
+      <div style="position:relative;  z-index: 99;  min-height: 900px;" class="overflow-hidden">
        <div>
         <div
         v-if="$vuetify.display.mdAndUp" class="bgh">
