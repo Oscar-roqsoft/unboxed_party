@@ -182,7 +182,7 @@
           : [6, 12, 12, 12, 12, 12, 12];
       },
     },
-    mounted() {
+    async mounted() {
     
       setTimeout(() => {
         this.dialog = true;
@@ -191,6 +191,24 @@
       this.eventsList = this.events.filter(el=>{
         return el.on_sale == 1
       }).reverse()
+
+      try {
+      const data = await fetch(`https://backend.unboxedparty.com/api/events_list_qty`,{
+        method:"GET",
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      }).then(res=>res.json());
+  
+  
+      const payload =  [...data.events]
+      payload.reverse(payload)
+      this.$store.dispatch("setMyEvents", payload);
+      this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+  
+      } catch (error) {
+      console.error(error);
+      }
     },
     methods: {
       openEvent(e){
