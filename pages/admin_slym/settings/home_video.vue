@@ -72,6 +72,23 @@ export default {
 
 
   methods: {
+    getYouTubeVideoId(url) {
+        // Regular expression to match YouTube video ID
+          // Check if it's a regular YouTube video URL
+      var regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+      var match = url.match(regExp);
+      if (match) {
+          return match[1];
+      }
+
+      // Check if it's a YouTube Shorts URL
+      var shortsRegExp = /(?:youtube\.com\/shorts\/|youtu\.be\/)([^"&?\/\s]{11})/;
+      var shortsMatch = url.match(shortsRegExp);
+      if (shortsMatch) {
+          return shortsMatch[1];
+      }
+    },
+
     
      async updateSetting() {
      
@@ -79,11 +96,12 @@ export default {
     
       const video ={
        
-        home_page_video_url: this.name,
+        home_page_video_url: `https://www.youtube.com/embed/${this.getYouTubeVideoId(this.name)}`,
 
         id: 1,
 
       }
+      console.log(video)
 
 
       try{

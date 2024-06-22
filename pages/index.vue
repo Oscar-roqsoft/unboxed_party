@@ -800,7 +800,7 @@ export default {
 
     } ,
     fetchedVideo(){
-    return this.$store.state.myvideo.home_page_video_url
+     return this.$store.state.myvideo.home_page_video_url
    } ,
 
     displ() {
@@ -970,6 +970,7 @@ return seconds
   },
 
   methods: {
+ 
     openEvent(e){
         e.active? this.$router.push('/ticket/'+encodeURIComponent(e.name)): alert('Coming Soon!!!')
       },
