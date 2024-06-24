@@ -734,9 +734,11 @@ return seconds
         try {
             const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
               method:"GET",
+              
               headers:{
                 'Content-Type': 'application/json',
               }
+
             }).then(res=>res.json());
       
             this.isLoading = false
