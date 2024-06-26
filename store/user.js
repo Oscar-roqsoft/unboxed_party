@@ -22,6 +22,7 @@ export const state = () => ({
     event: {},
     user: {},
     cartItems: [],
+    survey:[],
 
   })
   
@@ -48,6 +49,10 @@ export const state = () => ({
     },  
       setUser(state, user) {
       state.user = user
+    },
+
+      setSurvey(state, item) {
+      state.survey = item
     },
 
     

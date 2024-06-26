@@ -42,6 +42,8 @@ import { version } from "../package.json";
 
     myvideo:[],
 
+    survey:[],
+
     events: [
       
       {name: 'Meme Edition 2', 
@@ -638,6 +640,9 @@ import { version } from "../package.json";
     getTickets(state){
         return state.tickets
     },
+    getSurvey(state){
+        return state.survey
+    },
     getStudents(state){
         return state.students
     },
@@ -697,6 +702,10 @@ import { version } from "../package.json";
 
     setArticles(state, {article}) {
       state.articles = article
+    },
+
+    SET_SURVEY(state, payload) {
+      state.survey = payload
     },
 
 
@@ -802,6 +811,11 @@ import { version } from "../package.json";
      setMyArticles({ commit }, payload) {
       // make request
       commit('SET_MY_ARTICLES', payload)
+    },
+
+     setMySurvey({ commit }, payload) {
+      // make request
+      commit('SET_SURVEY', payload)
     },
 
 
