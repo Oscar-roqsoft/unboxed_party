@@ -22,6 +22,8 @@
           <button @click.prevent="navigateTo('/admin_slym/articles')" class="tw-h-[150px] md:tw-h-[200px]  hover:tw-shadow-lg tw-rounded tw-text-2xl tw-bg-gray-950">articles</button> 
           <button @click.prevent="navigateTo('/admin_slym/orders')" class="tw-h-[150px] md:tw-h-[200px]  
           hover:tw-shadow-lg tw-rounded tw-text-2xl tw-bg-gray-950">Orders</button> 
+          <button @click.prevent="navigateTo('/admin_slym/questionaire')" class="tw-h-[150px] md:tw-h-[200px]  
+          hover:tw-shadow-lg tw-rounded tw-text-2xl tw-bg-gray-950">Questionnaire</button> 
           <button @click.prevent="navigateTo('/admin_slym/settings')" class="tw-h-[150px] md:tw-h-[200px]  hover:tw-shadow-lg tw-rounded tw-text-2xl tw-bg-gray-950">general settings</button> 
       
         </div>
