@@ -75,7 +75,7 @@
                 <!-- <v-card-title class="text-center font-weight-bold tw-text-2xl"></v-card-title> -->
 
                 <v-card-text>
-                    <v-form @submit.prevent="handleSubmit()" style="text-align: start;">
+                    <v-form @submit.prevent="getSurvey()" style="text-align: start;">
                         <div v-for="(question, index) in questions" :key="index">
                         <v-text-field
                             
@@ -95,7 +95,7 @@
                         <v-combobox
                             v-if="question.type === 'select2'"
                             :label="question.text"
-                            v-model="model"
+                            v-model="role_model"
                             v-model:search="search"
                             :hide-no-data="false"
                             :items="question.options"
@@ -112,7 +112,7 @@
                         <v-btn 
                          rounded
                          outline
-                        type="submit" color=" text-capitalize font-weight-bold w-100 mt-6" style="min-width: 200px; min-height: 50px; background:#a044ff;">Submit</v-btn>
+                        type="submit" :loading="loading" color=" text-capitalize font-weight-bold w-100 mt-6" style="min-width: 200px; min-height: 50px; background:#a044ff;">Submit</v-btn>
                     </v-form>
                 </v-card-text>
  
@@ -168,7 +168,7 @@
       booked: false,
       sign: "",
       responses:[],
-      model: [],
+      role_model: [],
       name:'',
       location:'',
       number:'',
@@ -235,7 +235,7 @@
         { text: 'What is your social media handles?',model:'socialmedia', type: 'text' },
         { text: 'What is your email address?',model:'email', type: 'text' },
         // { text: 'What is your favorite color?',model:'', type: 'select', options: ['Red', 'Green', 'Blue'] },
-        { text: 'Pick a role?',model:'role', type: 'select2', options: ['Partnership', 'Legal', 'Promotions/Marketing','Content creation/media','Talents','Stage management/Coordination','Data/Operations'] },
+        { text: 'Pick a role?',model:'role', type: 'select2', options: ['Partnership', 'Legal', 'Promotions','Pr/publicity','Ticket Booth Attendants','Content creation','Media','Talents','Creative Lead','Business Manager','Community Manager','Social Media Manager','Stage management/Coordination','Data/Operations'] },
       ],
 
     }),
@@ -278,10 +278,56 @@
                 answer: this.responses[index]
             }));
 
+        
             console.log('Responses:', responses);
 
-            this.toast("Submitted successfully");
+            
         },
+        async getSurvey(){
+            const responses = this.questions.map((question, index) => ({
+                question: question.text,
+                model:question.model,
+                answer: this.responses[index]
+            }));
+
+            console.log('Responses:', responses);
+
+            const payload = {
+                name:  responses.find(e=> e.model === 'name').answer,
+                location: responses.find(e=> e.model === 'location').answer,
+                number:  responses.find(e=> e.model === 'number').answer,
+                student: responses.find(e=> e.model === 'student').answer ? true : false,
+                socialmedia: responses.find(e=> e.model === 'socialmedia').answer ,
+                email: responses.find(e=> e.model === 'email').answer,
+                role: [...this.role_model]       
+            }
+            console.log(payload)
+            this.loading = true
+
+            try{
+
+                const data = await fetch('https://backend.unboxedparty.com/api/surveys',{
+                    method:'POST',
+                    headers:{
+                    'Content-Type': 'application/json',
+                    },
+                    body:JSON.stringify(payload)
+
+                }).then(res=>res.json());
+
+                if(data.data){
+
+                    console.log('success')
+                    this.toast("Submitted successfully");
+                }
+                this.loading = false
+
+            }catch(e){
+                console.log(e)
+                this.loading = false
+
+            }
+        }
        
 
     
