@@ -688,7 +688,7 @@ export default {
         if(!this.event?.name) return null
       var startDate = new Date();
 // Do your operations
-var endDate   = new Date(this.event.date);
+var endDate   = new Date(this.event?.date);
 var seconds = (endDate.getTime() - startDate.getTime()) ;
 return seconds
     },
@@ -726,32 +726,10 @@ return seconds
           : [6, 12, 12, 12, 12, 12, 12];
       },
     },
+
     async mounted() {
-      if(this.$store.state.myevents.list){
-           this.$store.state.myevents.list
-      }else{
-      
-        try {
-            const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
-              method:"GET",
-
-              headers:{
-                'Content-Type': 'application/json',
-              }
-
-            }).then(res=>res.json());
-      
-            this.isLoading = false
-      
-            const payload =  [...data.events]
-            payload.reverse(payload)
-            this.$store.dispatch("setMyEvents", payload);
-            this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
-      
-          } catch (error) {
-            console.error(error);
-          }
-      }
+      console.log(this.events)
+    
 
       try{
 
@@ -769,6 +747,33 @@ return seconds
        }catch(e){
         console.log(e)
        }
+
+       if(this.$store.state.myevents.list.length){
+           this.$store.state.myevents.list
+      }else{
+      
+        try {
+            const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
+              method:"GET",
+
+              headers:{
+                'Content-Type': 'application/json',
+              }
+
+            }).then(res=>res.json());
+      
+            this.isLoading = false
+      
+            const payload =  [...data.events]
+            console.log(payload)
+            payload.reverse(payload)
+            this.$store.dispatch("setMyEvents", payload);
+            this.$store.dispatch("setMyEventsExpirationDate", addMinutes(30));
+      
+          } catch (error) {
+            console.error(error);
+          }
+      }
 
  
     },
@@ -1058,7 +1063,7 @@ return seconds
             });
         }
       },
-      
+
       
   };
   </script>
