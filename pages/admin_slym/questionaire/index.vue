@@ -69,7 +69,7 @@
           { title: 'Location', key: 'location' },
           { title: 'Number', key: 'number' },
           { title: 'Student', key: 'student' },
-          { title: 'Social Media', key: 'socialMediaHandles' },
+          { title: 'Social Media', key: 'socialmedia' },
           { title: 'Email', key: 'email' },
           { title: 'Role', key: 'role' },
           { title: 'Action', key: 'action', sortable: false },
