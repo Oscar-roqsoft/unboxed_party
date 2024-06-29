@@ -734,7 +734,7 @@ return seconds
         try {
             const data = await fetch(`https://backend.unboxedparty.com/api/event`,{
               method:"GET",
-              
+
               headers:{
                 'Content-Type': 'application/json',
               }
@@ -1002,6 +1002,8 @@ return seconds
             });
         }
       },
+
+
         reserveTicket(e) {
         this.activeId = e.id
         this.booked = true;
@@ -1033,9 +1035,10 @@ return seconds
               });
           },
     
+
       verify_trans(e) {
         this.loading = true;
-          fetch("https://backend.unboxedparty.com/api/verify_trans?amount="+this.mainAmt+"&reference="+e.transaction_id+"&pay_ref="+e.tx_ref+"&email="+this.email+"&user_id="+this.user?.id+"&event_id="+this.event?.id+"&event=Neon&qty="+this.qty, {
+          fetch("https://backend.unboxedparty.com/api/verify_trans?amount="+this.mainAmt+"&reference="+e.transaction_id+"&pay_ref="+e.tx_ref+"&email="+this.email+"&user_id="+this.user?.id+"&event_id="+this.event?.id+"&event="+this.event.name+"&qty="+this.qty, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -1055,6 +1058,7 @@ return seconds
             });
         }
       },
+      
       
   };
   </script>

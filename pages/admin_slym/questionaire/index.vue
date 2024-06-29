@@ -24,6 +24,7 @@
               variant="outlined"
               hide-details
               single-line
+              required
             ></v-text-field>
           </template>
   

@@ -65,13 +65,12 @@
 	</div>
 	<div class="">
 
-		<v-img v-if="ticket" eager :src="eventsList[0].image" alt="Movie: Only God Forgives" >
+		<v-img v-if="ticket" eager :src="myevent.image" alt="Movie: Only God Forgives" >
       <div style="position:absolute" class="w-100 h-75 d-flex justify-center align-center">
 <div>
 
   <vue-qrcode :width="150" :height="150" color="#ec38bc"
-  :value="$route.params.id"
-  />
+  :value="$route.params.id"/>
   <h1 style=" text-shadow: 0 0 15px black;" class="text-center text-white">{{ $route.params.id }}</h1>
 </div>
     </div>
@@ -212,7 +211,9 @@
       amount:0,
       eventsLists:[],
       eventp:null,
-      selected:0
+      selected:0,
+      myevent:null,
+      event_id: null,
     }),
 
     computed:{
@@ -237,11 +238,17 @@
         }).reverse()
       }
       this.eventp =  [...this.eventsList]
-      // console.log(this.eventsList[0].image)
+      this.getQty()
+      
+      
      
 
     },
+
     methods: {
+      onDecode(decodedString) {
+      this.qrCodeData = decodedString;
+    },
       getQty(){
       this.loading = true
       fetch("https://backend.unboxedparty.com/api/get_qty?code="+this.$route.params.id, {
@@ -263,9 +270,11 @@
 
           })
           .then((res) => {
-            console.log(res)
+           
+    
             if(res.success.ticket.event_id < 7){
               this.errort = true
+
               alert('wrong code')
               return
             }else{
@@ -274,6 +283,9 @@
               this.qty = res.success.ticket.qty
               this.ticket = res.success.ticket
               this.amount = parseInt(res.success.ticket.amount)
+              this.event_id = res.success.ticket.event_id
+              this.myevent = this.eventp.find(e => e.id == parseInt(this.event_id))
+              console.log('ppp', this.myevent)
             }
           })
           .catch(() => {
