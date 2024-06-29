@@ -289,7 +289,7 @@
             }
           })
           .catch(() => {
-            alert("An error has occurred");
+            // alert("An error has occurred");
             this.errort = true
             this.loading = false;
           });
