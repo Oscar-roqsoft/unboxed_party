@@ -61,7 +61,7 @@
       ></v-text-field>
     </template> -->
 
-    <div class="table-btn">
+    <!-- <div class="table-btn">
 
       <v-card
         flat
@@ -83,11 +83,10 @@
           :search="search"
         ></v-data-table>
       </v-card>
-    </div>
+    </div> -->
 
 
-   
-<!--     
+<!--         
     <div class="table-btn">
     <v-data-table
       :headers="headers"
@@ -98,7 +97,7 @@
     </v-data-table>
   </div> -->
     
-        <!-- <v-table  theme="dark" class=" pb-12 px-3 mb-12">
+         <v-table  theme="dark" class=" pb-12 px-3 mb-12">
           <thead>
             <tr>
               <th class="text-left font-weight-black text-h5">
@@ -149,7 +148,7 @@
   
             </tr>
           </tbody>
-        </v-table> -->
+        </v-table>
 
       </v-card>
       <v-dialog z-index="9"
