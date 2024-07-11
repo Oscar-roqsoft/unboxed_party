@@ -171,7 +171,7 @@
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1718875187/Unboxed_Party_Rep_Your_Style_tyayzr.jpg"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1720685671/Unboxed_Jersey_Fest_Abuja_fdv989.jpg"
         ></v-img>
 
       </div>
@@ -382,7 +382,7 @@
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 5)" :key="i"  :cols="cols[3]"
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]"
           >
              <div    class="pt-6 d-flex justify-center">
 
@@ -810,7 +810,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-07-04');
+var endDate   = new Date('2024-07-13');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
