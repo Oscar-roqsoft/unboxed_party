@@ -40,6 +40,12 @@ import { version } from "../package.json";
       expire_at:'',
     },
 
+    questionaireNumbers:[],
+
+    questionaireEmails:[],
+
+    questionaireNames:[],
+
     myvideo:[],
 
     survey:[],
@@ -708,6 +714,18 @@ import { version } from "../package.json";
       state.survey = payload
     },
 
+    SET_QUESTIONAIRENUMBERS(state, payload) {
+      state.questionaireNumbers = payload
+    },
+
+    SET_QUESTIONAIREEMAILS(state, payload) {
+      state.questionaireEmails = payload
+    },
+
+    SET_QUESTIONAIRENAMES(state, payload) {
+      state.questionaireNames = payload
+    },
+
 
     SET_MY_ARTICLES(state, payload) {
       state.myarticles.list = payload
@@ -816,6 +834,20 @@ import { version } from "../package.json";
      setMySurvey({ commit }, payload) {
       // make request
       commit('SET_SURVEY', payload)
+    },
+
+     setMyQuestionaireNumbers({ commit }, payload) {
+      // make request
+      commit('SET_QUESTIONAIRENUMBERS', payload)
+    },
+
+     setMyQuestionaireEmails({ commit }, payload) {
+      // make request
+      commit('SET_QUESTIONAIREEMAILS', payload)
+    },
+     setMyQuestionaireNames({ commit }, payload) {
+      // make request
+      commit('SET_QUESTIONAIRENAMES', payload)
     },
 
 
