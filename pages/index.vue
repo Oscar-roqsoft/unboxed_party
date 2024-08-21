@@ -687,13 +687,13 @@ export default {
 // 'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
 // 'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png',
 
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879914/1_1_bwqmw1.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879922/2_1_opxjhk.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879927/3_1_xlawfi.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879934/4_1_f6bws5.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879939/5_1_fvbs5m.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879944/7_1_mcx9yk.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1715879954/6_1_gla74t.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226659/psquare_1.5x_rbqhdp.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226596/2pac_1.5x_p4bvns.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226646/daddy-shoki_1.5x_peo7bp.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226649/fela-kuti_1.5x_ah9cba.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226653/lagbaja_1.5x_hjpjrv.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226659/psquare_1.5x_rbqhdp.png',
+     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226596/2pac_1.5x_p4bvns.png',
     //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581373/8_hjnfyr.png'
 
 ],
