@@ -192,7 +192,7 @@
 
       <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
         <v-btn
-          @click="navigateTo('/ticket/Rep%20your%20style')"
+          @click="navigateTo(`/ticket/90'S%20REVIVAL%20Y2K%20PARTY`)"
         
         size="x-large"
         style="
