@@ -11,6 +11,7 @@
       </v-container>
   
       <v-container class="pt-10">
+
         <v-row class="mb-4 tw-flex tw-justify-between tw-items-center">
           <v-col cols="12" md="6">
             <h1 class="text-white tw-text-3xl font-weight-bold px-4">Questionnaires</h1>
@@ -42,8 +43,7 @@
             :headers="headers"
             :items="submittedResponses"
             :search="search"
-            style="min-width: 50px !important;"
-          >
+            style="min-width: 50px !important;">
             <template v-slot:item.action="{ item }">
                 <div style="display: flex; min-width: 100px;" >
 

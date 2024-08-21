@@ -134,6 +134,7 @@
                       </v-row>
     
                       <v-btn @click.prevent="addTicketType" class="mb-2">add ticket</v-btn>
+
                   </v-col>
                  
 
@@ -236,10 +237,8 @@
             const file = event.target.files[0];
             if(!file) return;
             this.selectedimage = file
-
-           
-
         },
+
 
        async createEvent() {
 
@@ -253,12 +252,15 @@
          
         this.loading =true
         const {secure_url} = await uploadToCloudinary(this.selectedimage);
-        if(!secure_url) return alert("failed to upload file");
-
+        if(!secure_url) {
+            this.loading = false
+            alert("failed to upload file");
+            return 
+        }
         console.log(secure_url)
         
         const event ={
-            image: secure_url,
+            image: secure_url ? secure_url : '',
             name: this.name,
             description: this.desc,
             venue:this.venue,
@@ -296,6 +298,7 @@
 
            console.log(e)
            this.toast("message status:  failed to create Event")
+           this.loading = false
         }
 
       },
