@@ -97,3 +97,20 @@ export function addMinutes(minutesToAdd) {
  
   return new Date(new Date().getTime() + minutesToAdd * 60000);
 }
+
+
+
+
+export const numberWithCommas = (number) =>{
+  // Convert the number to a string
+  let numStr = number.toString();
+
+  // Split the string into integer and fractional parts
+  let [integerPart, fractionalPart] = numStr.split('.');
+
+  // Use a regular expression to add commas to the integer part
+  integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+  // Reconstruct the number with the modified integer part and the original fractional part
+  return fractionalPart ? `${integerPart}.${fractionalPart}` : integerPart;
+}

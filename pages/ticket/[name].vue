@@ -105,7 +105,7 @@
     <tbody>
 
 		<tr>
-			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{mytickets[0]?.value > 0 || mytickets[1]?.value > 0 ? 'Paid': 'FREE'}}</td>
+			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">#{{numberWithCommas(mytickets[0]?.value)}}</td>
 			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{formatDate(event?.date)}}</td>
 			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{event?.time}}</td>
 			<!-- <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{1000 - sold}}</td> -->
