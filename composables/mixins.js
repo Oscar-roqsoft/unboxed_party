@@ -102,6 +102,8 @@ export function addMinutes(minutesToAdd) {
 
 
 export const numberWithCommas = (number) =>{
+  if(!number)return
+  
   // Convert the number to a string
   let numStr = number.toString();
 

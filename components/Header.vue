@@ -6,7 +6,7 @@
             style="height: "
           >
           <v-img eager @click="$router.push('/')" width="auto" max-width="200"  style="cursor: pointer;"
-          src="https://res.cloudinary.com/crushcontest-com/image/upload/v1684055372/Unboxed_Web_rggvdz.png">
+          src="https://res.cloudinary.com/dpehz96bs/image/upload/v1725608307/Unboxed_Web_rggvdz_lb6yn3.png">
         </v-img>
             <v-col
               v-if="$vuetify.display.mdAndUp"
