@@ -154,7 +154,7 @@
 
                   <v-list class="pa-2 tw-mb-6 rounded tw-min-h-20">
                      <span class="border-b tw-py-2" color="primary ">list of added ticket price details</span>
-                     <div v-if="ticketList" v-for="i in ticketList">
+                     <div v-if="ticketList" v-for="(i,index) in ticketList">
                         <v-col>
                             <v-row class="border-b tw-py-4 tw-flex tw-justify-between tw-text-gray-500">
 
@@ -163,7 +163,7 @@
                                         <span class="mx-4">price: {{ i.value }}</span>
                                     </div>
 
-                                    <v-btn size="small" color="" href="#" @click.prevent="deleteItem(i.id)" 
+                                    <v-btn size="small" color="" href="#" @click.prevent="deleteItem(i.name)" 
                                          class="font-medium text-blue-600 dark:text-blue-500 hover:underline tw-flex tw-justify-end">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 352 512">
                                             <path fill="red" d="m242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 
@@ -283,8 +283,8 @@ import 'mosha-vue-toastify/dist/style.css'
 
         },
 
-        deleteItem(itemId) {
-            const itemIndex = this.ticketList.findIndex((item) => item.id === itemId);
+        deleteItem(itemName) {
+            const itemIndex = this.ticketList.findIndex((item) => item.name === itemName);
             if (itemIndex >= 0) {
             this.ticketList.splice(itemIndex, 1);
            }

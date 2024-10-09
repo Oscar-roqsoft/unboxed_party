@@ -171,7 +171,7 @@
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1723554202/UNboxed_90_s_RevivalY2K_Party_vvlmio.jpg"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1728488711/UNboxed_Halloween_Party_3rd_Edition_pjh0da.jpg"
         ></v-img>
 
       </div>
@@ -192,11 +192,11 @@
 
       <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
         <v-btn
-          @click="navigateTo(`/ticket/90'S%20REVIVAL%20Y2K%20PARTY`)"
+          @click="navigateTo(`/ticket/HALLOWEEN`)"
         
         size="x-large"
         style="
-           background: linear-gradient(132.03deg, #007bff 14.22%, #0056b3 97.95%);
+           background: linear-gradient(132.03deg, #682a98 14.22%, #8737ae 97.95%);
                 "
               class="text-capitalize font-weight-bold"
               rounded
@@ -382,7 +382,7 @@
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 3)" :key="i"  :cols="cols[3]">
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]">
              <div    class="pt-6 d-flex justify-center">
 
                <!-- skeleton loader -->
@@ -809,7 +809,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-09-06');
+var endDate   = new Date('2024-10-28');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },

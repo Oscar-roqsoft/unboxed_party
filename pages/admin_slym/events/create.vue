@@ -257,6 +257,7 @@
             alert("failed to upload file");
             return 
         }
+        
         console.log(secure_url)
         
         const event ={

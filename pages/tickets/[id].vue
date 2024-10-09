@@ -95,7 +95,7 @@
 			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">
         <span v-if="!loading">
           
-          {{amount > 0 ? 'N'+ amount  : 'Free'}}
+          <!-- {{amount > 0 ? 'Paid'  : 'Free'}} -->
         </span>
         <v-progress-circular size="13" indeterminate v-if="loading"></v-progress-circular>
         

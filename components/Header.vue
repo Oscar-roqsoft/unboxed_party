@@ -33,9 +33,9 @@
                   Quick Reads
                 </v-btn>
 
-                <v-btn  to="/questionaire" class="rounded-xl text-capitalize font-weight-bold" value="right">
+                <!-- <v-btn  to="/questionaire" class="rounded-xl text-capitalize font-weight-bold" value="right">
                   Survey
-                </v-btn>
+                </v-btn> -->
 
                 <v-btn  href="#contact" class="rounded-xl text-capitalize font-weight-bold" value="justify">
                   Contact Us

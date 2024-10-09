@@ -32,9 +32,9 @@
                    <a  @click.prevent="navigateTo('/articles')" class="tw-p-5 text-capitalize hover:tw-bg-[#1d133687]  font-weight-bold" value="right">
                      Quick Reads
                    </a>
-                   <a  @click.prevent="navigateTo('/questionaire')" class="tw-p-5 text-capitalize hover:tw-bg-[#1d133687]  font-weight-bold" value="right">
+                   <!-- <a  @click.prevent="navigateTo('/questionaire')" class="tw-p-5 text-capitalize hover:tw-bg-[#1d133687]  font-weight-bold" value="right">
                      Survey
-                   </a>
+                   </a> -->
    
                    <a  href="#contact" class="tw-p-5  text-capitalize hover:tw-bg-[#1d133687]  font-weight-bold" value="justify">
                      Contact Us
