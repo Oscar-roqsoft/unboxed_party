@@ -111,7 +111,7 @@ export default {
        const id ={
         id:eventId
        }
-       console.log(id)
+     
         try{
           const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
             method:'DELETE',
@@ -123,8 +123,10 @@ export default {
               
             }).then(res=>res.json())
 
+            console.log(data)
+
             const filteredItems = this.$store.state.myarticles.filter(item => item.id !== eventId)
-           this.$store.dispatch("setMyArticles", filteredItems)
+            this.$store.dispatch("setMyArticles", filteredItems)
 
            this.toast =false
          

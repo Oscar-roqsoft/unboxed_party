@@ -52,8 +52,8 @@
                     <div class="tw-flex tw-items-center  tw-justify-center ma-4">
 
                         <div class="tw-flex  tw-flex-col">
-                            <v-btn :loading="loading"  @click.prevent="createArticle"   size="x-large"  
-                            color="blue-darken-4">Edit</v-btn>
+                            <v-btn :loading="loading"  @click.prevent="createArticle()"   size="x-large"  
+                            color="blue-darken-4">Confirm Edit</v-btn>
                         </div>
 
                     </div>
@@ -135,26 +135,38 @@ export default {
 
       const {secure_url} = await uploadToCloudinary(this.selectedimage);
 
-      
       const event ={
+          id:this.articles.id,
           name: this.articles.name,
           author: this.articles.author,
           body:this.articles.body,
           image:secure_url ? secure_url : this.articles.image,
       }
 
+      console.log(event)
+
 
       try{
+
           const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
-              method:"POST",
+              method:"PATCH",
               headers:{
                   'Content-Type': 'application/json',
               },
               body:JSON.stringify(event)
           }).then(res=>res.json())
 
-          if(data.success) this.toast("Article edited successfully")
-          
+          console.log('good',data)
+
+          if(data.success) {
+
+              this.toast("Article edited successfully")
+    
+            // const payload =  [...data.articles]
+            // this.$store.dispatch("setMyArticles", payload);
+            // this.$store.dispatch("setMyArticlesExpirationDate", addMinutes(30));
+            
+          }
           this.loading = false
 
           navigateTo("/admin_slym/articles")
