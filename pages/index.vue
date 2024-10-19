@@ -657,7 +657,7 @@ export default {
     isLoading:false,
     timeline: '',
     media_parteners: [
-    'https://res.cloudinary.com/payhospi/image/upload/v1701176151/7_1_w7tdfi.png',
+    'https://res.cloudinary.com/dpehz96bs/image/upload/v1729321957/arc1_i6hl86.png',
     'https://res.cloudinary.com/payhospi/image/upload/v1701176150/2_1_mir4xi.png',
     'https://res.cloudinary.com/payhospi/image/upload/v1701176150/4_1_jnr0t9.png',
     'https://res.cloudinary.com/payhospi/image/upload/v1701176150/3_1_eblymr.png',
@@ -687,14 +687,20 @@ export default {
 // 'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
 // 'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png',
 
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226659/psquare_1.5x_rbqhdp.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226596/2pac_1.5x_p4bvns.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226646/daddy-shoki_1.5x_peo7bp.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226649/fela-kuti_1.5x_ah9cba.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226653/lagbaja_1.5x_hjpjrv.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226659/psquare_1.5x_rbqhdp.png',
-     'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226596/2pac_1.5x_p4bvns.png',
+    'https://res.cloudinary.com/dpehz96bs/image/upload/v1729373260/Artboard_1_alotkx.png',
+    'https://res.cloudinary.com/dpehz96bs/image/upload/v1729373321/Artboard_4_s6ofld.png',
+    'https://res.cloudinary.com/dpehz96bs/image/upload/v1729373323/Artboard_3_ycjebg.png',
+    
+    'https://res.cloudinary.com/dpehz96bs/image/upload/v1729374094/Artboard_2_it6xxf.png',
+    'https://res.cloudinary.com/dpehz96bs/image/upload/v1729374116/Artboard_5_vmygdg.png',
+    'https://res.cloudinary.com/dpehz96bs/image/upload/v1729374123/Artboard_6_pmi2nm.png',
+    'https://res.cloudinary.com/dpehz96bs/image/upload/v1729373323/Artboard_3_ycjebg.png',
+    //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226649/fela-kuti_1.5x_ah9cba.png',
+    //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226653/lagbaja_1.5x_hjpjrv.png',
+    //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226659/psquare_1.5x_rbqhdp.png',
+    //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226596/2pac_1.5x_p4bvns.png',
     //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581373/8_hjnfyr.png'
+    
 
 ],
     
