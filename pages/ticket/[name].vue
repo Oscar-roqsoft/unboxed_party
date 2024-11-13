@@ -940,6 +940,7 @@ return seconds
             });
         
       },
+
      async copyaccount(){
         let text = document.getElementById('acnum').innerHTML;
     try {
@@ -951,6 +952,8 @@ return seconds
     }
   
       },
+
+      
       async submit() {
         var bol = await this.$refs.form.validate();
         if (bol.valid) {

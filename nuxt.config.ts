@@ -48,6 +48,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+  
   plugins:[
     { src: '~/plugins/vue3-paystack', mode: 'client' },
     { src: '~/plugins/ravePlugin', mode: 'client' },

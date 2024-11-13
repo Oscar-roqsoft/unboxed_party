@@ -171,7 +171,7 @@
         class=" rounded-lg"  max-width="500"
         width="100%" eager style="cursor: pointer;overflow: visible;"
         height="100%"
-        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1728488711/UNboxed_Halloween_Party_3rd_Edition_pjh0da.jpg"
+        src="https://res.cloudinary.com/dpehz96bs/image/upload/v1731486027/fakewedding1_p0fbsz.png"
         ></v-img>
 
       </div>
@@ -192,7 +192,7 @@
 
       <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
         <v-btn
-          @click="navigateTo(`/ticket/HALLOWEEN`)"
+          @click="navigateTo(`/ticket/Igba-nkwu`)"
         
         size="x-large"
         style="
@@ -382,7 +382,7 @@
        
         </div>
         <v-row class="d-flex pt-9">
-          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 4)" :key="i"  :cols="cols[3]">
+          <v-col v-show="!parseFloat(n.on_sale)"  v-for="(n, i) in events.slice(0, 5)" :key="i"  :cols="cols[3]">
              <div    class="pt-6 d-flex justify-center">
 
                <!-- skeleton loader -->
@@ -815,7 +815,7 @@ export default {
       var startDate = new Date();
 // Do your operations
 
-var endDate   = new Date('2024-10-28');
+var endDate   = new Date('2024-11-29');
 var seconds = endDate.getTime() - startDate.getTime() ;
 return seconds
     },
