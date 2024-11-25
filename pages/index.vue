@@ -45,8 +45,8 @@
                       <v-btn to="/ticket" size="large" height="55" style="
                   background: linear-gradient(
                     132.03deg,
-                    #26a68c 14.22%,
-                    #0a3222 97.95%
+                     #c471ed 14.22%,
+                    #a044ff 97.95%
                   );
                 " class="text-capitalize font-weight-black" rounded>Tickets</v-btn>
                       <!-- <v-btn
@@ -364,7 +364,7 @@
                   </p>
                   <p style="" class="text-capitalize text-grey-darken-2 font-weight-bold" rounded>
                     <v-icon size="15" class="mb-1" icon="mdi mdi-map-marker"></v-icon> {{ n.venue.substring(0, 15) }}{{
-                      n.venue.length > 15 ? '...' : '' }}
+                    n.venue.length > 15 ? '...' : '' }}
                   </p>
                 </div>
                 <!-- <p class="text-body-2 mt-0 text-grey-lighten-2 font-weight-light">
@@ -1192,7 +1192,7 @@ export default {
   align-items: center;
 
   background: radial-gradient(102.82% 2444.7% at 95.38% 100.02%,
-      #26a68c 0%,
+      #a84efa 0%,
       rgba(255, 255, 255, 0) 32.73%,
       rgba(135, 135, 135, 0.506798) 81.48%,
       #131313 100%)

@@ -57,11 +57,11 @@
 
       <div class="tw-hidden lg:tw-block">
 
-        <v-btn class="font-weight-bold text-capitalize tw-hidden md:tw-block" height="50" rounded outline style="
+        <v-btn class="font-weight-bold text-capitalize tw-hidden md:tw-block" height="45" rounded outline style="
                     background: linear-gradient(
                       132.03deg,
-                        #26a68c 14.22%,
-                    #0a3222 97.95%
+                       #c471ed 14.22%,
+                       #a044ff 97.95%
                       );
                   " to="/reserve" color="green">Register</v-btn>
 

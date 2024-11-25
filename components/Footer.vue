@@ -2,8 +2,8 @@
 
   <Testimonial />
 
-  <v-container :class="$vuetify.display.smAndDown?'px-0':''" class="py-12 px-6" style="overflow:hidden">
-    <h2 :style="$vuetify.display.smAndDown?'padding-top:100px;font-size:40px !important':'font-size: 60px'"
+  <v-container :class="$vuetify.display.smAndDown ? 'px-0' : ''" class="py-12 px-6" style="overflow:hidden">
+    <h2 :style="$vuetify.display.smAndDown ? 'padding-top:100px;font-size:40px !important' : 'font-size: 60px'"
       style=" padding-bottom: 0px;color:#fff"
       class=" my-0 mb-12 coreupcard hidden text-center logoText font-weight-bold   px-5 ">Our Partners </h2>
     <v-row class="flex-wrap d-flex" wrap>
@@ -33,7 +33,7 @@
         src="https://res.cloudinary.com/crushcontest-com/image/upload/v1679725847/Group_5_bunz8h.png"></v-img>
       <v-img width="300px" style="position: absolute; right: -120px; top: calc(50% - 150px)"
         src="https://res.cloudinary.com/crushcontest-com/image/upload/v1679725850/Group_6_rrvh5z.png"></v-img>
-      <v-card style="" :class="$vuetify.display.smAndDown ? 'pt-8 pb-4' :'pt-12 pb-8'"
+      <v-card style="" :class="$vuetify.display.smAndDown ? 'pt-8 pb-4' : 'pt-12 pb-8'"
         class="text-center cardStylea  pa-5">
         <h1 style="
             font-size: 40px !important;
@@ -48,8 +48,8 @@
           href="https://wa.me/+2349012770000?text= Hi%20" outline style="
             background: linear-gradient(
               132.03deg,
-               #26a68c 14.22%,
-               #0a3222 97.95%
+              #c471ed 14.22%,
+              #a044ff 97.95%
             );
           ">Contact Us</v-btn>
       </v-card>
@@ -108,41 +108,42 @@
   </div>
 </template>
 <style>
- .herotitlea {
-    font-weight: 700;
-    font-size: 58px;
-    line-height: 81px;
-    align-items: center;
-    background: radial-gradient(
-          102.82% 2444.7% at 95.38% 100.02%,
-          #26a68c 0%,
-          rgba(255, 255, 255, 0) 32.73%,
-          rgba(135, 135, 135, 0.506798) 81.48%,
-          #131313 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-      #ffffff;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-  }
+.herotitlea {
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 81px;
+  align-items: center;
+  background: radial-gradient(102.82% 2444.7% at 95.38% 100.02%,
+      #a84efa 0%,
+      rgba(255, 255, 255, 0) 32.73%,
+      rgba(135, 135, 135, 0.506798) 81.48%,
+      #131313 100%)
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+    ,
+    #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
 @media only screen and (max-width: 768px) {
   .herotitlea {
-      font-size: 30px !important;
-      line-height: 45px !important;
-      text-align: center;
-    }
- .cnter{
-    justify-content:center
+    font-size: 30px !important;
+    line-height: 45px !important;
+    text-align: center;
   }
+
+  .cnter {
+    justify-content: center
   }
-  .cardStylea {
+}
+
+.cardStylea {
   border-radius: 50px !important;
   background: #ffffff21;
   backdrop-filter: blur(6px);
 }
-  
 </style>
 <script>
 export default {
@@ -155,28 +156,37 @@ export default {
       return lg
         ? [4, 12, 6, 4, 8, 4, 3]
         : md
-        ? [4, 12, 12, 6, 8, 4, 3]
-        : sm
-        ? [6, 12, 12, 12, 12, 12, 12]
-        : [6, 12, 12, 12, 12, 12, 12]
-      },
-      footmenu(){
-         return [
-        {name:'Menu', links: [
-          {name: 'receipt', title: 'Home', link: '/'},
-          {name: 'calendar',title:'Events', link:'/events' },
-          // {name: 'shop',title:'Shop', link:'/shop' },
-         {name: 'book', title: 'Quick Reads', link:'/articles'},
-       {name: 'receipt', title: 'About us', link: '/about'},
-      ]}, 
-       {name:'Links', links: [{name: 'instagram',title:'Instagram', link:'https://www.instagram.com/the_unboxedparty/' },
-        {name: 'twitter', title: 'Twitter', link:'https://twitter.com/theunboxedparty'},
-        {name: 'tiktok', title: 'Tiktok', link:'https://www.tiktok.com/@the_unboxedparty'},
-        {name: 'youtube', title: 'Youtube', link:'https://www.youtube.com/@unboxedparty'}
-      ]},
-         {name:'Support', links: [{name: 'mail',title:'Email', link:'mailto:admin@unboxedparty.com' }, {name: 'whatsapp', title: 'Whatsapp', 
-         link:  "https://wa.me/+2349012770000?text= Hi%20"}, {name: 'phone', title: 'Phone', link: 'tel:+2349012770000'}]}]
+          ? [4, 12, 12, 6, 8, 4, 3]
+          : sm
+            ? [6, 12, 12, 12, 12, 12, 12]
+            : [6, 12, 12, 12, 12, 12, 12];
+    },
+    footmenu() {
+      return [
+        {
+          name: 'Menu', links: [
+            { name: 'receipt', title: 'Home', link: '/' },
+            { name: 'calendar', title: 'Events', link: '/events' },
+            // {name: 'shop',title:'Shop', link:'/shop' },
+            { name: 'book', title: 'Quick Reads', link: '/articles' },
+            { name: 'receipt', title: 'About us', link: '/about' },
+          ]
+        },
+        {
+          name: 'Links', links: [{ name: 'instagram', title: 'Instagram', link: 'https://www.instagram.com/the_unboxedparty/' },
+          { name: 'twitter', title: 'Twitter', link: 'https://twitter.com/theunboxedparty' },
+          { name: 'tiktok', title: 'Tiktok', link: 'https://www.tiktok.com/@the_unboxedparty' },
+          { name: 'youtube', title: 'Youtube', link: 'https://www.youtube.com/@unboxedparty' }
+          ]
+        },
+        {
+          name: 'Support', links: [{ name: 'mail', title: 'Email', link: 'mailto:admin@unboxedparty.com' }, {
+            name: 'whatsapp', title: 'Whatsapp',
+            link: "https://wa.me/+2349012770000?text= Hi%20"
+          }, { name: 'phone', title: 'Phone', link: 'tel:+2349012770000' }]
+        }];
 
-    }  },
+    }
+  },
 };
 </script>
