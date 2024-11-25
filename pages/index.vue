@@ -580,7 +580,7 @@ export default {
     isLoading: false,
     timeline: '',
     media_parteners: [
-      'https://res.cloudinary.com/dpehz96bs/image/upload/v1729321957/arc1_i6hl86.png',
+      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729321957/arc1_i6hl86.png',
       'https://res.cloudinary.com/payhospi/image/upload/v1701176150/2_1_mir4xi.png',
       'https://res.cloudinary.com/payhospi/image/upload/v1701176150/4_1_jnr0t9.png',
       'https://res.cloudinary.com/payhospi/image/upload/v1701176150/3_1_eblymr.png',
@@ -592,6 +592,13 @@ export default {
       'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],
     memes: [
+     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732544933/dondbfycrmflnndoa9w1.png',
+     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545141/wnlovn3c4nimpsv4pss5.png',
+     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545204/kow40iapratwwuis4c8o.png',
+     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545281/hjhzuvsgah7eujgqqkjp.png',
+     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545361/zapy6xe4dqnqhyxzm9lg.png',
+     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545416/pghhkyvkhvrhq3otmxjt.png',
+     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545460/gdjkomudnxj5uysrrzdl.png',
       // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433043/cod_glrfwu.png',
       // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433066/dunno_rhfhah.png',
       // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433260/frudo_sjhmph.png',
