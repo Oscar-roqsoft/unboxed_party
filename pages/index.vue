@@ -16,17 +16,18 @@
                 height: 900px;
                 z-index: 1;
               " autoplay muted loop>
-                <source
-                  src="https://res.cloudinary.com/crushcontest-com/video/upload/v1680267203/WhatsApp_Video_2023-03-31_at_8.40.28_AM_pvaijr.mp4" />
+                <source src="https://res.cloudinary.com/dvexjmvti/video/upload/v1732736195/lt4dxgkgcjv7gto48fqk.mov" />
               </video>
             </KeepAlive>
+            <!-- src="https://res.cloudinary.com/crushcontest-com/video/upload/v1680267203/WhatsApp_Video_2023-03-31_at_8.40.28_AM_pvaijr.mp4" -->
 
             <!-- <v-avatar  tile width="100%" height="100%"><v-img eager src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_1000/v1664318468/C0042.MP4.16_29_36_17.Still001_1_br9fzu.jpg"></v-img></v-avatar> -->
           </div>
           <div class="bgh" v-else>
-            <v-img width="auto" height="100%"
-              src="https://res.cloudinary.com/payhospi/image/upload/v1698310701/unboxed/Screenshot_2023-10-26_at_3.58.05_AM_cy5krs.png">
+            <v-img width="auto" height="100vh"
+              src="https://res.cloudinary.com/dvexjmvti/image/upload/v1732737118/bnizqc85t1ibcoq2i6eq.png">
             </v-img>
+            <!-- src="https://res.cloudinary.com/payhospi/image/upload/v1698310701/unboxed/Screenshot_2023-10-26_at_3.58.05_AM_cy5krs.png" -->
           </div>
           <Header />
           <div style="position: relative">
