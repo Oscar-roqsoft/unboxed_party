@@ -101,7 +101,7 @@
         src="https://res.cloudinary.com/payhospi/image/upload/c_fit,w_1000/v1698217127/unboxed/Unboxed_Thelma_1_qnjvmo.jpg"></v-img>
 
       <p class="text-center text-grey-darken-2 py-12" style="font-size: 12px">
-        &copy Copyright 2023 Unboxed Party All Rights Reserved, A Subsidiary of
+        &copy Copyright {{ new Date().getFullYear() }} Unboxed Party All Rights Reserved, A Subsidiary of
         KopyKat Dreams
       </p>
     </v-container>
