@@ -141,7 +141,7 @@
 
                   <v-img class=" rounded-lg" max-width="500" width="100%" eager
                     style="cursor: pointer;overflow: visible;" height="100%"
-                    src="https://res.cloudinary.com/dpehz96bs/image/upload/v1731486027/fakewedding1_p0fbsz.png"></v-img>
+                    src="https://res.cloudinary.com/dvexjmvti/image/upload/v1733224336/bp78t1sxuwj5qq1fhsub.jpg"></v-img>
 
                 </div>
               </v-col>
@@ -161,8 +161,8 @@
 
                   <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
                     <v-btn @click="navigateTo(`/ticket/Igba-nkwu`)" size="x-large" style="
-           background: linear-gradient(132.03deg,#26a68c 14.22%,
-                    #0a3222 97.95%);
+           background: linear-gradient(132.03deg,#f31c08 14.22%,
+                  #eb684483 87.95%);
                 " class="text-capitalize font-weight-bold" rounded>Reserve</v-btn>
 
                   </div>
@@ -593,46 +593,13 @@ export default {
       'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],
     memes: [
-     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732544933/dondbfycrmflnndoa9w1.png',
-     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545141/wnlovn3c4nimpsv4pss5.png',
-     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545204/kow40iapratwwuis4c8o.png',
-     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545281/hjhzuvsgah7eujgqqkjp.png',
-     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545361/zapy6xe4dqnqhyxzm9lg.png',
-     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545416/pghhkyvkhvrhq3otmxjt.png',
-     'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545460/gdjkomudnxj5uysrrzdl.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433043/cod_glrfwu.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433066/dunno_rhfhah.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433260/frudo_sjhmph.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433278/gta_ajrrwx.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433291/liu_kang_zrf6ke.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433305/mario_mgkrwl.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1713433594/pubg_ocjkes.png'
-
-
-
-      //     'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw_axaa0c.png',
-      //     'https://res.cloudinary.com/payhospi/image/upload/v1700924460/sabi_B_W_usr7bx.png',
-      //     'https://res.cloudinary.com/payhospi/image/upload/v1700924459/igreet_buorgn.png',
-      //   'https://res.cloudinary.com/payhospi/image/upload/v1700924465/taaoma_vhehpx.png',
-      // 'https://res.cloudinary.com/payhospi/image/upload/v1700924461/brainjotter_sh3mua.png',
-      // 'https://res.cloudinary.com/payhospi/image/upload/v1700924460/layi_zqex8d.png',
-      // 'https://res.cloudinary.com/payhospi/image/upload/v1700924458/pawpaw2_m6opxi.png',
-// New
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729373260/Artboard_1_alotkx.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729373321/Artboard_4_s6ofld.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729373323/Artboard_3_ycjebg.png',
-
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729374094/Artboard_2_it6xxf.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729374116/Artboard_5_vmygdg.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729374123/Artboard_6_pmi2nm.png',
-      // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729373323/Artboard_3_ycjebg.png',
-      // End new
-      //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226649/fela-kuti_1.5x_ah9cba.png',
-      //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226653/lagbaja_1.5x_hjpjrv.png',
-      //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226659/psquare_1.5x_rbqhdp.png',
-      //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1724226596/2pac_1.5x_p4bvns.png',
-      //  'https://res.cloudinary.com/dpehz96bs/image/upload/v1715581373/8_hjnfyr.png'
-
+      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732544933/dondbfycrmflnndoa9w1.png',
+      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545141/wnlovn3c4nimpsv4pss5.png',
+      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545204/kow40iapratwwuis4c8o.png',
+      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545281/hjhzuvsgah7eujgqqkjp.png',
+      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545361/zapy6xe4dqnqhyxzm9lg.png',
+      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545416/pghhkyvkhvrhq3otmxjt.png',
+      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545460/gdjkomudnxj5uysrrzdl.png',
 
     ],
 
@@ -747,7 +714,7 @@ export default {
       var startDate = new Date();
       // Do your operations
 
-      var endDate = new Date( '2024-11-29' );
+      var endDate = new Date( '2024-12-20' );
       var seconds = endDate.getTime() - startDate.getTime();
       return seconds;
     },
