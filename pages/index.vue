@@ -160,7 +160,7 @@
 
 
                   <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
-                    <v-btn @click="navigateTo(`/ticket/Igba-nkwu`)" size="x-large" style="
+                    <v-btn @click="navigateTo(`/ticket/2-years-anniversary`)" size="x-large" style="
            background: linear-gradient(132.03deg,#f31c08 14.22%,
                   #eb684483 87.95%);
                 " class="text-capitalize font-weight-bold" rounded>Reserve</v-btn>
