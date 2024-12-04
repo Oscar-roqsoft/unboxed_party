@@ -78,8 +78,8 @@
                           <tr>
                             <th class="text-center font-weight-black text-capitalize" style="letter-spacing:2px">PRICE
                             </th>
-                            <th class="text-center font-weight-black text-capitalize" style="letter-spacing:2px">DATE
-                            </th>
+                            <!-- <th class="text-center font-weight-black text-capitalize" style="letter-spacing:2px">DATE
+                            </th> -->
                             <th class="text-center font-weight-black text-capitalize" style="letter-spacing:2px">TIME
                             </th>
                             <!-- <th class="text-center font-weight-black text-capitalize" style="letter-spacing:2px">Early Bird Remaining</th> -->
@@ -89,8 +89,8 @@
                           <tr v-for="(item, index) in mytickets" :key="item?.name">
                             <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">
                               {{ (item?.name) }} (#{{ numberWithCommas(item?.value) }})</td>
-                            <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">
-                              {{ formatDate(event?.date) }}</td>
+                            <!-- <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">
+                              {{ formatDate(event?.date) }}</td> -->
                             <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">
                               {{ event?.time }}</td>
                             <!-- <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">{{1000 - sold}}</td> -->
@@ -614,11 +614,9 @@ export default {
       try {
         const data = await fetch( `https://backend.unboxedparty.com/api/event`, {
           method: "GET",
-
           headers: {
             'Content-Type': 'application/json',
           }
-
         } ).then( res => res.json() );
 
         this.isLoading = false;
