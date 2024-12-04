@@ -3,22 +3,17 @@ export default defineNuxtConfig({
   components: true,
   ssr: false,
   css: [
-
     '~/assets/css/main.css',
-    
-    "vuetify/lib/styles/main.sass",
 
-    "@mdi/font/css/materialdesignicons.min.css",
-    "@fortawesome/fontawesome-free/css/all.css"
+    'vuetify/lib/styles/main.sass',
 
-
-
+    '@mdi/font/css/materialdesignicons.min.css',
+    '@fortawesome/fontawesome-free/css/all.css',
   ],
-  
-  experimental:{payloadExtraction:false},
-  
+
+  experimental: { payloadExtraction: false },
+
   modules: [
-    
     // '@nuxtjs/toast',
     // '@pinia/nuxt',
     // '@pinia-plugin-persistedstate/nuxt',
@@ -29,13 +24,10 @@ export default defineNuxtConfig({
     enqueue: true,
     notifications: {
       global: {
-        duration: 10000
-      }
-    }
+        duration: 10000,
+      },
+    },
   },
-
-
-
 
   postcss: {
     plugins: {
@@ -44,26 +36,22 @@ export default defineNuxtConfig({
     },
   },
 
-  typescript: {shim: false},
+  typescript: { shim: false },
   build: {
-    transpile: ["vuetify"],
+    transpile: ['vuetify'],
   },
-  
-  plugins:[
+
+  plugins: [
     { src: '~/plugins/vue3-paystack', mode: 'client' },
     { src: '~/plugins/ravePlugin', mode: 'client' },
-    
+    { src: '~/plugins/pinia.js', mode: 'client' }, // Register the Pinia plugin
   ],
-
-
 
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/unboxed-favicon.png' }
-      ]
+        { rel: 'icon', type: 'image/x-icon', href: '/unboxed-favicon.png' },
+      ],
     },
   },
-
-
 });

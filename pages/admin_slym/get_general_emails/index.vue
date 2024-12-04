@@ -21,7 +21,8 @@
   </template>
   
   <script>
-  
+  import { useStore } from '~~/store';
+  const store = useStore();
   export default {
     data() {
       return {
@@ -48,6 +49,7 @@
             method: "GET",
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': `Bearer ${store.state.token}`
             },
           }).then(res => res.json());
   

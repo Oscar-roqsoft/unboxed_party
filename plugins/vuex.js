@@ -1,207 +1,221 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
 // import { store } from ".";
 
-import { version } from "../package.json";
+import { version } from '../package.json';
 
-
- const state = () => ({
+const state = () => ({
   //  image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_600/v1683359349/Screenshot_2023-05-06_at_8.48.45_AM_wfh3xb.png',
-    // myevents:[],
-    version,
-    mycategory:[],
-    
-    myarticles:{
-      list:[],
-      expire_at:'',
-    },
+  // myevents:[],
+  version,
+  mycategory: [],
 
-    shop_items:{
-      list:[],
-      expire_at:'',
-    },
+  myarticles: {
+    list: [],
+    expire_at: '',
+  },
 
-    myevents:{
-       list:[],
-       expire_at:'',
-    },
+  shop_items: {
+    list: [],
+    expire_at: '',
+  },
 
-    myticketQty:{
-       list:[],
-       expire_at:'',
-    },
+  myevents: {
+    list: [],
+    expire_at: '',
+  },
 
-    myevents:{
-       list:[],
-       expire_at:'',
-    },
+  myticketQty: {
+    list: [],
+    expire_at: '',
+  },
 
-    orders:{
-      list:[],
-      expire_at:'',
-    },
+  myevents: {
+    list: [],
+    expire_at: '',
+  },
 
-    questionaireNumbers:[],
+  orders: {
+    list: [],
+    expire_at: '',
+  },
 
-    questionaireEmails:[],
+  questionaireNumbers: [],
 
-    questionaireNames:[],
+  questionaireEmails: [],
 
-    myvideo:[],
+  questionaireNames: [],
 
-    survey:[],
+  myvideo: [],
 
-    events: [
-      
-      {name: 'Meme Edition 2', 
-      image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1700458125/Unboxed_Party_Meme_Party_2_usm8ub.jpg',
+  survey: [],
+
+  events: [
+    {
+      name: 'Meme Edition 2',
+      image:
+        'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1700458125/Unboxed_Party_Meme_Party_2_usm8ub.jpg',
       created_at: '8th Dec. 2023',
       onSale: true,
-      active:true,
-      video:false,
+      active: true,
+      video: false,
       venue: 'UNN, Nsukka',
       paid: true,
       id: 8,
       deadline: '2023-12-08',
-      time:'07:00PM',
+      time: '07:00PM',
       amount: 2000,
-      caption:'Countdown',
-      description: "Coming soon",
-      },
-      {name: 'Neon Fest - Glow in the Dark', 
-      image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1699725435/Unboxed_Party_Neon_Fest_u6khvp.jpg',
+      caption: 'Countdown',
+      description: 'Coming soon',
+    },
+    {
+      name: 'Neon Fest - Glow in the Dark',
+      image:
+        'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1699725435/Unboxed_Party_Neon_Fest_u6khvp.jpg',
       created_at: '24th Nov. 2023',
       // onSale: true,
       // active:true,
-        video:false,
-        venue: 'Umuahia',
-        paid: true,
-        id: 7,
-        deadline: '2023-11-24',
-        time:'08:00PM',
-        amount: 1000,
-        caption:'Countdown',
-        description: "Coming soon",
-      },
-          {name: 'Halloween', 
-      image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1698141997/Unboxed_Halloween_Party_lnmm69.jpg',
+      video: false,
+      venue: 'Umuahia',
+      paid: true,
+      id: 7,
+      deadline: '2023-11-24',
+      time: '08:00PM',
+      amount: 1000,
+      caption: 'Countdown',
+      description: 'Coming soon',
+    },
+    {
+      name: 'Halloween',
+      image:
+        'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1698141997/Unboxed_Halloween_Party_lnmm69.jpg',
       created_at: '5th Nov. 2023',
       // onSale: true,
       // active:true,
-        video:false,
-        venue: 'Awka',
-        paid: true,
-        id: 6,
-        deadline: '2023-11-06',
-        time:'08:00PM',
-        amount: 2000,
-        caption:'Countdown',
-        description: "Coming soon",
-      },
-      // {name: 'All White Affair - 200k Table', 
-      // image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1692897396/Unboxed_AWA_Location_aoziz4.jpg',
-      // created_at: '21st Sept. 2023',
-      // // onSale: true,
-      // // active:true,
-      // video:false,
-      // venue: 'Awka',
-      // paid: true,
-      // id: 7,
-      // deadline: '2023-09-21',
-      // time:'08:00PM',
-      // amount: 200000,
-      // caption:'Countdown',
-      // description: "Coming soon",
-      // },
-      // {name: 'All White Affair - 100k Table', 
-      // image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1692897396/Unboxed_AWA_Location_aoziz4.jpg',
-      // created_at: '21st Sept. 2023',
-      // // onSale: true,
-      // // active:true,
-      //   video:false,
-      //   venue: 'Awka',
-      //   paid: true,
-      //   id: 6,
-      //   deadline: '2023-09-21',
-      //   time:'08:00PM',
-      //   amount: 100000,
-      //   caption:'Countdown',
-      //   description: "Coming soon",
-      // },
-      {name: 'All White Affair', 
-      image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1692897396/Unboxed_AWA_Location_aoziz4.jpg',
+      video: false,
+      venue: 'Awka',
+      paid: true,
+      id: 6,
+      deadline: '2023-11-06',
+      time: '08:00PM',
+      amount: 2000,
+      caption: 'Countdown',
+      description: 'Coming soon',
+    },
+    // {name: 'All White Affair - 200k Table',
+    // image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1692897396/Unboxed_AWA_Location_aoziz4.jpg',
+    // created_at: '21st Sept. 2023',
+    // // onSale: true,
+    // // active:true,
+    // video:false,
+    // venue: 'Awka',
+    // paid: true,
+    // id: 7,
+    // deadline: '2023-09-21',
+    // time:'08:00PM',
+    // amount: 200000,
+    // caption:'Countdown',
+    // description: "Coming soon",
+    // },
+    // {name: 'All White Affair - 100k Table',
+    // image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1692897396/Unboxed_AWA_Location_aoziz4.jpg',
+    // created_at: '21st Sept. 2023',
+    // // onSale: true,
+    // // active:true,
+    //   video:false,
+    //   venue: 'Awka',
+    //   paid: true,
+    //   id: 6,
+    //   deadline: '2023-09-21',
+    //   time:'08:00PM',
+    //   amount: 100000,
+    //   caption:'Countdown',
+    //   description: "Coming soon",
+    // },
+    {
+      name: 'All White Affair',
+      image:
+        'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1692897396/Unboxed_AWA_Location_aoziz4.jpg',
       created_at: '21st Sept. 2023',
       // onSale: true,
       // active:true,
-        video:false,
-        venue: 'Awka',
-        paid: false,
-        id: 5,
-        deadline: '2023-09-21',
-        time:'08:00PM',
-        amount: 2000,
-        caption:'Countdown',
-        description: "Coming soon",
-      }, 
-      {name: 'Denim/Jean Carnival', 
-      image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1685509866/Unboxed_Denim___Jean_Carnival_ico2na.jpg',
+      video: false,
+      venue: 'Awka',
+      paid: false,
+      id: 5,
+      deadline: '2023-09-21',
+      time: '08:00PM',
+      amount: 2000,
+      caption: 'Countdown',
+      description: 'Coming soon',
+    },
+    {
+      name: 'Denim/Jean Carnival',
+      image:
+        'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1685509866/Unboxed_Denim___Jean_Carnival_ico2na.jpg',
       created_at: '24th Jun. 2023',
       // onSale: true,
       // active:true,
-        video:false,
-        venue: 'Oye, Ekiti',
-        paid: false,
-        id: 4,
-        deadline: '2023-06-24',
-        time:'06:00PM',
-        amount: 0,
-        caption:'Countdown',
-        description: "Coming soon",
-      },
+      video: false,
+      venue: 'Oye, Ekiti',
+      paid: false,
+      id: 4,
+      deadline: '2023-06-24',
+      time: '06:00PM',
+      amount: 0,
+      caption: 'Countdown',
+      description: 'Coming soon',
+    },
 
-      {name: 'Hollywood High School', 
-      image: 'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1685184764/Hollywood_Highschool_2_wthdcx.jpg',
+    {
+      name: 'Hollywood High School',
+      image:
+        'https://res.cloudinary.com/payhospi/image/upload/c_fit,w_600/v1685184764/Hollywood_Highschool_2_wthdcx.jpg',
       created_at: '17th Jun. 2023',
-      video:false,
+      video: false,
       venue: 'UNN, Nsukka',
       paid: false,
       deadline: '2023-06-17',
-      id:3,
-      time:'06:00PM',
+      id: 3,
+      time: '06:00PM',
       amount: 0,
-      caption:'Countdown',
-      description: "Coming soon",
-    },  
+      caption: 'Countdown',
+      description: 'Coming soon',
+    },
 
-    {name: 'Pyjamas/Night Wear',
-    image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_600/v1684047128/Unboxed_Pyjamas_Nightwear_rpp7ty.jpg',
-    created_at: '25th May. 2023',
-    video: 'https://www.youtube.com/embed/tgy9JKMRI74',    
-    max:100,
-    amount: 2000,
-    deadline: '2023-05-25',
-    venue: 'Reboot',
-      caption:'Countdown',
-      description: "Coming soon",
-     },
+    {
+      name: 'Pyjamas/Night Wear',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_600/v1684047128/Unboxed_Pyjamas_Nightwear_rpp7ty.jpg',
+      created_at: '25th May. 2023',
+      video: 'https://www.youtube.com/embed/tgy9JKMRI74',
+      max: 100,
+      amount: 2000,
+      deadline: '2023-05-25',
+      venue: 'Reboot',
+      caption: 'Countdown',
+      description: 'Coming soon',
+    },
 
-      {name: 'Royal Ball/Prom',
-      image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1681315633/Unboxed_Royal_Ball_Prom_s4wxxm.jpg',
+    {
+      name: 'Royal Ball/Prom',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1681315633/Unboxed_Royal_Ball_Prom_s4wxxm.jpg',
       created_at: '16th Mar. 2023',
-      video:'https://www.youtube.com/embed/IyQooW90034',
-          venue: 'Reboot',
-      description: "Coming soon",
-     },
+      video: 'https://www.youtube.com/embed/IyQooW90034',
+      venue: 'Reboot',
+      description: 'Coming soon',
+    },
 
+    {
+      name: 'Arabian Fest',
 
-       {
-        name: 'Arabian Fest',
+      video: 'https://www.youtube.com/embed/TGD7ZOyLaC0',
 
-       video:'https://www.youtube.com/embed/TGD7ZOyLaC0',
-       
-       image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1677835749/ARABIAN_FEST_ux58sh.jpg',
-       created_at: '10th Dec. 2022',
-       venue: 'Reboot',
-       description: `🎉🌴🎵🎨 THE UNBOXED ARABIAN FEST 🎨🎵🌴🎉
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1677835749/ARABIAN_FEST_ux58sh.jpg',
+      created_at: '10th Dec. 2022',
+      venue: 'Reboot',
+      description: `🎉🌴🎵🎨 THE UNBOXED ARABIAN FEST 🎨🎵🌴🎉
 
          After a short break and the elections, the Unboxed Party came back bigger with another themed party - not your regular kind of themed party! We all watch Arabian fests on TVs and social media, and we've never experienced that feeling at least here in Awka. Thus, the organizers of Unboxed decided to bring that feeling here for their audience to engage and have fun!
          
@@ -219,14 +233,16 @@ import { version } from "../package.json";
          Despite the situation of the country Unboxed still came out to put smiles on people's faces to let them come out and relieve stress which would help them forget about the country's needs and the cash problem at hand. They took the crowd to another reality to party and enjoy themselves... 
          No be today we go solve everything, one thing at a time and yes, we can't forget the importance of looking after our mental health in times like this...
          So kudos, to this Unboxed team for creating an unforgettable and memorable experience`,
-        },
-        
-        {name: 'Rep Your Zodiac',
-        image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267199/Unboxed_Rep_your_Zodiac_Sign_1_vfbylt.jpg',
-        created_at: '26th Jan. 2023',
-        venue: 'Reboot',
-        video:'https://www.youtube.com/embed/uMFmKtbyrVE',
-        description: `THE UNBOXED Celestial Zodiac Party 🥳✨♈
+    },
+
+    {
+      name: 'Rep Your Zodiac',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267199/Unboxed_Rep_your_Zodiac_Sign_1_vfbylt.jpg',
+      created_at: '26th Jan. 2023',
+      venue: 'Reboot',
+      video: 'https://www.youtube.com/embed/uMFmKtbyrVE',
+      description: `THE UNBOXED Celestial Zodiac Party 🥳✨♈
         REP YOUR ZODIAC SIGN
         
         You wouldn't have seen this one coming, the brand always comes up with idea that you won't be able to guess, predict or see coming, it's always about being unique; bigger than just coming for the drinks and parties, it always gives you something to look up to and want to participate in.
@@ -247,15 +263,17 @@ import { version } from "../package.json";
         He sang his popular songs and club bangers and the crowd sang along. It wasn't a moody or a dull crowd, everyone was hyped up and wanting to represent their zodiac and they were doing well no group wanted to lose.
         Overall, the Unboxed Party was a massive success. It brought together people from all over the city, united by their love for astrology and good music. The organizers, who had previously organized successful unboxed editions and events in the city, outdid themselves with this one. They created a unique and unforgettable experience that was the talk of the town 💯.
         In conclusion, the Unboxed Party was a true celebration of life and the zodiac signs. It brought together people from all walks of life, united by their love for astrology and good music. The celebrity guest added an extra spark to the evening, making it even more special. The organizers deserve all the credit for pulling off such a fantastic event.`,
-       }, 
-          
-       {name: 'Meme Edition',
-       image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267207/Unboxed_Party_Meme_Edition_wwhaxu.jpg',
-       created_at: '24th Nov. 2022',
-       venue: 'Milas Turf',
-       video:'https://youtube.com/embed/io7A5nbQqoQ',
+    },
 
-       description: `🤣🤪 The Unboxed Party's  2 was an absolute blast! After the success of their Halloween party, the brand decided to set another high standard for their next event. And they did not disappoint!
+    {
+      name: 'Meme Edition',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267207/Unboxed_Party_Meme_Edition_wwhaxu.jpg',
+      created_at: '24th Nov. 2022',
+      venue: 'Milas Turf',
+      video: 'https://youtube.com/embed/io7A5nbQqoQ',
+
+      description: `🤣🤪 The Unboxed Party's  2 was an absolute blast! After the success of their Halloween party, the brand decided to set another high standard for their next event. And they did not disappoint!
 
        Attendees were asked to come dressed as their favorite memes, and the creativity was 💯. From their favourite comedian (Sabinus) meme, to caramel plug look, everyone came ready to have a good time and take some hilarious pictures 📸.
        One thing about the unboxed is that the theme and costume for the event is always top notch, people actually take their time to prepare to have fun cause they know this isn't their regular every day party and they so much want to participate in the event.
@@ -276,14 +294,16 @@ import { version } from "../package.json";
        Overall, The Unboxed Party's  2 was a night to remember 🎉🤪. It was a celebration of all things silly and fun, and a testament to the brand's ability to create unique and entertaining events. The attendees had a great time, and the brand certainly set a high standard for themselves going forward, any time you think they can't surprise you no more, they do, they raise the standards up again, the meme party being the 3rd edition brought more engagement into the platforms and more crowd to the event, it shows how fast and rapid it is growing and people wanted to come and see what the unboxed concept is all about. The community is definitely growing and getting better, the unboxed decided to change their venue to accommodate a larger audience, thus spreading it's wings to grow to the next level.
        One thing about the unboxed is that after every party, they reach out to the audience to be criticized and know where they failed to entertain, though it's always had positive reviews and few criticism, they always asked the audience what they want and how they want it. Then the unboxed delivers their desire and needs to them.
        After the meme party, you would see the eagerness some showed, some even went to meet the hypeman to ask when another unboxed would be held, something that started small was already growing so fast and has now come to stay and will soon be established as an entertainment institution in the South East.`,
-      },
+    },
 
-       {name: 'Halloween Edition',
-       image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267202/Unboxed_Halloween_Edition_lp7q17.jpg',
-       created_at: '31st Oct. 2022',
-       venue: 'Milas Turf',
-       video:'https://www.youtube.com/embed/ScjaFtCao8k',
-       description: `🎃🎉👻 The Unboxed Party's Halloween Edition was 🔥🔥🔥! It was the second edition of the party, and it did not disappoint. From the moment attendees arrived, they were transported to a world of Halloween magic 🌟🎃👻.
+    {
+      name: 'Halloween Edition',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267202/Unboxed_Halloween_Edition_lp7q17.jpg',
+      created_at: '31st Oct. 2022',
+      venue: 'Milas Turf',
+      video: 'https://www.youtube.com/embed/ScjaFtCao8k',
+      description: `🎃🎉👻 The Unboxed Party's Halloween Edition was 🔥🔥🔥! It was the second edition of the party, and it did not disappoint. From the moment attendees arrived, they were transported to a world of Halloween magic 🌟🎃👻.
 
        The decorations were 💯, with pumpkins 🎃, cobwebs 🕸️, and eerie lighting 🕯️ creating the perfect atmosphere for the occasion. The costumes were also 💯, with attendees coming dressed in a variety of spooky and creative outfits 👻🧟‍♀️🧙‍♀️. There was even a costume competition, with a 💰 cash prize for the winner. The competition was 🔥🔥🔥, and the creativity of the costumes was truly impressive.
        And you know when you set a costume event people mostly don't obey, they ignore the rules but this was different, people prepared for it and dressed well,from the favourite villain (the joker), to vampire looks and many others it was madt..
@@ -294,15 +314,17 @@ import { version } from "../package.json";
        The love and enthusiasm shown by the attendees were 😍. The joy and experience people had at The Unboxed Party were evident from the huge smiles on their faces and the excitement in their voices. It was a testament to the brand's ability to create an atmosphere that fosters genuine connection and fun.
        
        Overall, The Unboxed Party's Halloween Party was a night to remember 🎉👻🔥. The experience was mad, the costumes were crazy, and the musical experience was unforgettable 🙌🎶. It was an incredible celebration of Halloween 🎃, and a great example of what The Unboxed Party can do...
-       This particular party was the first of it's kind in the city and it sent waves and trended on the internet and social media platforms, an event that kept people taking days after it happened, people were now more eager and anticipated for the next unboxed, it so happened that the city of Abuja called requesting for their unboxed cause they wanted to feel the thrill too, they wanted the kind of vibe and uniqueness the unboxed gave and their eagerness was of course rewarded with them getting their very own unboxed party 😋🌚.`
-      },
+       This particular party was the first of it's kind in the city and it sent waves and trended on the internet and social media platforms, an event that kept people taking days after it happened, people were now more eager and anticipated for the next unboxed, it so happened that the city of Abuja called requesting for their unboxed cause they wanted to feel the thrill too, they wanted the kind of vibe and uniqueness the unboxed gave and their eagerness was of course rewarded with them getting their very own unboxed party 😋🌚.`,
+    },
 
-       {name: 'TTOTY',
-       image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267199/Unboxed_Party_TTOTY_flndxs.jpg',
-       created_at: '20th Dec. 2022',
-       video:'https://www.youtube.com/embed/C1n7r0hA5Yw',
-       venue: 'Milas Turf',
-       description: `The Unboxed Party: A Christmas Extravaganza 🎁🎄🎅
+    {
+      name: 'TTOTY',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267199/Unboxed_Party_TTOTY_flndxs.jpg',
+      created_at: '20th Dec. 2022',
+      video: 'https://www.youtube.com/embed/C1n7r0hA5Yw',
+      venue: 'Milas Turf',
+      description: `The Unboxed Party: A Christmas Extravaganza 🎁🎄🎅
 
        It's that time of the year again! The holiday season is upon us, and everyone is in the festive mood. From the twinkling lights on the streets to the aroma of fresh baked cakes and delicious cuisines in the air, there's something magical about December.
        
@@ -322,14 +344,16 @@ import { version } from "../package.json";
        As dawn drew close, party-goers left with smiles on their faces and memories that would last a lifetime. The Christmas Effect had set a new standard for the Unboxed Party, and it would be interesting to see what the organizers would come up with for the next edition.
        
        In conclusion, the Unboxed Party's Christmas Effect was a resounding success. It brought people together, created a sense of joy and happiness, and provided a much-needed escape from the challenges of everyday life. It was a reminder that, despite the difficulties we face, there is still room for fun, creativity, and community. The Unboxed Party once again set a double standard for the party scene, and by the looks and expression at the end of the party, people couldn't wait to see what they have in store for them next. 🎉🥳🤩`,
-      },
-       {name: 'Unboxed Party 1st Edition',
-       image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267204/Unboxed_hdq7f6.jpg',
-       created_at: '22nd Sept. 2022',
-       venue: "Mr Smith's Rooftop",
-       video:'https://www.youtube.com/embed/TKXjrizWnqE',
-       photos:[],
-       description:`The Unboxed Party: What's Really in the Box? 📦
+    },
+    {
+      name: 'Unboxed Party 1st Edition',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700,h_700/v1680267204/Unboxed_hdq7f6.jpg',
+      created_at: '22nd Sept. 2022',
+      venue: "Mr Smith's Rooftop",
+      video: 'https://www.youtube.com/embed/TKXjrizWnqE',
+      photos: [],
+      description: `The Unboxed Party: What's Really in the Box? 📦
 
        The first edition of the Unboxed Party was organized by Kopykat Dreams. Because of insecurity, we were not sure there would be a turn-up, regardless of the fact that there were no VIPs or special celebrity treatments. It was just a chance for everyone to enjoy themselves and experience a different kind of party 😉. There were no popular celebrities invited, just a team of DJs and hypemen to host the show.
        
@@ -341,200 +365,189 @@ import { version } from "../package.json";
        After the party, people couldn't stop praising the Unboxed Party. Many said it was the best party they had ever been to, and they couldn't wait to experience it again. 👏
        
        This is just the beginning of something great. The Unboxed Party is going to be a monthly affair and will wax stronger with time. The Unboxed Party team promises to serve a more superb experience edition after edition, with more games, fun activities, and exciting surprises. It's going to be the party everyone in Awka and South East looks forward to every month.`,
-      },
-    ],
+    },
+  ],
 
-    cartItems:[],
+  cartItems: [],
 
-    event: {},
+  event: {},
 
-    user: {},
+  user: {},
 
-    items: [
-      {
-        category:'T-Shirts',
-        name: 'T-Shirts',
-        id: '1',
-        price: 10000,
-        options: [
-          {
-            colors: ['White',  'Pink',  'Brown', 'Dark green'],
-            images: [
-              'white_tee_1_cmav9b',
-              'pink_tee_wxk1ji',
-              'nude_tee_msmolc',
-              'green_tee_rxt0r3'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
-      {
-        category:'Shorts',
-        name: 'Shorts',
-        id: '2',
-        price: 8000,
-        options: [
-          {
-            colors: ['Dark green', 'Brown', 'Black', 'Grey'],
-            images: [
-              'green_shorts_eynkmi',
-              'brown_shorts_ny3pg4',
-              'BLACK_SHORT_qfoivh'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
-      {
-        category:'Hoodies',
-        name: 'Hoodies',
-        id: '3',
-        price: 15000,
-        options: [
-          {
-            colors: ['Brown', 'Nude', 'Black', 'Pink', 'Dark green', 'Grey'],
-            images: [
-              'brown_hoodie_1_xpdegk',
-              'nude_hoodie_1_qhkeuf',
-              'black_crop_hoodie_x3qcoc',
-              'pink_crop_hoodie_ecvpwt'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
-      {
-        category:'T-Shirts',
-        name: 'Armless Shirts',
-        id: '4',
-        price: 8000,
-        options: [
-          {
-            colors: ['White', 'Black', 'Army green', 'Nude'],
-            images: [
-              'white_armless_msu5ix',
-              'black_armless_pxfanl',
-              'army_green_armless_mfzdnp',
-              'nude_armless_p5svtm'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
-      {
-        category:'T-Shirts',
-        name: 'Crop Tops',
-        id: '5',
-        price: 8000,
-        options: [
-          {
-            colors: ['Black', 'Pink', 'White'],
-            images: [
-              'black_crop_top_difdtj',
-              'pink_crop_top_cvis2l',
-              'white_crop_top_liywds'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
+  items: [
+    {
+      category: 'T-Shirts',
+      name: 'T-Shirts',
+      id: '1',
+      price: 10000,
+      options: [
+        {
+          colors: ['White', 'Pink', 'Brown', 'Dark green'],
+          images: [
+            'white_tee_1_cmav9b',
+            'pink_tee_wxk1ji',
+            'nude_tee_msmolc',
+            'green_tee_rxt0r3',
+          ],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
+    {
+      category: 'Shorts',
+      name: 'Shorts',
+      id: '2',
+      price: 8000,
+      options: [
+        {
+          colors: ['Dark green', 'Brown', 'Black', 'Grey'],
+          images: [
+            'green_shorts_eynkmi',
+            'brown_shorts_ny3pg4',
+            'BLACK_SHORT_qfoivh',
+          ],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
+    {
+      category: 'Hoodies',
+      name: 'Hoodies',
+      id: '3',
+      price: 15000,
+      options: [
+        {
+          colors: ['Brown', 'Nude', 'Black', 'Pink', 'Dark green', 'Grey'],
+          images: [
+            'brown_hoodie_1_xpdegk',
+            'nude_hoodie_1_qhkeuf',
+            'black_crop_hoodie_x3qcoc',
+            'pink_crop_hoodie_ecvpwt',
+          ],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
+    {
+      category: 'T-Shirts',
+      name: 'Armless Shirts',
+      id: '4',
+      price: 8000,
+      options: [
+        {
+          colors: ['White', 'Black', 'Army green', 'Nude'],
+          images: [
+            'white_armless_msu5ix',
+            'black_armless_pxfanl',
+            'army_green_armless_mfzdnp',
+            'nude_armless_p5svtm',
+          ],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
+    {
+      category: 'T-Shirts',
+      name: 'Crop Tops',
+      id: '5',
+      price: 8000,
+      options: [
+        {
+          colors: ['Black', 'Pink', 'White'],
+          images: [
+            'black_crop_top_difdtj',
+            'pink_crop_top_cvis2l',
+            'white_crop_top_liywds',
+          ],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
 
-      {
-        category:'Trousers',
-        name: 'Cargo Pants',
-        id: '6',
-        price: 15000,
-        options: [
-          {
-            colors: ['Black','Light brown'],
-            images: [
-              'blck_cargo_pants_knnbev',
-              'nude_cargo_pants_ep1ijf'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
+    {
+      category: 'Trousers',
+      name: 'Cargo Pants',
+      id: '6',
+      price: 15000,
+      options: [
+        {
+          colors: ['Black', 'Light brown'],
+          images: ['blck_cargo_pants_knnbev', 'nude_cargo_pants_ep1ijf'],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
 
-      {
-        category:'Hoodies',
-        name: 'Crop Hoodies',
-        id: '7',
-        price: 12000,
-        options: [
-          {
-            colors: ['Pink', 'Black'],
-            images: [
-              'pink_crop_hoodie_ecvpwt',
-              'black_crop_hoodie_x3qcoc'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
-      {
-        category:'Vest',
-        name: 'Cargo Vest',
-        id: '8',
-        price: 15000,
-        options: [
-          {
-            colors: ['Black', 'Brown'],
-            images: [
-              'black_cargo_jacket_f9e3mh',
-              'nude_cargo_jacket_dqb0ax'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
-      {
-        category:'Joggers',
-        name: 'Joggers',
-        id: '9',
-        price: 10000,
-        options: [
-          {
-            colors: ['Black','Army green',  'Light brown'],
-            images: [
-              'black_joggers_vcpbwm',
-              'green_joggers_harkhs',
-              'nude_joggers_kq9gad'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      },
+    {
+      category: 'Hoodies',
+      name: 'Crop Hoodies',
+      id: '7',
+      price: 12000,
+      options: [
+        {
+          colors: ['Pink', 'Black'],
+          images: ['pink_crop_hoodie_ecvpwt', 'black_crop_hoodie_x3qcoc'],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
+    {
+      category: 'Vest',
+      name: 'Cargo Vest',
+      id: '8',
+      price: 15000,
+      options: [
+        {
+          colors: ['Black', 'Brown'],
+          images: ['black_cargo_jacket_f9e3mh', 'nude_cargo_jacket_dqb0ax'],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
+    {
+      category: 'Joggers',
+      name: 'Joggers',
+      id: '9',
+      price: 10000,
+      options: [
+        {
+          colors: ['Black', 'Army green', 'Light brown'],
+          images: [
+            'black_joggers_vcpbwm',
+            'green_joggers_harkhs',
+            'nude_joggers_kq9gad',
+          ],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
 
-      {
-        category:'T-Shirt',
-        name: 'Long Sleeved Shirt',
-        id: '10',
-        price: 10000,
-        options: [
-          {
-            colors: [ 'Red','Black',],
-            images: [
-              'red_long_sl_mecfkj',
-              'black_long_sleeves_t8b9nc'
-            ],
-            sizes: ['M', 'L', 'XL', 'XXL']
-          }
-        ]
-      }
-    ],
-   
-    users: [],
-    tickets: [],
-    students: [],
-    article: {},
+    {
+      category: 'T-Shirt',
+      name: 'Long Sleeved Shirt',
+      id: '10',
+      price: 10000,
+      options: [
+        {
+          colors: ['Red', 'Black'],
+          images: ['red_long_sl_mecfkj', 'black_long_sleeves_t8b9nc'],
+          sizes: ['M', 'L', 'XL', 'XXL'],
+        },
+      ],
+    },
+  ],
 
-    articles: [
-      {
-        name: `11 ways to know you're a true Gen z`,
-        image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700/v1683467740/11_ways_to_know_you_re_a_true_Gen_Z_uvig6l.jpg',
-        body: `
+  users: [],
+  tickets: [],
+  students: [],
+  article: {},
+
+  articles: [
+    {
+      name: `11 ways to know you're a true Gen z`,
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700/v1683467740/11_ways_to_know_you_re_a_true_Gen_Z_uvig6l.jpg',
+      body: `
 
         **  You are obsessed with social media: You.         spend hours scrolling through Instagram,       TikTok, and other social media platforms.         You are always on the lookout for the.               latest trends and memes.
         <br>
@@ -583,378 +596,363 @@ import { version } from "../package.json";
         
         
         Wahala for who no b gen z `,
-        author: 'Current'
-      },
-      {
-        name:'10 Things All Gen Z Should Look Out For During UNBOXED PARTY',
-        image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700/v1684055277/10_Things_All_Gen_Z_Should_Look_Out_For_During_UNBOXED_PARTY_fq8bzv.jpg',
-        author: 'Current',
-        body:'Coming Soon...'
-      },
-
-      {
-        name:'Re-Live top moments from UNBOXED PARTIES So Far',
-        image: 'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700/v1684055244/Re-live_Top_Moments_from_UNBOXED_PARTIES_SO_FAR_fzyhpi.jpg',
-        author: 'Current',
-        body:'Coming Soon...'
-      },
-    ],
-
-    ticket_no: {},
-    student_no: 0,
-  })
-  
-   const getters = {
-    getCategories(state){
-      return state.items.category
+      author: 'Current',
+    },
+    {
+      name: '10 Things All Gen Z Should Look Out For During UNBOXED PARTY',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700/v1684055277/10_Things_All_Gen_Z_Should_Look_Out_For_During_UNBOXED_PARTY_fq8bzv.jpg',
+      author: 'Current',
+      body: 'Coming Soon...',
     },
 
-    getEvents(state) {
-      return state.events
+    {
+      name: 'Re-Live top moments from UNBOXED PARTIES So Far',
+      image:
+        'https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_700/v1684055244/Re-live_Top_Moments_from_UNBOXED_PARTIES_SO_FAR_fzyhpi.jpg',
+      author: 'Current',
+      body: 'Coming Soon...',
     },
+  ],
 
-    getMyEvents(state) {
-      return state.myevents
-    },
+  ticket_no: {},
+  student_no: 0,
+});
 
-    getMyticketQty(state) {
-      return state.myticketQty
-    },
+const getters = {
+  getCategories(state) {
+    return state.items.category;
+  },
 
-    getItems(state) {
-      return state.items
-    },
-    getMyItems(state) {
-      return state.myitems
-    },
+  getEvents(state) {
+    return state.events;
+  },
 
-    getEvent(state){
-        return state.event
-    },
-    getArticles(state) {
-      return state.articles
-    },
-    getMyArticles(state) {
-      return state.myarticles
-    },
-    getArticle(state){
-        return state.article
-    },
-    getUser(state){
-        return state.user
-    },
-    getTickets(state){
-        return state.tickets
-    },
-    getSurvey(state){
-        return state.survey
-    },
-    getStudents(state){
-        return state.students
-    },
-    getUsers(state){
-        return state.users
-    },
-    getStudentNo(state){
-        return state.student_no
-    },
-    getTicket_no(state){
-        return state.ticket_no
-    },
-  }
-  
-   const mutations = {
-    INIT_STORE (state){
-      const lState = localStorage.getItem('unboxed_party');
-    
-      if (lState) {
-        // load the cached state if versions match
-        const cachedState = JSON.parse(lState);
-    
-        if (cachedState.version == version) {
-          store.replaceState(
-            //replace app's store state with the cached version
-            Object.assign(store.state, cachedState)
-          );
-        } else {
-          //update store version to current version
-          state.version = version;
-        }
+  getMyEvents(state) {
+    return state.myevents;
+  },
+
+  getMyticketQty(state) {
+    return state.myticketQty;
+  },
+
+  getItems(state) {
+    return state.items;
+  },
+  getMyItems(state) {
+    return state.myitems;
+  },
+
+  getEvent(state) {
+    return state.event;
+  },
+  getArticles(state) {
+    return state.articles;
+  },
+  getMyArticles(state) {
+    return state.myarticles;
+  },
+  getArticle(state) {
+    return state.article;
+  },
+  getUser(state) {
+    return state.user;
+  },
+  getTickets(state) {
+    return state.tickets;
+  },
+  getSurvey(state) {
+    return state.survey;
+  },
+  getStudents(state) {
+    return state.students;
+  },
+  getUsers(state) {
+    return state.users;
+  },
+  getStudentNo(state) {
+    return state.student_no;
+  },
+  getTicket_no(state) {
+    return state.ticket_no;
+  },
+};
+
+const mutations = {
+  INIT_STORE(state) {
+    const lState = localStorage.getItem('unboxed_party');
+
+    if (lState) {
+      // load the cached state if versions match
+      const cachedState = JSON.parse(lState);
+
+      if (cachedState.version == version) {
+        store.replaceState(
+          //replace app's store state with the cached version
+          Object.assign(store.state, cachedState)
+        );
       } else {
         //update store version to current version
         state.version = version;
       }
-    },
-
-
-    CLEAR_EXPIRED_ITEMS( state ) {
-      if (state.shop_items?.expire_at && Date.now() >= state.shop_items?.expire_at) {
-        state.shop_items = {};
-      }
-    },
-
-    CLEAR_EXPIRED_EVENTS( state ) {
-      if (state.myevents?.expire_at && Date.now() >= state.myevents?.expire_at) {
-        state.myevents = {};
-      }
-    },
-    CLEAR_EXPIRED_ARTICLES( state ) {
-      if (state.myarticles?.expire_at && Date.now() >= state.myarticles?.expire_at) {
-        state.myarticles = {};
-      }
-    },
-    
-
-
-    setArticles(state, {article}) {
-      state.articles = article
-    },
-
-    SET_SURVEY(state, payload) {
-      state.survey = payload
-    },
-
-    SET_QUESTIONAIRENUMBERS(state, payload) {
-      state.questionaireNumbers = payload
-    },
-
-    SET_QUESTIONAIREEMAILS(state, payload) {
-      state.questionaireEmails = payload
-    },
-
-    SET_QUESTIONAIRENAMES(state, payload) {
-      state.questionaireNames = payload
-    },
-
-
-    SET_MY_ARTICLES(state, payload) {
-      state.myarticles.list = payload
-    },
-
-    SET_MY_ARTICLES_EXPIRATION_DATE(state, payload) {
-      state.myarticles.expire_at = payload
-    },
-
-
-    SET_MY_CATEGORY(state, payload) {
-      state.mycategory = payload
-    },
-
-    SET_MY_Video(state, payload) {
-      state.myvideo = payload
-    },
-
-    setArticle(state, {article}) {
-      state.article = article
-    },
-
-
-    SET_MY_EVENTS(state, payload) {
-      state.myevents.list = payload
-    },
-    SET_MY_TICKETQTY(state, payload) {
-      state.myticketQty.list = payload
-    },
-
-    SET_MY_EVENTS_EXPIRATION_DATE(state, payload) {
-      state.myevents.expire_at = payload
-    },
-
-   
-
-    SET_MY_ITEMS(state, payload) {
-      state.shop_items.list = payload
-    },
-    
-    SET_MY_ITEMS_EXPIRATION_DATE(state, payload) {
-      state.shop_items.expire_at = payload
-    },
-    
-    SET_MY_ORDERS(state, payload) {
-      state.orders.list = payload
-    },
-  
-    SET_MY_ORDERS_EXPIRATION_DATE(state, payload) {
-      state.shop_items.expire_at = payload
-    },
-
-    setEvents(state, {event}) {
-      state.events = event
-    },
-
-    setEvent(state, event) {
-      state.event = event
-    },
-    setStudentNo(state, data) {
-      state.student_no = data
-    },
-    setTicketNo(state, data) {
-      state.ticket_no = data
-    },
-    setUser(state, user) {
-      state.user = user
-    },
-    setTickets(state, tickets) {
-      state.tickets = tickets
-    },
-    setStudents(state, students) {
-      state.students = students
-    },
-
-    setUsers(state, users) {
-      state.users = users
+    } else {
+      //update store version to current version
+      state.version = version;
     }
-  }
+  },
 
-  
-   const actions = {
-    initStore({commit}){
-       commit('INIT_STORE')
-    },
+  CLEAR_EXPIRED_ITEMS(state) {
+    if (
+      state.shop_items?.expire_at &&
+      Date.now() >= state.shop_items?.expire_at
+    ) {
+      state.shop_items = {};
+    }
+  },
 
-    setMyCategory({commit},payload) {
-      commit("SET_MY_CATEGORY",payload)
-    },
+  CLEAR_EXPIRED_EVENTS(state) {
+    if (state.myevents?.expire_at && Date.now() >= state.myevents?.expire_at) {
+      state.myevents = {};
+    }
+  },
+  CLEAR_EXPIRED_ARTICLES(state) {
+    if (
+      state.myarticles?.expire_at &&
+      Date.now() >= state.myarticles?.expire_at
+    ) {
+      state.myarticles = {};
+    }
+  },
 
-    setMyVideo({commit},payload) {
-      commit("SET_MY_Video",payload)
-    },
+  setArticles(state, { article }) {
+    state.articles = article;
+  },
 
-     setArticle({ commit }, article) {
-      // make request
-      commit('setArticle', article)
-    },
+  SET_SURVEY(state, payload) {
+    state.survey = payload;
+  },
 
+  SET_QUESTIONAIRENUMBERS(state, payload) {
+    state.questionaireNumbers = payload;
+  },
 
-     setMyArticles({ commit }, payload) {
-      // make request
-      commit('SET_MY_ARTICLES', payload)
-    },
+  SET_QUESTIONAIREEMAILS(state, payload) {
+    state.questionaireEmails = payload;
+  },
 
-     setMySurvey({ commit }, payload) {
-      // make request
-      commit('SET_SURVEY', payload)
-    },
+  SET_QUESTIONAIRENAMES(state, payload) {
+    state.questionaireNames = payload;
+  },
 
-     setMyQuestionaireNumbers({ commit }, payload) {
-      // make request
-      commit('SET_QUESTIONAIRENUMBERS', payload)
-    },
+  SET_MY_ARTICLES(state, payload) {
+    state.myarticles.list = payload;
+  },
 
-     setMyQuestionaireEmails({ commit }, payload) {
-      // make request
-      commit('SET_QUESTIONAIREEMAILS', payload)
-    },
-     setMyQuestionaireNames({ commit }, payload) {
-      // make request
-      commit('SET_QUESTIONAIRENAMES', payload)
-    },
+  SET_MY_ARTICLES_EXPIRATION_DATE(state, payload) {
+    state.myarticles.expire_at = payload;
+  },
 
+  SET_MY_CATEGORY(state, payload) {
+    state.mycategory = payload;
+  },
 
-     setMyArticlesExpirationDate({ commit }, payload) {
-      // make request
-      commit('SET_MY_ARTICLES_EXPIRATION_DATE', payload)
-    },
+  SET_MY_Video(state, payload) {
+    state.myvideo = payload;
+  },
 
-    clearExpiredItems({commit}){
-      commit('CLEAR_EXPIRED_ITEMS')
-    },
+  setArticle(state, { article }) {
+    state.article = article;
+  },
 
-    clearExpiredEvents({commit}){
-      commit('CLEAR_EXPIRED_EVENTS')
-    },
+  SET_MY_EVENTS(state, payload) {
+    state.myevents.list = payload;
+  },
+  SET_MY_TICKETQTY(state, payload) {
+    state.myticketQty.list = payload;
+  },
 
-    clearExpiredArticles({commit}){
-      commit(' CLEAR_EXPIRED_ARTICLES')
-    },
+  SET_MY_EVENTS_EXPIRATION_DATE(state, payload) {
+    state.myevents.expire_at = payload;
+  },
 
+  SET_MY_ITEMS(state, payload) {
+    state.shop_items.list = payload;
+  },
 
-    setMyEvents({ commit }, payload) {
-       // make request
-      commit('SET_MY_EVENTS', payload)
-    },
+  SET_MY_ITEMS_EXPIRATION_DATE(state, payload) {
+    state.shop_items.expire_at = payload;
+  },
 
-    setMyTicketQty({ commit }, payload) {
-       // make request
-      commit('SET_MY_TICKETQTY', payload)
-    },
+  SET_MY_ORDERS(state, payload) {
+    state.orders.list = payload;
+  },
 
-    setMyEventsExpirationDate({ commit }, payload) {
-       // make request
-      commit('SET_MY_EVENTS_EXPIRATION_DATE', payload)
-    },
+  SET_MY_ORDERS_EXPIRATION_DATE(state, payload) {
+    state.shop_items.expire_at = payload;
+  },
 
-    setMyItems({ commit }, payload) {
-       // make request
-      commit('SET_MY_ITEMS', payload)
-    },
-    
-    
+  setEvents(state, { event }) {
+    state.events = event;
+  },
 
-    setMyItemsExpirationDate({ commit }, payload) {
-       // make request
-      commit('SET_MY_ITEMS_EXPIRATION_DATE', payload)
-    },
+  setEvent(state, event) {
+    state.event = event;
+  },
+  setStudentNo(state, data) {
+    state.student_no = data;
+  },
+  setTicketNo(state, data) {
+    state.ticket_no = data;
+  },
+  setUser(state, user) {
+    state.user = user;
+  },
+  setTickets(state, tickets) {
+    state.tickets = tickets;
+  },
+  setStudents(state, students) {
+    state.students = students;
+  },
 
-    
-    setMyOrders({ commit }, payload) {
-       // make request
-       commit('SET_MY_ORDERS', payload)
-      },
+  setUsers(state, users) {
+    state.users = users;
+  },
+};
 
-      setMyOrdersExpirationDate({ commit }, payload) {
-         // make request
-        commit('SET_MY_ORDERS_EXPIRATION_DATE', payload)
-      },
+const actions = {
+  initStore({ commit }) {
+    commit('INIT_STORE');
+  },
 
-     setEvent({ commit }, event) {
-      // make request
-      commit('setEvent', event)
-    },
+  setMyCategory({ commit }, payload) {
+    commit('SET_MY_CATEGORY', payload);
+  },
 
-     setUser({ commit },user) {
-      // make request
-      commit('setUser', user)
-    },
-     setUsers({ commit },users) {
-      // make request
-      commit('setUsers', users)
-    },
-     setStudents({ commit },users) {
-      // make request
-      commit('setStudents', users)
-    },
-    setTicketNo({ commit },data) {
-      // make request
-      commit('setTicketNo', data)
-    },
-    setTickets({ commit }, data) {
-      // make request
-      commit('setTickets', data)
-    },
-    setStudentNo({ commit }, data) {
-      // make request
-      commit('setStudentNo', data)
-    },
+  setMyVideo({ commit }, payload) {
+    commit('SET_MY_Video', payload);
+  },
 
-  }
+  setArticle({ commit }, article) {
+    // make request
+    commit('setArticle', article);
+  },
 
+  setMyArticles({ commit }, payload) {
+    // make request
+    commit('SET_MY_ARTICLES', payload);
+  },
 
+  setMySurvey({ commit }, payload) {
+    // make request
+    commit('SET_SURVEY', payload);
+  },
 
+  setMyQuestionaireNumbers({ commit }, payload) {
+    // make request
+    commit('SET_QUESTIONAIRENUMBERS', payload);
+  },
 
+  setMyQuestionaireEmails({ commit }, payload) {
+    // make request
+    commit('SET_QUESTIONAIREEMAILS', payload);
+  },
+  setMyQuestionaireNames({ commit }, payload) {
+    // make request
+    commit('SET_QUESTIONAIRENAMES', payload);
+  },
 
+  setMyArticlesExpirationDate({ commit }, payload) {
+    // make request
+    commit('SET_MY_ARTICLES_EXPIRATION_DATE', payload);
+  },
 
-  
-  const store = createStore({state, mutations, actions, getters});
-  store.subscribe((_, state) => {
-    // persisting the state of the store
-    localStorage.setItem('unboxed_party', JSON.stringify(state));
-  });
+  clearExpiredItems({ commit }) {
+    commit('CLEAR_EXPIRED_ITEMS');
+  },
 
-  export default defineNuxtPlugin((nuxtApp) => {
-    nuxtApp.vueApp.use(store);
-    // Install the store instance as a plugin
+  clearExpiredEvents({ commit }) {
+    commit('CLEAR_EXPIRED_EVENTS');
+  },
 
-    store.dispatch("initStore");
-  });
-  
+  clearExpiredArticles({ commit }) {
+    commit(' CLEAR_EXPIRED_ARTICLES');
+  },
+
+  setMyEvents({ commit }, payload) {
+    // make request
+    commit('SET_MY_EVENTS', payload);
+  },
+
+  setMyTicketQty({ commit }, payload) {
+    // make request
+    commit('SET_MY_TICKETQTY', payload);
+  },
+
+  setMyEventsExpirationDate({ commit }, payload) {
+    // make request
+    commit('SET_MY_EVENTS_EXPIRATION_DATE', payload);
+  },
+
+  setMyItems({ commit }, payload) {
+    // make request
+    commit('SET_MY_ITEMS', payload);
+  },
+
+  setMyItemsExpirationDate({ commit }, payload) {
+    // make request
+    commit('SET_MY_ITEMS_EXPIRATION_DATE', payload);
+  },
+
+  setMyOrders({ commit }, payload) {
+    // make request
+    commit('SET_MY_ORDERS', payload);
+  },
+
+  setMyOrdersExpirationDate({ commit }, payload) {
+    // make request
+    commit('SET_MY_ORDERS_EXPIRATION_DATE', payload);
+  },
+
+  setEvent({ commit }, event) {
+    // make request
+    commit('setEvent', event);
+  },
+
+  setUser({ commit }, user) {
+    // make request
+    commit('setUser', user);
+  },
+  setUsers({ commit }, users) {
+    // make request
+    commit('setUsers', users);
+  },
+  setStudents({ commit }, users) {
+    // make request
+    commit('setStudents', users);
+  },
+  setTicketNo({ commit }, data) {
+    // make request
+    commit('setTicketNo', data);
+  },
+  setTickets({ commit }, data) {
+    // make request
+    commit('setTickets', data);
+  },
+  setStudentNo({ commit }, data) {
+    // make request
+    commit('setStudentNo', data);
+  },
+};
+
+const store = createStore({ state, mutations, actions, getters });
+store.subscribe((_, state) => {
+  // persisting the state of the store
+  localStorage.setItem('unboxed_party', JSON.stringify(state));
+});
+
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(store);
+  // Install the store instance as a plugin
+  // app.use(pinia);
+  store.dispatch('initStore');
+});
