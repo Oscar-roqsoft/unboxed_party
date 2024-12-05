@@ -593,6 +593,12 @@ export default {
       'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],
     memes: [
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393068/pgxxkqps5r60xvqnewgu.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/fkyc4r9ebdzxcuzft3j2.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/dny7jkaw9zupclc97cr6.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/lnzo80rgxpvetc8jcemm.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/t8yhc6f5am3qptzkfcl4.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/e78q5zk1a1evbrurerrh.png'
       //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732544933/dondbfycrmflnndoa9w1.png',
       //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545141/wnlovn3c4nimpsv4pss5.png',
       //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545204/kow40iapratwwuis4c8o.png',
