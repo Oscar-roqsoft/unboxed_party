@@ -194,23 +194,23 @@ export default {
 };
 
 // Define the validation schema
-const schema = yup.object( {
-  email: yup
-    .string()
-    .email( 'Must be a valid e-mail.' )
-    .required( 'Email is required.' ),
-  password: yup
-    .string()
-    .required( 'Password is required.' )
-} );
+// const schema = yup.object( {
+//   email: yup
+//     .string()
+//     .email( 'Must be a valid e-mail.' )
+//     .required( 'Email is required.' ),
+//   password: yup
+//     .string()
+//     .required( 'Password is required.' )
+// } );
 
 
-// Set up form fields with validation
-const { handleSubmit, handleReset, errors } = useForm( {
-  validationSchema: schema,
-} );
-const email = useField( 'email' );
-const password = useField( 'password' );
+// // Set up form fields with validation
+// const { handleSubmit, handleReset, errors } = useForm( {
+//   validationSchema: schema,
+// } );
+// const email = useField( 'email' );
+// const password = useField( 'password' );
 
 const isloading = ref( false );
 

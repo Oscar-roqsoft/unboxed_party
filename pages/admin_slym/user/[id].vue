@@ -225,6 +225,8 @@ Actions
   }</style>
   <script>
   import moment from 'moment';
+  import { useStore } from '~~/store';
+  const store = useStore();
   
   export default {
    
@@ -279,7 +281,7 @@ Actions
             headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
-          'Accept': 'application/json'
+              'Accept': 'application/json', 'Authorization': `Bearer ${store.state.token}`
             }})
             .then((response) => {
               if (response.ok) {
@@ -326,7 +328,7 @@ Actions
               headers: {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*",
-                "Accept": "application/json",
+                "Accept": "application/json", 'Authorization': `Bearer ${store.state.token}`
               }
             })
               .then((response) => {
@@ -353,7 +355,7 @@ Actions
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'Accept': 'application/json'
+            'Accept': 'application/json', 'Authorization': `Bearer ${store.state.token}`
             
             
           }})

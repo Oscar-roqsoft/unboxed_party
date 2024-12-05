@@ -1,8 +1,10 @@
 <template>
 
   <div>
-
     <v-container>
+      <Backbutton class="md:tw-max-w-[980px] mx-auto" />
+    </v-container>
+    <!-- <v-container>
       <div class=" md:tw-max-w-[1000px] mx-auto">
 
         <v-btn color="blue-darken-4" @click.prevent="navigateTo('/admin_slym/routes')" class="rounded-xl">
@@ -12,7 +14,7 @@
           </svg>
         </v-btn>
       </div>
-    </v-container>
+    </v-container> -->
 
 
     <v-container>
@@ -120,6 +122,7 @@
 
 <script>
 import { imageFilter } from '@/composables/mixins';
+import Backbutton from '~~/components/backbutton.vue';
 import { useStore } from '~~/store';
 const store = useStore();
 export default {

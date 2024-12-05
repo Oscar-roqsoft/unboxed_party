@@ -61,6 +61,9 @@
 </template>
 
 <script>
+import { useStore } from '~~/store';
+const store = useStore();
+
 export default {
   data() {
     return {
@@ -93,6 +96,7 @@ computed: {
             method:"GET",
             headers:{
             'Content-Type': 'application/json',
+              'Authorization': `Bearer ${store.state.token}`
             }
         }).then(res=>res.json());
 
@@ -122,6 +126,7 @@ computed: {
             method:'DELETE',
             headers:{
                 'Content-Type': 'application/json',
+              'Authorization': `Bearer ${store.state.token}`
               },
 
               body:JSON.stringify(id)

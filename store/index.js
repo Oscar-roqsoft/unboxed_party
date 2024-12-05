@@ -25,7 +25,7 @@ export const useStore = defineStore(
     const clearUser = () => {
       state.token = null;
       state.isAuthenticated = false;
-      navigateTo('/');
+      navigateTo('/admin_slym');
     };
 
     return {

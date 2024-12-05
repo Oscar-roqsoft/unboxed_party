@@ -187,6 +187,8 @@
 import { createToast } from 'mosha-vue-toastify'
 import 'mosha-vue-toastify/dist/style.css'
 import {handleFileChange,uploadToCloudinary,asyncRequest} from "@/composables/mixins"
+import { useStore } from '~~/store';
+const store = useStore();
 export default {
     setup () {
     const toast = (message) => {
@@ -347,7 +349,7 @@ mounted(){
           const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
               method:"POST",
               headers:{
-                  'Content-Type': 'application/json',
+                  'Content-Type': 'application/json', 'Authorization': `Bearer ${store.state.token}`
               },
               body:JSON.stringify(item)
           }).then(res=>res.json())

@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import { useStore } from '~~/store';
+const store = useStore();
 export default {
   data() {
     return {
@@ -87,6 +89,7 @@ export default {
             method:"GET",
             headers:{
               'Content-Type': 'application/json',
+              'Authorization': `Bearer ${store.state.token}`
             }
     
           }).then(res=>res.json());
@@ -116,7 +119,7 @@ export default {
           const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
             method:'DELETE',
             headers:{
-                'Content-Type': 'application/json',
+              'Content-Type': 'application/json', 'Authorization': `Bearer ${store.state.token}`
               },
 
               body:JSON.stringify(id)

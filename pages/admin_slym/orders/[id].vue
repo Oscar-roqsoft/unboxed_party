@@ -61,6 +61,8 @@
 <script>
 import { createToast } from 'mosha-vue-toastify'
 import 'mosha-vue-toastify/dist/style.css'
+import { useStore } from '~~/store';
+const store = useStore();
 
 export default{
     setup () {
@@ -146,7 +148,7 @@ export default{
                     method:"PATCH",
                     headers:{
                         'Content-Type': 'application/json',
-
+                        'Authorization': `Bearer ${store.state.token}`
                     },
                     body:JSON.stringify(orderInfo)
                 }).then(resp=>resp.json())

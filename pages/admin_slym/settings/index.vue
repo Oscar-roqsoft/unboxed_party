@@ -51,6 +51,8 @@
 
 <script>
 import {handleFileChange,uploadToCloudinary,asyncRequest} from "@/composables/mixins"
+import { useStore } from '~~/store';
+const store = useStore();
 export default {
   data() {
     return {
@@ -87,7 +89,7 @@ export default {
           const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
               method:"Get",
               headers:{
-                  'Content-Type': 'application/json',
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${store.state.token}`
               },
           }).then(res=>res.json())
 

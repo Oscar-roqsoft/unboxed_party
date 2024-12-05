@@ -1,7 +1,9 @@
 <template>
   <div>
-
-    <div class="ma-4">
+    <v-container>
+      <Backbutton class="md:tw-max-w-[980px] mx-auto" />
+    </v-container>
+    <!-- <div class="ma-4">
 
       <v-btn color="blue-darken-4" @click.prevent="navigateTo('/admin_slym/routes')" class="rounded-xl">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -9,7 +11,7 @@
             d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64" />
         </svg>
       </v-btn>
-    </div>
+    </div> -->
 
     <v-card tile theme="dark">
 
@@ -183,6 +185,7 @@
 
 <script>
 import moment from 'moment';
+import Backbutton from '~~/components/backbutton.vue';
 import { useStore } from '~~/store';
 const store = useStore();
 export default {
@@ -296,7 +299,7 @@ export default {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
-          "Accept": "application/json",
+          "Accept": "application/json", 'Authorization': `Bearer ${store.state.token}`
         }
       } )
         .then( ( response ) => {
@@ -322,9 +325,7 @@ export default {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
-          'Accept': 'application/json'
-
-
+          'Accept': 'application/json','Authorization': `Bearer ${store.state.token}`
         }
       } )
         .then( ( response ) => {

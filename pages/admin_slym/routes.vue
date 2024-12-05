@@ -1,5 +1,8 @@
 <template>
     <div class="md:tw-max-w-[1100px] tw-mx-auto tw-p-4 md:tw-pt-10 tw-w-full">
+        <button @click="logout" class=" shover:tw-shadow-lg tw-rounded tw-text-xl tw-bg-[#F5200A] tw-mb-[50px]
+            tw-p-4">Log
+            out</button>
         <div class="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-4">
             <button @click.prevent="navigateTo(`/admin_slym/user`)"
                 class="tw-h-[150px] md:tw-h-[200px]  hover:tw-shadow-lg tw-rounded tw-text-2xl tw-bg-gray-950">user
@@ -23,3 +26,29 @@
         </div>
     </div>
 </template>
+
+<script>
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css';
+import { useStore } from '~~/store'; // Adjust the path as needed
+
+export default {
+    setup() {
+        const store = useStore(); // Access the store inside setup
+        const toast = ( message ) => {
+            createToast( message );
+        };
+
+        const logout = () => {
+            store.clearUser(); // Clear user data from the store
+            toast( 'Logged out successfully' );
+            localStorage.clear(); // Clear storage if the token is missing
+        };
+
+        return {
+            toast,
+            logout,
+        };
+    },
+};
+</script>

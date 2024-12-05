@@ -54,7 +54,8 @@
 <script>
 import { createToast } from 'mosha-vue-toastify'
 import 'mosha-vue-toastify/dist/style.css'
-
+import { useStore } from '~~/store';
+const store = useStore();
 export default {
   setup () {
     const toast = (message) => {
@@ -108,14 +109,14 @@ export default {
           const data = await fetch(`https://backend.unboxedparty.com/api/general-settings`,{
               method:"PATCH",
               headers:{
-                  'Content-Type': 'application/json',
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${store.state.token}`
               },
               body:JSON.stringify(video)
           }).then(res=>res.json())
 
           if(data.success) this.toast('Video Uploaded successfully')
           this.loading= false
-            navigateTo('/admin_slym')
+            navigateTo('/admin_slym/routes')
       }catch(e){
          console.log(e)
          this.toast('message status:  Video failed to upload')

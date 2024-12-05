@@ -3,7 +3,7 @@
       <v-container>
             <div  class=" md:tw-max-w-[1000px] mx-auto">
 
-              <v-btn color="blue-darken-4" @click.prevent="$router.push('/admin_slym')" class="rounded-xl">
+              <v-btn color="blue-darken-4" @click.prevent="$router.push('/admin_slym/routes')" class="rounded-xl">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                       <path fill="currentColor" d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64"/>
                   </svg>
@@ -95,7 +95,8 @@
 <script>
 import { imageFilter } from "@/composables/mixins";
 import ItemImage from "@/components/ItemImage";
-
+import { useStore } from '~~/store';
+const store = useStore();
 export default {
     data(){
         return{
@@ -140,7 +141,7 @@ export default {
            const data = await fetch(`https://backend.unboxedparty.com/api/category`,{
                method:"GET",
                headers:{
-               'Content-Type': 'application/json',
+                 'Content-Type': 'application/json', 'Authorization': `Bearer ${store.state.token}`
                }
            }).then(res=>res.json());
    
@@ -158,7 +159,7 @@ export default {
           const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
             method:"GET",
             headers:{
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json', 'Authorization': `Bearer ${store.state.token}`
             }
 
           }).then(res=>res.json());
@@ -207,7 +208,7 @@ export default {
       try {
         await fetch(`https://backend.unboxedparty.com/api/merch`, {
           method: "DELETE",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${store.state.token}` },
           body: JSON.stringify(id),
         });
 

@@ -1,6 +1,6 @@
 import { createStore } from 'vuex';
 // import { store } from ".";
-
+import { useStore } from '~~/store';
 import { version } from '../package.json';
 
 const state = () => ({
@@ -946,8 +946,13 @@ const actions = {
 
 const store = createStore({ state, mutations, actions, getters });
 store.subscribe((_, state) => {
+  const pinia = useStore()
   // persisting the state of the store
-  localStorage.setItem('unboxed_party', JSON.stringify(state));
+    const token = pinia.state.token // token from admin
+    if (token) {
+      localStorage.setItem('unboxed_party', JSON.stringify(state));
+    }
+  // localStorage.setItem('unboxed_party', JSON.stringify(state));
 });
 
 export default defineNuxtPlugin((nuxtApp) => {
