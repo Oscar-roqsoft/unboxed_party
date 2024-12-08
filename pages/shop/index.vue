@@ -210,7 +210,7 @@ export default {
 
     setActiveCategory(tab) {
       this.selecteditemsToD = this.items.filter((item) =>  item.category.toUpperCase().includes(tab.toUpperCase()))
-      console.log(this.selecteditemsToD)
+      // console.log(this.selecteditemsToD)
     },
 
   },

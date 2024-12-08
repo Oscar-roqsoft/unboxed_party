@@ -38,7 +38,7 @@ export default {
   methods: {
     selectEmail(email) {
       // Handle selecting an email (e.g., show email details)
-      console.log('Selected email:', email);
+      // console.log('Selected email:', email);
     },
     async get_email() {
       try {
@@ -50,9 +50,9 @@ export default {
         }).then(res => res.json());
 
         this.emails = data.emails;
-        console.log(this.emails);
+        // console.log(this.emails);
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     },
 

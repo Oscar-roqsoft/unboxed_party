@@ -95,7 +95,7 @@ export default {
 
         this.$router.go(-1)
       }catch(e){
-         console.log(e)
+        //  console.log(e)
          this.toast(
               "message status: failed to create Category ",
            )

@@ -131,7 +131,7 @@ export default {
 
         setTimeout( () => {
             this.itemlist = this.orders;
-            console.log( 'updated' );
+            // console.log( 'updated' );
         }, 3000 );
 
 
@@ -151,7 +151,7 @@ export default {
             this.$store.dispatch( "setMyOrdersExpirationDate", addMinutes( 30 ) );
 
         } catch ( e ) {
-            console.log( e );
+            // console.log( e );
 
         }
 

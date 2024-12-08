@@ -170,10 +170,10 @@
             })
 
             .then((res) => {
-              console.log(res)
+              // console.log(res)
               this.loader = false
               this.$store.dispatch('setTickets', res.success.users)
-               console.log( res.success)
+              //  console.log( res.success)
             })
 
             .catch(() => {
@@ -201,9 +201,9 @@
       openTicketBtn(item) {
         // this.ticket = e.tickets[0]
         // this.dialog = true
-        console.log(item)
+        // console.log(item)
         this.$store.dispatch('setUser', item)
-        console.log(this.$store.state.user.user)
+        // console.log(this.$store.state.user.user)
         this.$router.push('/admin_slym/student/'+item.id)
       },
      
@@ -229,7 +229,7 @@
             throw new Error("Something went wrong");
           })
           .then((res) => {
-            console.log(res)
+            // console.log(res)
             this.loading = false
             this.dialog = true
           })

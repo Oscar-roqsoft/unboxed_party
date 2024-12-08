@@ -145,7 +145,7 @@ export default {
           image:secure_url ? secure_url : this.articles.image,
       }
 
-      console.log(event)
+      // console.log(event)
 
 
       try{
@@ -158,7 +158,7 @@ export default {
               body:JSON.stringify(event)
           }).then(res=>res.json())
 
-          console.log('good',data)
+          // console.log('good',data)
 
           if(data.success) {
 
@@ -174,7 +174,7 @@ export default {
           navigateTo("/admin_slym/articles")
 
       }catch(e){
-         console.log(e)
+        //  console.log(e)
          this.toast(
               "message status: failed to update Article ",
            )

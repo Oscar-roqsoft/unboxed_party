@@ -93,12 +93,12 @@ export default {
               },
           }).then(res=>res.json())
 
-          console.log(data)
+          // console.log(data)
         const payload =  data.settings
         this.$store.dispatch("setMyVideo", payload);
 
       }catch(e){
-         console.log(e)
+        //  console.log(e)
       }
 
 },

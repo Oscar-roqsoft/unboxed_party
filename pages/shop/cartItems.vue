@@ -365,7 +365,7 @@ export default {
 
     if(!this.$store.state.cartItems.length){
          this.$router.push('/shop')
-         console.log('done')
+        //  console.log('done')
        }
 
     
@@ -409,7 +409,7 @@ export default {
             whatsapp: this.whatsapp,
             // sign: this.sign,
           };
-          console.log(dat);
+          // console.log(dat);
           fetch("https://backend.unboxedparty.com/api/save", {
             method: "POST",
             headers: {
@@ -448,7 +448,7 @@ export default {
 
 
       async verify_trans(transaction_reference){
-        console.log(transaction_reference)
+        // console.log(transaction_reference)
         try{
             const data = await fetch(`https://backend.unboxedparty.com/api/order/verify?reference=${transaction_reference}`,{
               method:"GET",
@@ -520,7 +520,7 @@ export default {
 
 
     callback: (e)=>{
-      console.log(e)
+      // console.log(e)
       const transaction_reference = e.transaction_id;
       this.verify_trans(transaction_reference)
       modal.close();
@@ -596,7 +596,7 @@ export default {
 
             })
             .catch((err) => {
-              console.log(err)
+              // console.log(err)
               this.dialog = true;
               this.loading = false;
             });

@@ -273,7 +273,7 @@
         var name = decodeURIComponent(this.$route.params.name)
         
         this.event = this.events.find(el=> el.name.toLowerCase() == name.toLowerCase())
-        console.log(this.event,this.$store.state.myevents)
+        // console.log(this.event,this.$store.state.myevents)
       },
       async submit() {
         this.booked = true;
@@ -288,7 +288,7 @@
             whatsapp: this.whatsapp,
             // sign: this.sign,
           };
-          console.log(dat);
+          // console.log(dat);
           fetch("https://backend.unboxedparty.com/api/save", {
             method: "POST",
             headers: {

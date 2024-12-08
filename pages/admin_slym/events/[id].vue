@@ -254,7 +254,7 @@ import 'mosha-vue-toastify/dist/style.css'
         }
         // this.ticketName = JSON.parse(this.event.tickets).name
         this.ticketList = JSON.parse(this.event.tickets)
-        console.log(this.ticketList)
+        // console.log(this.ticketList)
         
         setTimeout(() => {
             this.dialog = true;
@@ -318,7 +318,7 @@ import 'mosha-vue-toastify/dist/style.css'
             image: secure_url ? secure_url : this.event.image,
         }
 
-        console.log(event)
+        // console.log(event)
        
 
         try{
@@ -336,12 +336,12 @@ import 'mosha-vue-toastify/dist/style.css'
 
             this.loading =false
 
-            console.log(data)
+            // console.log(data)
 
             navigateTo('/admin_slym/events')
 
         }catch(e){
-           console.log(e)
+          //  console.log(e)
            this.toast("message status:  failed to update Event")
            
         }

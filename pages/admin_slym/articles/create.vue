@@ -152,7 +152,7 @@ export default {
           navigateTo("/admin_slym/articles")
 
       }catch(e){
-         console.log(e)
+        //  console.log(e)
          this.toast(
               "message status: failed to create Article ",
            )

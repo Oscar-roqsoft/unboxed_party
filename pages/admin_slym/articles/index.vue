@@ -83,7 +83,7 @@ export default {
   },
 
   async mounted(){
-    console.log(this.fetchedArticles)
+    // console.log(this.fetchedArticles)
     try {
           const data = await fetch(`https://backend.unboxedparty.com/api/article`,{
             method:"GET",
@@ -93,7 +93,7 @@ export default {
             }
     
           }).then(res=>res.json());
-          console.log(data)
+          // console.log(data)
     
           const payload =  [...data.articles]
         this.$store.dispatch("setMyArticles", payload);
@@ -126,7 +126,7 @@ export default {
               
             }).then(res=>res.json())
 
-            console.log(data)
+            // console.log(data)
 
             const filteredItems = this.$store.state.myarticles.filter(item => item.id !== eventId)
             this.$store.dispatch("setMyArticles", filteredItems)

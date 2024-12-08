@@ -217,7 +217,7 @@ export default {
       this.$store.dispatch('updateCartItemQuantity', { product, quantity: product.quantity });
     },
     increment(index) {
-      console.log(index +  1)
+      // console.log(index +  1)
       this.$store.state.cartItems[index].quantity++;
     },
     decrement(index ) {
@@ -237,7 +237,7 @@ export default {
       this.item_name = itemName
       this.item_color = itemcolor
       this.isopen = true
-      console.log(this.isopen)
+      // console.log(this.isopen)
     },
 
     deleteItem(itemId) {

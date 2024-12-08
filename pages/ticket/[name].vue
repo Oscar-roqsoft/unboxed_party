@@ -604,7 +604,7 @@ export default {
   },
 
   async mounted() {
-    console.log( this.events );
+    // console.log( this.events );
 
 
     if ( this.$store.state.myevents.list.length ) {
@@ -622,7 +622,7 @@ export default {
         this.isLoading = false;
 
         const payload = [...data.events];
-        console.log( payload );
+        // console.log( payload );
         payload.reverse( payload );
         this.$store.dispatch( "setMyEvents", payload );
         this.$store.dispatch( "setMyEventsExpirationDate", addMinutes( 30 ) );
@@ -647,7 +647,7 @@ export default {
 
       this.mytickets = JSON.parse( eventb?.tickets );
     } catch ( e ) {
-      console.log( e );
+      // console.log( e );
     }
 
 
@@ -657,8 +657,8 @@ export default {
   methods: {
     uploadTicket() {
       this.selectedticketAmout = this.mytickets.find( i => i?.value === this.selectedticket );
-      console.log( this.selectedticket, 'selectedticket' );
-      console.log( this.selectedticketAmout, 'selectedticketAmout' );
+      // console.log( this.selectedticket, 'selectedticket' );
+      // console.log( this.selectedticketAmout, 'selectedticketAmout' );
 
       var datas = { email: this.email, id: this.user?.id, name: this.name, phone_number: this.phone };
       //this will launch Fluterwave payment modal
@@ -784,7 +784,7 @@ export default {
 
           } )
           .catch( ( err ) => {
-            console.log( err );
+            // console.log( err );
             this.dialog = true;
             this.loading = false;
           } );
@@ -810,7 +810,7 @@ export default {
           this.sold = res.success.msg;
         } )
         .catch( ( err ) => {
-          console.log( err );
+          // console.log( err );
           this.dialog = true;
           this.loading = false;
         } );
@@ -821,7 +821,7 @@ export default {
       let text = document.getElementById( 'acnum' ).innerHTML;
       try {
         await navigator.clipboard.writeText( text );
-        console.log( 'Content copied to clipboard' );
+        // console.log( 'Content copied to clipboard' );
         alert( 'Account No has been copied!' );
       } catch ( err ) {
         console.error( 'Failed to copy: ', err );
@@ -841,7 +841,7 @@ export default {
           whatsapp: this.whatsapp,
           // sign: this.sign,
         };
-        console.log( dat );
+        // console.log( dat );
 
         fetch( "https://backend.unboxedparty.com/api/save", {
           method: "POST",

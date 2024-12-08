@@ -102,7 +102,7 @@ export default {
         id: 1,
 
       }
-      console.log(video)
+      // console.log(video)
 
 
       try{
@@ -118,7 +118,7 @@ export default {
           this.loading= false
             navigateTo('/admin_slym/routes')
       }catch(e){
-         console.log(e)
+        //  console.log(e)
          this.toast('message status:  Video failed to upload')
       }
 

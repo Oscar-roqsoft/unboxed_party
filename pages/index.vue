@@ -785,7 +785,7 @@ export default {
 
 
       } catch ( e ) {
-        console.log( e );
+        // console.log( e );
       }
 
     }
@@ -801,7 +801,7 @@ export default {
 
       } ).then( res => res.json() );
 
-      console.log( data );
+      // console.log( data );
 
       const payload = [...data.items];
       payload.reverse( payload );
@@ -937,7 +937,7 @@ export default {
           whatsapp: this.whatsapp,
           // sign: this.sign,
         };
-        console.log( dat );
+        // console.log( dat );
         fetch( "https://backend.unboxedparty.com/api/save", {
           method: "POST",
           headers: {

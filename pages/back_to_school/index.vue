@@ -708,7 +708,7 @@
 
             })
             .catch((err) => {
-              console.log(err)
+              // console.log(err)
               this.dialog = true;
               this.loading = false;
             });
@@ -718,7 +718,7 @@
   onFileChanged(event) {
       const sn = this;
       var imageFile = event.target.files[0];
-      console.log(imageFile);
+      // console.log(imageFile);
       if (imageFile.type.includes("image")) {
         this.galleryLoad = true;
         var options = {
@@ -735,7 +735,7 @@
           .catch(function (error) {
             this.selectedFile = [];
             this.galleryLoad = false;
-            console.log(error);
+            // console.log(error);
           });
       } else {
         this.galleryLoad = false;
@@ -748,7 +748,7 @@ this.$refs.img.click()
   onFileChanged2(event) {
       const sn = this;
       var imageFile = event.target.files[0];
-      console.log(imageFile);
+      // console.log(imageFile);
       if (imageFile.type.includes("image")) {
         this.galleryLoad2 = true;
         var options = {
@@ -765,7 +765,7 @@ this.$refs.img.click()
           .catch(function (error) {
             this.selectedFile2 = [];
             this.galleryLoad2 = false;
-            console.log(error);
+            // console.log(error);
           });
       } else {
         this.galleryLoad2 = false;

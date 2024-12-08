@@ -113,7 +113,7 @@ export default {
           navigateTo('/admin_slym/category')
 
       }catch(e){
-         console.log(e)
+        //  console.log(e)
          this.toast(
               "message status: Category failed to update",
            )

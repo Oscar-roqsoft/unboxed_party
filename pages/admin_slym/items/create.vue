@@ -246,7 +246,7 @@ computed:{
 mounted(){
 
     this.se = this.selectedCategory
-    console.log(this.se)
+    // console.log(this.se)
 
 },
 
@@ -292,7 +292,7 @@ mounted(){
         },
 
       addSize(){
-            console.log(this.selectedCategory) 
+            // console.log(this.selectedCategory) 
             this.sizeList.push(this.itemSize)
             // this.sizeList.reverse(this.sizeList)
             this.itemSize = null
@@ -343,7 +343,7 @@ mounted(){
       }
 
 
-      console.log(item)
+    //   console.log(item)
 
       try{
           const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
@@ -357,12 +357,12 @@ mounted(){
           if(data.success) this.toast("Item created successfully")
           
           this.loading= false
-          console.log(data)
+        //   console.log(data)
 
           navigateTo("/admin_slym/items")
 
       }catch(e){
-         console.log(e)
+        //  console.log(e)
           this.toast(
               "message status: failed to create Item ",
            )

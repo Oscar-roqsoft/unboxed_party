@@ -46,13 +46,13 @@ export default /*#__PURE__*/ defineComponent({
     onSuccess: {
       type: Function,
       default: function (response) {
-        console.log(response);
+        // console.log(response);
       },
     },
     onCancel: {
       type: Function,
       default: function () {
-        console.log("payment closed");
+        // console.log("payment closed");
       },
     },
     channels: {

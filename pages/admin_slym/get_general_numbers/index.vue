@@ -42,7 +42,7 @@
     methods: {
       selectEmail(email) {
         // Handle selecting an email (e.g., show email details)
-        console.log('Selected email:', email);
+        // console.log('Selected email:', email);
       },
       async get_phones() {
         try {
@@ -55,9 +55,9 @@
           }).then(res => res.json());
   
           this.phones = data.phone_numbers;
-          console.log(this.phones);
+          // console.log(this.phones);
         } catch (e) {
-          console.log(e);
+          // console.log(e);
         }
       },
   

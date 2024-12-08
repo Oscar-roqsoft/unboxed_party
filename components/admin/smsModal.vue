@@ -83,7 +83,7 @@ const sendBulkSms = async()=>{
         subject: smsSubject.value,
         image: secure_url, // New field to store image data
     }
-    console.log(options)
+    // console.log(options)
     try {
        const data = await fetch('https://backend.unboxedparty.com/api/email/send',{
         method: "POST",
@@ -102,7 +102,7 @@ const sendBulkSms = async()=>{
 
 
     }catch(e){
-        console.log(e)
+        // console.log(e)
       isLoading.value = false
       toast("Email sending failed")
     }

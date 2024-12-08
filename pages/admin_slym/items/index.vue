@@ -133,7 +133,7 @@ export default {
 
  async mounted(){
 
-    console.log(this.$vuetify.display.width)
+    // console.log(this.$vuetify.display.width)
 
   
    
@@ -164,7 +164,7 @@ export default {
 
           }).then(res=>res.json());
 
-          console.log(data)
+          // console.log(data)
 
           const payload =  [...data.items]
           payload.reverse(payload)
@@ -203,7 +203,7 @@ export default {
 
     async deleteItem(itemId) {
 
-     console.log(itemId)
+    //  console.log(itemId)
       const id = { id: itemId };
       try {
         await fetch(`https://backend.unboxedparty.com/api/merch`, {

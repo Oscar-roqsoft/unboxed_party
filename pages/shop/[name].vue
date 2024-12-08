@@ -287,7 +287,7 @@
         return el.name.toLowerCase() === name.toLowerCase()
       })
 
-      console.log(this.item.category)
+      // console.log(this.item.category)
 
 
    
@@ -313,7 +313,7 @@
         if(!this.size)return this.displayMessageError = "Select size *"
         this.selectedItems = {image:`${this.image}`,name:`${this.item.name}`,price:parseFloat(`${this.item.price}`) * parseFloat(`${this.quantity}`),size:`${this.size}`,quantity:`${this.quantity}`,color:`${this.color}`}
         this.$store.state.cartItems.push(this.selectedItems)
-        console.log(this.$store.state.items[0])
+        // console.log(this.$store.state.items[0])
         navigateTo("/shop/cartitems")
     },
 
@@ -346,7 +346,7 @@
             whatsapp: this.whatsapp,
             // sign: this.sign,
           };
-          console.log(dat);
+          // console.log(dat);
           fetch("https://backend.unboxedparty.com/api/save", {
             method: "POST",
             headers: {

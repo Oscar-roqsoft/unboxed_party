@@ -280,7 +280,7 @@
             }));
 
         
-            console.log('Responses:', responses);
+            // console.log('Responses:', responses);
 
             
         },
@@ -291,7 +291,7 @@
                 answer: this.responses[index]
             }));
 
-            console.log('Responses:', responses);
+            // console.log('Responses:', responses);
 
             const payload = {
                 name:  responses.find(e=> e.model === 'name').answer,
@@ -302,7 +302,7 @@
                 email: responses.find(e=> e.model === 'email').answer,
                 role: [...this.role_model]       
             }
-            console.log(payload)
+            // console.log(payload)
             this.loading = true
 
             try{
@@ -318,13 +318,13 @@
 
                 if(data.data){
 
-                    console.log('success')
+                    // console.log('success')
                     this.toast("Submitted successfully");
                 }
                 this.loading = false
 
             }catch(e){
-                console.log(e)
+                // console.log(e)
                 this.loading = false
 
             }

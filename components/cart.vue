@@ -110,7 +110,7 @@
 
     amount: this.totalPrice,//amount
     callback: (e)=>{
-      console.log(e)
+      // console.log(e)
      this.verify_trans(e)
       modal.close();
     },

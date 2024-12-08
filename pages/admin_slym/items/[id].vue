@@ -316,13 +316,13 @@ mounted() {
             const {secure_url} = await uploadToCloudinary(this.selectedimage);
             if(!secure_url) return alert("failed to upload file");
 
-            console.log(secure_url)
-            console.log(this.imageList)
+            // console.log(secure_url)
+            // console.log(this.imageList)
             this.imageList.push(secure_url)
             this.imageList.reverse(this.imageList)
 
             
-            console.log(this.itemColor)
+            // console.log(this.itemColor)
 
             this.colorList.push(this.itemColor)
             this.colorList.reverse(this.colorList)
@@ -370,7 +370,7 @@ mounted() {
       }
 
 
-      console.log(item)
+    //   console.log(item)
 
       try{
           const data = await fetch(`https://backend.unboxedparty.com/api/merch`,{
@@ -385,12 +385,12 @@ mounted() {
           if(data.success) this.toast("Item edited successfully")
          
           this.loading = false
-          console.log(data)
+        //   console.log(data)
 
           navigateTo("/admin_slym/items")
 
       }catch(e){
-         console.log(e)
+        //  console.log(e)
          this.toast(
               "message status:  failed to update Item",
            )

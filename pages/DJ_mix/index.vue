@@ -85,7 +85,7 @@ export default {
     setActiveCategory(tab) {
       this.selecteditemsToD = this.$store.state.items.filter((item) =>  item.category.includes(tab))
      
-      console.log(this.activeCategory)
+      // console.log(this.activeCategory)
     },
   },
 

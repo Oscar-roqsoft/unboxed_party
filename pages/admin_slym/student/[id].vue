@@ -257,7 +257,7 @@ School Fees           </p>
               throw new Error("Something went wrong");
             })
             .then((res) => {
-              console.log(res)
+              // console.log(res)
             this.$store.dispatch('setUser',res.success.user)
             })
             .catch(() => {
@@ -332,7 +332,7 @@ School Fees           </p>
             throw new Error("Something went wrong");
           })
           .then((res) => {
-            console.log(res)
+            // console.log(res)
             this.loading = false
             this.dialog = true
           })

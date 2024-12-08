@@ -99,11 +99,11 @@
     methods: {
       editItem(item) {
         // Logic to edit the item
-        console.log('Editing item:', item);
+        // console.log('Editing item:', item);
       },
       deleteItem(item) {
         // Logic to delete the item
-        console.log('Deleting item:', item);
+        // console.log('Deleting item:', item);
         const index = this.submittedResponses.indexOf(item);
         if (index > -1) {
           this.submittedResponses.splice(index, 1);
@@ -112,7 +112,7 @@
       mapData(items){
         const data = items.map(e => e.number)
         const payload = data.map(e => (e));
-        return console.log(payload)
+        // return console.log(payload)
       }
     },
     async mounted() {
@@ -126,9 +126,9 @@
         });
         const data = await response.json();
         this.$store.dispatch('setMySurvey', data.data);
-        console.log(data.data)
+        // console.log(data.data)
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
 
       const numberData = this.submittedResponses.map(e => e.number)

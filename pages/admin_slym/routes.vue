@@ -43,6 +43,7 @@ export default {
             store.clearUser(); // Clear user data from the store
             toast( 'Logged out successfully' );
             localStorage.clear(); // Clear storage if the token is missing
+            window.location.href = '/admin_slym'; // Redirect to login and reload the page
         };
 
         return {

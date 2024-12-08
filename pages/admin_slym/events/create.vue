@@ -223,7 +223,7 @@ export default {
             };
 
 
-            console.log( event );
+            // console.log( event );
 
 
             try {
@@ -236,7 +236,7 @@ export default {
                     body: JSON.stringify( event )
                 } ).then( resp => resp.json() );
 
-                console.log( data );
+                // console.log( data );
 
                 if ( data.success ) this.toast( "Event created successfully" );
 
@@ -246,7 +246,7 @@ export default {
 
             } catch ( e ) {
 
-                console.log( e );
+                // console.log( e );
                 this.toast( "message status:  failed to create Event" );
                 this.loading = false;
             }

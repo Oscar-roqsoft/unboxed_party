@@ -303,7 +303,7 @@ export default {
           whatsapp: this.whatsapp,
           // sign: this.sign,
         };
-        console.log(dat);
+        // console.log(dat);
         fetch("https://backend.unboxedparty.com/api/save", {
           method: "POST",
           headers: {

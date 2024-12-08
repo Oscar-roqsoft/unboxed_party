@@ -155,7 +155,7 @@ export default{
 
                  
                 this.isLoading = false
-                console.log(data)
+                // console.log(data)
 
                 // const filteredItems = [this.$store.state.orders.list,..data]
                 // console.log(filteredItems)

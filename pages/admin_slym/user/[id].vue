@@ -231,7 +231,7 @@ Actions
   export default {
    
       mounted(){
-        console.log(JSON.parse(this.events[0].tickets))
+        // console.log(JSON.parse(this.events[0].tickets))
      this.getUser()
 
       },
@@ -290,7 +290,7 @@ Actions
               throw new Error("Something went wrong");
             })
             .then((res) => {
-              console.log(res)
+              // console.log(res)
             this.$store.dispatch('setUser',res.success.user)
             })
             .catch(() => {
@@ -368,7 +368,7 @@ Actions
             throw new Error("Something went wrong");
           })
           .then((res) => {
-            console.log(res)
+            // console.log(res)
             this.loading = false
             this.dialog = true
           })
