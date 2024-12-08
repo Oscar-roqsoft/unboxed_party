@@ -25,20 +25,31 @@
                 settings</button>
         </div>
     </div>
+    <!-- <div v-else>
+        <button @click="logout" class=" shover:tw-shadow-lg tw-rounded tw-text-xl tw-bg-[#F5200A] tw-mb-[50px]
+            tw-p-4">Log in</button>
+    </div> -->
 </template>
 
 <script>
 import { createToast } from 'mosha-vue-toastify';
 import 'mosha-vue-toastify/dist/style.css';
 import { useStore } from '~~/store'; // Adjust the path as needed
-
+import { useRouter } from 'vue-router';
+// const store = useStore(); // Access the store inside setup
 export default {
     setup() {
+        middleware: ['auth']; // Apply the auth middleware to this route
         const store = useStore(); // Access the store inside setup
+        const router = useRouter();
         const toast = ( message ) => {
             createToast( message );
         };
-
+        onMounted( () => {
+            if ( !store.state.isAuthenticated ) {
+                router.replace( '/admin_slym' ); // Redirect to login if not authenticated
+            }
+        } );
         const logout = () => {
             store.clearUser(); // Clear user data from the store
             toast( 'Logged out successfully' );
