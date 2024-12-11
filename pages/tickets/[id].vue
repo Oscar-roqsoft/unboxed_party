@@ -251,9 +251,9 @@
               this.amount = parseInt(res.success.ticket.amount)
               this.event_id = res.success.ticket.event_id
               this.myevent = this.eventp.find(e => e.id == parseInt(this.event_id))
-              // console.log('ppp', this.myevent)
-              // console.log( 'event_id:', this.event_id );
-              // console.log( 'eventp:', this.eventp );
+              console.log('ppp', this.myevent)
+              console.log( 'event_id:', this.event_id );
+              console.log( 'eventp:', this.eventp );
             }
           })
           .catch(() => {
