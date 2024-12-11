@@ -84,7 +84,7 @@
                           <td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
                             <span v-if="!loading">
 
-                              {{ events[selected].date }}
+                              {{ events[selected]?.date }}
                             </span>
                             <v-progress-circular size="13" indeterminate v-else></v-progress-circular>
 
@@ -92,7 +92,7 @@
                           <td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
                             <span v-if="!loading">
 
-                              {{ events[selected].time }}
+                              {{ events[selected]?.time }}
                             </span>
                             <v-progress-circular size="13" indeterminate v-else></v-progress-circular>
                           </td>
