@@ -42,7 +42,7 @@
                   </div>
                   <div class="">
 
-                    <v-img v-if="ticket" eager :src="myevent.image" alt="Movie: Only God Forgives">
+                    <v-img v-if="ticket" eager :src="myevent?.image" alt="Movie: Only God Forgives">
                       <div style="position:absolute" class="w-100 h-75 d-flex justify-center align-center">
                         <div>
 
@@ -60,13 +60,13 @@
 
                         <tr>
                           <th class="text-center px-0 font-weight-black text-capitalize"
-                            style="letter-spacing:2px;font-size:14px">PRICE</th>
+                            style="letter-spacing:2px;font-size:14px;width:100px">PRICE</th>
                           <th class="text-center px-0 font-weight-black text-capitalize"
-                            style="letter-spacing:2px;font-size:14px">DATE</th>
+                            style="letter-spacing:2px;font-size:14px;width:100px">DATE</th>
                           <th class="text-center px-0 font-weight-black text-capitalize"
-                            style="letter-spacing:2px;font-size:14px">TIME</th>
+                            style="letter-spacing:2px;font-size:14px;width:100px">TIME</th>
                           <th class="text-center px-0 font-weight-black text-capitalize"
-                            style="letter-spacing:2px;font-size:14px">ADMIT</th>
+                            style="letter-spacing:2px;font-size:14px;width:100px;padding-right: 30px;">ADMIT</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -83,16 +83,18 @@
                           </td>
                           <td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
                             <span v-if="!loading">
+                              {{ myevent?.date }}
 
-                              {{ events[selected].date }}
+                              <!-- {{ events[selected]?.date }} -->
                             </span>
                             <v-progress-circular size="13" indeterminate v-else></v-progress-circular>
 
                           </td>
                           <td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
                             <span v-if="!loading">
+                              {{ myevent?.time }}
 
-                              {{ events[selected].time }}
+                              <!-- {{ events[selected]?.time }} -->
                             </span>
                             <v-progress-circular size="13" indeterminate v-else></v-progress-circular>
                           </td>
@@ -210,61 +212,118 @@
      
 
     },
-
     methods: {
-      onDecode(decodedString) {
-      this.qrCodeData = decodedString;
-    },
-      getQty(){
-      this.loading = true
-      fetch("https://backend.unboxedparty.com/api/get_qty?code="+this.$route.params.id, {
+      getQty() {
+        this.loading = true;
+
+        // Fetch events first
+        fetch( `https://backend.unboxedparty.com/api/event`, {
           method: "GET",
           headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Accept': 'application/json'
+            'Content-Type': 'application/json',
+          }
+        } )
+          .then( res => res.json() )
+          .then( eventData => {
+            // Store the events payload
+            const payload = eventData.events;
+
+            // Then fetch the ticket quantity
+            return fetch( "https://backend.unboxedparty.com/api/get_qty?code=" + this.$route.params.id, {
+              method: "GET",
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Accept': 'application/json'
+              }
+            } )
+              .then( response => {
+                if ( !response.ok ) {
+                  throw new Error( "Something went wrong" );
+                }
+                return response.json();
+              } )
+              .then( ( res ) => {
+                if ( res.success.ticket.event_id < 7 ) {
+                  this.errort = true;
+                  alert( 'wrong code' );
+                  return;
+                } else {
+                  this.errort = false;
+                  this.loading = false;
+                  this.qty = res.success.ticket.qty;
+                  this.ticket = res.success.ticket;
+                  this.amount = parseInt( res.success.ticket.amount );
+                  this.event_id = res.success.ticket.event_id;
+
+                  // Use the payload to find the event
+                  this.myevent = payload.find( e => e.id == parseInt( this.event_id ) );
+                  
+                  // console.log( 'ppp', this.myevent );
+                  // console.log( 'event_id:', this.event_id );
+                }
+              } );
+          } )
+          .catch( () => {
+            this.errort = true;
+            this.loading = false;
+          } );
+      }
+    }
+    // methods: {
+    //   onDecode(decodedString) {
+    //   this.qrCodeData = decodedString;
+    // },
+    //   getQty(){
+    //   this.loading = true
+    //   fetch("https://backend.unboxedparty.com/api/get_qty?code="+this.$route.params.id, {
+    //       method: "GET",
+    //       headers: {
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Accept': 'application/json'
 
 
-          }})
-          .then((response) => {
-            if (response.ok) {
-              return response.json();
-            }
+    //       }})
+    //       .then((response) => {
+    //         if (response.ok) {
+    //           return response.json();
+    //         }
 
-            throw new Error("Something went wrong");
-            alert("An error has occurred");
+    //         throw new Error("Something went wrong");
+    //         alert("An error has occurred");
 
-          })
-          .then((res) => {
+    //       })
+    //       .then((res) => {
            
     
-            if(res.success.ticket.event_id < 7){
-              this.errort = true
+    //         if(res.success.ticket.event_id < 7){
+    //           this.errort = true
 
-              alert('wrong code')
-              return
-            }else{
-              this.errort = false
-              this.loading = false
-              this.qty = res.success.ticket.qty
-              this.ticket = res.success.ticket
-              this.amount = parseInt(res.success.ticket.amount)
-              this.event_id = res.success.ticket.event_id
-              this.myevent = this.eventp.find(e => e.id == parseInt(this.event_id))
-              console.log('ppp', this.myevent)
-              console.log( 'event_id:', this.event_id );
-              console.log( 'eventp:', this.eventp );
-            }
-          })
-          .catch(() => {
-            // alert("An error has occurred");
-            this.errort = true
-            this.loading = false;
-          });
+    //           alert('wrong code')
+    //           return
+    //         }else{
+    //           this.errort = false
+    //           this.loading = false
+    //           this.qty = res.success.ticket.qty
+    //           this.ticket = res.success.ticket
+    //           this.amount = parseInt(res.success.ticket.amount)
+    //           this.event_id = res.success.ticket.event_id
+    //           // this.myevent = this.eventp.find(e => e.id == parseInt(this.event_id))
+    //           console.log('ppp', this.myevent)
+    //           console.log( 'event_id:', this.event_id );
+    //           console.log( 'eventp:', this.eventp );
+    //         }
+    //       })
+    //       .catch(() => {
+    //         // alert("An error has occurred");
+    //         this.errort = true
+    //         this.loading = false;
+    //       });
         
-    },
+    // },
       
-    },
+    // },
   };
   </script>
   <style>
@@ -365,7 +424,7 @@ table tr {
 table th {
   text-align: left;
 }
-table th:nth-of-type(1) {
+/* table th:nth-of-type(1) {
   width: 38%;
 }
 table th:nth-of-type(2) {
@@ -377,7 +436,7 @@ table th:nth-of-type(3) {
 table td {
   width: 33%;
   font-size: 20px;
-}
+} */
 
 .bigger {
   font-size: 48px;
