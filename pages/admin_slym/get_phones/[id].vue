@@ -19,7 +19,8 @@
   </template>
   
   <script>
-  
+  import { useStore } from '~~/store';
+  const store = useStore();
   export default {
     data() {
       return {
@@ -45,7 +46,7 @@
           const data = await fetch("https://backend.unboxedparty.com/api/phoneByEvent?event_id=" + this.$route.params.id, {
             method: "GET",
             headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json', 'Authorization': `Bearer ${store.state.token}`
             },
           }).then(res => res.json());
   
