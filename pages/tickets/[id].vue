@@ -1,11 +1,9 @@
 <template>
-    <div>
-      <v-card class="pa-0 ma-0" color="black" flat min-height="100vh">
-        <div style="position:relative" class="">
-     
-     <div
-     v-if="$vuetify.display.mdAndUp"
-       style="
+  <div>
+    <v-card class="pa-0 ma-0" color="black" flat min-height="100vh">
+      <div style="position:relative" class="">
+
+        <div v-if="$vuetify.display.mdAndUp" style="
          position: absolute;
          z-index: -1;
          opacity: 0.2;
@@ -13,179 +11,147 @@
          display: flex;
          width: 100%;
          justify-content: center;">
-              <div style="height: 60vh;
+          <div style="height: 60vh;
  position: absolute;
  width: 100%;
  bottom: 0;
  background: linear-gradient(360deg, black, transparent);
  z-index: 2;"></div>
-       <video
-         id="heroVideo"
-         :style="$vuetify.display.smAndDown ? ' width: 1365px ' : ' width: 100%'"
-         style="
+          <video id="heroVideo" :style="$vuetify.display.smAndDown ? ' width: 1365px ' : ' width: 100%'" style="
            position: absolute;
            top: 0;
            scale: 1.2;
            height: 100vh;
            z-index: 1;
-         "
-         autoplay
-         muted
-         loop
-       >
-         <source
-           src="https://res.cloudinary.com/crushcontest-com/video/upload/v1680267203/WhatsApp_Video_2023-03-31_at_8.40.28_AM_pvaijr.mp4"
-         />
-       </video>
-       <!-- <v-avatar  tile width="100%" height="100%"><v-img eager src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_1000/v1664318468/C0042.MP4.16_29_36_17.Still001_1_br9fzu.jpg"></v-img></v-avatar> -->
-     </div>
-  </div>
-        <v-container class="pa-0" style="position: relative; max-width: 990px">
-          <div
-            style="width: 100%; min-height: 100vh"
-            class="pa-6 d-flex justify-center align-center"
-          >
-            <v-row
-              no-gutters
-              style="position: relative"
-              class="d-flex  justify-center"
-            >
-           
-              <v-col style="position: relative" class="d-flex justify-center" cols="12" >
-                <v-card
-                  width="100%"
-                  color=""
-                  max-width="450" style="position:relative"
-                  height="auto"
-                  class=" pa-0">
+         " autoplay muted loop>
+            <source src="https://res.cloudinary.com/dvexjmvti/video/upload/v1732736195/lt4dxgkgcjv7gto48fqk.mov" />
+          </video>
+          <!-- <v-avatar  tile width="100%" height="100%"><v-img eager src="https://res.cloudinary.com/crushcontest-com/image/upload/c_fit,w_1000/v1664318468/C0042.MP4.16_29_36_17.Still001_1_br9fzu.jpg"></v-img></v-avatar> -->
+        </div>
+      </div>
+      <v-container class="pa-0" style="position: relative; max-width: 990px">
+        <div style="width: 100%; min-height: 100vh" class="pa-6 d-flex justify-center align-center">
+          <v-row no-gutters style="position: relative" class="d-flex  justify-center">
+
+            <v-col style="position: relative" class="d-flex justify-center" cols="12">
+              <v-card width="100%" color="" max-width="450" style="position:relative" height="auto" class=" pa-0">
 
 
-<div class="">
-	<div class="">
-	</div>
-	<div class="">
+                <div class="">
+                  <div class="">
+                  </div>
+                  <div class="">
 
-		<v-img v-if="ticket" eager :src="myevent.image" alt="Movie: Only God Forgives" >
-      <div style="position:absolute" class="w-100 h-75 d-flex justify-center align-center">
-<div>
+                    <v-img v-if="ticket" eager :src="myevent?.image" alt="Movie: Only God Forgives">
+                      <div style="position:absolute" class="w-100 h-75 d-flex justify-center align-center">
+                        <div>
 
-  <vue-qrcode :width="150" :height="150" color="#ec38bc"
-  :value="$route.params.id"/>
-  <h1 style=" text-shadow: 0 0 15px black;" class="text-center text-white">{{ $route.params.id }}</h1>
-</div>
-    </div>
-    </v-img>
-	</div>
-	<div>
+                          <vue-qrcode :width="150" :height="150" color="#ec38bc" :value="$route.params.id" />
+                          <h1 style=" text-shadow: 0 0 15px black;" class="text-center text-white">{{ $route.params.id
+                            }}</h1>
+                        </div>
+                      </div>
+                    </v-img>
+                  </div>
+                  <div>
 
-  <v-table v-if="!errort" class="px-1" theme="dark" style="width: 100%;background: #0f0f0f">
-    <thead>
+                    <v-table v-if="!errort" class="px-1" theme="dark" style="width: 100%;background: #0f0f0f">
+                      <thead>
 
-		<tr>
-			<th  class="text-center px-0 font-weight-black text-capitalize" style="letter-spacing:2px;font-size:14px">PRICE</th>
-			<th class="text-center px-0 font-weight-black text-capitalize" style="letter-spacing:2px;font-size:14px">DATE</th>
-			<th class="text-center px-0 font-weight-black text-capitalize" style="letter-spacing:2px;font-size:14px">TIME</th>
-			<th class="text-center px-0 font-weight-black text-capitalize" style="letter-spacing:2px;font-size:14px">ADMIT</th>
-		</tr>
-    </thead>
-    <tbody>
+                        <tr>
+                          <th class="text-center px-0 font-weight-black text-capitalize"
+                            style="letter-spacing:2px;font-size:14px">PRICE</th>
+                          <th class="text-center px-0 font-weight-black text-capitalize"
+                            style="letter-spacing:2px;font-size:14px">DATE</th>
+                          <th class="text-center px-0 font-weight-black text-capitalize"
+                            style="letter-spacing:2px;font-size:14px">TIME</th>
+                          <th class="text-center px-0 font-weight-black text-capitalize"
+                            style="letter-spacing:2px;font-size:14px">ADMIT</th>
+                        </tr>
+                      </thead>
+                      <tbody>
 
-		<tr>
-      
-			<td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">
-        <span v-if="!loading">
-          
-          {{amount > 0 ? 'Paid'  : 'Free'}}
-        </span>
-        <v-progress-circular size="13" indeterminate v-if="loading"></v-progress-circular>
-        
-      </td>
-			<td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
-        <span v-if="!loading">
-        
-        {{ events[selected].date }}
-      </span>
-      <v-progress-circular size="13" indeterminate v-else></v-progress-circular>
+                        <tr>
 
-    </td>
-			<td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
-        <span v-if="!loading">
-        
-        {{ events[selected].time }}
-      </span>
-      <v-progress-circular size="13" indeterminate v-else></v-progress-circular>
-</td>
-			<td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">     
-         <span v-if="!loading">
+                          <td style="font-size:14px" class="text-grey-darken-1 font-weight-bold text-center">
+                            <span v-if="!loading">
 
-{{ qty }}
-</span>
-<v-progress-circular size="13" indeterminate v-if="loading"></v-progress-circular>
-</td>
-      
-		</tr>
-    </tbody>
-	</v-table>
-	</div>
+                              {{amount > 0 ? 'Paid' : 'Free'}}
+                            </span>
+                            <v-progress-circular size="13" indeterminate v-if="loading"></v-progress-circular>
 
-</div>
-                </v-card>
-              </v-col>
-            </v-row>
-          </div>
-          <p>
-  
-</p>
-        </v-container>
-        <v-dialog width="100%" max-width="310" v-model="dialog">
-          <a
-            style="text-decoration: none"
-            href="https://www.instagram.com/the_unboxedparty/"
-            target="_blank"
-          >
-            <v-card to="" color="#220744">
-              <v-card-text class="text-center">
-                <div
-                  v-if="booked"
-                  style="font-family: 'Permanent Marker', cursive !important;"
-                  class="px-3 text-body-1 text-white font-weight-medium text-h4"
-                >
-                  Your reservation has been booked successfully
+                          </td>
+                          <td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
+                            <span v-if="!loading">
+
+                              {{ events[selected].date }}
+                            </span>
+                            <v-progress-circular size="13" indeterminate v-else></v-progress-circular>
+
+                          </td>
+                          <td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
+                            <span v-if="!loading">
+
+                              {{ events[selected].time }}
+                            </span>
+                            <v-progress-circular size="13" indeterminate v-else></v-progress-circular>
+                          </td>
+                          <td style="font-size:14px" class="text-grey-darken-1 px-1 font-weight-bold text-center">
+                            <span v-if="!loading">
+
+                              {{ qty }}
+                            </span>
+                            <v-progress-circular size="13" indeterminate v-if="loading"></v-progress-circular>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </v-table>
+                  </div>
+
                 </div>
-                <div 
-                  style="font-family: 'Permanent Marker', cursive !important"
-                  class="px-3 text-white text-h3  text-center"
-                >
-                  <p
-                    class="font-weight-bold"
-                    style="
+              </v-card>
+            </v-col>
+          </v-row>
+        </div>
+        <p>
+
+        </p>
+      </v-container>
+      <v-dialog width="100%" max-width="310" v-model="dialog">
+        <a style="text-decoration: none" href="https://www.instagram.com/the_unboxedparty/" target="_blank">
+          <v-card to="" color="#220744">
+            <v-card-text class="text-center">
+              <div v-if="booked" style="font-family: 'Permanent Marker', cursive !important;"
+                class="px-3 text-body-1 text-white font-weight-medium text-h4">
+                Your reservation has been booked successfully
+              </div>
+              <div style="font-family: 'Permanent Marker', cursive !important"
+                class="px-3 text-white text-h3  text-center">
+                <p class="font-weight-bold" style="
                       text-shadow: 4px 4px #ec38bc, 8px 8px #7303c0;
                       font-family: 'Permanent Marker', cursive !important;">
-                    Follow us on instagram
-                  </p>
-                  <div    style="
+                  Follow us on instagram
+                </p>
+                <div style="
                       /* text-shadow: 4px 4px #ec38bc, 8px 8px #7303c0; */
                       font-family: 'Permanent Marker', cursive !important;
                     " class="mt-5 text-h5 text-center w-100 justify-center d-flex">
-                    <v-icon color="red darken-2" class="mr-2"
-                      >mdi-instagram</v-icon
-                    >
-                    @the_unboxedparty
-                  </div>
+                  <v-icon color="red darken-2" class="mr-2">mdi-instagram</v-icon>
+                  @the_unboxedparty
                 </div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn color="primary" block @click.prevent="dialog = false"
-                  >Close
-                </v-btn>
-              </v-card-actions>
-            </v-card></a
-            >
-          </v-dialog>
-        </v-card>
-      
-    </div>
-  </template>
+              </div>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="primary" block @click.prevent="dialog = false">Close
+              </v-btn>
+            </v-card-actions>
+          </v-card></a>
+      </v-dialog>
+    </v-card>
+
+  </div>
+</template>
   <script>
   import VueQrcode from 'vue-qrcode'
 
@@ -286,6 +252,8 @@
               this.event_id = res.success.ticket.event_id
               this.myevent = this.eventp.find(e => e.id == parseInt(this.event_id))
               // console.log('ppp', this.myevent)
+              // console.log( 'event_id:', this.event_id );
+              // console.log( 'eventp:', this.eventp );
             }
           })
           .catch(() => {
