@@ -127,6 +127,7 @@
       expires: 3600
     },
     meta: {
+      items:this.cartitems,
       // qty: this.qty, 
       amount: this.totalPrice
     },
