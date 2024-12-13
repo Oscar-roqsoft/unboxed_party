@@ -544,7 +544,6 @@ export default {
       },
     ],
   } ),
-
   computed: {
     routen: {
       get() {
@@ -604,12 +603,12 @@ export default {
   },
 
   async mounted() {
-    // console.log( this.events );
+    console.log( this.events, this.event );
 
 
-    if ( this.$store.state.myevents.list.length ) {
-      this.$store.state.myevents.list;
-    } else {
+    // if ( this.$store.state.myevents.list.length ) {
+    //   this.$store.state.myevents.list;
+    // } else {
 
       try {
         const data = await fetch( `https://backend.unboxedparty.com/api/event`, {
@@ -622,7 +621,7 @@ export default {
         this.isLoading = false;
 
         const payload = [...data.events];
-        // console.log( payload );
+        console.log( payload );
         payload.reverse( payload );
         this.$store.dispatch( "setMyEvents", payload );
         this.$store.dispatch( "setMyEventsExpirationDate", addMinutes( 30 ) );
@@ -630,7 +629,7 @@ export default {
       } catch ( error ) {
         console.error( error );
       }
-    }
+    // }
 
 
     try {
@@ -1169,6 +1168,6 @@ export default {
     font-size: 28px;
   }
 
- 
+
 }
 </style>
