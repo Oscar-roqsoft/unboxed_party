@@ -603,7 +603,7 @@ export default {
   },
 
   async mounted() {
-    console.log( this.events, this.event );
+    // console.log( this.events, this.event );
 
 
     // if ( this.$store.state.myevents.list.length ) {
@@ -621,7 +621,7 @@ export default {
         this.isLoading = false;
 
         const payload = [...data.events];
-        console.log( payload );
+        // console.log( payload );
         payload.reverse( payload );
         this.$store.dispatch( "setMyEvents", payload );
         this.$store.dispatch( "setMyEventsExpirationDate", addMinutes( 30 ) );
