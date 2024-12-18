@@ -12,6 +12,10 @@
                     <tr>
                         <th style="min-width: 150px;" scope="col"
                             class="tw-px-6 tw-py-3 tw-text-left  tw-text-xs tw-font-bold tw-text-gray-400 tw-uppercase tw-tracking-wider">
+                            S/N
+                        </th>
+                        <th style="min-width: 150px;" scope="col"
+                            class="tw-px-6 tw-py-3 tw-text-left  tw-text-xs tw-font-bold tw-text-gray-400 tw-uppercase tw-tracking-wider">
                             Order ID
                         </th>
                         <th style="min-width: 150px;" scope="col"
@@ -38,8 +42,11 @@
                 </thead>
 
                 <tbody class=" ">
-                    <tr v-for="order in paginated" :key="order.id"
+                    <tr v-for="(order, index) in paginated" :key="order.id"
                         class="tw-border-b tw-text-gray-300 tw-border-gray-800 tw-overflow-x-scroll  hover:bg-gray-50">
+                        <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap">
+                            {{ index + 1 }}
+                        </td>
                         <td class="tw-px-6 tw-py-4 tw-whitespace-nowrap">
                             {{ order.id }}
                         </td>
@@ -92,6 +99,7 @@
 import Backbutton from '~~/components/backbutton.vue';
 import { useStore } from '~~/store';
 const store = useStore();
+
 export default {
 
     data() {
