@@ -101,7 +101,6 @@ import { useStore } from '~~/store';
 const store = useStore();
 
 export default {
-
     data() {
         return {
 

@@ -197,7 +197,8 @@
   <script>
 import { createToast } from 'mosha-vue-toastify'
 import 'mosha-vue-toastify/dist/style.css'
-
+  import { useStore } from '~~/store';
+  const store = useStore();
   import {handleFileChange,uploadToCloudinary,asyncRequest} from "@/composables/mixins"
   export default {
     setup () {
@@ -326,6 +327,7 @@ import 'mosha-vue-toastify/dist/style.css'
                 method:"PATCH",
                 headers:{
                     'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${store.state.token}`
                 },
                 body:JSON.stringify(event)
             }).then(res=>res.json())
