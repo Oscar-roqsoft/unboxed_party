@@ -43,7 +43,7 @@
                       Join the Party Revolution and Experience Unforgettable Moments with Our Monthly Themed Events.
                       Let's Unbox the Fun Together! </p>
                     <div class="py-1 centerIt mb-6">
-                      <v-btn to="/ticket" size="large" height="55" style="
+                      <v-btn to="/ticket/rep-your-zodiac-sign" size="large" height="55" style="
                   background: linear-gradient(
                     132.03deg,
                      #c471ed 14.22%,
@@ -129,8 +129,8 @@
     width: 100%;
     background: linear-gradient(360deg, black, transparent);
     z-index: 0;"></div> -->
-              <v-col @click="navigateTo('/ticket/rep-your-zodiac-sign')" style="position: relative;z-index: 7;" class="py-0 pb-0"
-                :cols="cols[2]">
+              <v-col @click="navigateTo('/ticket/rep-your-zodiac-sign')" style="position: relative;z-index: 7;"
+                class="py-0 pb-0" :cols="cols[2]">
                 <div class=" d-flex pt-0 pb-0 align-end justify-center">
 
                   <!-- skeleton loader
@@ -160,7 +160,7 @@
 
 
                   <div v-if="timediff2 > 0" class="py-3 centerIt  text-right my-4">
-                    <v-btn @click="navigateTo(`/ticket/2-years-anniversary`)" size="x-large" style="
+                    <v-btn @click="navigateTo(`/ticket/rep-your-zodiac-sign`)" size="x-large" style="
            background: linear-gradient(132.03deg,#f31c08 14.22%,
                   #eb684483 87.95%);
                 " class="text-capitalize font-weight-bold" rounded>Reserve</v-btn>
@@ -713,7 +713,7 @@ export default {
       var startDate = new Date();
       // Do your operations
 
-      var endDate = new Date( '2024-12-20' );
+      var endDate = new Date( '2025-01-31' );
       var seconds = endDate.getTime() - startDate.getTime();
       return seconds;
     },
