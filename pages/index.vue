@@ -129,7 +129,7 @@
     width: 100%;
     background: linear-gradient(360deg, black, transparent);
     z-index: 0;"></div> -->
-              <v-col @click="navigateTo('/ticket')" style="position: relative;z-index: 7;" class="py-0 pb-0"
+              <v-col @click="navigateTo('/ticket/rep-your-zodiac-sign')" style="position: relative;z-index: 7;" class="py-0 pb-0"
                 :cols="cols[2]">
                 <div class=" d-flex pt-0 pb-0 align-end justify-center">
 
@@ -141,7 +141,7 @@
 
                   <v-img class=" rounded-lg" max-width="500" width="100%" eager
                     style="cursor: pointer;overflow: visible;" height="100%"
-                    src="https://res.cloudinary.com/dvexjmvti/image/upload/v1733224336/bp78t1sxuwj5qq1fhsub.jpg"></v-img>
+                    src="https://res.cloudinary.com/dvexjmvti/image/upload/v1737369588/zodiac%20sign/ghv64tkf5vvdicnc9vwr.jpg"></v-img>
 
                 </div>
               </v-col>
@@ -593,19 +593,12 @@ export default {
       'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],
     memes: [
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393068/pgxxkqps5r60xvqnewgu.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/fkyc4r9ebdzxcuzft3j2.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/dny7jkaw9zupclc97cr6.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/lnzo80rgxpvetc8jcemm.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/t8yhc6f5am3qptzkfcl4.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/e78q5zk1a1evbrurerrh.png'
-      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732544933/dondbfycrmflnndoa9w1.png',
-      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545141/wnlovn3c4nimpsv4pss5.png',
-      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545204/kow40iapratwwuis4c8o.png',
-      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545281/hjhzuvsgah7eujgqqkjp.png',
-      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545361/zapy6xe4dqnqhyxzm9lg.png',
-      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545416/pghhkyvkhvrhq3otmxjt.png',
-      //  'https://res.cloudinary.com/dvexjmvti/image/upload/v1732545460/gdjkomudnxj5uysrrzdl.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393068/pgxxkqps5r60xvqnewgu.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/fkyc4r9ebdzxcuzft3j2.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/dny7jkaw9zupclc97cr6.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/lnzo80rgxpvetc8jcemm.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/t8yhc6f5am3qptzkfcl4.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/e78q5zk1a1evbrurerrh.png'
 
     ],
 
@@ -769,8 +762,6 @@ export default {
       this.$store.state.myvideo.home_page_video_url;
 
     } else {
-
-
       try {
         const data = await fetch( `https://backend.unboxedparty.com/api/general-settings`, {
           method: "Get",
@@ -778,12 +769,9 @@ export default {
             'Content-Type': 'application/json',
           },
         } ).then( res => res.json() );
-
         this.isLoading = false;
         const payload = data.settings;
         this.$store.dispatch( "setMyVideo", payload );
-
-
       } catch ( e ) {
         // console.log( e );
       }
@@ -968,6 +956,7 @@ export default {
 };
 </script>
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,200&display=swap");
 .mdpert {
   filter: opacity(0.6);
 }
@@ -1092,7 +1081,6 @@ export default {
   justify-content: center;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,200&display=swap");
 
 .godown {
   position: relative;
