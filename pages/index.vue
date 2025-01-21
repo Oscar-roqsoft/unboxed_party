@@ -177,8 +177,30 @@
         </v-container>
       </div>
 
-      <!--Our Media Partners  -->
+      <!--Our Sponsors -->
       <div class="" :style="$vuetify.display.smAndDown ? 'margin-top:60px' : 'margin-top:200px'">
+        <div>
+
+          <h1 class="text-center font-weight-bold text-h2 herotitle ">Our Sponsors</h1>
+          <p class=" text-grey-lighten-1 text-center font-weight-light">
+            Thanks for sponsoring us.
+          </p>
+          <div style="position: relative;    
+      z-index: 9;height: 200px;" class=" mt-8">
+
+
+            <div style="margin-top: 20px;" class="photobanner1 h-100 d-flex justify-start">
+              <v-img class="mdpert" height="100" eager width="180" v-for="n in sponsors" :key="n" :src="n"></v-img>
+              <v-img class="mdpert" height="100" eager width="180" v-for="n in sponsors" :key="n" :src="n"></v-img>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--Our Media Partners  -->
+      <div class="" :style="$vuetify.display.smAndDown ? 'margin-top:60px' : 'margin-top:100px'">
         <div>
 
           <h1 class="text-center font-weight-bold text-h2 herotitle ">Our Media Partners</h1>
@@ -584,16 +606,26 @@ export default {
     timeline: '',
     media_parteners: [
       // 'https://res.cloudinary.com/dpehz96bs/image/upload/v1729321957/arc1_i6hl86.png',
-      'https://res.cloudinary.com/payhospi/image/upload/v1701176150/2_1_mir4xi.png',
+      // 'https://res.cloudinary.com/payhospi/image/upload/v1701176150/2_1_mir4xi.png',
       'https://res.cloudinary.com/payhospi/image/upload/v1701176150/4_1_jnr0t9.png',
       'https://res.cloudinary.com/payhospi/image/upload/v1701176150/3_1_eblymr.png',
       'https://res.cloudinary.com/payhospi/image/upload/v1701176149/5_1_vuuany.png',
-      'https://res.cloudinary.com/payhospi/image/upload/v1701176147/6_1_yfx3ky.png',
+      // 'https://res.cloudinary.com/payhospi/image/upload/v1701176147/6_1_yfx3ky.png',
       'https://res.cloudinary.com/payhospi/image/upload/v1701176147/11_1_blukdp.png',
-      'https://res.cloudinary.com/payhospi/image/upload/v1701176146/8_1_fxpkt9.png',
-      'https://res.cloudinary.com/payhospi/image/upload/v1701176146/9_1_yafs60.png',
+      // 'https://res.cloudinary.com/payhospi/image/upload/v1701176146/8_1_fxpkt9.png',
+      // 'https://res.cloudinary.com/payhospi/image/upload/v1701176146/9_1_yafs60.png',
       'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],
+    sponsors: [
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737482345/All%20unbox%20images/toawfhk0ss3optuz0goe.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737482339/All%20unbox%20images/d8cmpft7uiyguyhpmdlk.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737482336/All%20unbox%20images/p4kukmovwfgtbs3beisr.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737482337/All%20unbox%20images/xxo2qbrzp20jkslzihol.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737482338/All%20unbox%20images/h99ajttsa3lqnoglennr.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737482338/All%20unbox%20images/f381kpgdnlz1zyhrzay8.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737482342/All%20unbox%20images/h1h2nwtdnazxykj7zs0z.png',
+      
+      ],
     memes: [
       'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471284/zodiac%20sign/tqelkuqifns3l4balstn.png',
       'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471284/zodiac%20sign/dp0skpydllliwxqjtwtk.png',
