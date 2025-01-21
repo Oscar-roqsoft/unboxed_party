@@ -38,7 +38,9 @@
                     <!-- 😎 -->
                     <!-- 🥳 -->
                     <!-- 🎅🏾 -->
-                    <h1 class="herotitleb"> <span class="herotitle">Your Favorite Themed Party</span> 🥳</h1>
+                    <h1 class="herotitleb"> <span class="herotitle">Your Favorite Themed Party</span> <img
+                        src="https://res.cloudinary.com/dvexjmvti/image/upload/v1737469582/All%20unbox%20images/ku8ia8d796tftdy6sswk.png"
+                        alt="Unboxed party" class="gift-box" /></h1>
                     <p style="max-width: 450px" class="py-3 mb-4 text-grey-lighten-1 centerIt">
                       Join the Party Revolution and Experience Unforgettable Moments with Our Monthly Themed Events.
                       Let's Unbox the Fun Together! </p>
@@ -365,7 +367,7 @@
                   </p>
                   <p style="" class="text-capitalize text-grey-darken-2 font-weight-bold" rounded>
                     <v-icon size="15" class="mb-1" icon="mdi mdi-map-marker"></v-icon> {{ n.venue.substring(0, 15) }}{{
-                    n.venue.length > 15 ? '...' : '' }}
+                      n.venue.length > 15 ? '...' : '' }}
                   </p>
                 </div>
                 <!-- <p class="text-body-2 mt-0 text-grey-lighten-2 font-weight-light">
@@ -593,6 +595,17 @@ export default {
       'https://res.cloudinary.com/payhospi/image/upload/v1701176146/10_1_eu5qlg.png'
     ],
     memes: [
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471284/zodiac%20sign/tqelkuqifns3l4balstn.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471284/zodiac%20sign/dp0skpydllliwxqjtwtk.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/lkc6iligkecdsztlaspb.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/d33yswad8thwluqqws5e.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/izth2guqgduhpxsiajrb.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/vkfkl1b0nbciufp6df7r.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/zke112carnjosoj76rmy.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471280/zodiac%20sign/m0jfnasnz8i39nyrwjfr.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/sbswwmcvdu9mhrpiymdd.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/s5tl6dpvmutcgclsevr1.png',
+      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471279/zodiac%20sign/vephrhudgam8hwx4rk3u.png'
       // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393068/pgxxkqps5r60xvqnewgu.png',
       // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/fkyc4r9ebdzxcuzft3j2.png',
       // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/dny7jkaw9zupclc97cr6.png',
@@ -957,6 +970,7 @@ export default {
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,200&display=swap");
+
 .mdpert {
   filter: opacity(0.6);
 }
@@ -1178,9 +1192,9 @@ export default {
   font-weight: 700;
   font-size: 64px;
   line-height: 81px;
-
-  align-items: center;
-
+  display: flex;
+  align-items: end;
+  max-width: 515px;
   text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
