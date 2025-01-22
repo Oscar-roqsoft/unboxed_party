@@ -189,9 +189,12 @@
       z-index: 9;height: 200px;" class=" mt-8">
 
 
-            <div style="margin-top: 20px;" class="photobanner1 h-100 d-flex justify-start">
+            <div style="margin-top: 20px;" class="photobanner2 h-100 d-flex justify-start">
               <v-img class="mdpert" height="100" eager width="180" v-for="n in sponsors" :key="n" :src="n"></v-img>
               <v-img class="mdpert" height="100" eager width="180" v-for="n in sponsors" :key="n" :src="n"></v-img>
+              <v-img class="mdpert" height="100" eager width="180" v-for="n in sponsors" :key="n" :src="n"></v-img>
+              <v-img class="mdpert" height="100" eager width="180" v-for="n in sponsors" :key="n" :src="n"></v-img>
+
 
             </div>
           </div>
@@ -389,7 +392,7 @@
                   </p>
                   <p style="" class="text-capitalize text-grey-darken-2 font-weight-bold" rounded>
                     <v-icon size="15" class="mb-1" icon="mdi mdi-map-marker"></v-icon> {{ n.venue.substring(0, 15) }}{{
-                      n.venue.length > 15 ? '...' : '' }}
+                    n.venue.length > 15 ? '...' : '' }}
                   </p>
                 </div>
                 <!-- <p class="text-body-2 mt-0 text-grey-lighten-2 font-weight-light">
@@ -1066,7 +1069,26 @@ export default {
   animation: bannermove1 30s linear infinite;
 }
 
+.photobanner2 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: bannermove2 30s linear infinite;
+}
+
 @keyframes bannermove1 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(50%, 0);
+  }
+}
+
+@keyframes bannermove2 {
   0% {
     transform: translate(0, 0);
   }
