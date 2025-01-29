@@ -888,8 +888,6 @@ export default {
           } );
       }
     },
-
-
     reserveTicket( e ) {
       this.activeId = e.id;
       this.booked = true;
