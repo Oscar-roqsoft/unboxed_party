@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import { useStore } from '~~/store';
-const store = useStore();
 
 export default {
   data() {
@@ -43,11 +41,14 @@ export default {
       // console.log('Selected email:', email);
     },
     async get_email() {
+      const authData = localStorage.getItem( 'unboxAdminApp' );
+      const parsedAuth = JSON.parse( authData );
+      const token = parsedAuth.state?.token;
       try {
         const data = await fetch("https://backend.unboxedparty.com/api/emailsByEvent?event_id=" + this.$route.params.id, {
           method: "GET",
           headers: {
-            'Content-Type': 'application/json', 'Authorization': `Bearer ${store.state.token}`
+            'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
           },
         }).then(res => res.json());
 

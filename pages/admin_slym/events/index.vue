@@ -123,8 +123,7 @@
 <script>
 import { imageFilter } from '@/composables/mixins';
 import Backbutton from '~~/components/backbutton.vue';
-import { useStore } from '~~/store';
-const store = useStore();
+
 export default {
   data() {
     return {
@@ -139,7 +138,6 @@ export default {
 
 
   computed: {
-
     events() {
       return this.$store.state.myevents.list;
     },
@@ -155,7 +153,7 @@ export default {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${store.state.token}`
+          'Authorization': `Bearer ${this.$store.state.token}`
         }
       } ).then( res => res.json() );
       // console.log( 'new', data.events );
@@ -249,7 +247,7 @@ export default {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${store.state.token}`
+            'Authorization': `Bearer ${this.store.state.token}`
           },
 
           body: JSON.stringify( id )

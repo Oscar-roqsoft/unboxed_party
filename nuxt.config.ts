@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
   modules: [
     // '@nuxtjs/toast',
-    // '@pinia/nuxt',
+    '@pinia/nuxt',
     // '@pinia-plugin-persistedstate/nuxt',
   ],
   notivue: {
@@ -42,9 +42,10 @@ export default defineNuxtConfig({
   },
 
   plugins: [
+    // '~/plugins/pinia.js',
     { src: '~/plugins/vue3-paystack', mode: 'client' },
     { src: '~/plugins/ravePlugin', mode: 'client' },
-    { src: '~/plugins/pinia.js', mode: 'client' }, // Register the Pinia plugin
+    // { src: '~/plugins/pinia.js', mode: 'client' }, // Register the Pinia plugin
   ],
 
   app: {

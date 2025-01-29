@@ -16,12 +16,12 @@
                 style="max-width: 446px; min-height: 605px; background: #12181F; border-radius: 37px; margin-left: 20px; margin-top: 5px; display: flex;flex-direction: column; padding: 40px 70px;">
 
                 <!-- Logo container, visible only on small screens -->
-                <div class="d-md-none" style=" margin-bottom: 22.62px;">
-                  <div style=" font-size:20px;" class="logo  pa-1 d-flex justify-center items-center font-weight-bold">
+                <!-- <div class="d-md-none" style=" margin-bottom: 22.62px;">
+                  <div style=" font-size:20px;" class="logo  pa-1 d-flex justify-center items-center font-weight-bold"> -->
                     <!-- <img class="img" src="/Logo1.png" style="width: 48.425px;"/> -->
-                    <span class="Demo" style="margin-left: 11px; margin-top: 8px;color:#FFFFFF;">Demo</span>
+                    <!-- <span class="Demo" style="margin-left: 11px; margin-top: 8px;color:#FFFFFF;">Unboxed party</span>
                   </div>
-                </div>
+                </div> -->
 
                 <!-- Welcome heading and instruction text -->
                 <h1 class="heading tw-mt-5" style="font-weight: 600; font-size: 30px; color:#FFFFFF">Welcome back</h1>
