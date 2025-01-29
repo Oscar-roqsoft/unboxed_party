@@ -51,7 +51,7 @@
         <tbody>
           <tr v-for="item, i in tickets" :key="i">
             <td>{{ i + 1 }}</td>
-            <td class=" font-weight-medium">{{ item.name }} {{ item.tickets[0].qty }}</td>
+            <td class=" font-weight-medium">{{ item.name }}</td>
             <td class="text-blue">{{ item.email }}</td>
             <td><a target="_blank" :href="'tel:' + item.phone">{{ item.phone }} <v-icon>mdi-phone</v-icon></a></td>
 
