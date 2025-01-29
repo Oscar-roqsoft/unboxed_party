@@ -186,8 +186,8 @@
 <script>
 import moment from 'moment';
 import Backbutton from '~~/components/backbutton.vue';
-import { useStore } from '~~/store';
-const store = useStore();
+// import { useStore } from '~~/store';
+// const store = useStore();
 export default {
   computed: {
     users() {
@@ -236,13 +236,16 @@ export default {
       }
     },
     getUsers( x ) {
+      const authData = localStorage.getItem( 'unboxAdminApp' );
+      const parsedAuth = JSON.parse( authData );
+      const token = parsedAuth.state?.token;
       this.loader = true;
       fetch( "https://backend.unboxedparty.com/api/users", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
-          'Accept': 'application/json', 'Authorization': `Bearer ${store.state.token}`
+          'Accept': 'application/json', 'Authorization': `Bearer ${token}`
         }
       } )
         .then( ( response ) => {
@@ -291,6 +294,9 @@ export default {
       this.$router.push( '/admin_slym/user/' + item.id );
     },
     sendTicket( e ) {
+      const authData = localStorage.getItem( 'unboxAdminApp' );
+      const parsedAuth = JSON.parse( authData );
+      const token = parsedAuth.state?.token;
       this.activeId = e.id;
 
       this.loading2 = true;
@@ -299,7 +305,7 @@ export default {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
-          "Accept": "application/json", 'Authorization': `Bearer ${store.state.token}`
+          "Accept": "application/json", 'Authorization': `Bearer ${token}`
         }
       } )
         .then( ( response ) => {
@@ -318,6 +324,9 @@ export default {
         } );
     },
     get_tickets( x ) {
+      const authData = localStorage.getItem( 'unboxAdminApp' );
+      const parsedAuth = JSON.parse( authData );
+      const token = parsedAuth.state?.token;
       this.activeId = x;
       this.loading = true;
       fetch( "https://backend.unboxedparty.com/api/get_tickets?id=" + x, {
@@ -325,7 +334,7 @@ export default {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
-          'Accept': 'application/json','Authorization': `Bearer ${store.state.token}`
+          'Accept': 'application/json','Authorization': `Bearer ${token}`
         }
       } )
         .then( ( response ) => {
