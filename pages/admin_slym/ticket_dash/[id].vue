@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-btn @click="downloadPDF" color="primary" class="mb-4">Download PDF</v-btn>
-    <v-card tile theme="dark">
+    <v-card tile theme="light">
       <div class="pa-5 d-flex justify-space-between">
         <h1>People ({{ tickets.length }}) total tickets <span v-if="!loader">
             ({{ $route.params.id == 3 ? ticket_no.unn : ticket_no.ekiti }})
@@ -11,7 +11,7 @@
         <v-btn :loading="loader" @click="getUsers(true)" icon size="small"><v-icon
             icon="mdi mdi-reload"></v-icon></v-btn>
       </div>
-      <v-table theme="dark" class=" pb-12 px-3 mb-12 v-table-pdf">
+      <v-table theme="light" class=" pb-12 px-3 mb-12 v-table-pdf">
         <thead>
           <tr>
             <th class="text-left font-weight-black text-h5">
