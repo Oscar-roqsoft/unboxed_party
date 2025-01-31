@@ -45,7 +45,7 @@
                       Join the Party Revolution and Experience Unforgettable Moments with Our Monthly Themed Events.
                       Let's Unbox the Fun Together! </p>
                     <div class="py-1 centerIt mb-6">
-                      <v-btn to="/ticket/rep-your-zodiac-sign" size="large" height="55" style="
+                      <v-btn to="/ticket" size="large" height="55" style="
                   background: linear-gradient(
                     132.03deg,
                      #c471ed 14.22%,
@@ -653,17 +653,17 @@ export default {
       
       ],
     memes: [
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471284/zodiac%20sign/tqelkuqifns3l4balstn.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471284/zodiac%20sign/dp0skpydllliwxqjtwtk.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/lkc6iligkecdsztlaspb.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/d33yswad8thwluqqws5e.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/izth2guqgduhpxsiajrb.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/vkfkl1b0nbciufp6df7r.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/zke112carnjosoj76rmy.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471280/zodiac%20sign/m0jfnasnz8i39nyrwjfr.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/sbswwmcvdu9mhrpiymdd.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/s5tl6dpvmutcgclsevr1.png',
-      'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471279/zodiac%20sign/vephrhudgam8hwx4rk3u.png'
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471284/zodiac%20sign/tqelkuqifns3l4balstn.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471284/zodiac%20sign/dp0skpydllliwxqjtwtk.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/lkc6iligkecdsztlaspb.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/d33yswad8thwluqqws5e.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471283/zodiac%20sign/izth2guqgduhpxsiajrb.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/vkfkl1b0nbciufp6df7r.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/zke112carnjosoj76rmy.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471280/zodiac%20sign/m0jfnasnz8i39nyrwjfr.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/sbswwmcvdu9mhrpiymdd.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471281/zodiac%20sign/s5tl6dpvmutcgclsevr1.png',
+      // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1737471279/zodiac%20sign/vephrhudgam8hwx4rk3u.png'
       // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393068/pgxxkqps5r60xvqnewgu.png',
       // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/fkyc4r9ebdzxcuzft3j2.png',
       // 'https://res.cloudinary.com/dvexjmvti/image/upload/v1733393069/dny7jkaw9zupclc97cr6.png',

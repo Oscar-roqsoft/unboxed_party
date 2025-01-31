@@ -105,7 +105,7 @@
                     
                       <v-checkbox
                           v-model="on_salecheck"
-                          label="isActive"
+                          label="Is ticket on sale"
                           color="primary"
                           class="mx-4"
                           >
@@ -116,7 +116,7 @@
 
                       <v-checkbox
                           v-model="activecheck"
-                          label="is_On_Sale"
+                          label="Is event active"
                           color="primary"
                           class="mx-4"
                           >

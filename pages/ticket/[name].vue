@@ -208,7 +208,8 @@
 
                           <v-select v-model="selectedticket" label="Select" :items="mytickets" item-title="name"
                             item-value="value" variant="solo" background="transparent" elevation="0"
-                            class="text-capitalize pt-[30px]"></v-select>
+                            class="text-capitalize pt-[30px]" :disabled="event?.on_sale === '0'"
+                            :hint="event?.on_sale === '0' ? 'Ticket sales has ended' : ''"></v-select>
 
                         </div>
                       </div>
@@ -439,6 +440,8 @@
 import VueQrcode from 'vue-qrcode';
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { useFlutterwave } from "flutterwave-vue3";
+
+
 export default {
   components: {
     VueQrcode, VueCountdown
